@@ -1,9 +1,6 @@
 <?php
-require 'lib/rb.php';
-
-use Slim\Slim;
-require 'lib/Slim/Slim.php';
-\Slim\Slim::registerAutoloader();
+require 'vendor/rb.php';
+require 'vendor/autoload.php';
 
 // ini_set("error_log", "appLog.txt");
 ini_set("log_errors", "1");
@@ -16,15 +13,13 @@ setlocale(LC_ALL, "pl_PL");
 
 $ustawienia = parse_ini_file( 'conf/ustawienia.txt' );
 
-$app = new Slim(array('debug'=>false));
+$app = new \Slim\Slim(array('debug'=>false));
 
 $app->error(function (\Exception $e) use ($app) {
     echo($e);
 });
 
 // $app->contentType('application/json;charset=utf-8');
-
-// var_dump(array($ustawienia['dbname'], $ustawienia['dbuser'], $ustawienia['dbpass']));
 
 R::setup($ustawienia['dbname'], $ustawienia['dbuser'],$ustawienia['dbpass']);
 // =========================================================================================================
@@ -46,7 +41,6 @@ function guid(){
         return $uuid;
     }
 }
-
 
 $app->get('/new', function () use ($app){
   $response = $app->response();

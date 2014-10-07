@@ -204,8 +204,9 @@ logs/*
 *.zip
 *.sqlite
 node_modules
-mailer/node_modules/*
 conf
 *.txt
 *.xlsx
 *.xls
+bower_components
+vendor

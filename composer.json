@@ -1,0 +1,7 @@
+{
+    "require": {
+        "flowjs/flow-php-server": "~0.2",
+        "twig/twig": "1.*",
+        "slim/slim": "2.*"
+    }
+}
