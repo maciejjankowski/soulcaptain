@@ -22,6 +22,7 @@
     {
       "matches": ["https://*.facebook.com/*"],
       "js": ["jq.js", "io.js", "inject.js"]
+      ,"css": ["css/clean.css"]
     }
   ],
   "page_action": {

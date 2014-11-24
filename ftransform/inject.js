@@ -3,4 +3,5 @@
  */
 setTimeout(function(){
   $('fbNotificationsJewel').hidden = 1;
-  }, 1000);
+  $('fbNotificationsJewel').style.display='none'
+  }, 5000);
