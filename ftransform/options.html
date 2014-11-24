@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+	  <meta charset="UTF-8">
+    <title>fTransform</title>
+    <style>
+      body {
+	      background: url("images/logo.png");
+	      background-position: top right;
+	      background-repeat: no-repeat;
+	      font-family: sans-serif;
+	      font-size: 10pt;
+	      margin:0% 20%;
+      }
+    </style>
+	  <script src="jq.js"></script>
+	  <script src="popup.js"></script>
+  </head>
+  <body>
+
+  <h3>Ustawienia</h3>
+
+  <table>
+	  <tr>
+		  <th style="text-align:right">Serwer</th>
+		  <td><input type="text" id="host" value=""> <a href="#!" id="hostH">(?)</a></td></tr>
+	  <tr>
+		  <th style="text-align:right">Id</th>
+		  <td><input type="text" id="clientId" value=""> <a href="#!" id="clientIdH">(?)</a></td>
+	  </tr>
+	  <tr>
+		  <th style="text-align:right">Hasło</th>
+		  <td><input type="text" id="apiKey" value=""> <a href="#!" id="apiKeyH">(?)</a></td>
+	  </tr>
+	  <tr><td>&nbsp;</td><td colspan="1" ><button id="setOptions">Zapisz</button><span id="saved" style="display: none">Zapisano</span></td></tr>
+  </table>
+
+<br>
+  <div style="text-align: center">
+	  <small><a href="http://www.b-good.pl/pl/ftransform/" target="_blank">we made it</a></small>
+
+  </div>
+
+  </body>
+</html>
+

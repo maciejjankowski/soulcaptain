@@ -1,0 +1,38 @@
+{
+  "name": "fTransform",
+  "version": "0.0.1",
+  "manifest_version":2,
+  "description": "Transforms the popular networking site so it works FOR you, not against",
+  "permissions": [
+    "https://*/*",
+  	"http://*/*",
+    "cookies",
+    "tabs",
+    "notifications"
+  ],
+  "icons": {
+    "16": "images/logo16.png",
+    "48": "images/logo48.png",
+    "128": "images/logo128.png"
+  },
+  "background":{
+    "page":"background.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.facebook.com/*"],
+      "js": ["jq.js", "io.js", "inject.js"]
+    }
+  ],
+  "page_action": {
+    "default_logo": {
+      "19": "images/logo19.png",
+      "38": "images/logo38.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "options_page":"options.html",
+  "web_accessible_resources": [
+    "exa.png"
+  ]
+}
