@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>userName DECK</title>
+    <style>
+        body {
+            background-color: white !important;
+            color: white;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/riot@3.7/riot+compiler.min.js"></script>    
+
+</head>
+
+<body>
+
+<h1>userName Deck</h1>
+    <h2>
+        TERAZ
+    </h2>
+    <p>
+        dateTime yyyy:mm:dd:hh:mm:ss
+    </p>
+
+ 
+
+  
+
+
+<x-afirmacje></x-afirmacje>  
+
+<x-modlitwy></x-modlitwy>  
+  
+
+
+    
+<!-- PONŻEJ DEFINICJE KOMPONENTÓW -->    
+<script type="riot/tag">
+<x-modlitwy>
+  <div>
+      <h2>Modlitwy</h2>
+
+    <div class="soulencja" each="{{modlitwa in modlitwy}}">{{modlitwa.text}}</div>
+  </div>
+</x-modlitwy>
+
+</script>  
+
+
+<script type="riot/tag">
+<x-afirmacje>
+  <div>
+      <h2>Afirmacje</h2>
+
+    <div class="soulencja" each="{{afirmation in afirmacje}}">{{afirmation.text}}</div>
+  </div>
+</x-afirmacje>
+</script>  
+<!-- KONIEC DEFINICJI KOMPNENTÓW -->
+
+    
+
+<!-- GŁÓWNY SKRYPT -->
+<script> 
+    
+var modlitwy = [{
+    'text': 'i żeby był pokój na świecie'
+}]    
+    
+    
+var afirmacje = [
+  {
+    "soulId" : "1234567890",
+    "language" : "PL",
+    "text" : "Myślę więc jestemAAA",
+    "author" : "Kartezjusz",
+    "authorCreated" : "1637",
+    "authorSource" : "Rozprawy o metodzie",
+    "authorSourceLink" : "https://pl.wikipedia.org/wiki/Cogito_ergo_sum"
+  }
+]
+
+function afirmacja(text, options){
+    if (typeof options === 'undefined') {
+        options = {};
+    }
+    
+    return {
+        "language" : options.lang || "PL",
+        "text" : text || "hm?",
+        "author" : options.author || "Ja",
+        "authorCreated" : options.authorCreated || "teraz",
+        "authorSource" : options.authorSource || "z wnętrza umysłu",
+        "authorSourceLink" : options.authorSourceLink || "http://higher.self:9000/"
+      }
+}
+
+    
+var lista = `Akceptuję siebie takim jaki jestem teraz
+Jestem od zawsze wyjątkowym i godnym człowiekiem
+Jestem z gruntu dobrą osobą z niesamowitym potencjałem, który umożliwia mi przeżycie doskonałego i niezwykłego życia
+Jestem odpowiedzialny
+Szanuję siebie
+Stawiam sobie i innym granice`.split('\n').map(a => afirmacja(a) );
+    
+afirmacje.push.apply(afirmacje, lista);
+
+
+    
+riot.settings.brackets = '{{ }}';    
+riot.mount('*');  
+</script>  
+    
+</body>
+
+</html>

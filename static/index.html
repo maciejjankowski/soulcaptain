@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Soulcaptain 20180112</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+
+<body>
+    hell0
+
+    <div id="app">
+        <h1>
+            {{soulencja.soulType}}
+        </h1>
+        <p>
+            {{soulencja.text}}
+        </p>
+
+
+        <hr>
+      
+      
+        <pre>{{soulCard}}</pre>
+        <h1>
+            {{soulCard.soulCardTitle}}
+        </h1>
+        <p>
+           DeckId: {{soulCard.coulCardId}}
+        </p>
+      
+      <div class="soulencja">
+      {{soulCard.soulCardSoulencje[0]}}
+
+<!-- to jest pętla, która wyświetli wszystkie soulencje dla danego soulCard https://vuejs.org/v2/guide/index.html#Conditionals-and-Loops -->
+  <ol>
+    <li v-for="showSoulencje in soulCard.soulCardSoulencje">
+      {{ showSoulencje.text }}
+    </li>
+  </ol>
+        
+      </div>
+
+
+    </div>
+
+
+    <script src="/main.js"></script>
+</body>
+
+</html>

@@ -1,9 +1,15 @@
-dreamShare
-==========
+# depra
+albo depra albo nie
 
-The first step of making your dream a reality is to Define and Share it.
+# todo
+  * passport
+  * graphql
+  * rxJS
+  
 
-I have had a dream of build an application for dreamsharing. Here is my take.
+# reference
 
+## widok karty "słajpowalnej"
+https://codepen.io/ionic/pen/nxEdH?page=1&
 
-"Framework for Success" element.
+https://admiralpotato.github.io/vue-swipe-cards/ <-- na vue!
