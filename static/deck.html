@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Soulcaptain 20180119</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <!-- login and admin start --->
+  <strong class="text-danger">This is a demo, your data is not safe yet</strong>
+  <div id="app">
+    <a href="#!" v-on:click="admin = !admin">admin</a> | <a href="#!" v-on:click="loggedIn = !loggedIn">login</a><br>
+
+    <div id="loginScreen" v-if="!loggedIn">
+      <input type="email" name="email" placeholder="email">
+      <input type="password" name="password" placeholder="password">
+      <input type="submit" value="&gt;">
+    </div>
+
+    <div id="admin" v-if="admin && loggedIn" class="container">
+
+      <form name="userAddForm" id="userAddForm">
+        <input type="email" name="email" placeholder="email">
+        <input type="password" name="password" placeholder="password">
+        <input type="password" name="repeatpassword" placeholder="repeatpassword">
+        <input type="text" name="firstName" placeholder="firstName">
+        <input v-on:click="saveUser" type="button" value="zapisz" id="saveUserButton">
+      </form>
+    </div>
+
+
+    <div v-if="!admin  && loggedIn" class="container">
+    </div>
+
+    <!-- login and admin end --->
+
+    <div class="soulDeck">
+
+      {{soulDeck.nazwa}} {{soulDeck.obiekt.pole}}
+
+
+
+      <!-- wyświetlanie SoulCard start --->
+      <div class="container">
+
+        <div class="media mb3">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">{{soulCard.soulCardTitle}}</h5>
+            <!-- to jest pętla, która wyświetli wszystkie soulencje dla danego soulCard https://vuejs.org/v2/guide/index.html#Conditionals-and-Loops -->
+            <ol>
+              <li v-for="showSoulencje in soulCard.soulCardSoulencje">
+                {{ showSoulencje.text }}
+              </li>
+            </ol>
+            <!-- wyświetlanie SoulCard pętli end --->
+          </div>
+          SoulCardId: {{soulCard.coulCardId}}
+        </div>
+          <ol>
+    <li v-for="showSoulencje in soulCard.soulCardSoulencje">
+      {{ showSoulencje.soulType }}
+    </li>
+  </ol>
+      </div>
+
+      <!-- wyświetlanie SoulCard end --->
+
+    </div>
+
+    <hr>
+    <p>
+      Raw data
+    </p>
+    <pre>{{soulDeck}}</pre>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.6/Rx.js" integrity="sha256-6iYGicqy9/jeCoyB+6xS4S7DGV2WRuI0YPr5HADDk3I=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/4.0.0-rc.9/immutable.js" integrity="sha256-XVnm+eqQpGNsqFbn0VBfDAXp659MiMzF0Q1vnC0kD9g=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  <script src="/main.js"></script>
+
+</body>
+
+</html>
