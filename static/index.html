@@ -4,53 +4,69 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Soulcaptain 20180112</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <title>👻 Soulcaptain 🏡 Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <script src="https://use.fontawesome.com/432e55ea08.js" async></script>
+     <!-- JS for navbar -->
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-
+<link rel="icon" href="../../../../favicon.ico">
+  
 </head>
 
 <body>
-    hell0
+  
+    
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="/">👻 SoulCaptain</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" href="/">🏡 Home</a>
+      </li>
+            <li class="nav-item">
+        <a class="nav-link active" href="/deck.html">🎴 Deck</a>
+      </li>
+                  <li class="nav-item">
+        <a class="nav-link active" href="/habits.html">❌ DailyX</a>
+      </li>
+  
+      <li class="nav-item">
+      </li>
 
-    <div id="app">
-        <h1>
-            {{soulencja.soulType}}
-        </h1>
-        <p>
-            {{soulencja.text}}
-        </p>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">    
+        <a class="nav-link" href="/signup.html">✍️ Sign Up</a>
+        <a class="nav-link" href="/login.html">✅ Login</a>
+    </form>
+  </div>
+</nav><div class="container">
+ 
+    
+    <div style="text-align:center">
+          <h1>
+              👻 SoulCaptain
+          </h1>
+   </div>
 
 
-        <hr>
+
+  <p>
+    Hi!
+  </p>
+  <p>
+    This is SoulCaptain under developement.
+  </p>
+  <p>
+    Greetings
+  </p>
+  <p>
+    Wiktor & Maciej
+  </p>
+  
+  
       
-      
-        <pre>{{soulCard}}</pre>
-        <h1>
-            {{soulCard.soulCardTitle}}
-        </h1>
-        <p>
-           DeckId: {{soulCard.coulCardId}}
-        </p>
-      
-      <div class="soulencja">
-      {{soulCard.soulCardSoulencje[0]}}
-
-<!-- to jest pętla, która wyświetli wszystkie soulencje dla danego soulCard https://vuejs.org/v2/guide/index.html#Conditionals-and-Loops -->
-  <ol>
-    <li v-for="showSoulencje in soulCard.soulCardSoulencje">
-      {{ showSoulencje.text }}
-    </li>
-  </ol>
-        
-      </div>
-
-
-    </div>
-
-
-    <script src="/main.js"></script>
-</body>
 
 </html>
