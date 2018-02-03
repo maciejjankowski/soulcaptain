@@ -15,7 +15,6 @@ const compression = require('compression');
 const sms = require('./sms.js');
 
 
-
 mongoose.connect(`mongodb://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBHOST}/${process.env.DBNAME}`, { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
@@ -89,7 +88,6 @@ app.post('/login', (req, res, next) => {
   })(req, res, next);
 });
 
-
 const Card = mongoose.model('Card', // http://mongoosejs.com/docs/guide.html
 {  
    "coulCardId" : String,
@@ -140,7 +138,7 @@ app.get('/deck',(req, res) => {
 });
 
 app.get('/sms',(req, res) => {
-  // sms("Eco", "782281181", "cześć soulcaptain", ()=>console.log('poszło'), ()=>console.log('nie poszło'));
+  // sms("Eco", "791813568", "cześć soulcaptain", ()=>console.log('poszło'), ()=>console.log('nie poszło'));
   // schedule failure retry to background processsing
   res.send('ok')
 });
@@ -152,7 +150,7 @@ app.get('/testx',(req, res) => {
   res.send('OK');
   res.render("password", data, function(err, body){
     if (err) return console.error(err);
-    mail('maj1337@gmail.com', 'subject', body, 'this is just a text');
+    mail('', 'subject', body, 'this is just a text');
   });
 });
 
