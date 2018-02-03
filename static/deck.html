@@ -6,17 +6,16 @@
     <meta name="viewport" content="width=device-width">
     <title>🎴 Deck</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-  <script src="https://use.fontawesome.com/432e55ea08.js" async></script>
-     <!-- JS for navbar -->
+    <script src="https://use.fontawesome.com/432e55ea08.js" async></script>
+    <!-- JS for navbar -->
 
-<link rel="icon" href="../../../../favicon.ico">
-  
+    <link rel="icon" href="../../../../favicon.ico">
+
 </head>
 
 <body>
-  
-    
-     <!-- navbar start-->
+
+    <!-- navbar start-->
 
     <nav class="navbar fixed-top navbar-light bg-light navbar-expand-lg navbar-light bg-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +45,7 @@
             </ul>
         </div>
     </nav>
-  
+
     <!-- navbar start-->
 
     <br>
@@ -54,106 +53,61 @@
     <br>
     <div class="container">
 
-        <div style="text-align:center">
-            <h1>
-                 🎴 Deck
-            </h1>
-        </div>
-  
-    <!-- login and admin start -->
-    <strong class="text-danger">This is a demo, your data is not safe yet</strong>
-    <div id="app">
-        <a href="#!" v-on:click="admin = !admin">admin</a> | <a href="#!" v-on:click="loggedIn = !loggedIn">login</a>
-        <br>
-
-        <div v-if="!loggedIn">
-          <form id="loginForm">  
-            <input type="email" name="email" placeholder="email">
-            <input type="password" name="password" placeholder="password">
-            <input v-on:click="login" type="button" value="&gt;">
-          </form>
-        </div>
-
-        <div id="admin" v-if="admin && loggedIn" class="container">
-
-            <form name="userAddForm" id="userAddForm">
-                <input type="email" name="email" placeholder="email">
-                <input type="password" name="password" placeholder="password">
-                <input type="password" name="repeatpassword" placeholder="repeatpassword">
-                <input type="text" name="firstName" placeholder="firstName">
-                <input v-on:click="saveUser" type="button" value="zapisz" id="saveUserButton">
-            </form>
-        </div>
-
-        <div v-if="!admin  && loggedIn" class="container">
-        </div>
-
-        <!-- login and admin end -->
+        <div style="align:center">
 
 
-Klek
 
-Szczek
-      
-    <li v-for="card in soulDeck.soulDeckCards">
-{{ card.soulCadTitle }}
-      <ol>        
-      <li v-for="encja in card.soulCardSoulencje">
-        {{encja.text}}
-      </li>
-      </ol>
-      
-    </li>
+            <div id="app">
 
-
-</div>
-
-
-        <div class="soulDeck">
-
-            <!-- wyświetlanie SoulCard start -->
-            <div class="soulCard">
-                <div class="container" style="border-style:solid; border-width: 1px; padding-top: 10px">
-                    <div class="media">
-                        <div class="media-body">
-                            <h5 class="mt-0 mb-1">{{soulCard.soulCardTitle}}</h5>
-                            <!-- to jest pętla, która wyświetli wszystkie soulencje dla danego soulCard https://vuejs.org/v2/guide/index.html#Conditionals-and-Loops -->
-                            <ol>
-                                <li v-for="showSoulencje in soulCard.soulCardSoulencje">
-                                    {{ showSoulencje.text }}
-                                </li>
-                            </ol>
+                <main role="main">
+                    <section class="jumbotron text-center">
+                        <div class="container">
+                            <h1 class="jumbotron-heading">🎴 SoulDeck Example</h1>
+                            <p class="lead text-muted">This is SoulDeck. One of the mail features in SoulCaptain. Decks' main purpose is to gahter SoulNodes gathered in Cards. Decks can be browsed on regular basis or you can create collecion on special occasion.</p>
+                            <p>
+                                <a href="#" class="btn btn-primary my-2">Full screen Deck slideshare</a>
+                                <a href="#" class="btn btn-secondary my-2">Edit/remix this deck</a>
+                            </p>
                         </div>
-                        <!-- wyświetlanie SoulCard pętli end -->
-                        <ol>
-                            <li v-for="showSoulencje in soulCard.soulCardSoulencje">
-                                {{ showSoulencje.soulType }}
-                            </li>
-                        </ol>
+                    </section>
+                    <div class="album py-5 bg-light">
+                        <div class="container">
+                            <div class="row">
+
+                                <!-- pętla wypluwająca ładne karciochy -->
+                                <div v-for="card in soulDeck.soulDeckCards" class="col-md-4">
+                                    <div class="card mb-4 box-shadow">
+                                        <div class="card-body">
+                                            <p class="card-tilte">{{card.soulCardTitle}}
+                                            </p>
+                                            <hr>
+                                            <div v-for="encja in card.soulCardSoulencje">
+                                                <p class="card-text">{{encja.text}}
+                                                </p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                    </div>
+                                                    <small class="text-muted">{{encja.source.author}}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- pętla wypluwająca ładne karciochy -->
+
+
+                            </div>
+                        </div>
+
                     </div>
-                    <p>
-                        <i>SoulCardId: {{soulCard.coulCardId}}</i>
-                        <br>
-                        <i>_id: {{soulCard._id}}</i>
-                    </p>
-                </div>
 
-
-
+                </main>
             </div>
-
-            <!-- wyświetlanie SoulCard end -->
-
-
         </div>
+    </div>
 
-        <hr>
-        <p>
-            Raw data
-        </p>
-        <pre>{{soulDeck}}</pre>
-
-   </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>

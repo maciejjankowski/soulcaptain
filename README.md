@@ -28,6 +28,10 @@ https://summer-name.glitch.me/
 * [x] email login https://gitlab.com/maciejjankowski/soulcaptain/issues/15
 * [x] podpiąć mailgun albo inne api do wysyłki maili https://gitlab.com/maciejjankowski/soulcaptain/issues/16
 
+## Joanna
+* [ ] widoki logowania (login.html) i zakładania konta (signup.html) przepisać na https://getbootstrap.com/docs/4.0/examples/floating-labels/
+
+
 ## Wiktor
 * [ ] czyta https://keep.google.com/share?tid=true#NOTE/1516399000064.111084.3791535080
 * [x] podpiąć Bootstrap https://gitlab.com/maciejjankowski/soulcaptain/issues/8

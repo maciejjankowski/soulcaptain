@@ -36,6 +36,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// require('./api/habits.js')(app, mongoose);
+
 // using passport: https://stackoverflow.com/questions/45381931/basics-of-passport-session-expressjs-why-do-we-need-to-serialize-and-deseriali
 
 passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
@@ -214,8 +216,8 @@ app.post('/user', (req, res)=>{
 }) // post user
 
 app.get('/profile',
-  // require('connect-ensure-login').ensureLoggedIn(),
-  // app.isAuthenticated,
+  require('connect-ensure-login').ensureLoggedIn(),
+  // isAuthenticated,
   function(req, res){
     console.log('/profile');
     res.send({ user: req.user });
@@ -226,7 +228,7 @@ app.get('/login', passport.authenticate());
 /**
  * Login Required middleware.
  */
-app.isAuthenticated = function isAuthenticated(req, res, next){
+function isAuthenticated(req, res, next){
   console.log('testing for login');
   if (req.isAuthenticated()) {
     console.log('login ok');
@@ -236,7 +238,7 @@ app.isAuthenticated = function isAuthenticated(req, res, next){
     res.redirect('/login.html');
   }
 };
-
+app.isAuthenticated = isAuthenticated;
 /**
  * Authorization Required middleware.
  */
