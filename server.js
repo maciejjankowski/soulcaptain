@@ -79,11 +79,12 @@ app.post('/login', (req, res, next) => {
     
     req.login(user, function(error) {
         if (error) return next(error);
-        console.log("Request Login supossedly successful.");
+        console.log("Success! Redirecting to /");
+      
         return res.redirect('/');
     });
     //res.redirect('/');
-    console.log(info);
+    console.log("info", info);
 
   })(req, res, next);
 });
@@ -169,7 +170,7 @@ app.post('/card2', (req, res) => {
   }); // card save  
 }) 
 
-app.get('/habits', (req, res)=>{
+app.get('/habits', (req, res) => {
   res.render('habits')
 })
 
@@ -212,13 +213,9 @@ app.post('/user', (req, res)=>{
   res.send("OK")
 }) // post user
 
-
-
-
-
 app.get('/profile',
   // require('connect-ensure-login').ensureLoggedIn(),
-  isAuthenticated,
+  // app.isAuthenticated,
   function(req, res){
     console.log('/profile');
     res.send({ user: req.user });
@@ -229,12 +226,15 @@ app.get('/login', passport.authenticate());
 /**
  * Login Required middleware.
  */
-function isAuthenticated(req, res, next){
+app.isAuthenticated = function isAuthenticated(req, res, next){
   console.log('testing for login');
   if (req.isAuthenticated()) {
+    console.log('login ok');
     return next();
+  } else{
+    console.log('missing login');
+    res.redirect('/login.html');
   }
-  res.redirect('/login.html');
 };
 
 /**
