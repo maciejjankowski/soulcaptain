@@ -3,20 +3,17 @@ The first step of making your dream a reality is to define and share it.
 
 We have a dream of building an application for dreaming your dream. 
 
-## run app
-<https://summer-name.glitch.me/>
+## [run app](https://summer-name.glitch.me/)
 
-## slack
-<https://codemoon.slack.com/messages/C08J04G7Q/details/>
+## [slack](https://codemoon.slack.com/messages/C08J04G7Q/details/)
 
-## wiki
-<https://gitlab.com/maciejjankowski/soulcaptain/wikis/home>
+## [wiki](https://gitlab.com/maciejjankowski/soulcaptain/wikis/home)
 
 ---
 
 # todo
 
-## BOARD <https://gitlab.com/maciejjankowski/soulcaptain/boards/>
+## [BOARD](https://gitlab.com/maciejjankowski/soulcaptain/boards/)
   
 ### Maciej 
 * [ ] odhaczanka
@@ -31,10 +28,10 @@ We have a dream of building an application for dreaming your dream.
 * [ ] opcjonalnie facebook / gmail login - uprawnienia do api w google console 
 * [ ] opcjonalnie facebook / gmail login - https://github.com/passport/express-4.x-facebook-example/blob/master/server.js
   
-### Wiktor <https://gitlab.com/maciejjankowski/soulcaptain/boards?scope=all&utf8=%E2%9C%93&state=opened&assignee_username=roktiw>
-* [ ] widoki logowania (login.html) i zakładania konta (signup.html) przepisać na https://getbootstrap.com/docs/4.0/examples/floating-labels/
-* [ ] czyta https://keep.google.com/share?tid=true#NOTE/1516399000064.111084.3791535080
-* [ ] formularz dodawania soulencji https://jsbin.com/sepupuw/edit?html,js,output
+### [Wiktor](https://gitlab.com/maciejjankowski/soulcaptain/boards?scope=all&utf8=%E2%9C%93&state=opened&assignee_username=roktiw)
+* [ ] widoki logowania (login.html) i zakładania konta (signup.html) przepisać na [floating-labels](https://getbootstrap.com/docs/4.0/examples/floating-labels/)
+* [ ] [czyta](https://keep.google.com/share?tid=true#NOTE/1516399000064.111084.3791535080)
+* [ ] [formularz dodawania soulencji](https://jsbin.com/sepupuw/edit?html,js,output)
 * [ ] widok karty w Bootstrap
 * [ ] zaznaczanie klasu active dla elemenu menu po urlu
 * [ ] wydzielenie MENU do partiala
