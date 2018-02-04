@@ -11,14 +11,12 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mail = require('./email.js');
 const bcrypt = require('bcrypt');
-const compression = require('compression');
 const sms = require('./sms.js');
 
 
 mongoose.connect(`mongodb://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBHOST}/${process.env.DBNAME}`, { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
-app.use(compression());
 
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
@@ -229,15 +227,25 @@ app.get('/login', passport.authenticate());
  * Login Required middleware.
  */
 function isAuthenticated(req, res, next){
+  
   console.log('testing for login');
   if (req.isAuthenticated()) {
     console.log('login ok');
     return next();
   } else{
+
     console.log('missing login');
-    res.redirect('/login.html');
+    
+    if (req.headers['content-type'] === "application/json; charset=UTF-8"){
+      res.status(403).send("please log in");
+    } else {
+      res.redirect('/login.html');
+    }
   }
 };
+
+
+
 app.isAuthenticated = isAuthenticated;
 /**
  * Authorization Required middleware.
@@ -252,6 +260,9 @@ exports.isAuthorized = (req, res, next) => {
   }
 };
 
+require('./api/habits.js')(app, mongoose, isAuthenticated);
+
+
 function testPassword(pass, hash, cb){
   bcrypt.compare(pass, hash, function(err, res) {
     if(res) {
@@ -264,3 +275,4 @@ function testPassword(pass, hash, cb){
     } 
   });
 }
+
