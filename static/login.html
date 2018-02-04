@@ -11,6 +11,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/docs/4.0/examples/floating-labels/floating-labels.css" rel="stylesheet">
 
 
     <!-- JS for navbar -->
@@ -25,6 +26,7 @@
 
 <title>✅ Login</title>
 
+<body>
 
  <!-- navbar start-->
 
@@ -52,62 +54,45 @@
             <ul class="navbar-nav">
 
                 <a class="nav-link active" href="/signup.html">✍️ Sign Up</a>
-                <a class="nav-link active" href="/login.html">✅ Login</a>
+                <a class="nav-link active" href="/login.html">✅ Sign in</a>
             </ul>
         </div>
     </nav>
-  
+
     <!-- navbar start-->
 
-
-    <br>
-    <br>
-    <br>
-    <div class="container">
-
-        <div style="text-align:center">
-            <h1>
-                ✅ Login
-            </h1>
-        </div>
-  </div>
-
-
-<div class="container">
-    <div class="text-center">
-
-        <div class="row">
-            <div class="col-sm-4">
-            </div>
-            <div class="col-sm-4">
-
-
-
-
-
                 <div>
-                    <form class="form-signin" action="/login" method="POST">
-                
-                        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-                        <label for="inputEmail" class="sr-only">Email address</label>
+                  <form class="form-signin" action="/login" method="POST">
+
+                      <div class="text-center mb-4">
+                        <h1 class="h1 mb-3 font-weight-heavy">✅ Sign in</h1>
+                        <p>Log in to your 👻 SoulCaptain account.</p>
+                        <p>You do not have account? <a href="/signup.html">Sign Up here!</a></p>
+                      </div>
+
+                      <div class="form-label-group">
                         <input type="email" name="email" placeholder="Email" id="inputEmail" class="form-control" required autofocus>
-                        <label placeholder="password" for="inputPassword" class="sr-only">Password</label>
-                        <input type="password" name="password"  id="inputPassword" class="form-control" placeholder="Password" required>
-                        <div class="checkbox mb-3">
-                            <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-                        </div>
-                        <button type="submit" value="&gt;" class="btn btn-lg btn-primary btn-block">✅ Login</button>
-                        <p class="mt-5 mb-3 text-muted">&copy; 2013-2018 maj & roktiw</p>
+                        <label for="inputEmail">Email address</label>
+                      </div>
+
+                      <div class="form-label-group">
+                        <input type="password" name="password" placeholder="Password" id="inputPassword" class="form-control" required =>
+                        <label for="inputPassword">Password</label>
+                      </div>
+
+                      <div class="checkbox mb-3">
+                        <label>
+                          <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                      </div>
+
+                      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+                      <p class="mt-5 mb-3 text-muted text-center">&copy; maj 2013-2017, maj & roktiw 2017 - 2018</p>
+
                     </form>
                 </div>
-                <div class="col-sm-4">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
+</body>
 
 </html>
