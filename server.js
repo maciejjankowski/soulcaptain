@@ -110,6 +110,16 @@ const Card = mongoose.model('Card', // http://mongoosejs.com/docs/guide.html
   owner : String
 });
 
+const Habit = mongoose.model('Habit', {
+    "frequency": String,
+    "interval" : Number,
+    "name": String,
+    "times": Number,
+    "type": String,
+    "lastCompleted": [Date],
+    "habitId" : String
+ });
+
 const User = mongoose.model('User', {  
   "loginId" : String,
   "loginType":String,
@@ -120,9 +130,11 @@ const User = mongoose.model('User', {
        "firstName" : String,
        "lastName" : String,
      }
-   ]
+   ],
+  "habits": [{ type: mongoose.Schema.Types.ObjectId, ref: 'Habit' }]
 });
 
+  
 
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
