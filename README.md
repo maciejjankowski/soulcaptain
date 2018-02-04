@@ -1,7 +1,14 @@
 # SoulCaptain
+The first step of making your dream a reality is to define and share it.
+
+We have a dream of building an application for dreaming your dream. 
+
+## run app
+<https://summer-name.glitch.me/>
 
 ## slack
 <https://codemoon.slack.com/messages/C08J04G7Q/details/>
+
 ## wiki
 <https://gitlab.com/maciejjankowski/soulcaptain/wikis/home>
 
@@ -18,7 +25,6 @@
   * [ ] pokazywanie tasków które dobrze byłoby odhaczyć
   * [ ] widok odhaczanki HTML i CSS <-- @wiktor
   * [ ] przypominajka email / sms o taskach maintenance
-
 * [ ] graphql schema
 * [ ] rxJS
 * [ ] walidacja danych https://github.com/epoberezkin/ajv
@@ -41,7 +47,6 @@
 ** https://admiralpotato.github.io/vue-swipe-cards/ <-- na vue!
 * [x] widok decku w Bootstrap
 
-
 ---
 
 # Kontrakt Macieja i Wiktora
@@ -60,6 +65,3 @@
 * Czy nie było złej energii?
 * Co można zrobić lepiej?
 * Co robimy za tydzień?
-
-
-
