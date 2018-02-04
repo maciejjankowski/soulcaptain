@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>🎴 Deck</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/432e55ea08.js" async></script>
+    <!-- JS for navbar -->
+
+    <link rel="icon" href="../../../../favicon.ico">
+
+</head>
+
+<body>
+
+    <!-- navbar start-->
+
+    <nav class="navbar fixed-top navbar-light bg-light navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="/">👻 SoulCaptain</a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">🏡 Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/deck.html">🎴 Deck</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/habits.html">❌ DailyX</a>
+                </li>
+
+                <li class="nav-item">
+                </li>
+
+            </ul>
+            <ul class="navbar-nav">
+
+                <a class="nav-link active" href="/signup.html">✍️ Sign Up</a>
+                <a class="nav-link active" href="/login.html">✅ Login</a>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- navbar start-->
+
+    <br>
+    <br>
+    <br>
+    <div class="container">
+
+        <div style="align:center">
+
+
+
+            <div id="app">
+
+                <main role="main">
+                    <section class="jumbotron text-center">
+                        <div class="container">
+                            <h1 class="jumbotron-heading">🎴 SoulDeck Example</h1>
+                            <p class="lead text-muted">This is SoulDeck. One of the mail features in SoulCaptain. Decks' main purpose is to gahter SoulNodes gathered in Cards. Decks can be browsed on regular basis or you can create collecion on special occasion.</p>
+                            <p>
+                                <a href="#" class="btn btn-primary my-2">Full screen Deck slideshare</a>
+                                <a href="#" class="btn btn-secondary my-2">Edit/remix this deck</a>
+                            </p>
+                        </div>
+                    </section>
+                    <div class="album py-5 bg-light">
+                        <div class="container">
+                            <div class="row">
+
+                                <!-- pętla wypluwająca ładne karciochy -->
+                                <div v-for="card in soulDeck.soulDeckCards" class="col-md-4">
+                                    <div class="card mb-4 box-shadow">
+                                        <div class="card-body">
+                                            <p class="card-tilte">{{card.soulCardTitle}}
+                                            </p>
+                                            <hr>
+                                            <div v-for="encja in card.soulCardSoulencje">
+                                                <p class="card-text">{{encja.text}}
+                                                </p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                    </div>
+                                                    <small class="text-muted">{{encja.source.author}}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- pętla wypluwająca ładne karciochy -->
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.6/Rx.js" integrity="sha256-6iYGicqy9/jeCoyB+6xS4S7DGV2WRuI0YPr5HADDk3I=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/4.0.0-rc.9/immutable.js" integrity="sha256-XVnm+eqQpGNsqFbn0VBfDAXp659MiMzF0Q1vnC0kD9g=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <script src="/main.js"></script>
+
+</body>
+
+</html>
