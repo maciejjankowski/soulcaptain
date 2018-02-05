@@ -11,6 +11,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+    <link href="floating-labels.css" rel="stylesheet">
 
 
     <!-- JS for navbar -->
@@ -21,9 +22,9 @@
 </head>
 <link rel="icon" href="../../../../favicon.ico">
 
-
-
 <title>✍️ Sign Up</title>
+
+<body>
 
  <!-- navbar start-->
 
@@ -56,63 +57,56 @@
             </ul>
         </div>
     </nav>
-  
+
     <!-- navbar start-->
 
+    <div>
+      <form class="form-signin" action="/login" method="POST">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          <div class="text-center mb-4">
+            <h1 class="h1 mb-3 font-weight-heavy">✍️ Sign up</h1>
+            <p>Create your 👻 SoulCaptain account.</p>
+            <p>🌴 It is beginning of your life journey! 🎉</p>
+            <p>Allready have account? <a href="/login.html">Log in here!</a></p>
+          </div>
 
-    <br>
-    <br>
-    <br>
-    <div class="container">
+          <div class="form-label-group">
+            <input type="text"  id="inputName" class="form-control" name="firstName" placeholder="Your nickname" required autofocus>
+            <label for="inputName">Your nickname</label>
+          </div>
 
-        <div style="text-align:center">
-            <h1>
-                ✍️ Sign Up
-            </h1>
-        </div>
-  </div>
+          <div class="form-label-group">
+            <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" required >
+            <label for="inputEmail">Email address</label>
+          </div>
 
+          <div class="form-label-group">
+            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+            <label for="inputPassword">Password</label>
+          </div>
 
-<div class="container">
-    <div class="text-center">
+          <div class="form-label-group">
+            <input type="repeatPassword" id="repeatPassword" class="form-control" name="repeatpassword" placeholder="Repeat password" required>
+            <label for="repeatPassword">Repeat password</label>
+          </div>
 
-        <div class="row">
-            <div class="col-sm-4">
-            </div>
-            <div class="col-sm-4">
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
 
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 
+          <p class="mt-5 mb-3 text-muted text-center">&copy; maj 2013-2017, maj & roktiw 2017 - 2018</p>
 
-
-
-                <div>
-                    <form class="form-signin">
-                        <h1 class="h3 mb-3 font-weight-normal">🌴 It is beginning of your life journey! 🎉<br><br> Please sign up</h1>
-                        <label for="inputEmail" class="sr-only">Email address</label>
-                        <input type="email" name="email" placeholder="Email" id="inputEmail" class="form-control" required autofocus>
-
-                        <label type="password" name="password" placeholder="password" for="inputPassword" class="sr-only">Password</label>
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                      
-                       <label type="password" name="repeatpassword" placeholder="Repeatpassword" for="repeatPassword" class="sr-only">Repeat password</label>
-                        <input type="password" id="repeatPassword" class="form-control" placeholder="Repeat password" required>
-                      
-                       <label for="inputName" class="sr-only">Email address</label>
-                        <input type="text" name="firstName" placeholder="Your SoulName (any name you want)" id="inputName" class="form-control" required>
-                      
-                        <div class="checkbox mb-3">
-                           
-                        </div>
-                        <button type="submit" value="&gt;" class="btn btn-lg btn-primary btn-block">✍️ Sign up</button>
-                        <p class="mt-5 mb-3 text-muted">&copy; 2013-2018 maj & roktiw</p>
-                    </form>
-                </div>
-                <div class="col-sm-4">
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
-</div>
 
+  </body>
 
 </html>
