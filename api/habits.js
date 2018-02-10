@@ -4,13 +4,17 @@ var timeSpans = ['hourly', 'daily', 'weekly', 'monthly', 'quarterly', 'annually'
 var habitType = ['growth', 'excite', 'sustain', 'maintenance', 'challenge']
 
 const Habit = mongoose.models['Habit'];
-  
+  /*
+  expect(req.body.payload).to.beArray()
+  expect(req.body.payload[0]).to.have(idProperty)
+  */
   app.post('/habits', (req, res) => {
       if (req.body && req.body.payload && req.body.payload.length){
         let count = req.body.payload.length;
           req.body.payload.forEach((habit) => {
             console.log('habit', JSON.stringify(habit,null,2))
               Habit.findOne({"id" : habit.habitId}).then((foundHabit) => {
+                // /* expect(foundHabit).not.to.be.empty() */
                 if (foundHabit){
                   foundHabit.lastCompleted.push(Date.now());
                   foundHabit.save().then(()=>{
