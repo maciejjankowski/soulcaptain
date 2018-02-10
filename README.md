@@ -29,16 +29,7 @@ We have a dream of building an application for dreaming your dream.
 * [ ] opcjonalnie facebook / gmail login - https://github.com/passport/express-4.x-facebook-example/blob/master/server.js
   
 ### [Wiktor](https://gitlab.com/maciejjankowski/soulcaptain/boards?scope=all&utf8=%E2%9C%93&state=opened&assignee_username=roktiw)
-* [ ] widoki logowania (login.html) i zakładania konta (signup.html) przepisać na [floating-labels](https://getbootstrap.com/docs/4.0/examples/floating-labels/)
-* [ ] [czyta](https://keep.google.com/share?tid=true#NOTE/1516399000064.111084.3791535080)
-* [ ] [formularz dodawania soulencji](https://jsbin.com/sepupuw/edit?html,js,output)
-* [ ] widok karty w Bootstrap
-* [ ] zaznaczanie klasu active dla elemenu menu po urlu
-* [ ] wydzielenie MENU do partiala
-* [ ] widok decku tinder style
-** https://codepen.io/ionic/pen/nxEdH?page=1&
-** https://admiralpotato.github.io/vue-swipe-cards/ <-- na vue!
-* [x] widok decku w Bootstrap
+
 
 ---
 
