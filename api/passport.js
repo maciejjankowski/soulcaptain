@@ -1,6 +1,7 @@
 const FacebookStrategy = require('passport-facebook').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcrypt');
 
 function testPassword(pass, hash, cb){
 	bcrypt.compare(pass, hash, function(err, res) {
