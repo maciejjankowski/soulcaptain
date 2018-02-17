@@ -19,12 +19,12 @@ const Habit = mongoose.models['Habit'];
                   foundHabit.lastCompleted.push(Date.now());
                   foundHabit.save().then(()=>{
                     count--;
-                    if (!count)  
+                    if (!count)
                       res.send("OK");
                   }).catch((err) => {
                     console.log('error saving', err);
                     count--;
-                    if (!count)  
+                    if (!count)
                       res.send('ERR');
                   });
                 } else {
@@ -33,13 +33,17 @@ const Habit = mongoose.models['Habit'];
                   let newHabit = new Habit(habit);
                   newHabit.lastCompleted = [Date.now()];
                   newHabit.save().then(()=>{console.log('saved')});
-                  if (!count)  
+                  if (!count)
                     res.send("OK");
                 }
-                  
               });
-            
           })
       }
-  });
-}
+  }); // POST /habits
+
+	app.get('/habits', (req, res) => {
+    console.log(req.session.user);
+		res.send(JSON.stringify({session : req.session, user : req.user }));
+	})
+
+};
