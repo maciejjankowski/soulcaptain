@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+require('dotenv').load();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook').Strategy;
@@ -12,7 +13,6 @@ const MongoStore = require('connect-mongo')(session);
 const mail = require('./email.js');
 const bcrypt = require('bcrypt');
 const sms = require('./sms.js');
-
 
 mongoose.connect(`mongodb://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBHOST}/${process.env.DBNAME}`, { useMongoClient: true });
 mongoose.Promise = global.Promise;
@@ -28,7 +28,7 @@ app.use(require('body-parser').json());
 app.use(session({
   secret: process.env.SESSIONSECRET,
   store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  resave: true, saveUninitialized: true 
+  resave: true, saveUninitialized: true
 }));
 
 app.use(passport.initialize());
@@ -74,13 +74,13 @@ app.post('/login', (req, res, next) => {
     if (!user) {
       console.log('no user', user, info);
       return res.redirect('/login.html');
-      
+
     }
-    
+
     req.login(user, function(error) {
         if (error) return next(error);
         console.log("Success! Redirecting to /");
-      
+
         return res.redirect('/');
     });
     //res.redirect('/');
@@ -90,16 +90,16 @@ app.post('/login', (req, res, next) => {
 });
 
 const Card = mongoose.model('Card', // http://mongoosejs.com/docs/guide.html
-{  
+{
    "coulCardId" : String,
    "soulCardTitle" : String,
-   "soulCardSoulencje" : [  
-      {  
+   "soulCardSoulencje" : [
+      {
          "soulIdParent" : String,
          "soulType" : String,
          "language" : String,
          "text" : String,
-         "source":{  
+         "source":{
             "author" : String,
             "created" : Date,
             "source" : String,
@@ -120,13 +120,13 @@ const Habit = mongoose.model('Habit', {
     "habitId" : String
  });
 
-const User = mongoose.model('User', {  
+const User = mongoose.model('User', {
   "loginId" : String,
   "loginType":String,
   "email" : String,
   "password":String,
-  "personalInfo" : [  
-     {  
+  "personalInfo" : [
+     {
        "firstName" : String,
        "lastName" : String,
      }
@@ -134,9 +134,9 @@ const User = mongoose.model('User', {
   "habits": [{ type: mongoose.Schema.Types.ObjectId, ref: 'Habit' }]
 });
 
-  
 
-var listener = app.listen(process.env.PORT, function () {
+
+var listener = app.listen(process.env.PORT || 9000, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
 
@@ -171,7 +171,7 @@ app.get('/testx',(req, res) => {
 app.post('/card2', (req, res) => {
   var cardData = {};
   var card = new Card(cardData)
-  
+
   card.save(function (err) {
     if (err) {
       console.log(err);
@@ -179,8 +179,8 @@ app.post('/card2', (req, res) => {
     } else {
       res.send({status:'ok'});
     }
-  }); // card save  
-}) 
+  }); // card save
+})
 
 app.get('/habits', (req, res) => {
   res.render('habits')
@@ -201,7 +201,7 @@ app.post('/user', (req, res)=>{
         userForm[fields[index].name] = fields[index].value;
     }
   });
-  
+
   User.findOne({loginId : userForm.email}).then((user)=>{
     if (user){
       console.log(user)
@@ -221,7 +221,7 @@ app.post('/user', (req, res)=>{
       });
     };
   });
-  
+
   res.send("OK")
 }) // post user
 
@@ -239,7 +239,7 @@ app.get('/login', passport.authenticate());
  * Login Required middleware.
  */
 function isAuthenticated(req, res, next){
-  
+
   console.log('testing for login');
   if (req.isAuthenticated()) {
     console.log('login ok');
@@ -247,7 +247,7 @@ function isAuthenticated(req, res, next){
   } else{
 
     console.log('missing login');
-    
+
     if (req.headers['content-type'] === "application/json; charset=UTF-8"){
       res.status(403).send("please log in");
     } else {
@@ -284,7 +284,7 @@ function testPassword(pass, hash, cb){
       cb(1);
       console.error('no match');
      // Passwords don't match
-    } 
+    }
   });
 }
 
