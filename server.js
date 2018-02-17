@@ -11,11 +11,7 @@ const mail = require('./email.js');
 const bcrypt = require('bcrypt');
 const sms = require('./sms.js');
 
-
-
 const mongoConnString = `mongodb://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBHOST}/${process.env.DBNAME}`;
-
-
 mongoose.connect(mongoConnString, { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
@@ -43,13 +39,9 @@ app.use(passport.session());
 // using passport: https://stackoverflow.com/questions/45381931/basics-of-passport-session-expressjs-why-do-we-need-to-serialize-and-deseriali
 const schema = require('./api/schema.js')(mongoose);
 
-
 require('./api/passport.js')(mongoose, passport);
-
 require('./api/login.js')(app, passport);
-
 require('./api/deck.js')(app, mongoose);
-
 
 var listener = app.listen(process.env.PORT || 9000, function () {
   console.log('Your app is listening on port ' + listener.address().port);

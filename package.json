@@ -21,7 +21,7 @@
     "express-session": "^1.15.6",
     "mailgun-js": "^0.14.1",
     "mongoose": "^4.13.9",
-    "mustache-express":"*",
+    "mustache-express": "^1.2.5",
     "nodemailer": "^4.4.1",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
