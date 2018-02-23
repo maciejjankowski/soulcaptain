@@ -53,7 +53,7 @@ function send(path, data){
   return $.ajax({
         method:'POST', 
         url : path, 
-        data : JSON.stringify({payload : data}), 
+        data : JSON.stringify( { "payload" : data }), 
         contentType: "application/json; charset=utf-8"
       }).then(()=>{
         app.busy = false;

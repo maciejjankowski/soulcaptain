@@ -74,7 +74,7 @@ var MockDeck = {
             {  
                "soulId":"001",
                "soulIdPArent":"null",
-               "soulType":"prayer",
+               "soulType":"text",
                "language":"PL",
                "text":"Proście, a będzie wam dane; szukajcie, a znajdziecie; kołaczcie, a otworzą wam. Albowiem każdy, kto prosi, otrzymuje; kto szuka, znajduje; a kołaczącemu otworzą.",
                "source":{  
@@ -128,6 +128,58 @@ var MockDeck = {
                   "source":"Dune",
                   "sourceLink":"hhttps://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
                }
+            }
+         ]
+      },
+     {  
+         "soulCardId":"00003",
+         "soulCardTitle":"my most important daily habits",
+         "soulCardSoulencje":[  
+            {  
+               "soulId":"003",
+               "soulIdPArent":"null",
+               "soulType":"habit", // text, habit, image
+               "language":"EN",
+               "text":"meditation",
+               "reason" :"połączyć się ze swoją duszą", 
+               "source":{  
+                  "author":"Wiktor Świątkowski",
+                  "created":"2018.02.23",
+                  "source":"Wiktorhead",
+                  "sourceLink":"https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
+               },
+               "soulHabit":{
+                  "frequency": "weekly", // String, var timeSpans = ['hourly', 'daily', 'weekly', 'monthly', 'quarterly', 'annually', 'bi-annually']
+                  "interval": 84000, // Number, var timeSpansLength = [1, 24, 24*7, 24*30, 24*30 * 3 + 1.5, 24*30*12+6, 24*30*24+12]
+                  "times": 2, // Number,
+                  "lastCompleted": "", // [Date],
+                  "habitId": "", // String
+                  "habitType": "", // growth, maintenance, sustain, excite, challenge // String var habitType = ['growth', 'excite', 'sustain', 'maintenance', 'challenge']
+                  "when" : "daily", // var whenDaily = ['wake-up', 'before breakfast', 'before noon', 'before lunch', 'after work', 'before bed' ]
+                                 },
+            },
+            {  
+               "soulId":"004",
+               "soulIdPArent":"null",
+               "soulType":"habit", // text, habit, image
+               "language":"EN",
+               "text":"Oddychaj. Zajmuj swoją przestrzeń. Jest Twoja.",
+               "reason" :"Naucz się żyć w swojej przestrzeni. Zajmujesz ją będąc jej częścią. Należysz do wszechświata i wszechświat należy do Ciebie. Wyprostuj się więc, bierz głębokie oddechy, jesteś na swoim miejscu, które Ci się należy. Oddychanie jest ważne, aby czuć się dobrze. Pomaga Twojemu ciału funkcjonować i służyć Tobie. Ciało to tylko maszyna, dbaj o nie, masz tylko jedno.", 
+               "source":{  
+                  "author":"Maciej Jankowski",
+                  "created":"2018.02.23",
+                  "source":"Wiktorhead",
+                  "sourceLink":"https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
+                },
+               "soulHabit":{
+                  "frequency": "weekly", // String, var timeSpans = ['hourly', 'daily', 'weekly', 'monthly', 'quarterly', 'annually', 'bi-annually']
+                  "interval": 84000, // Number, var timeSpansLength = [1, 24, 24*7, 24*30, 24*30 * 3 + 1.5, 24*30*12+6, 24*30*24+12]
+                  "times": 2, // Number,
+                  "lastCompleted": "", // [Date],
+                  "habitId": "", // String
+                  "habitType": "", // growth, maintenance, sustain, excite, challenge // String var habitType = ['growth', 'excite', 'sustain', 'maintenance', 'challenge']
+                  "when" : "daily", // var whenDaily = ['wake-up', 'before breakfast', 'before noon', 'before lunch', 'after work', 'before bed' ]
+               },
             }
          ]
       }
