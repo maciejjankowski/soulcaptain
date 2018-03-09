@@ -42,6 +42,8 @@ const schema = require('./api/schema.js')(mongoose);
 require('./api/passport.js')(mongoose, passport);
 require('./api/login.js')(app, passport);
 require('./api/deck.js')(app, mongoose);
+require('./api/habits.js')(app, mongoose, isAuthenticated);
+require('./api/user.js')(app, mongoose, passport);
 
 var listener = app.listen(process.env.PORT || 9000, function () {
   console.log('Your app is listening on port ' + listener.address().port);
@@ -81,8 +83,6 @@ exports.isAuthorized = (req, res, next) => {
     res.redirect(`/auth/${provider}`);
   }
 };
-
-require('./api/habits.js')(app, mongoose, isAuthenticated);
 
 
 

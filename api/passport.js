@@ -2,19 +2,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
-
-function testPassword(pass, hash, cb){
-	bcrypt.compare(pass, hash, function(err, res) {
-		if(res) {
-			cb(null, 1);
-			console.log('match');
-		} else {
-			cb(1);
-			console.error('no match');
-			// Passwords don't match
-		}
-	});
-}
+const testPassword = require('./testPassword.js')
 
 module.exports = function (mongoose, passport) {
 	const User = mongoose.models['User'];

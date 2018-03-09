@@ -27,7 +27,7 @@ var app = new Vue({
       $.ajax({
         method:'POST', 
         url:'/user', 
-        data : JSON.stringify({payload:$( "#userAddForm" ).serializeArray()}), 
+        data : JSON.stringify({payload:$( "#userAddForm" )}), 
         contentType: "application/json; charset=utf-8"
       })
       .then(()=>{

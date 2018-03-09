@@ -1,5 +1,6 @@
 module.exports = function(app, mongoose){
 	const Card = mongoose.models['Card'];
+  const Deck = mongoose.models['Deck'];
 
 	app.get('/deck',(req, res) => {
 		Card.findOne().then((cards) => {

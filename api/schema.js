@@ -43,6 +43,11 @@ module.exports = function (mongoose) {
 		],
 		"habits": [{type: mongoose.Schema.Types.ObjectId, ref: 'Habit'}]
 	});
+  const Deck = mongoose.model('Deck',{
+    owner : {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    cards : [{type: mongoose.Schema.Types.ObjectId, ref: 'Card'}]
+  });
+  
 	return {
 		Habit,
 		User,
