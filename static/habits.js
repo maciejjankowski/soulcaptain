@@ -1,82 +1,82 @@
 var app = new Vue({
   el: '#habits',
   data: {
-    admin : 0,
-    loggedIn : 1,
-    habits : [],
-    habitsEditable : false,
-    busy : false
+    admin: 0,
+    loggedIn: 1,
+    habits: [],
+    habitsEditable: false,
+    busy: false
   },
-  
-  
-  methods : {
-    editableHabits : function (){
-      app.habitsEditable ^= 1; 
+
+
+  methods: {
+    editableHabits: function () {
+      app.habitsEditable ^= 1;
     },
-    increaseTimeCount:function(i){
-      app.habits[i].times = Math.min(365.25 * 24, app.habits[i].times+1)
+    increaseTimeCount: function (i) {
+      app.habits[i].times = Math.min(365.25 * 24, app.habits[i].times + 1)
     },
-    decreaseTimeCount:function(i){
-      app.habits[i].times = Math.max(0, app.habits[i].times-1)
+    decreaseTimeCount: function (i) {
+      app.habits[i].times = Math.max(0, app.habits[i].times - 1)
     },
-    increaseTimeSpan:function(i){
+    increaseTimeSpan: function (i) {
       var j = timeSpans.indexOf(app.habits[i].frequency)
-      j = Math.min(timeSpans.length-1, j+1)
+      j = Math.min(timeSpans.length - 1, j + 1)
       app.habits[i].frequency = timeSpans[j]
-      app.habits[i].f = app.habits[i].frequency.substr(0,1).toUpperCase()
+      app.habits[i].f = app.habits[i].frequency.substr(0, 1).toUpperCase()
     },
-    decreaseTimeSpan:function(i){
+    decreaseTimeSpan: function (i) {
       var j = timeSpans.indexOf(app.habits[i].frequency)
-      j = Math.max(0, j-1)
+      j = Math.max(0, j - 1)
       app.habits[i].frequency = timeSpans[j]
-      app.habits[i].f = app.habits[i].frequency.substr(0,1).toUpperCase()
+      app.habits[i].f = app.habits[i].frequency.substr(0, 1).toUpperCase()
     },
-    increaseType:function(i){
+    increaseType: function (i) {
       var j = habitType.indexOf(app.habits[i].type)
-      j = Math.min(habitType.length-1, j+1)
+      j = Math.min(habitType.length - 1, j + 1)
       app.habits[i].type = habitType[j]
     },
-    decreaseType:function(i){
+    decreaseType: function (i) {
       var j = habitType.indexOf(app.habits[i].type)
-      j = Math.max(0, j-1)
+      j = Math.max(0, j - 1)
       app.habits[i].type = habitType[j]
     },
-    markDone : function(i){
-      app.habits[i].lastCompleted = Date.now()/1000;
+    markDone: function (i) {
+      app.habits[i].lastCompleted = Date.now() / 1000;
       updateHabits(app.habits);
     }
   }
 });
 
-function send(path, data){
+function send(path, data) {
   app.busy = true;
   return $.ajax({
-        method:'POST', 
-        url : path, 
-        data : JSON.stringify({payload : data}), 
-        contentType: "application/json; charset=utf-8"
-      }).then(()=>{
-        app.busy = false;
-      })
+    method: 'POST',
+    url: path,
+    data: JSON.stringify({ "payload": data }),
+    contentType: "application/json; charset=utf-8"
+  }).then(() => {
+    app.busy = false;
+  })
 }
 
-function updateHabits(habits){
+function updateHabits(habits) {
   send('/habits', habits);
 }
 
-var timeSpansLength = [1, 24, 24*7, 24*30, 24*30 * 3 + 1.5, 24*30*12+6, 24*30*24+12]
+var timeSpansLength = [1, 24, 24 * 7, 24 * 30, 24 * 30 * 3 + 1.5, 24 * 30 * 12 + 6, 24 * 30 * 24 + 12]
 var timeSpans = ['hourly', 'daily', 'weekly', 'monthly', 'quarterly', 'annually', 'bi-annually']
 var habitType = ['growth', 'excite', 'sustain', 'maintenance', 'challenge']
-var whenDaily = ['wake-up', 'before breakfast', 'before noon', 'before lunch', 'after work', 'before bed' ]
-var whenWeekly = [ 'first day', 'mid-week', 'weekend', 'end of the week']
-var whenWeekly = [ 'first days', 'mid-month', 'end of the month']
+var whenDaily = ['wake-up', 'before breakfast', 'before noon', 'before lunch', 'after work', 'before bed']
+var whenWeekly = ['first day', 'mid-week', 'weekend', 'end of the week']
+var whenWeekly = ['first days', 'mid-month', 'end of the month']
 
-function timeSpanWeight(timeSpan, times, lastCompleted){
+function timeSpanWeight(timeSpan, times, lastCompleted) {
   const hour = 1 * 60 * 60 * 1000 // msec
-  return Date.now() - lastCompleted - (hour * timeSpansLength[ timeSpans.indexOf(timeSpan) ] / times)
+  return Date.now() - lastCompleted - (hour * timeSpansLength[timeSpans.indexOf(timeSpan)] / times)
 }
 
-function getOccurence(){
+function getOccurence() {
   // get('/api/doings/occurence')
   return [
     {
@@ -86,8 +86,8 @@ function getOccurence(){
         "times": 3,
         "type": "growth"
       },
-      timestamp : -200, // last occurence
-      weight : 100 // getWeight(type, frequency, when, ), narazie random * when
+      timestamp: -200, // last occurence
+      weight: 100 // getWeight(type, frequency, when, ), narazie random * when
     }
   ]
 } // getOccurence // getCandidateTask (randomy, żeby sugerować kolejne zadania (powtórzenia, ostatnio robione, pora dnia, rodzaj (maintenance > growth)
@@ -98,14 +98,14 @@ var habits = [
     "name": "Pisanie / tworzenie",
     "times": 2,
     "type": "growth",
-   },
+  },
   {
     "frequency": "weekly",
     "name": "20 linijek kodu",
     "times": 3,
     "type": "growth"
-    ,"lastCompleted":-40000
-  
+    , "lastCompleted": -40000
+
   },
   {
     "frequency": "monthly",
@@ -125,7 +125,7 @@ var habits = [
     "times": 1,
     "type": "growth"
   },
-    {
+  {
     "frequency": "weekly",
     "name": "Ćwiczenia",
     "times": 2,
@@ -166,9 +166,9 @@ var habits = [
     "name": "Plan na następny dzień",
     "times": 1,
     "type": "sustain",
-    "when" : 'before bed'
+    "when": 'before bed'
   },
-    {
+  {
     "frequency": "monthly",
     "name": "Mitapy / eventy / znajomi",
     "times": 2,
@@ -241,7 +241,7 @@ var habits = [
     "type": "challenge"
   }
 ]
-  
-  habits.forEach((i)=>{i.f = i.frequency.substr(0,1).toUpperCase(), i.lastCompleted=Date.now()/1000})
+
+habits.forEach((i) => { i.f = i.frequency.substr(0, 1).toUpperCase(), i.lastCompleted = Date.now() / 1000 })
 
 app.habits = habits;
