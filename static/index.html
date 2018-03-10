@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>👻 Soulcaptain 🏡 Home</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+        crossorigin="anonymous">
     <script src="https://use.fontawesome.com/432e55ea08.js" async></script>
     <!-- JS for navbar -->
 
@@ -17,93 +18,161 @@
 
     <!-- navbar start-->
 
-    <nav class="navbar fixed-top navbar-light bg-light navbar-expand-lg navbar-light bg-light">
-                  <a class="navbar-brand" href="/">👻 SoulCaptain</a>
+    //
+    <% include partials/nav.ejs %>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01" class="pull-right">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/">🏡 Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="/deck.html">🎴 Deck</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="/habits.html">❌ DailyX</a>
-                </li>
+        <nav class="navbar fixed-top navbar-light bg-light navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">👻 SoulCaptain</a>
 
-                <li class="nav-item">
-                </li>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse pull-right" id="navbarTogglerDemo01">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">🏡 Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/deck.html">🎴 Deck</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/habits.html">❌ DailyX</a>
+                    </li>
 
-            </ul>
-            <ul class="navbar-nav">
+                    <li class="nav-item">
+                    </li>
 
-                <a class="nav-link active" href="/signup.html">✍️ Sign Up</a>
-                <a class="nav-link active" href="/login.html">✅ Login</a>
-            </ul>
-        </div>
-    </nav>
+                </ul>
+                <ul class="navbar-nav">
 
-    <!-- navbar start-->
+                    <a class="nav-link active" href="/signup.html">✍️ Sign Up</a>
+                    <a class="nav-link active" href="/login.html">✅ Login</a>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- navbar start-->
 
 
-    <br>
-    <br>
-    <br>
-    <div class="container">
-
-        <div style="text-align:center">
-            <h1>
-                👻 SoulCaptain
-            </h1>
-        </div>
+        <br>
+        <br>
+        <br>
 
 
 
-        <p>
-            Hi!
-        </p>
-        <p>
-            This is SoulCaptain under developement.
-        </p>
-        <p>
-            Greetings
-        </p>
-        <p>
-            Maciej & Wiktor
-        </p>
-      
-      <hr>
-      
-      <p>
-      <b>Quicklinks</b>  
-      </p>
-      <ul>
-        <li><a href="https://gitlab.com/maciejjankowski/soulcaptain/wikis/home">📗 SoulWiki</a></li>
-        <li><a href="https://codemoon.slack.com/messages/C08J04G7Q/details/">💬 SoulSlack</a></li>
-        <li><a href="https://glitch.com/edit/#!/summer-name?path=README.md">📝 SoulTasks - README.md</a></li>
-        <li><a href="https://gitlab.com/maciejjankowski/soulcaptain/issues">📌 SoulTasks - Agile Board</a></li>        
-        <li><a href="https://github.com/maciejjankowski/soulcaptain"> 🌷 SoulCode - Github</a></li>
-        <li><a href="https://glitch.com/edit/#!/summer-name?path=static/index.html"> 👩‍💻 SoulCode - Glitch</a></li> 
-      </ul>   
-      
-      <hr>
-      
-      <p class="mt-5 mb-3 text-muted">&copy; 2013-2018 maj & roktiw</p>
+
+        <main class="containter" role="main">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div style="text-align:center">
+                            <h1>
+                                👻 SoulCaptain
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>
+                            Hi!
+                        </p>
+                        <p>
+                            This is SoulCaptain under developement.
+                        </p>
+                        <p>
+                            Greetings
+                        </p>
+                        <p>
+                            Maciej & Wiktor
+                        </p>
+
+                        <hr>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="card" style="width: 18rem; margin-bottom: 30px;">
+                            <div class="card-header">
+                                <h2>Internal Links</h2>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a href="/deck.html">🎴 Deck</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="/habits.html">❌ DailyX</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="/signup.html">✍️ Sign Up</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="/login.html">✅ Login</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="clearfix"></div>
 
 
-      
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                                <h2>External Links</h2>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a href="https://gitlab.com/maciejjankowski/soulcaptain/wikis/home">📗 SoulWiki</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="https://codemoon.slack.com/messages/C08J04G7Q/details/">💬 SoulSlack</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="https://glitch.com/edit/#!/summer-name?path=README.md">📝 SoulTasks - README.md</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="https://gitlab.com/maciejjankowski/soulcaptain/issues">📌 SoulTasks - Agile Board</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="https://github.com/maciejjankowski/soulcaptain"> 🌷 SoulCode - Github</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="https://glitch.com/edit/#!/summer-name?path=static/index.html"> 👩‍💻 SoulCode - Glitch</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <hr>
+
+        <p class="mt-5 mb-3 text-muted">&copy; 2013-2018 maj & roktiw</p>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.6/Rx.js" integrity="sha256-6iYGicqy9/jeCoyB+6xS4S7DGV2WRuI0YPr5HADDk3I=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.6/Rx.js" integrity="sha256-6iYGicqy9/jeCoyB+6xS4S7DGV2WRuI0YPr5HADDk3I=
+           " crossorigin="anonymous"></script>
         <script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
         <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/4.0.0-rc.9/immutable.js" integrity="sha256-XVnm+eqQpGNsqFbn0VBfDAXp659MiMzF0Q1vnC0kD9g=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/4.0.0-rc.9/immutable.js" integrity="sha256-XVnm+eqQpGNsqFbn0VBfDAXp659MiMzF0Q1vnC0kD9g="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+            crossorigin="anonymous"></script>
         <script src="/main.js"></script>
 
 </body>
