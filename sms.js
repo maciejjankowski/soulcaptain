@@ -2,7 +2,7 @@ var SMSAPI = require('smsapi'),
     smsapi = new SMSAPI();
 
 smsapi.authentication
-    .loginHashed(process.env.SMS_USER, process.env.SMS_PASS)
+    .loginHashed(process.env.SMS_USER, process.env.SMS_PASS);
    
 
 function sendMessage(from, to, text, displayResult, displayError){
