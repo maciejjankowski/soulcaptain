@@ -53,7 +53,9 @@ function send(path, data) {
   return $.ajax({
     method: 'POST',
     url: path,
-    data: JSON.stringify({ "payload": data }),
+    data: JSON.stringify({
+      "payload": data
+    }),
     contentType: "application/json; charset=utf-8"
   }).then(() => {
     app.busy = false;
@@ -78,22 +80,19 @@ function timeSpanWeight(timeSpan, times, lastCompleted) {
 
 function getOccurence() {
   // get('/api/doings/occurence')
-  return [
-    {
-      doing: {
-        "frequency": "weekly",
-        "name": "20 linijek kodu",
-        "times": 3,
-        "type": "growth"
-      },
-      timestamp: -200, // last occurence
-      weight: 100 // getWeight(type, frequency, when, ), narazie random * when
-    }
-  ];
+  return [{
+    doing: {
+      "frequency": "weekly",
+      "name": "20 linijek kodu",
+      "times": 3,
+      "type": "growth"
+    },
+    timestamp: -200, // last occurence
+    weight: 100 // getWeight(type, frequency, when, ), narazie random * when
+  }];
 } // getOccurence // getCandidateTask (randomy, żeby sugerować kolejne zadania (powtórzenia, ostatnio robione, pora dnia, rodzaj (maintenance > growth)
 
-var habits = [
-  {
+var habits = [{
     "frequency": "weekly",
     "name": "Pisanie / tworzenie",
     "times": 2,
@@ -103,7 +102,8 @@ var habits = [
     "frequency": "weekly",
     "name": "20 linijek kodu",
     "times": 3,
-    "type": "growth", "lastCompleted": -40000
+    "type": "growth",
+    "lastCompleted": -40000
 
   },
   {
@@ -241,6 +241,8 @@ var habits = [
   }
 ];
 
-habits.forEach((i) => { i.f = i.frequency.substr(0, 1).toUpperCase(), i.lastCompleted = Date.now() / 1000; });
+habits.forEach((i) => {
+  i.f = i.frequency.substr(0, 1).toUpperCase(), i.lastCompleted = Date.now() / 1000;
+});
 
 app.habits = habits;
