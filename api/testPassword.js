@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 
 module.exports = function testPassword(pass, hash, cb) {
 	bcrypt.compare(pass, hash, function (err, res) {
@@ -11,4 +11,4 @@ module.exports = function testPassword(pass, hash, cb) {
 			// Passwords don't match
 		}
 	});
-}
+};
