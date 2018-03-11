@@ -9,5 +9,9 @@ module.exports = function _defineRoutes(deps){
     res.render('index');
   });
   
+   app.get('/deck.html', (req, res) => {
+    res.render('deck.html');
+  });
+  
   return app
 }
