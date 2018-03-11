@@ -1,6 +1,6 @@
 module.exports = function (app, mongoose) {
-    const Card = mongoose.models['Card'];
-    const Deck = mongoose.models['Deck'];
+    const Card = mongoose.models.Card;
+    const Deck = mongoose.models.Deck;
 
     app.get('/deck', (req, res) => {
         Card.findOne().then((cards) => {
@@ -11,21 +11,21 @@ module.exports = function (app, mongoose) {
 
     app.post('/card2', (req, res) => {
         var cardData = {};
-        var card = new Card(cardData)
+        var card = new Card(cardData);
 
         card.save(function (err) {
             if (err) {
                 console.log(err);
-                res.send(400, { status: 'error', error: 'problem saving', details: err })
+                res.send(400, { status: 'error', error: 'problem saving', details: err });
             } else {
                 res.send({ status: 'ok' });
             }
         }); // card save
-    })
+    });
 
     app.post('/deck/:id/soulencja', (req, res) => {
 
-    })
+    });
 
 
-}
+};
