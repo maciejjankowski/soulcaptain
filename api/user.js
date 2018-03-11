@@ -17,7 +17,7 @@ module.exports = function (app, mongoose, passport) {
     app.post('/postSignup', function postSignup(req, res) {
 
         let payloadFields = (req.body && req.body.payload) || req.body;
-        console.log('to jest konsol log dla payloadFields', payloadFields);
+        console.log('to jest konsol log dla payloadFields', payloadFields)
 
         let payloadApproved = {};
 
@@ -28,31 +28,31 @@ module.exports = function (app, mongoose, passport) {
             }
 
         });
-        console.log('to jest konsol log zestawiający', payloadFields.firstName, payloadApproved.firstName, payloadFields.email, payloadApproved.email, payloadFields.password, payloadApproved.password, payloadFields.repeatpassword, payloadApproved.repeatpassword);
+        console.log('to jest konsol log zestawiający', payloadFields.firstName, payloadApproved.firstName, payloadFields.email, payloadApproved.email, payloadFields.password, payloadApproved.password, payloadFields.repeatpassword, payloadApproved.repeatpassword)
 
 
-        console.log('to jest konsol log dla payloadApproved', payloadApproved);
+        console.log('to jest konsol log dla payloadApproved', payloadApproved)
 
-        mongoose.models.User.findOne({ loginId: payloadApproved.email }).then((user) => {
+        mongoose.models['User'].findOne({ loginId: payloadApproved.email }).then((user) => {
             if (user) {
-                console.log(user);
+                console.log(user)
                 testPassword(user.password, (err) => {
                     if (err) { return console.log('Wrong password (account for this email allready exist).'); }
                     else {
                         console.log('Login successful', user);
-                        res.send('Login successful');
+                        res.send('Login successful')
                     }
                 });
             } else {
                 bcrypt.hash(payloadApproved.password, 10, function (err, pwhash) {
-                    let newUser = new mongoose.models.User({
+                    let newUser = new mongoose.models['User']({
                         loginId: payloadApproved.email,
                         loginType: "email",
                         email: payloadApproved.email,
                         password: pwhash
                     }).save();
                 });
-            }
+            };
         });
 
         res.writeHead(302, {
@@ -61,5 +61,5 @@ module.exports = function (app, mongoose, passport) {
         });
         res.end();
 
-    }); // post user
-};
+    }) // post user
+}

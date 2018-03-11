@@ -1,9 +1,8 @@
 # SoulCaptain
 
-## todo
+# todo
 
-### Maciej
-
+### Maciej 
 * [ ] odhaczanka
   * [ ] ustalenie z Wiktorem atrybutów soulencji odhaczanki - nie może to być "soulType" bowiem można dodać do odhaczanki np. odmówić modlitwę, przeczytać afirmacje, więc albo zrobimy podtyp suolencji albo np. bool "doable" "yes|no"
   * [ ] pobieranie listy tasków z serwera
@@ -13,17 +12,17 @@
 * [ ] graphql schema
 * [ ] rxJS
 * [ ] walidacja danych https://github.com/epoberezkin/ajv
-* [ ] opcjonalnie facebook / gmail login - uprawnienia do api w google console
+* [ ] opcjonalnie facebook / gmail login - uprawnienia do api w google console 
 * [ ] opcjonalnie facebook / gmail login - https://github.com/passport/express-4.x-facebook-example/blob/master/server.js
 * [ ] soulencje -> karty manifestu: http://jsbin.com/qekagiq/25
 * [x] Logowanie i apmiętanie usera w sesji
-* [x] zainstalaować ulubiony kolorek do Visual Studio
-
+  
 ### [Wiktor](https://gitlab.com/maciejjankowski/soulcaptain/boards?scope=all&utf8=%E2%9C%93&state=opened&assignee_username=roktiw)
+
 
 ---
 
-## Kontrakt Macieja i Wiktora
+# Kontrakt Macieja i Wiktora
 
 1. JEDZENIE. Przed kodzeniem idziemy na pyszne, lekkie, zdrowe i koszerne jedzenie. Nie rozmawiamy o kodzeniu, rozmawiamy o wszystkich innych sprawach.
 2. KAWIARNIA. Idziemy do kawiarni lub innego miejsca gdzie można wygodnie zasiąść do kodzenia i gdzie człowiek nie jest nadmiernie rozpraszany atmosferą.

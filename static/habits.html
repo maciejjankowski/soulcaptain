@@ -5,23 +5,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>❌ DailyX</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
-        crossorigin="anonymous">
-    <!--   <link rel="stylesheet" href="dark.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+<!--   <link rel="stylesheet" href="dark.css"> -->
     <script src="https://use.fontawesome.com/432e55ea08.js" async></script>
-    <!-- JS for navbar -->
-    <link rel="icon" href="../../../../favicon.ico">
+     <!-- JS for navbar -->
+
+<link rel="icon" href="../../../../favicon.ico">
+
 </head>
+<body>  
+      <!-- navbar start-->
 
-<body>
-    <!-- navbar start-->
     <nav class="navbar fixed-top navbar-light bg-light navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">👻 SoulCaptain</a>
+                  <a class="navbar-brand" href="/">👻 SoulCaptain</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
@@ -45,7 +45,7 @@
             </ul>
         </div>
     </nav>
-
+  
     <!-- navbar start-->
 
     <br>
@@ -58,78 +58,72 @@
                 ❌ DailyX
             </h1>
         </div>
+  
+  <style>
+    #habits .badge-larger{
+      width:85px
+    }
+    
+    .pointer{
+      cursor:pointer
+    }
+  </style>
 
-        <style>
-            #habits .badge-larger {
-                width: 85px
-            }
+  <div id="habits" class="container">
+      <span v-on:click="editableHabits()" class="badge badge-primary btn-sm pointer">
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</span>
 
-            .pointer {
-                cursor: pointer
-            }
-        </style>
+      <span class="fa fa-filter"></span>
+      <span class="badge badge-primary pointer">Daily</span>
+      <span class="badge badge-primary pointer">Weekly</span>
+      <span class="badge badge-primary pointer">Monthly</span>
+      <span class="badge badge-primary pointer">Other</span>
+      
+      <span class="badge badge-secondary pointer">excite</span>
+      <span class="badge badge-secondary pointer">maintenance</span>
+      <span class="badge badge-secondary pointer">growth</span>
+      <span class="badge badge-secondary pointer">sustain</span>
+      <span class="badge badge-secondary pointer">challenge</span>
+      
+    <form  class="">
+    <div v-for="h,i in habits">
+      
+      <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="decreaseType(i)">-</span>
+      <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="increaseType(i)">+</span>
+      <span class="badge badge-larger" 
+            v-bind:class="{'badge-primary':(h.type === 'sustain'), 'badge-success':(h.type === 'growth'),'badge-dark':(h.type === 'maintenance'), 'badge-danger':(h.type === 'excite'), 'badge-info':(h.type==='challenge')}">
+        {{h.type}}</span>
+      
+      <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="decreaseTimeCount(i)">-</span>      
+      <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="increaseTimeCount(i)">+</span>
+      
+      <span class="badge " v-bind:class="{'badge-dark':(h.f === 'M'), 'badge-secondary':(h.f === 'W'), 'badge-light':(h.f === 'D'), 'badge-info':(h.f==='')}">{{h.times}}&times;{{h.f}}</span>
+      <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="decreaseTimeSpan(i)">-</span>
+      <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="increaseTimeSpan(i)">+</span> 
+      
+      <span v-if="!habitsEditable" >
+        <span class="btn btn-outline btn-sm" v-on:click="markDone(i)">
+          <span class="fa fa-check"></span>
+        </span>
+        {{h.name}} {{Math.round(Date.now()/1000 - h.lastCompleted)}}
+      </span>
+      <input v-if="habitsEditable" type="text" v-model="h.name">
+      
+    </div>
+    </form>
+    <pre>{{JSON.stringify(habits, null, 2)}}</pre>
+  </div>
+  
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
-        <div id="habits" class="container">
-            <span v-on:click="editableHabits()" class="badge badge-primary btn-sm pointer">
-                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</span>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.6/Rx.js" integrity="sha256-6iYGicqy9/jeCoyB+6xS4S7DGV2WRuI0YPr5HADDk3I=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/4.0.0-rc.9/immutable.js" integrity="sha256-XVnm+eqQpGNsqFbn0VBfDAXp659MiMzF0Q1vnC0kD9g=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <script src="/habits.js"></script>
 
-            <span class="fa fa-filter"></span>
-            <span class="badge badge-primary pointer">Daily</span>
-            <span class="badge badge-primary pointer">Weekly</span>
-            <span class="badge badge-primary pointer">Monthly</span>
-            <span class="badge badge-primary pointer">Other</span>
-
-            <span class="badge badge-secondary pointer">excite</span>
-            <span class="badge badge-secondary pointer">maintenance</span>
-            <span class="badge badge-secondary pointer">growth</span>
-            <span class="badge badge-secondary pointer">sustain</span>
-            <span class="badge badge-secondary pointer">challenge</span>
-
-            <form class="">
-                <div v-for="h,i in habits">
-
-                    <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="decreaseType(i)">-</span>
-                    <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="increaseType(i)">+</span>
-                    <span class="badge badge-larger" v-bind:class="{'badge-primary':(h.type === 'sustain'), 'badge-success':(h.type === 'growth'),'badge-dark':(h.type === 'maintenance'), 'badge-danger':(h.type === 'excite'), 'badge-info':(h.type==='challenge')}">
-                        {{h.type}}</span>
-
-                    <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="decreaseTimeCount(i)">-</span>
-                    <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="increaseTimeCount(i)">+</span>
-
-                    <span class="badge " v-bind:class="{'badge-dark':(h.f === 'M'), 'badge-secondary':(h.f === 'W'), 'badge-light':(h.f === 'D'), 'badge-info':(h.f==='')}">{{h.times}}&times;{{h.f}}</span>
-                    <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="decreaseTimeSpan(i)">-</span>
-                    <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="increaseTimeSpan(i)">+</span>
-
-                    <span v-if="!habitsEditable">
-                        <span class="btn btn-outline btn-sm" v-on:click="markDone(i)">
-                            <span class="fa fa-check"></span>
-                        </span>
-                        {{h.name}} {{Math.round(Date.now()/1000 - h.lastCompleted)}}
-                    </span>
-                    <input v-if="habitsEditable" type="text" v-model="h.name">
-
-                </div>
-            </form>
-            <pre>{{JSON.stringify(habits, null, 2)}}</pre>
-        </div>
-
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
-
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.6/Rx.js" integrity="sha256-6iYGicqy9/jeCoyB+6xS4S7DGV2WRuI0YPr5HADDk3I="
-            crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
-        <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/4.0.0-rc.9/immutable.js" integrity="sha256-XVnm+eqQpGNsqFbn0VBfDAXp659MiMzF0Q1vnC0kD9g="
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
-            crossorigin="anonymous"></script>
-        <script src="/habits.js"></script>
-
-</body>
-
-
+</body>  
 </html>

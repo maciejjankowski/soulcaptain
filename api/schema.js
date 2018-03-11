@@ -3,18 +3,20 @@ module.exports = function (mongoose) {
         {
             "coulCardId": String,
             "soulCardTitle": String,
-            "soulCardSoulencje": [{
-                "soulIdParent": String,
-                "soulType": String,
-                "language": String,
-                "text": String,
-                "source": {
-                    "author": String,
-                    "created": Date,
-                    "source": String,
-                    "sourceLink": String
+            "soulCardSoulencje": [
+                {
+                    "soulIdParent": String,
+                    "soulType": String,
+                    "language": String,
+                    "text": String,
+                    "source": {
+                        "author": String,
+                        "created": Date,
+                        "source": String,
+                        "sourceLink": String
+                    }
                 }
-            }],
+            ],
             owner: String
         });
 
@@ -33,33 +35,23 @@ module.exports = function (mongoose) {
         "loginType": String,
         "email": String,
         "password": String,
-        "personalInfo": [{
-            "firstName": String,
-            "lastName": String,
-        }],
-        "decks": [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Deck'
-        }],
-        "habits": [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Habit'
-        }]
+        "personalInfo": [
+            {
+                "firstName": String,
+                "lastName": String,
+            }
+        ],
+        "decks": [{ type: mongoose.Schema.Types.ObjectId, ref: 'Deck' }],
+        "habits": [{ type: mongoose.Schema.Types.ObjectId, ref: 'Habit' }]
     });
     const Deck = mongoose.model('Deck', {
-        owner: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User'
-        },
-        cards: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Card'
-        }]
+        owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        cards: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Card' }]
     });
 
     return {
         Habit,
         User,
         Card
-    };
+    }
 };

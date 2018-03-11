@@ -1,4 +1,4 @@
-const Mailgun = require('mailgun-js');
+const Mailgun = require('mailgun-js')
 var mailgun = new Mailgun({apiKey: process.env.MAIL_KEY, domain: process.env.MAIL_DOMAIN});
 module.exports = function (recipient, subject, body, plainText, cb){
       let message = {
@@ -20,4 +20,4 @@ module.exports = function (recipient, subject, body, plainText, cb){
         }
     });
 
-};
+}

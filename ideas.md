@@ -1,7 +1,6 @@
-# ideas
-
 * community / social dicovery (dating, mentoring)
 * lockscreen widget
+
 * wybierz 5 cech ktore chcesz rozwijac
 * ćwiczenia + materiały (yt, artykuły, muzyka, zdjęcia, motywujące hasła)
 * patrzysz i przypominasz sobie po co żyjesz
