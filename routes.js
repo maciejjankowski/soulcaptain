@@ -5,8 +5,6 @@ module.exports = function _defineRoutes(deps) {
     var app = deps.app;
   }
 
- 
-  
   app.get("/", (req, res) => {
     res.render("index");
   });
@@ -15,24 +13,24 @@ module.exports = function _defineRoutes(deps) {
     res.render("deck.html");
   });
 
-  app.get("/login.html", (req, res) => {
-    res.render("/login.html");
-  });
-
-  app.get("/signup.html", (req, res) => {
-    res.render("/signup.html");
-  });
-
-  app.get("/admin.html", (req, res) => {
-    res.render("/admin.html");
-  });
-  
   app.get("/deckcard.html", (req, res) => {
     res.render("deckcard.html");
   });
 
   app.get("/habits.html", (req, res) => {
     res.render("habits.html");
+  });
+
+  app.get("/signup.html", (req, res) => {
+    res.render("signup.html");
+  });
+
+  app.get("/login.html", (req, res) => {
+    res.render("login.html");
+  });
+  
+  app.get("/admin.html", (req, res) => {
+    res.render("admin.html");
   });
 
   return app;
