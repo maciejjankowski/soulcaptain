@@ -16,9 +16,8 @@ mongoose.connect(mongoConnString, { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
 
-app.engine('html', mustacheExpress({tags : [ '<%', '%>' ]}));
+app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.set('view options', {tags : [ '<%', '%>' ]});
 app.locals.delimiters = '<% %>';
 app.locals.tags = '<% %>';
 
@@ -38,15 +37,22 @@ app.use(passport.session());
 
 // using passport: https://stackoverflow.com/questions/45381931/basics-of-passport-session-expressjs-why-do-we-need-to-serialize-and-deseriali
 const schema = require('./api/schema.js')(mongoose);
+const deps = { // dependencies object passed to every require function (poor mans dependency injection)
+  app,
+  mongoose,
+  passport,
+  isAuthenticated
+}
 
 require('./api/passport.js')(mongoose, passport);
 require('./api/login.js')(app, passport);
 require('./api/deck.js')(app, mongoose);
 require('./api/habits.js')(app, mongoose, isAuthenticated);
 require('./api/user.js')(app, mongoose, passport);
+require('./routes.js')(deps);
 
 var listener = app.listen(process.env.PORT || 9000, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+  console.log('SoulCaptain is listening on port ' + listener.address().port);
 });
 
 /**
