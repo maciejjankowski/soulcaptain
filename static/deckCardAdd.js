@@ -4,5 +4,5 @@ $("#button").on("click", function() {
 	$("[type=text]").each(function(index, element) {
 		out[$(element).attr("name")] = $(element).val();
 	});
-	$(".soulOutput").html(JSON.stringify(out, null, 2));
+	$(".form-control").html(JSON.stringify(out, null, 2));
 });
