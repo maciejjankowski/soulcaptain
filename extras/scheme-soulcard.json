@@ -1,0 +1,31 @@
+{
+    "soulCardId": "132123",
+    "soulCardTitle": "Proście, Szukajcie, Pukajcie",
+    "soulCardSoulencje": [{
+            "soulId": "001",
+            "soulIdPArent": "null",
+            "soulType": "prayer",
+            "language": "PL",
+            "text": "Proście, a będzie wam dane; szukajcie, a znajdziecie; kołaczcie, a otworzą wam. Albowiem każdy, kto prosi, otrzymuje; kto szuka, znajduje; a kołaczącemu otworzą.",
+            "source": {
+                "author": "Święty Mateusz",
+                "created": "10",
+                "source": "Bibila",
+                "sourceLink": "https://pl.wikiquote.org/wiki/Ewangelia_Mateusza"
+            }
+        },
+        {
+            "soulId": "002",
+            "soulIdPArent": "null",
+            "soulType": "prayer",
+            "language": "ENG",
+            "text": "Ask and it will be given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened.",
+            "source": {
+                "author": "Święty Mateusz",
+                "created": "10",
+                "source": "Bibila",
+                "sourceLink": "https://pl.wikiquote.org/wiki/Ewangelia_Mateusza"
+            }
+        }
+    ]
+}
