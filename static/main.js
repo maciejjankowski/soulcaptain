@@ -11,12 +11,15 @@ var app = new Vue({
 				'soulDeckCreated': '2018.01.01'
 			}
 		},
-		soulCard: {}, // chciałbym stworzyć element "soulDeckCards" i w niego wrzucić 'soulCard', 
-		// MJ: a przypadkiem soulDeckCards nie powinno siedzieć w soulDecku powyżej? Napisałę Ci nawet komentarz : rozszerz sobie ten obiekt... 
+		soulCard: {
+			'soulCardSoulencje' : [],
+		}, // chciałbym stworzyć element "soulDeckCards" i w niego wrzucić 'soulCard', 
+		// MJ: a przypadkiem soulDeckCards nie powinno s	iedzieć w soulDecku powyżej? Napisałę Ci nawet komentarz : rozszerz sobie ten obiekt... 
 		// MJ: czyli dodaj do niego właściwość
 		admin: 0,
 		loggedIn: 1,
-		habits: []
+		habits: [],
+		startIndex: 0,
 	},
 
 
@@ -48,6 +51,14 @@ var app = new Vue({
 			$.get('/deck/1').then(function _handleResponse(response) {
 				app.deck = response;
 			});
+		},
+		nextCard : () => {
+			app.startIndex++;
+			app.soulCard = app.soulDeck.soulDeckCards[app.startIndex];
+			console.log(app.startIndex, app.soulCard);
+		},
+		prevCard : () => {
+			app.startIndex--;app.soulCard = app.soulDeck.soulDeckCards[app.startIndex];
 		}
 	}
 });
@@ -192,3 +203,6 @@ var MockDeck = {
 };
 
 app.soulDeck = MockDeck;
+// aby mieć index na start
+app.soulCard = app.soulDeck.soulDeckCards[app.startIndex];
+console.log(app.soulCard)
