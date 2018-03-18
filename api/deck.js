@@ -35,6 +35,9 @@ module.exports = function (app, mongoose) {
 	});
 
 	app.post('/deck/:deckId', (req, res) => {
+		// find deck by Id
+		// req.user.decks.filter((deck)=>deck.id === req.params.deckId)
+
 		let deck = Deck.findOne({'deckId' : req.params.deckId})
 			.then((deck)=>{
 				Object.assign(deck, req.body);

@@ -12,6 +12,7 @@ module.exports = function _defineRoutes(deps) {
 	}); 
 	app.get('/deck.html', (req, res) => {
 		let templateData = {title : '🎴 Deck'};
+		templateData.user = req.user;
 		res.render('deck.html', templateData);
 	});
 
