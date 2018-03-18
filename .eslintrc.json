@@ -17,13 +17,13 @@
             "error",
             "unix"
         ],
-        "quotes": [
-            "error",
-            "single"
-        ],
         "semi": [
             "error",
             "always"
+        ],
+        "quotes": [
+            "warn",
+            "single"
         ]
     }
 }
