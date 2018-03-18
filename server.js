@@ -4,7 +4,6 @@ const app = express();
 require('dotenv').load();
 const mongoose = require('mongoose');
 const passport = require('passport');
-const mustacheExpress = require('mustache-express');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mail = require('./email.js');
@@ -12,7 +11,7 @@ const bcrypt = require('bcrypt');
 const sms = require('./sms.js');
 
 const mongoConnString = `mongodb://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBHOST}/${process.env.DBNAME}`;
-mongoose.connect(mongoConnString, { useMongoClient: true });
+mongoose.connect(mongoConnString);
 mongoose.Promise = global.Promise;
 
 
