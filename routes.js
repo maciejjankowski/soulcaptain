@@ -10,6 +10,7 @@ module.exports = function _defineRoutes(deps) {
 		let templateData = {title : '👻 Soulcaptain 🏡 Home'};
 		res.render('index', templateData);
 	}); 
+
 	app.get('/deck.html', (req, res) => {
 		let templateData = {title : '🎴 Deck'};
 		templateData.user = req.user;
@@ -19,6 +20,11 @@ module.exports = function _defineRoutes(deps) {
 	app.get('/deckcard.html', (req, res) => {
 		let templateData = {title : '🃏 Single Card'};
 		res.render('deckcard.html', templateData);
+	});
+
+	app.get('/deckcardadd.html', (req, res) => {
+		let templateData = {title : '📝 🃏 DeckCardAdd'};
+		res.render('deckcardadd.html', templateData);
 	});
 
 	app.get('/habits.html', (req, res) => {
@@ -32,19 +38,15 @@ module.exports = function _defineRoutes(deps) {
 	});
 
 	app.get('/login.html', (req, res) => {
-		let templateData = {title : '👻 Soulcaptain 🏡 Home'};
+		let templateData = {title : '✅ Login'};
 		res.render('login.html', templateData);
 	});
 
 	app.get('/admin.html', (req, res) => {
-		let templateData = {title : 'XYZ'};
+		let templateData = {title : 'Dis iz adminz place'};
 		res.render('admin.html', templateData);
 	});
 
-	app.get('/deckcardadd.html', (req, res) => {
-		let templateData = {title : 'XYZ'};
-		res.render('deckcardadd.html', templateData);
-	});
 
 	return app;
 };
