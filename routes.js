@@ -7,11 +7,11 @@ module.exports = function _defineRoutes(deps) {
 	}
 
 	app.get('/', (req, res) => {
-		let templateData = {title : 'XYZ'};
+		let templateData = {title : '👻 Soulcaptain 🏡 Home'};
 		res.render('index', templateData);
 	}); 
 	app.get('/deck.html', (req, res) => {
-		let templateData = {title : 'XYZ'};
+		let templateData = {title : '🎴 Deck'};
 		res.render('deck.html', templateData);
 	});
 
@@ -21,17 +21,17 @@ module.exports = function _defineRoutes(deps) {
 	});
 
 	app.get('/habits.html', (req, res) => {
-		let templateData = {title : 'XYZ'};
+		let templateData = {title : '❌ DailyX'};
 		res.render('habits.html', templateData);
 	});
 
 	app.get('/signup.html', (req, res) => {
-		let templateData = {title : 'XYZ'};
+		let templateData = {title : '✍️ Sign Up'};
 		res.render('signup.html', templateData);
 	});
 
 	app.get('/login.html', (req, res) => {
-		let templateData = {title : 'XYZ'};
+		let templateData = {title : '👻 Soulcaptain 🏡 Home'};
 		res.render('login.html', templateData);
 	});
 

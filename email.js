@@ -15,7 +15,7 @@ module.exports = function (recipient, subject, body, plainText, cb) {
 		//If there is an error, render the error page
 		if (err) {
 			if (typeof cb === 'function') cb(err);
-			console.log("got an error: ", err);
+			console.log('got an error: ', err);
 		} else {
 			if (typeof cb === 'function') cb(null);
 			console.log(body);
