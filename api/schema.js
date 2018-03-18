@@ -60,6 +60,7 @@ module.exports = function (mongoose) {
 	return {
 		Habit,
 		User,
-		Card
+		Card,
+		Deck
 	};
 };
