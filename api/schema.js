@@ -1,7 +1,7 @@
 module.exports = function (mongoose) {
 	const Card = mongoose.model('Card', // http://mongoosejs.com/docs/guide.html
 		{
-			'soulCardId': String,
+			'coulCardId': String,
 			'soulCardTitle': String,
 			'soulCardSoulencje': [{
 				'soulIdParent': String,

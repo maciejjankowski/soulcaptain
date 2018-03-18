@@ -34,18 +34,10 @@ module.exports = function (app, mongoose) {
 		}); // card save
 	});
 
-	app.get('/zdeck/deckId', (req, res) => {
-    console.log('deck save');
+	app.post('/deck/:deckId', (req, res) => {
 		// find deck by Id
-		// req.user.decks.filter((deck) => deck.id === req.params.deckId)
-    let deckMock = require('../extras/scheme-souldeck.json');
+		// req.user.decks.filter((deck)=>deck.id === req.params.deckId)
 
-    let savedDeck = new Deck(deckMock);
-    savedDeck.save().then( () => {
-      req.user.decks = [savedDeck];    
-    });
-    res.send(savedDeck);
-    /*
 		let deck = Deck.findOne({'deckId' : req.params.deckId})
 			.then((deck)=>{
 				Object.assign(deck, req.body);
@@ -62,6 +54,5 @@ module.exports = function (app, mongoose) {
 				res.send({ status: 'ok' });
 			}
 		});
-    // */
 	});
 };
