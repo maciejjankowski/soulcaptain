@@ -2,70 +2,66 @@
 <html lang="en">
 
 <head>
-    <title>✍️ Sign Up</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
-        crossorigin="anonymous">
-    <!-- scripts -->
-    <script src="https://use.fontawesome.com/432e55ea08.js" async></script>
-    <!-- Custom styles for this template -->
-    <link href="floating-labels.css" rel="stylesheet">
+  <% include common/head.html %>
+  <link href="floating-labels.css" rel="stylesheet">
 </head>
 
 <body>
 
- <!-- navbar start-->
-      <% include ../views/common/nav.html %>
+  <!-- navbar start-->
+  <% include ../views/common/nav.html %>
 
     <div>
       <form class="form-signin" action="/postSignup" method="POST" id="formSignup">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-          <div class="text-center mb-4">
-            <h1 class="h1 mb-3 font-weight-heavy">✍️ Sign up</h1>
-            <p>Create your 👻 SoulCaptain account.</p>
-            <p>🌴 It is beginning of your life journey! 🎉</p>
-            <p>Allready have account? <a href="/login.html">Log in here!</a></p>
-          </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="text-center mb-4">
+          <h1 class="h1 mb-3 font-weight-heavy">✍️ Sign up</h1>
+          <p>Create your 👻 SoulCaptain account.</p>
+          <p>🌴 It is beginning of your life journey! 🎉</p>
+          <p>Allready have account?
+            <a href="/login.html">Log in here!</a>
+          </p>
+        </div>
 
-          <div class="form-label-group">
-            <input type="text"  id="inputName" class="form-control" name="firstName" placeholder="Your nickname" required autofocus>
-            <label for="inputName">Your nickname</label>
-          </div>
+        <div class="form-label-group">
+          <input type="text" id="inputName" class="form-control" name="firstName" placeholder="Your nickname" required autofocus>
+          <label for="inputName">Your nickname</label>
+        </div>
 
-          <div class="form-label-group">
-            <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" required >
-            <label for="inputEmail">Email address</label>
-          </div>
+        <div class="form-label-group">
+          <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" required>
+          <label for="inputEmail">Email address</label>
+        </div>
 
-          <div class="form-label-group">
-            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
-            <label for="inputPassword">Password</label>
-          </div>
+        <div class="form-label-group">
+          <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+          <label for="inputPassword">Password</label>
+        </div>
 
-          <div class="form-label-group">
-            <input type="password" id="repeatPassword" class="form-control" name="repeatpassword" placeholder="Repeat password" required>
-            <label for="repeatPassword">Repeat password</label>
-          </div>
+        <div class="form-label-group">
+          <input type="password" id="repeatPassword" class="form-control" name="repeatpassword" placeholder="Repeat password" required>
+          <label for="repeatPassword">Repeat password</label>
+        </div>
 
-          <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="opt-in"> By creating accout I hereby accept <a href="#"> SoulCaptain Terms and Conditions.</a>
-            </label>
-          </div>
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="opt-in"> By creating accout I hereby accept
+            <a href="#"> SoulCaptain Terms and Conditions.</a>
+          </label>
+        </div>
 
-          <button type="submit" form="formSignup" value="Submit" class="btn btn-lg btn-primary btn-block">Create account</button>
+        <button type="submit" form="formSignup" value="Submit" class="btn btn-lg btn-primary btn-block">Create account</button>
 
-          <p class="mt-5 mb-3 text-muted text-center">&copy; maj 2013-2017, maj & roktiw 2017 - 2018</p>
+      </form>
 
-        </form>
+      <% include common/footer.html %>
+
+
     </div>
-
-  </body>
+</body>
 
 </html>

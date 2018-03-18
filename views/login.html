@@ -2,23 +2,14 @@
 <html lang="en">
 
 <head>
-    <title>👻 Soulcaptain 🏡 Home</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
-        crossorigin="anonymous">
-    <!-- scripts -->
-    <script src="https://use.fontawesome.com/432e55ea08.js" async></script>
-    <!-- Custom styles for this template -->
+    <% include common/head.html %>
     <link href="floating-labels.css" rel="stylesheet">
 </head>
 
 <body>
 
     <!-- navbar start-->
-    <% include ../views/common/nav.htmls %>
-NAV
+    <% include ../views/common/nav.html %>
         <div>
             <form class="form-signin" action="/login" method="POST" id="formSignin">
                 <br>
@@ -27,50 +18,40 @@ NAV
                 <br>
                 <br>
                 <br>
-                <div class="text-center mb-4">
-                    <h1 class="h1 mb-3 font-weight-heavy">✅ Sign in</h1>
-                    <p>Log in to your 👻 SoulCaptain account.</p>
-                    <p>You do not have account?
-                        <a href="/signup.html">Sign Up here!</a>
-                    </p>
-                </div>
+                <div class="conteiner">
+                    <div class="text-center mb-4">
+                        <h1 class="h1 mb-3 font-weight-heavy">✅ Sign in</h1>
+                        <p>Log in to your 👻 SoulCaptain account.</p>
+                        <p>You do not have account?
+                            <a href="/signup.html">Sign Up here!</a>
+                        </p>
+                    </div>
 
-                <div class="form-label-group">
-                    <input type="email" name="email" placeholder="Email" id="inputEmail" class="form-control" required autofocus>
-                    <label for="inputEmail">Email address</label>
-                </div>
+                    <div class="form-label-group">
+                        <input type="email" name="email" placeholder="Email" id="inputEmail" class="form-control" required autofocus>
+                        <label for="inputEmail">Email address</label>
+                    </div>
 
-                <div class="form-label-group">
-                    <input type="password" name="password" placeholder="Password" id="inputPassword" class="form-control" required=>
-                    <label for="inputPassword">Password</label>
-                </div>
+                    <div class="form-label-group">
+                        <input type="password" name="password" placeholder="Password" id="inputPassword" class="form-control" required=>
+                        <label for="inputPassword">Password</label>
+                    </div>
 
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div>
 
-                <button type="submit" form="formSignin" value="Submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
-
-                <p class="mt-5 mb-3 text-muted text-center">&copy; maj 2013-2017, maj & roktiw 2017 - 2018</p>
+                    <button type="submit" form="formSignin" value="Submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
 
             </form>
+            </div>
+            
+            <% include common/footer.html %>
+
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.6/Rx.js" integrity="sha256-6iYGicqy9/jeCoyB+6xS4S7DGV2WRuI0YPr5HADDk3I="
-            crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
-        <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/4.0.0-rc.9/immutable.js" integrity="sha256-XVnm+eqQpGNsqFbn0VBfDAXp659MiMzF0Q1vnC0kD9g="
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
-            crossorigin="anonymous"></script>
         <script src="/main.js"></script>
 
 </body>
