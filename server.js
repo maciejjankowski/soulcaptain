@@ -52,7 +52,7 @@ require('./api/user.js')(app, mongoose, passport);
 require('./routes.js')(deps);
 
 var listener = app.listen(process.env.PORT || 9000, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+  console.log('SoulCaptain is listening on port ' + listener.address().port);
 });
 
 /**
