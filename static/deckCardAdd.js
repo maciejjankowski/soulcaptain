@@ -1,3 +1,4 @@
+// TODO @maciej: zrobić zagnieżdżenie dla source
 $("#button").on("click", function() {
 	var out = {};
 	$("[type=text]").each(function(index, element) {

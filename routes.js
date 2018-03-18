@@ -40,9 +40,9 @@ module.exports = function _defineRoutes(deps) {
 		res.render('admin.html', templateData);
 	});
 
-	app.get('/addcard.html', (req, res) => {
+	app.get('/deckcardadd.html', (req, res) => {
 		let templateData = {title : 'XYZ'};
-		res.render('addcard.html', templateData);
+		res.render('deckcardadd.html', templateData);
 	});
 
 	return app;
