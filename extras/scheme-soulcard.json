@@ -3,7 +3,7 @@
     "soulCardTitle": "Proście, Szukajcie, Pukajcie",
     "soulCardSoulencje": [{
             "soulId": "001",
-            "soulIdPArent": "null",
+            "soulIdParent": "null",
             "soulType": "prayer",
             "language": "PL",
             "text": "Proście, a będzie wam dane; szukajcie, a znajdziecie; kołaczcie, a otworzą wam. Albowiem każdy, kto prosi, otrzymuje; kto szuka, znajduje; a kołaczącemu otworzą.",
