@@ -41,7 +41,7 @@ const deps = { // dependencies object passed to every require function (poor man
   mongoose,
   passport,
   isAuthenticated
-}
+};
 
 require('./api/passport.js')(mongoose, passport);
 require('./api/login.js')(app, passport);
