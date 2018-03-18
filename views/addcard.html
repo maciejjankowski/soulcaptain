@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <% include common/head.html %>
+</head>
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+<title>Add card to ya SoulDeck</title>
+
+</head>
+
+<body>
+    <!-- navbar start-->
+    <% include common/nav.html %>
+        </br>
+        </br>
+        </br>
+        </br>
+        <div class="row">
+            <div class="col">
+            </div>
+
+            <div class="col">
+
+                <h1>Form - Add card to ya SoulDeck</h1>
+
+                <p>In order to add Card tp your SoulDeck, please fill all fields below and click button "To JSON"
+                    <p/>
+
+                    <form action="/action_page.php">
+
+                        <br>
+                        <label>
+                            soulCardId
+                        </label>
+                        <br>
+                        <input class=text-input type="text" name="soulCardId">
+                        <br>
+                        <hint>
+                            "soulId": "003"
+                        </hint>
+                        <br>
+
+                        <br>
+                        <label>
+                            soulIdPArent
+                        </label>
+                        <br>
+                        <input class=text-input type="text" name="soulIdPArent">
+                        <br>
+                        <hint>
+                            "soulIdPArent": "null",
+                        </hint>
+                        <br>
+
+                        <br>
+                        <label>
+                            soulType
+                        </label>
+                        <br>
+                        <input class=text-input type="text" name="soulType">
+                        <br>
+                        <hint>
+                            "soulType": "prayer",
+                        </hint>
+                        <br>
+
+                        <br>
+                        <label>
+                            language
+                        </label>
+                        <br>
+                        <input class=text-input type="text" name="language">
+                        <br>
+                        <hint>
+                            "language": "EN",
+                        </hint>
+                        <br>
+
+                        <br>
+                        <label>
+                            text
+                        </label>
+                        <br>
+                        <input class=text-input type="text" name="text">
+                        <br>
+                        <hint>
+                            "text": "I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my
+                            fear. I will permit it to pass over me and through me. And when it has gone past I will turn
+                            the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain.",
+                        </hint>
+                        <br>
+
+                        <br>
+                        <label>
+                            source
+                        </label>
+                        <br>
+                        <input class=text-input type="text" name="source">
+                        <br>
+                        <hint>
+                            "source": {
+                        </hint>
+                        <br>
+
+                        <br>
+                        <label>
+                            author
+                        </label>
+                        <br>
+                        <input class=text-input type="text" name="author">
+                        <br>
+                        <hint>
+                            "author": "Frank Herbert",
+                        </hint>
+                        <br>
+
+                        <br>
+                        <label>
+                            created
+                        </label>
+                        <br>
+                        <input class=text-input type="text" name="created">
+                        <br>
+                        <hint>
+                            "created": "1965",
+                        </hint>
+                        <br>
+
+                        <br>
+                        <label>
+                            source
+                        </label>
+                        <br>
+                        <input class=text-input type="text" name="source">
+                        <br>
+                        <hint>
+                            "source": "Dune",
+                        </hint>
+                        <br>
+
+                        <br>
+                        <label>
+                            sourceLink
+                        </label>
+                        <br>
+                        <input class=text-input type="text" name="sourceLink">
+                        <br>
+                        <hint>
+                            "sourceLink": "https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
+                        </hint>
+                        <br>
+
+                    </form>
+
+                    <button id="button" type="button" class="btn btn-primary btn-lg btn-block">To JSON</button>
+                    <br>
+                    <br>
+                    <h1> Output </h1>
+                    <p>Copy everything from output and paste it 1:1 and paste it in Admin - Menu element - Descirption
+                        <p/>
+
+                        <textarea class="soulOutput" rows="10" cols="80">
+                            Copy everything from output and paste it 1:1 and paste it in Admin - Menu element - Descirption</textarea>
+            </div>
+
+            <div class="col">
+            </div>
+        </div>
+
+        <% include common/footer.html %>
+            <script src="/habits.js"></script>
+</body>
+
+<script src="/addCard.js"></script>
+
+</html>
