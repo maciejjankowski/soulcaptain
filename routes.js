@@ -28,7 +28,7 @@ module.exports = function _defineRoutes(deps) {
   app.get("/login.html", (req, res) => {
     res.render("login.html");
   });
-  
+
   app.get("/admin.html", (req, res) => {
     res.render("admin.html");
   });
