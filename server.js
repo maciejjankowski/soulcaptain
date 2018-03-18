@@ -67,7 +67,7 @@ function isAuthenticated(req, res, next){
 
 		console.log('missing login');
 
-		if (req.headers['content-type'] === "application/json; charset=UTF-8"){
+		if (req.headers['content-type'] === 'application/json; charset=UTF-8'){
 			res.status(403).send("please log in");
 		} else {
 			res.redirect('/login.html');
