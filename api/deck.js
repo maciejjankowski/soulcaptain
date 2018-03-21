@@ -5,6 +5,7 @@ module.exports = function (deps) {
 	const Deck = mongoose.models.Deck;
 	// const Deck = mongoose.models.Deck;
 
+	// TODO @maciej https://stackoverflow.com/questions/5373198/mongodb-relationships-embed-or-reference
 	app.get('/deck/:deckId', (req, res) => {
 		let deckId = req.params.deckId;
 		if (typeof deckId !== 'undefined'){
@@ -12,7 +13,7 @@ module.exports = function (deps) {
 				res.send(cards);
 			});
 		} else {
-			res.send('SoulCaptain spotted sth. bad');
+			res.send('SoulCaptain spotted no cards in da deck');
 		}
 	});
 
