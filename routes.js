@@ -65,6 +65,11 @@ module.exports = function _defineRoutes(deps) {
 		res.render('deckcardadd.html', templateData);
 	});
 
+	app.get('/deckcardcarousel.html', (req, res) => {
+		let templateData = {title : '🎠 🃏 DeckCardCarousel'};
+		res.render('deckcardcarousel.html', templateData);
+	});
+
 	app.get('/habits.html', (req, res) => {
 		let templateData = {title : '❌ DailyX'};
 		res.render('habits.html', templateData);
