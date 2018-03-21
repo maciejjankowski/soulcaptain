@@ -12,11 +12,10 @@ module.exports = function _defineRoutes(deps) {
 	app.get("/", (req, res) => {
 		let templateData = {
 			title: "👻 Soulcaptain 🏡 Home",
-			greeting:''
+			greeting: ""
 		};
 		if (req.user && req.user.email) {
-			templateData.greeting = 'Hello, 👩‍💻 ';
-		} else {
+			templateData.greeting = "Hello, 👩‍💻 ";
 		}
 		templateData.user = req.user;
 		res.render("index", templateData);
