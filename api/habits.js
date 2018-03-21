@@ -60,14 +60,4 @@ module.exports = function(app, mongoose, isAuthenticated) {
 			});
 		}
 	}); // POST /habits
-
-	app.get("/habits", (req, res) => {
-		console.log(req.session.user);
-		res.send(
-			JSON.stringify({
-				session: req.session,
-				user: req.user
-			})
-		);
-	});
 };

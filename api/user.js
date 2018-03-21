@@ -1,6 +1,6 @@
-const bcrypt = require("bcrypt");
-const testPassword = require("./testPassword");
-const payloadTransformer = require("./payloadTransformer");
+const bcrypt = require('bcrypt');
+const testPassword = require('./testPassword');
+const payloadTransformer = require('./payloadTransformer');
 
 module.exports = function(app, mongoose, passport) {
 	app.get(

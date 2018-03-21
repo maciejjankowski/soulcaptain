@@ -12,7 +12,7 @@ module.exports = function (deps) {
 				res.send(cards);
 			});
 		} else {
-			res.send('bad');
+			res.send('SoulCaptain spotted sth. bad');
 		}
 	});
 
