@@ -1,5 +1,5 @@
 .env
 .history
 .vscode
-
+.idea
 node_modules
