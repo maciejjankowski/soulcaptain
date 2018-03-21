@@ -1,42 +1,4 @@
 module.exports = function _defineRoutes(deps) {
-<<<<<<< HEAD
-  if (typeof deps.app === "undefined") {
-    throw new Error("requires app dependency");
-  } else {
-    var app = deps.app;
-  }
-
-  app.get("/", (req, res) => {
-    res.render("index");
-  });
-
-  app.get("/deck.html", (req, res) => {
-    res.render("deck.html");
-  });
-
-  app.get("/deckcard.html", (req, res) => {
-    res.render("deckcard.html");
-  });
-
-  app.get("/habits.html", (req, res) => {
-    res.render("habits.html");
-  });
-
-  app.get("/signup.html", (req, res) => {
-    res.render("signup.html");
-  });
-
-  app.get("/login.html", (req, res) => {
-    res.render("login.html");
-  });
-  
-  app.get("/admin.html", (req, res) => {
-    res.render("admin.html");
-  });
-
-  return app;
-};
-=======
 	var app;
 	if (typeof deps.app === 'undefined') {
 		throw new Error('requires app dependency');
@@ -93,4 +55,3 @@ module.exports = function _defineRoutes(deps) {
 
 	return app;
 };
->>>>>>> 25fa46a572b13d05be7f10d33fc739fda2823d12
