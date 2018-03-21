@@ -1,4 +1,6 @@
-module.exports = function (app, mongoose) {
+module.exports = function (deps) {
+	let app = deps.app;
+	let mongoose = deps.mongoose;
 	const Card = mongoose.models.Card;
 	const Deck = mongoose.models.Deck;
 	// const Deck = mongoose.models.Deck;
@@ -42,7 +44,7 @@ module.exports = function (app, mongoose) {
 			.then((deck)=>{
 				Object.assign(deck, req.body);
 				deck.save().then((result) => {
-					console.log('saved', result);
+					console.log('SoulCaptain saved the deck (and your soul).', result);
 				});
 			});
 
