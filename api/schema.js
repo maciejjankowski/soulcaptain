@@ -1,3 +1,5 @@
+
+// TODO @maciej dodać do sheme isHabitable czyli dodać wszelkie inforamcje potrzebne by zrobić odhaczankę posługując się tym modelem
 module.exports = function(mongoose) {
 	const Card = mongoose.model(
 		"Card", // http://mongoosejs.com/docs/guide.html
@@ -10,6 +12,7 @@ module.exports = function(mongoose) {
 					soulType: String,
 					language: String,
 					text: String,
+					image: String,
 					source: {
 						author: String,
 						created: Date,
@@ -21,16 +24,6 @@ module.exports = function(mongoose) {
 			owner: String
 		}
 	);
-
-	const Habit = mongoose.model("Habit", {
-		frequency: String,
-		interval: Number,
-		name: String,
-		times: Number,
-		type: String,
-		lastCompleted: [Date],
-		habitId: String
-	});
 
 	const User = mongoose.model("User", {
 		loginId: String,
@@ -48,12 +41,6 @@ module.exports = function(mongoose) {
 				type: mongoose.Schema.Types.ObjectId,
 				ref: "Deck"
 			}
-		],
-		habits: [
-			{
-				type: mongoose.Schema.Types.ObjectId,
-				ref: "Habit"
-			}
 		]
 	});
 	const Deck = mongoose.model("Deck", {
@@ -70,7 +57,6 @@ module.exports = function(mongoose) {
 	});
 
 	return {
-		Habit,
 		User,
 		Card,
 		Deck
