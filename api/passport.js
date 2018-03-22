@@ -1,16 +1,16 @@
-const FacebookStrategy = require("passport-facebook").Strategy;
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const LocalStrategy = require("passport-local").Strategy;
-const bcrypt = require("bcrypt");
-const testPassword = require("./testPassword.js");
+const FacebookStrategy = require('passport-facebook').Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcrypt');
+const testPassword = require('./testPassword.js');
 
-module.exports = function(mongoose, passport) {
+module.exports = function (mongoose, passport) {
 	const User = mongoose.models.User;
-
+	
 	passport.use(
 		new LocalStrategy(
 			{
-				usernameField: "email"
+				usernameField: 'email'
 			},
 			(email, password, done) => {
 				User.findOne(
@@ -26,7 +26,7 @@ module.exports = function(mongoose, passport) {
 								msg: `Email ${email} not found.`
 							});
 						}
-						console.log("passport login", password, user.password);
+						console.log('passport login', password, user.password);
 						testPassword(
 							password,
 							user.password,
@@ -35,11 +35,11 @@ module.exports = function(mongoose, passport) {
 									return done(err);
 								}
 								if (isMatch) {
-									console.log("password matches!");
+									console.log('password matches!');
 									return done(null, user);
 								}
 								return done(null, false, {
-									msg: "Invalid email or password."
+									msg: 'Invalid email or password.'
 								});
 							}
 						);
@@ -48,20 +48,20 @@ module.exports = function(mongoose, passport) {
 			}
 		)
 	);
-
+	
 	passport.serializeUser((user, done) => {
-		console.log("serialize user");
+		console.log('serialize user');
 		done(null, user.id);
 	});
-
+	
 	passport.deserializeUser((id, done) => {
-		console.log("deserialize", id);
+		console.log('deserialize', id);
 		User.findOne(
 			{
 				_id: id
 			},
 			(err, user) => {
-				console.log("deserialize, returned:", err, user);
+				console.log('deserialize, returned:', err, user);
 				done(err, user);
 			}
 		);

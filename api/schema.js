@@ -1,8 +1,7 @@
-
 // TODO @maciej dodać do sheme isHabitable czyli dodać wszelkie inforamcje potrzebne by zrobić odhaczankę posługując się tym modelem
-module.exports = function(mongoose) {
+module.exports = function (mongoose) {
 	const Card = mongoose.model(
-		"Card", // http://mongoosejs.com/docs/guide.html
+		'Card', // http://mongoosejs.com/docs/guide.html
 		{
 			coulCardId: String,
 			soulCardTitle: String,
@@ -24,8 +23,8 @@ module.exports = function(mongoose) {
 			owner: String
 		}
 	);
-
-	const User = mongoose.model("User", {
+	
+	const User = mongoose.model('User', {
 		loginId: String,
 		loginType: String,
 		email: String,
@@ -39,23 +38,23 @@ module.exports = function(mongoose) {
 		decks: [
 			{
 				type: mongoose.Schema.Types.ObjectId,
-				ref: "Deck"
+				ref: 'Deck'
 			}
 		]
 	});
-	const Deck = mongoose.model("Deck", {
+	const Deck = mongoose.model('Deck', {
 		owner: {
 			type: mongoose.Schema.Types.ObjectId,
-			ref: "User"
+			ref: 'User'
 		},
 		cards: [
 			{
 				type: mongoose.Schema.Types.ObjectId,
-				ref: "Card"
+				ref: 'Card'
 			}
 		]
 	});
-
+	
 	return {
 		User,
 		Card,

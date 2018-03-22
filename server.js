@@ -22,12 +22,12 @@ app.locals.tags = '<% %>';
 
 app.use(express.static('static'));
 app.use(require('cookie-parser')());
-app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(require('body-parser').urlencoded({extended: true}));
 app.use(require('body-parser').json());
 
 app.use(session({
 	secret: process.env.SESSIONSECRET,
-	store: new MongoStore({ mongooseConnection: mongoose.connection }),
+	store: new MongoStore({mongooseConnection: mongoose.connection}),
 	resave: true, saveUninitialized: true
 }));
 
@@ -36,7 +36,7 @@ app.use(passport.session());
 
 // DOC using passport: https://stackoverflow.com/questions/45381931/basics-of-passport-session-expressjs-why-do-we-need-to-serialize-and-deseriali
 const schema = require('./api/schema.js')(mongoose);
-const deps = { // dependencies object passed to every require function (poor mans dependency injection)
+const deps = { //TODO dependencies object passed to every require function (poor mans dependency injection)
 	app,
 	mongoose,
 	passport,
@@ -58,18 +58,18 @@ var listener = app.listen(process.env.PORT || 9000, function () {
 /**
  * Login Required middleware.
  */
-function isAuthenticated(req, res, next){
-
+function isAuthenticated(req, res, next) {
+	
 	// TODO wyświetlanie komunikatów jako Bootstrap Alerts
 	console.log('SoulCaptain is testing your login');
 	if (req.isAuthenticated()) {
 		console.log('SoulCaptain says that login is ok');
 		return next();
 	} else {
-
+		
 		console.log('SoulCaptain says that you are not logged in');
-
-		if (req.headers['content-type'] === 'application/json; charset=UTF-8'){
+		
+		if (req.headers['content-type'] === 'application/json; charset=UTF-8') {
 			res.status(403).send('Soul captain asks you kindly to log in');
 		} else {
 			res.redirect('/login.html');

@@ -18,8 +18,8 @@ var app = new Vue({
 		loggedIn: 1,
 		habits: []
 	},
-
-
+	
+	
 	methods: {
 		saveUser: (e) => {
 			e.preventDefault();
@@ -38,13 +38,13 @@ var app = new Vue({
 					$('#saveUserButton').removeAttr('disabled');
 					alert('user created');
 				});
-
+			
 			$('#saveUserButton').attr('disabled', true);
-
+			
 			return false;
 		},
 		login: login,
-		getDeck : () => {
+		getDeck: () => {
 			$.get('/deck/1').then(function _handleResponse(response) {
 				app.deck = response;
 			});
