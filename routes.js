@@ -27,6 +27,12 @@ module.exports = function _defineRoutes(deps) {
 		res.render('deck.html', templateData);
 	});
 	
+	app.get('/deckdocument.html', (req, res) => {
+		let templateData = {title: '🎴 📄 Deck Document'};
+		greetUser(req, templateData);
+		res.render('deckdocument.html', templateData);
+	});
+	
 	app.get('/deckcard.html', (req, res) => {
 		let templateData = {title: '🃏 Single Card'};
 		greetUser(req, templateData);
@@ -72,6 +78,7 @@ module.exports = function _defineRoutes(deps) {
 		greetUser(req, templateData);
 		res.render('admin.html', templateData);
 	});
+	
 	
 	return app;
 };
