@@ -65,13 +65,15 @@ function login(e) {
 }
 
 
-$(() => {
+$(function _onload(){
+
 	$.get('/deck').then(function _handleResponse(response) {
-		app.deck = response;
+		app.soulDeck = response;
 	});
+
 }); // onload
 
-
+/*
 var MockDeck = {
 	'soulDeckId': '201801191933450000000001',
 	'soulDeckTitle': 'Wiktors\' DECK',
@@ -189,6 +191,6 @@ var MockDeck = {
 		]
 	}
 	]
-};
+};*/
 
-app.soulDeck = MockDeck;
+// app.soulDeck = app.deck

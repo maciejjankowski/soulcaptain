@@ -3,21 +3,42 @@ module.exports = function (app, mongoose) {
 	const Deck = mongoose.models.Deck;
 	// const Deck = mongoose.models.Deck;
 
-	app.get('/deck/:deckId', (req, res) => {
-		let deckId = req.params.deckId;
-		if (typeof deckId !== 'undefined'){
-			Card.findOne({'deckId' : deckId}).then((cards) => {
-				res.send(cards);
-			});
+
+
+	app.get('/deck', (req, res) => {
+		// let deckId = req.params.deckId;
+		let userDecks = req.user.decks;
+		if (userDecks.length){
+			Deck.findOne({'_id' : userDecks[0]})
+				.populate('cards')
+				.then((deck) => {
+					res.send(deck);
+				});
 		} else {
-			res.send('bad');
+			res.send({});
 		}
 	});
 
 	app.get('/decks', (req, res) => {
-		Deck.find().then((deck) => {
-			res.send(deck);
-		});
+		if (typeof req.user && req.user.decks){
+			let userDecks = req.user.decks;
+
+			let listOfDecks = userDecks.map(deckId =>({
+				_id : deckId
+			}));
+			console.log('listOfDecks', JSON.stringify(listOfDecks, null,2 ));
+			Deck.find({ $or : listOfDecks }).then(function _handleDecks(decks) {
+				console.log('decks:', decks);
+				// TODO: nie pokazywać userowi wszystkich pól obiektu
+				res.send(decks);
+			}).catch(function _handleDeckFail(err){
+				console.log('deck error', err);
+			});
+
+		} else {
+			console.error('niezalogowany');
+			res.send(403, 'Log in first');
+		}
 	});
 
 	app.post('/card2', (req, res) => {
