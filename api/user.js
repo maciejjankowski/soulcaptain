@@ -3,12 +3,14 @@ const testPassword = require('./testPassword');
 const payloadTransformer = require('./payloadTransformer');
 
 module.exports = function (app, mongoose, passport) {
+
 	app.get(
 		'/profile',
 		require('connect-ensure-login').ensureLoggedIn(),
 		// isAuthenticated,
 		function (req, res) {
 			console.log('/profile');
+
 			res.send({user: req.user});
 		}
 	);
@@ -19,6 +21,7 @@ module.exports = function (app, mongoose, passport) {
 	app.post('/postSignup', function postSignup(req, res) {
 		let payloadFields = (req.body && req.body.payload) || req.body;
 		console.log('to jest konsol log dla payloadFields', payloadFields);
+
 
 		let payloadApproved = {};
 
