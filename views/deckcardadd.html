@@ -6,177 +6,193 @@
 </head>
 
 <body style="margin-left: .5em">
-    <!-- navbar start-->
-    <% include common/nav.html %>
+<!-- navbar start-->
+<% include common/nav.html %>
 
-        <div class="container">
+<div class="container">
 
-            <div class="row">
+    <div class="row">
 
-                <div class="col">
+        <div class="col">
 
-                    <h1>Form - Add card to ya SoulDeck</h1>
+            <h1>Add card to ya SoulDeck</h1>
 
-                    <p>In order to add Card tp your SoulDeck, please fill all fields below and click button "To JSON"
-                        <p/>
+            <p>In order to add Card tp your SoulDeck, please fill all fields below and click button "To JSON"
+            <p/>
 
-                        <form action="/action_page.php"></form>
+            <form action="/action_page.php"></form>
 
-                        <div class="form-row">
+            <div class="form-row">
+                <label>
+                    soulCardTitle
+                </label>
+                <textarea class="form-control" type="text" name="soulCardTitle" rows="1"></textarea>
+                <small class="form-text text-muted">
+                    "soulCardTitle": "Litany against fear",
+                </small>
+            </div>
 
-                            <div class="form-group col-md-6">
-                                <label>
-                                    soulCardId
-                                </label>
-                                <input class=form-control type="text" name="soulCardId">
-                                <small class="form-text text-muted">
-                                    "soulId": "003"
-                                </small>
-                            </div>
+            <div class="form-row">
+                <label>
+                    text
+                </label>
+                <textarea class="form-control" type="text" name="text" rows="3" "></textarea>
+                <small class="form-text text-muted">
+                    "text": "I must not fear. Fear is the mind-killer. Fear is the little-death that brings total
+                    obliteration. I will face my
+                    fear. I will permit it to pass over me and through me. And when it has gone past I will turn
+                    the inner eye to see its path. Where the fear has gone there will be nothing. Only I will
+                    remain.",
+                </small>
+            </div>
 
-                            <div class="form-group col-md-6">
-                                <label>
-                                    soulIdPArent
-                                </label>
-                                <input class=form-control type="text" name="soulIdPArent">
-                                <small class="form-text text-muted">
-                                    "soulIdPArent": "null",
-                                </small>
-                            </div>
+            <hr>
 
-                        </div>
+            <div class="form-row">
 
-                        <div class="form-row">
-
-                            <div class="form-group col-md-6">
-                                <label>
-                                    soulType
-                                </label>
-                                <input class=form-control type="text" name="soulType">
-                                <small class="form-text text-muted">
-                                    "soulType": "prayer",
-                                </small>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label>
-                                    language
-                                </label>
-                                <input class=form-control type="text" name="language">
-                                <small class="form-text text-muted">
-                                    "language": "EN",
-                                </small>
-                            </div>
-
-                        </div>
-
-                        <div class="form-row">
-                            <label>
-                                text
-                            </label>
-                            <textarea class="form-control" type="text" name="text" rows="3" style="margin-left: .25em"></textarea>
-                            <small class="form-text text-muted">
-                                "text": "I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my
-                                fear. I will permit it to pass over me and through me. And when it has gone past I will turn
-                                the inner eye to see its path. Where the fear has gone there will be nothing. Only I will
-                                remain.",
-                            </small>
-                        </div>
-
-                        <div class="form-row">
-
-                            <div class="form-group col-md-6">
-                                <label>
-                                    source
-                                </label>
-                                <input class=form-control type="text" name="source">
-                                <small class="form-text text-muted">
-                                    "source": {
-                                </small>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label>
-                                    author
-                                </label>
-                                <input class=form-control type="text" name="author">
-                                <small class="form-text text-muted">
-                                    "author": "Frank Herbert",
-                                </small>
-                            </div>
-
-                        </div>
-
-                        <div class="form-row">
-
-                            <div class="form-group col-md-6">
-                                <label>
-                                    created
-                                </label>
-                                <input class=form-control type="text" name="created">
-                                <small class="form-text text-muted">
-                                    "created": "1965",
-                                </small>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label>
-                                    source
-                                </label>
-                                <input class=form-control type="text" name="source">
-                                <small class="form-text text-muted">
-                                    "source": "Dune",
-                                </small>
-                            </div>
-
-                        </div>
-
-                        <div class="form-row">
-
-                            <div class="form-group col-md-6">
-                                <label>
-                                    sourceLink
-                                </label>
-                                <input class=form-control type="text" name="sourceLink">
-                                <small class="form-text text-muted" style="word-wrap: break-word;">
-                                    "sourceLink": "https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
-                                </small>
-                            </div>
-                        </div>
-
-                        </form>
-
-                        <button id="button" type="button" class="btn btn-success btn-lg btn-block">To JSON</button>
-
+                <div class="form-group col-md-6">
+                    <label>
+                        soulCardId
+                    </label>
+                    <input class=form-control type="text" name="soulCardId">
+                    <small class="form-text text-muted">
+                        "soulId": "003"
+                    </small>
                 </div>
 
-                <div class="col">
+                <div class="form-group col-md-6">
+                    <label>
+                        soulIdPArent
+                    </label>
+                    <input class=form-control type="text" name="soulIdPArent">
+                    <small class="form-text text-muted">
+                        "soulIdPArent": "null",
+                    </small>
+                </div>
 
-                    <h1> Output </h1>
-                    <p>Here will appear your SoulCard schema. Please check it before sending to backend.
-                        <p/>
-                        <div class="form-row">
-                            <form id="cardForm" method="POST" action="/deck/1">
-                                <label>
-                                    Card Editor JSON Output
-                                </label>
-                                <textarea class="form-control" rows="13" cols="80" style="margin-left: .25em">
-                                    Here will appear your SoulCard schema.</textarea>
-                                <small class="form-text text-muted">
-                                    Please doublecheck before sending to backend!
-                                </small>
-                                <button type="submit" form="cardForm" value="Submit" class="btn btn-warning btn-lg btn-block">Send to backend</button>
-                            </form>
-                        </div>
+            </div>
 
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label>
+                        soulType
+                    </label>
+                    <input class=form-control type="text" name="soulType">
+                    <small class="form-text text-muted">
+                        "soulType": "prayer",
+                    </small>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>
+                        language
+                    </label>
+                    <input class=form-control type="text" name="language">
+                    <small class="form-text text-muted">
+                        "language": "EN",
+                    </small>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label>
+                        source
+                    </label>
+                    <input class=form-control type="text" name="source">
+                    <small class="form-text text-muted">
+                        "source": {
+                    </small>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>
+                        author
+                    </label>
+                    <input class=form-control type="text" name="author">
+                    <small class="form-text text-muted">
+                        "author": "Frank Herbert",
+                    </small>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label>
+                        created
+                    </label>
+                    <input class=form-control type="text" name="created">
+                    <small class="form-text text-muted">
+                        "created": "1965",
+                    </small>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>
+                        source
+                    </label>
+                    <input class=form-control type="text" name="source">
+                    <small class="form-text text-muted">
+                        "source": "Dune",
+                    </small>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label>
+                        sourceLink
+                    </label>
+                    <input class=form-control type="text" name="sourceLink">
+                    <small class="form-text text-muted" style="word-wrap: break-word;">
+                        "sourceLink": "https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
+                    </small>
                 </div>
             </div>
 
+            </form>
+
+            <button id="button" type="button" class="btn btn-success btn-lg btn-block">To JSON</button>
+
         </div>
 
+        <div class="col">
 
-        <% include common/footer.html %>
-            <script src="/habits.js"></script>
+            <h1> Output </h1>
+            <p>Here will appear your SoulCard schema. Please check it before sending to backend.
+            <p/>
+            <div class="form-row">
+                <form id="cardForm" method="POST" action="/deck/1">
+                    <label>
+                        Card Editor JSON Output
+                    </label>
+                    <textarea class="form-control" rows="13" cols="80" style="margin-left: .25em">
+                                    Here will appear your SoulCard schema.</textarea>
+                    <small class="form-text text-muted">
+                        Please doublecheck before sending to backend!
+                    </small>
+                    <button type="submit" form="cardForm" value="Submit" class="btn btn-warning btn-lg btn-block">Send
+                        to backend
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<% include common/script-footer.html %>
+<% include common/footer.html %>
+<script src="/habits.js"></script>
 </body>
 
 <script src="/deckCardAdd.js"></script>
