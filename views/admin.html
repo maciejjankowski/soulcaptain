@@ -1,17 +1,29 @@
 <html>
 
 <head>
-  <% include common/head.html %>
+    <% include common/head.html %>
 </head>
 
 <body id="app">
 
 
-  <% include common/footer.html %>
+<% include common/script-footer.html %>
+<% include common/footer.html %>
 
-   <script>
-    var app = new Vue({ el: '#app', data: { soulCard: {} }, methods: { saveUser: () => { console.log() } } })
-    </script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            soulCard: {}
+        },
+        methods: {
+            saveUser: () => {
+                console.log()
+            }
+        }
+    })
+</script>
 </body>
 
 </html>

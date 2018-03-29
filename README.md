@@ -17,7 +17,7 @@
 * [ ] opcjonalnie facebook / gmail login - https://github.com/passport/express-4.x-facebook-example/blob/master/server.js
 * [ ] soulencje -> karty manifestu: http://jsbin.com/qekagiq/25
 * [x] Logowanie i apmiętanie usera w sesji
-* [x] zainstalaować ulubiony kolorek do Visual Studio
+* [ ] https://news.ycombinator.com/item?id=16515080
 
 ### [Wiktor](https://gitlab.com/maciejjankowski/soulcaptain/boards?scope=all&utf8=%E2%9C%93&state=opened&assignee_username=roktiw)
 

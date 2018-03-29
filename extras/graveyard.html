@@ -1,46 +1,46 @@
 <!-- login and admin start -->
 <strong class="text-danger">This is a demo, your data is not safe yet</strong>
 <div id="app">
-  <a href="#!" v-on:click="admin = !admin">admin</a> |
-  <a href="#!" v-on:click="loggedIn = !loggedIn">login</a>
-  <br>
-
-  <div v-if="!loggedIn">
-    <form id="loginForm">
-      <input type="email" name="email" placeholder="email">
-      <input type="password" name="password" placeholder="password">
-      <input v-on:click="login" type="button" value="&gt;">
-    </form>
-  </div>
-
-  <div id="admin" v-if="admin && loggedIn" class="container">
-
-    <form name="userAddForm" id="userAddForm">
-      <input type="email" name="email" placeholder="email">
-      <input type="password" name="password" placeholder="password">
-      <input type="password" name="repeatpassword" placeholder="repeatpassword">
-      <input type="text" name="firstName" placeholder="firstName">
-      <input v-on:click="saveUser" type="button" value="zapisz" id="saveUserButton">
-    </form>
-  </div>
-
-  <div v-if="!admin  && loggedIn" class="container">
-  </div>
-
-  <!-- login and admin end -->
+    <a href="#!" v-on:click="admin = !admin">admin</a> |
+    <a href="#!" v-on:click="loggedIn = !loggedIn">login</a>
 
 
-  <!-- pętla na wypluwanie kart -->
+    <div v-if="!loggedIn">
+        <form id="loginForm">
+            <input type="email" name="email" placeholder="email">
+            <input type="password" name="password" placeholder="password">
+            <input v-on:click="login" type="button" value="&gt;">
+        </form>
+    </div>
 
-  <li v-for="card in soulDeck.soulDeckCards">
+    <div id="admin" v-if="admin && loggedIn" class="container">
 
-    <p>
-      {{card.soulCardTitle}}
-    </p>
-    <ul>
-      <li v-for="encja in card.soulCardSoulencje">
-        {{encja.soulId}} {{encja.text}} {{encja.source.author}}
-      </li>
-    </ul>
+        <form name="userAddForm" id="userAddForm">
+            <input type="email" name="email" placeholder="email">
+            <input type="password" name="password" placeholder="password">
+            <input type="password" name="repeatpassword" placeholder="repeatpassword">
+            <input type="text" name="firstName" placeholder="firstName">
+            <input v-on:click="saveUser" type="button" value="zapisz" id="saveUserButton">
+        </form>
+    </div>
 
-  </li>
+    <div v-if="!admin  && loggedIn" class="container">
+    </div>
+
+    <!-- login and admin end -->
+
+
+    <!-- pętla na wypluwanie kart -->
+
+    <li v-for="card in soulDeck.soulDeckCards">
+
+        <p>
+            {{card.soulCardTitle}}
+        </p>
+        <ul>
+            <li v-for="encja in card.soulCardSoulencje">
+                {{encja.soulId}} {{encja.text}} {{encja.source.author}}
+            </li>
+        </ul>
+
+    </li>
