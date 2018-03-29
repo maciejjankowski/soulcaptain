@@ -20,7 +20,7 @@
                 <p>Deck name</p>
                 <p>Deck last modification name</p>
             </div>
-            <div v-for="card in soulDeck.soulDeckCards" class="carousel-item text-center p-4">
+            <div v-for="card in soulDeck.cards" class="carousel-item text-center p-4">
                 <h2>{{card.soulCardTitle}}</h2>
                 <div v-for="encja in card.soulCardSoulencje">
                     <p>{{encja.text}}</p>
