@@ -23,7 +23,7 @@ module.exports = function (mongoose) {
 			owner: String
 		}
 	);
-	
+
 	const User = mongoose.model('User', {
 		loginId: String,
 		loginType: String,
@@ -54,7 +54,7 @@ module.exports = function (mongoose) {
 			}
 		]
 	});
-	
+
 	return {
 		User,
 		Card,

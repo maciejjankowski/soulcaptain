@@ -7,8 +7,8 @@ var app = new Vue({
 		habitsEditable: false,
 		busy: false
 	},
-	
-	
+
+
 	methods: {
 		editableHabits: function () {
 			app.habitsEditable ^= 1;
@@ -104,7 +104,7 @@ var habits = [{
 		'times': 3,
 		'type': 'growth',
 		'lastCompleted': -40000
-		
+
 	},
 	{
 		'frequency': 'monthly',
