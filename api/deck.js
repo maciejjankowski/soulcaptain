@@ -64,6 +64,8 @@ module.exports = function (deps) {
 		// find deck by Id
 		// req.user.decks.filter((deck)=>deck.id === req.params.deckId)
 
+		console.log('to je params', JSON.stringify(req.params, null, 2));
+		console.log('to je body', JSON.stringify(req.body, null, 2));
 		let deck = Deck.findOne({ deckId: req.params.deckId }).then(deck => {
 			Object.assign(deck, req.body);
 			deck.save().then(result => {
@@ -72,7 +74,7 @@ module.exports = function (deps) {
 					result
 				);
 			});
-		});
+		}).catch(function pokaError(error) { console.log('to je error z findOne', error) });
 
 		Deck.save((err, data) => {
 			if (err) {
