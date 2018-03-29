@@ -6,47 +6,47 @@
 </head>
 
 <body>
-<!-- navbar start-->
-<% include ../views/common/nav.html %>
+    <!-- navbar start-->
+    <% include ../views/common/nav.html %>
 
-<main>
-    <div id="app">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                </div>
-                <div class="col-9">
-                    <div v-for="card in soulDeck.cards">
-                        <h2>{{card.soulCardTitle}}
-                        </h2>
-                        <hr>
-                        <div v-for="encja in card.soulCardSoulencje">
-                            <div v-if="encja.soulType==='habit'">
-                                This is habit
-                                <a class="btn btn-primary">
-                                    <i class="fa fa-check"></i>
-                                </a>
+        <main>
+            <div id="app">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                        </div>
+                        <div class="col-9">
+                            <div v-for="card in soulDeck.cards">
+                                <h2>{{card.soulCardTitle}}
+                                </h2>
+                                <hr>
+                                <div v-for="encja in card.soulCardSoulencje">
+                                    <div v-if="encja.soulType==='habit'">
+                                        This is habit
+                                        <a class="btn btn-primary">
+                                            <i class="fa fa-check"></i>
+                                        </a>
+                                    </div>
+                                    <p>{{encja.text}}
+                                    </p>
+                                    <blockquote class="blockquote text-right">
+                                        <footer class="blockquote-footer">{{encja.source.author}}</footer>
+                                    </blockquote>
+                                </div>
                             </div>
-                            <p>{{encja.text}}
-                            </p>
-                            <blockquote class="blockquote text-right">
-                                <footer class="blockquote-footer">{{encja.source.author}}</footer>
-                            </blockquote>
+                        </div>
+                        <div class="col">
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                </div>
             </div>
-        </div>
-    </div>
-    </div>
-    </div>
-</main>
+            </div>
+            </div>
+        </main>
 
-<% include common/script-footer.html %>
-<% include common/footer.html %>
-<script src="/main.js"></script>
+        <% include common/script-footer.html %>
+            <% include common/footer.html %>
+                <script src="/main.js"></script>
 
 </body>
 

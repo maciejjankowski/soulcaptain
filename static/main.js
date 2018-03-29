@@ -65,7 +65,7 @@ function login(e) {
 }
 
 
-$(function _onload(){
+$(function _onload() {
 
 	$.get('/deck').then(function _handleResponse(response) {
 		app.soulDeck = response;

@@ -98,147 +98,147 @@ var habits = [{
 	'times': 2,
 	'type': 'growth',
 },
-	{
-		'frequency': 'weekly',
-		'name': '20 linijek kodu',
-		'times': 3,
-		'type': 'growth',
-		'lastCompleted': -40000
+{
+	'frequency': 'weekly',
+	'name': '20 linijek kodu',
+	'times': 3,
+	'type': 'growth',
+	'lastCompleted': -40000
 
-	},
-	{
-		'frequency': 'monthly',
-		'name': 'Assety',
-		'times': 2,
-		'type': 'growth'
-	},
-	{
-		'frequency': 'weekly',
-		'name': 'Nauka',
-		'times': 2,
-		'type': 'growth'
-	},
-	{
-		'frequency': 'weekly',
-		'name': 'Klienci',
-		'times': 1,
-		'type': 'growth'
-	},
-	{
-		'frequency': 'weekly',
-		'name': 'Ćwiczenia',
-		'times': 2,
-		'type': 'sustain'
-	},
-	{
-		'frequency': 'weekly',
-		'name': 'Sauna',
-		'times': 1,
-		'type': 'sustain'
-	},
-	{
-		'frequency': 'daily',
-		'name': 'Wyciszanie / relaks / medytacje / drzemki',
-		'times': 1,
-		'type': 'sustain'
-	},
-	{
-		'frequency': 'weekly',
-		'name': 'Wstawanie przed 7',
-		'times': 2,
-		'type': 'sustain'
-	},
-	{
-		'frequency': 'weekly',
-		'name': 'Wyjść z domu przed 8',
-		'times': 2,
-		'type': 'sustain'
-	},
-	{
-		'frequency': 'weekly',
-		'name': 'Sexy time',
-		'times': 1,
-		'type': 'sustain'
-	},
-	{
-		'frequency': 'daily',
-		'name': 'Plan na następny dzień',
-		'times': 1,
-		'type': 'sustain',
-		'when': 'before bed'
-	},
-	{
-		'frequency': 'monthly',
-		'name': 'Mitapy / eventy / znajomi',
-		'times': 2,
-		'type': 'excite'
-	},
-	{
-		'frequency': 'monthly',
-		'name': 'Bycie docenionym / użycie talentu',
-		'times': 1,
-		'type': 'excite'
-	},
-	{
-		'frequency': 'monthly',
-		'name': 'Zwycięstwa',
-		'times': 1,
-		'type': 'excite'
-	},
-	{
-		'frequency': 'monthly',
-		'name': 'Wyzwania / przekraczanie granic',
-		'times': 1,
-		'type': 'excite'
-	},
-	{
-		'frequency': 'weekly',
-		'name': 'Gotowanie',
-		'times': 3,
-		'type': 'maintenance'
-	},
-	{
-		'frequency': 'weekly',
-		'name': 'Sprzątanie',
-		'times': 1,
-		'type': 'maintenance'
-	},
-	{
-		'frequency': 'daily',
-		'name': 'Budżet / Wydatki',
-		'times': 1,
-		'type': 'maintenance'
-	},
-	{
-		'frequency': 'monthly',
-		'name': 'Głodówka',
-		'times': 2,
-		'type': 'challenge'
-	},
-	{
-		'frequency': 'weekly',
-		'name': 'Dzień bez wydatków',
-		'times': 2,
-		'type': 'challenge'
-	},
-	{
-		'frequency': 'weekly',
-		'name': 'Dzień bez fb',
-		'times': 2,
-		'type': 'challenge'
-	},
-	{
-		'frequency': 'weekly',
-		'name': 'Dzień bez mięsa',
-		'times': 4,
-		'type': 'challenge'
-	},
-	{
-		'frequency': 'weekly',
-		'name': 'Dzień bez cukru',
-		'times': 5,
-		'type': 'challenge'
-	}
+},
+{
+	'frequency': 'monthly',
+	'name': 'Assety',
+	'times': 2,
+	'type': 'growth'
+},
+{
+	'frequency': 'weekly',
+	'name': 'Nauka',
+	'times': 2,
+	'type': 'growth'
+},
+{
+	'frequency': 'weekly',
+	'name': 'Klienci',
+	'times': 1,
+	'type': 'growth'
+},
+{
+	'frequency': 'weekly',
+	'name': 'Ćwiczenia',
+	'times': 2,
+	'type': 'sustain'
+},
+{
+	'frequency': 'weekly',
+	'name': 'Sauna',
+	'times': 1,
+	'type': 'sustain'
+},
+{
+	'frequency': 'daily',
+	'name': 'Wyciszanie / relaks / medytacje / drzemki',
+	'times': 1,
+	'type': 'sustain'
+},
+{
+	'frequency': 'weekly',
+	'name': 'Wstawanie przed 7',
+	'times': 2,
+	'type': 'sustain'
+},
+{
+	'frequency': 'weekly',
+	'name': 'Wyjść z domu przed 8',
+	'times': 2,
+	'type': 'sustain'
+},
+{
+	'frequency': 'weekly',
+	'name': 'Sexy time',
+	'times': 1,
+	'type': 'sustain'
+},
+{
+	'frequency': 'daily',
+	'name': 'Plan na następny dzień',
+	'times': 1,
+	'type': 'sustain',
+	'when': 'before bed'
+},
+{
+	'frequency': 'monthly',
+	'name': 'Mitapy / eventy / znajomi',
+	'times': 2,
+	'type': 'excite'
+},
+{
+	'frequency': 'monthly',
+	'name': 'Bycie docenionym / użycie talentu',
+	'times': 1,
+	'type': 'excite'
+},
+{
+	'frequency': 'monthly',
+	'name': 'Zwycięstwa',
+	'times': 1,
+	'type': 'excite'
+},
+{
+	'frequency': 'monthly',
+	'name': 'Wyzwania / przekraczanie granic',
+	'times': 1,
+	'type': 'excite'
+},
+{
+	'frequency': 'weekly',
+	'name': 'Gotowanie',
+	'times': 3,
+	'type': 'maintenance'
+},
+{
+	'frequency': 'weekly',
+	'name': 'Sprzątanie',
+	'times': 1,
+	'type': 'maintenance'
+},
+{
+	'frequency': 'daily',
+	'name': 'Budżet / Wydatki',
+	'times': 1,
+	'type': 'maintenance'
+},
+{
+	'frequency': 'monthly',
+	'name': 'Głodówka',
+	'times': 2,
+	'type': 'challenge'
+},
+{
+	'frequency': 'weekly',
+	'name': 'Dzień bez wydatków',
+	'times': 2,
+	'type': 'challenge'
+},
+{
+	'frequency': 'weekly',
+	'name': 'Dzień bez fb',
+	'times': 2,
+	'type': 'challenge'
+},
+{
+	'frequency': 'weekly',
+	'name': 'Dzień bez mięsa',
+	'times': 4,
+	'type': 'challenge'
+},
+{
+	'frequency': 'weekly',
+	'name': 'Dzień bez cukru',
+	'times': 5,
+	'type': 'challenge'
+}
 ];
 
 habits.forEach((i) => {

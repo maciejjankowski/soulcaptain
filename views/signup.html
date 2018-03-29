@@ -3,65 +3,62 @@
 
 <head>
     <% include common/head.html %>
-    <link href="floating-labels.css" rel="stylesheet">
+        <link href="floating-labels.css" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- navbar start-->
-<% include ../views/common/nav.html %>
+    <!-- navbar start-->
+    <% include ../views/common/nav.html %>
 
-<div>
-    <form class="form-signin" action="/postSignup" method="POST" id="formSignup">
+        <div>
+            <form class="form-signin" action="/postSignup" method="POST" id="formSignup">
 
-        <div class="text-center mb-4">
-            <h1 class="h1 mb-3 font-weight-heavy">✍️ Sign up</h1>
-            <p>Create your 👻 SoulCaptain account.</p>
-            <p>🌴 It is beginning of your life journey! 🎉</p>
-            <p>Allready have account?
-                <a href="/login.html">Log in here!</a>
-            </p>
+                <div class="text-center mb-4">
+                    <h1 class="h1 mb-3 font-weight-heavy">✍️ Sign up</h1>
+                    <p>Create your 👻 SoulCaptain account.</p>
+                    <p>🌴 It is beginning of your life journey! 🎉</p>
+                    <p>Allready have account?
+                        <a href="/login.html">Log in here!</a>
+                    </p>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="text" id="inputName" class="form-control" name="firstName" placeholder="Your nickname" required autofocus>
+                    <label for="inputName">Your nickname</label>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" required>
+                    <label for="inputEmail">Email address</label>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+                    <label for="inputPassword">Password</label>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="password" id="repeatPassword" class="form-control" name="repeatpassword" placeholder="Repeat password" required>
+                    <label for="repeatPassword">Repeat password</label>
+                </div>
+
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="opt-in"> By creating accout I hereby accept
+                        <a href="#"> SoulCaptain Terms and Conditions.</a>
+                    </label>
+                </div>
+
+                <button type="submit" form="formSignup" value="Submit" class="btn btn-lg btn-primary btn-block">Create account
+                </button>
+
+            </form>
+
+            <% include common/script-footer.html %>
+
+
         </div>
-
-        <div class="form-label-group">
-            <input type="text" id="inputName" class="form-control" name="firstName" placeholder="Your nickname" required
-                   autofocus>
-            <label for="inputName">Your nickname</label>
-        </div>
-
-        <div class="form-label-group">
-            <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" required>
-            <label for="inputEmail">Email address</label>
-        </div>
-
-        <div class="form-label-group">
-            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password"
-                   required>
-            <label for="inputPassword">Password</label>
-        </div>
-
-        <div class="form-label-group">
-            <input type="password" id="repeatPassword" class="form-control" name="repeatpassword"
-                   placeholder="Repeat password" required>
-            <label for="repeatPassword">Repeat password</label>
-        </div>
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="opt-in"> By creating accout I hereby accept
-                <a href="#"> SoulCaptain Terms and Conditions.</a>
-            </label>
-        </div>
-
-        <button type="submit" form="formSignup" value="Submit" class="btn btn-lg btn-primary btn-block">Create account
-        </button>
-
-    </form>
-
-    <% include common/script-footer.html %>
-
-
-</div>
 </body>
 
 </html>
