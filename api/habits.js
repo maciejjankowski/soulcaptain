@@ -18,7 +18,7 @@ module.exports = function (app, mongoose, isAuthenticated) {
 		'bi-annually'
 	];
 	var habitType = ['growth', 'excite', 'sustain', 'maintenance', 'challenge'];
-	
+
 	const Habit = mongoose.models.Habit;
 	/*
 	expect(req.body.payload).to.beArray()

@@ -12,16 +12,16 @@ module.exports = function (app, mongoose, passport) {
 			res.send({user: req.user});
 		}
 	);
-	
+
 	// TODO napisać lub użyć logout 
 	app.get('/login', passport.authenticate());
-	
+
 	app.post('/postSignup', function postSignup(req, res) {
 		let payloadFields = (req.body && req.body.payload) || req.body;
 		console.log('to jest konsol log dla payloadFields', payloadFields);
-		
+
 		let payloadApproved = {};
-		
+
 		let fieldsWeShouldHave = [
 			'firstName',
 			'email',
@@ -44,9 +44,9 @@ module.exports = function (app, mongoose, passport) {
 			payloadFields.repeatpassword,
 			payloadApproved.repeatpassword
 		);
-		
+
 		console.log('to jest konsol log dla payloadApproved', payloadApproved);
-		
+
 		mongoose.models.User.findOne({loginId: payloadApproved.email}).then(
 			user => {
 				if (user) {
@@ -63,7 +63,7 @@ module.exports = function (app, mongoose, passport) {
 					});
 				} else {
 					bcrypt.hash(payloadApproved.password, 10, function (err,
-					                                                    pwhash) {
+																		pwhash) {
 						let newUser = new mongoose.models.User({
 							loginId: payloadApproved.email,
 							loginType: 'email',
@@ -80,7 +80,7 @@ module.exports = function (app, mongoose, passport) {
 				}
 			}
 		);
-		
+
 		res.writeHead(302, {
 			Location: '/'
 			//add other headers here...

@@ -7,7 +7,7 @@ smsapi.authentication
 
 function sendMessage(from, to, text, displayResult, displayError) {
 	// implement queueing / state saving
-	
+
 	return smsapi.message
 		.sms()
 		.from(from)

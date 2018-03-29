@@ -6,7 +6,7 @@ const testPassword = require('./testPassword.js');
 
 module.exports = function (mongoose, passport) {
 	const User = mongoose.models.User;
-	
+
 	passport.use(
 		new LocalStrategy(
 			{
@@ -48,12 +48,12 @@ module.exports = function (mongoose, passport) {
 			}
 		)
 	);
-	
+
 	passport.serializeUser((user, done) => {
 		console.log('serialize user');
 		done(null, user.id);
 	});
-	
+
 	passport.deserializeUser((id, done) => {
 		console.log('deserialize', id);
 		User.findOne(

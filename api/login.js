@@ -13,7 +13,7 @@ module.exports = function (app, passport) {
 					if (error) return next(error);
 					// TODO redirect tam skąd user przyszedł a nie na pałe na "/"
 					console.log('Success! Redirecting to /');
-					
+
 					return res.redirect('/');
 				});
 				console.log('info', info);

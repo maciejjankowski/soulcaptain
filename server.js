@@ -59,16 +59,16 @@ var listener = app.listen(process.env.PORT || 9000, function () {
  * Login Required middleware.
  */
 function isAuthenticated(req, res, next) {
-	
+
 	// TODO wyświetlanie komunikatów jako Bootstrap Alerts
 	console.log('SoulCaptain is testing your login');
 	if (req.isAuthenticated()) {
 		console.log('SoulCaptain says that login is ok');
 		return next();
 	} else {
-		
+
 		console.log('SoulCaptain says that you are not logged in');
-		
+
 		if (req.headers['content-type'] === 'application/json; charset=UTF-8') {
 			res.status(403).send('Soul captain asks you kindly to log in');
 		} else {
