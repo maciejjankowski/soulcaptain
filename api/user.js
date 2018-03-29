@@ -11,7 +11,7 @@ module.exports = function (app, mongoose, passport) {
 		function (req, res) {
 			console.log('/profile');
 
-			res.send({user: req.user});
+			res.send({ user: req.user });
 		}
 	);
 
@@ -50,7 +50,7 @@ module.exports = function (app, mongoose, passport) {
 
 		console.log('to jest konsol log dla payloadApproved', payloadApproved);
 
-		mongoose.models.User.findOne({loginId: payloadApproved.email}).then(
+		mongoose.models.User.findOne({ loginId: payloadApproved.email }).then(
 			user => {
 				if (user) {
 					console.log(user);
@@ -66,7 +66,7 @@ module.exports = function (app, mongoose, passport) {
 					});
 				} else {
 					bcrypt.hash(payloadApproved.password, 10, function (err,
-																		pwhash) {
+						pwhash) {
 						let newUser = new mongoose.models.User({
 							loginId: payloadApproved.email,
 							loginType: 'email',

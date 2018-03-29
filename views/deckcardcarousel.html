@@ -9,45 +9,43 @@
 
 <body>
 
-<div id="app">
-    <div id="carouselContent" class="carousel slide" data-ride="carousel">
+    <div id="app">
+        <div id="carouselContent" class="carousel slide" data-ride="carousel">
 
-        <div class="carousel-inner" role="listbox">
-            <!-- TODO add library for bootstrap 4 carousle swipe -->
-            <div class="carousel-item active text-center p-4">
+            <div class="carousel-inner" role="listbox">
+                <!-- TODO add library for bootstrap 4 carousle swipe -->
+                <div class="carousel-item active text-center p-4">
 
-                <h2>Deck start</h2>
-                <p>Deck name</p>
-                <p>Deck last modification name</p>
-            </div>
-            <div v-for="card in soulDeck.soulDeckCards" class="carousel-item text-center p-4">
-                <h2>{{card.soulCardTitle}}</h2>
-                <div v-for="encja in card.soulCardSoulencje">
-                    <p>{{encja.text}}</p>
+                    <h2>Deck start</h2>
+                    <p>Deck name</p>
+                    <p>Deck last modification name</p>
+                </div>
+                <div v-for="card in soulDeck.cards" class="carousel-item text-center p-4">
+                    <h2>{{card.soulCardTitle}}</h2>
+                    <div v-for="encja in card.soulCardSoulencje">
+                        <p>{{encja.text}}</p>
+                    </div>
                 </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev" style="    background-color: #f8f8f8;">
+                <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselContent" role="button" data-slide="next" style="    background-color: #f8f8f8;">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev"
-           style="    background-color: #f8f8f8;">
-            <span class="carousel-control-prev-icon" aria-hidden="false"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselContent" role="button" data-slide="next"
-           style="    background-color: #f8f8f8;">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
     </div>
-</div>
-<footer class="footer">
+    <footer class="footer">
         <span class="text-muted">
             <a href="/">[X]</a>
         </span>
-</footer>
+    </footer>
 </body>
 
 <% include common/script-footer.html %>
 
-<!-- additional CSS or scripts -->
-<script src="/main.js"></script>
-<link rel="stylesheet" href="/css/sticky-footer.css">
+    <!-- additional CSS or scripts -->
+    <script src="/main.js"></script>
+    <link rel="stylesheet" href="/css/sticky-footer.css">
