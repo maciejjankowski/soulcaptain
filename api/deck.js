@@ -5,22 +5,41 @@ module.exports = function (deps) {
 	const Deck = mongoose.models.Deck;
 	// const Deck = mongoose.models.Deck;
 
-	// TODO @maciej https://stackoverflow.com/questions/5373198/mongodb-relationships-embed-or-reference
-	app.get('/deck/:deckId', (req, res) => {
-		let deckId = req.params.deckId;
-		if (typeof deckId !== 'undefined') {
-			Card.findOne({deckId: deckId}).then(cards => {
-				res.send(cards);
-			});
+	app.get('/deck', (req, res) => {
+		// let deckId = req.params.deckId;
+		let userDecks = req.user.decks;
+		if (userDecks.length) {
+			Deck.findOne({ '_id': userDecks[0] })
+				.populate('cards')
+				.then((deck) => {
+					res.send(deck);
+				});
 		} else {
-			res.send('SoulCaptain spotted no cards in da deck');
+			res.send({});
 		}
 	});
 
 	app.get('/decks', (req, res) => {
-		Deck.find().then(deck => {
-			res.send(deck);
-		});
+
+		if (typeof req.user && req.user.decks) {
+			let userDecks = req.user.decks;
+
+			let listOfDecks = userDecks.map(deckId => ({
+				_id: deckId
+			}));
+			console.log('listOfDecks', JSON.stringify(listOfDecks, null, 2));
+			Deck.find({ $or: listOfDecks }).then(function _handleDecks(decks) {
+				console.log('decks:', decks);
+				// TODO: nie pokazywać userowi wszystkich pól obiektu
+				res.send(decks);
+			}).catch(function _handleDeckFail(err) {
+				console.log('deck error', err);
+			});
+
+		} else {
+			console.error('niezalogowany');
+			res.send(403, 'Log in first');
+		}
 	});
 
 	app.post('/card2', (req, res) => {
@@ -45,7 +64,9 @@ module.exports = function (deps) {
 		// find deck by Id
 		// req.user.decks.filter((deck)=>deck.id === req.params.deckId)
 
-		let deck = Deck.findOne({deckId: req.params.deckId}).then(deck => {
+		console.log('to je params', JSON.stringify(req.params, null, 2));
+		console.log('to je body', JSON.stringify(req.body, null, 2));
+		let deck = Deck.findOne({ deckId: req.params.deckId }).then(deck => {
 			Object.assign(deck, req.body);
 			deck.save().then(result => {
 				console.log(
@@ -53,7 +74,7 @@ module.exports = function (deps) {
 					result
 				);
 			});
-		});
+		}).catch(function pokaError(error) { console.log('to je error z findOne', error) });
 
 		Deck.save((err, data) => {
 			if (err) {

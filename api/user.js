@@ -9,7 +9,8 @@ module.exports = function (app, mongoose, passport) {
 		// isAuthenticated,
 		function (req, res) {
 			console.log('/profile');
-			res.send({user: req.user});
+
+			res.send({ user: req.user });
 		}
 	);
 
@@ -19,6 +20,7 @@ module.exports = function (app, mongoose, passport) {
 	app.post('/postSignup', function postSignup(req, res) {
 		let payloadFields = (req.body && req.body.payload) || req.body;
 		console.log('to jest konsol log dla payloadFields', payloadFields);
+
 
 		let payloadApproved = {};
 
@@ -47,7 +49,7 @@ module.exports = function (app, mongoose, passport) {
 
 		console.log('to jest konsol log dla payloadApproved', payloadApproved);
 
-		mongoose.models.User.findOne({loginId: payloadApproved.email}).then(
+		mongoose.models.User.findOne({ loginId: payloadApproved.email }).then(
 			user => {
 				if (user) {
 					console.log(user);
@@ -63,7 +65,7 @@ module.exports = function (app, mongoose, passport) {
 					});
 				} else {
 					bcrypt.hash(payloadApproved.password, 10, function (err,
-																		pwhash) {
+						pwhash) {
 						let newUser = new mongoose.models.User({
 							loginId: payloadApproved.email,
 							loginType: 'email',
@@ -81,7 +83,7 @@ module.exports = function (app, mongoose, passport) {
 			}
 		);
 
-		res.writeHead(302, {
+    res.writeHead(302, {
 			Location: '/'
 			//add other headers here...
 		});
