@@ -42,42 +42,16 @@
                     </button>
 
             </form>
-            </div>
 
             <% include common/script-footer.html %>
-                <% include common/footer.html %>
+            <% include common/footer.html %>
 
-            <div class="form-label-group">
-                <input type="email" name="email" placeholder="Email" id="inputEmail" class="form-control" required
-                       autofocus>
-                <label for="inputEmail">Email address</label>
-            </div>
+            
 
-            <div class="form-label-group">
-                <input type="password" name="password" placeholder="Password" id="inputPassword" class="form-control"
-                       required=>
-                <label for="inputPassword">Password</label>
-            </div>
+        </div>
+        <!-- TODO zaznaczanie divów jak Webstorm wtyczka -->
 
-            <div class="checkbox mb-3">
-                <label>
-                    <!-- TODO obsługa remember me przy logowaniu -->
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
-            </div>
-
-            <button type="submit" form="formSignin" value="Submit" class="btn btn-lg btn-primary btn-block">Sign in
-            </button>
-
-    </form>
-</div>
-
-<% include common/script-footer.html %>
-<% include common/footer.html %>
-
-</div>
-
-<script src="/main.js"></script>
+            <script src="/main.js"></script>
 
 </body>
 
