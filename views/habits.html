@@ -6,76 +6,80 @@
 </head>
 
 <body>
-    <!-- navbar -->
-    <% include ../views/common/nav.html %>
-
+<!-- navbar -->
+<% include ../views/common/nav.html %>
 
         <div class="container">
+          
+    <div style="text-align:center">
+        <h1>
+            ❌ DailyX
+        </h1>
+    </div>
 
-            <div style="text-align:center">
-                <h1>
-                    ❌ DailyX
-                </h1>
-            </div>
+    <style>
+        #habits .badge-larger {
+            width: 85px
+        }
 
-            <style>
-                #habits .badge-larger {
-                    width: 85px
-                }
+        .pointer {
+            cursor: pointer
+        }
+    </style>
 
-                .pointer {
-                    cursor: pointer
-                }
-            </style>
-
-            <div id="habits" class="container">
+    <div id="habits" class="container">
                 <span v-on:click="editableHabits()" class="badge badge-primary btn-sm pointer">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</span>
 
-                <span class="fa fa-filter"></span>
-                <span class="badge badge-primary pointer">Daily</span>
-                <span class="badge badge-primary pointer">Weekly</span>
-                <span class="badge badge-primary pointer">Monthly</span>
-                <span class="badge badge-primary pointer">Other</span>
+        <span class="fa fa-filter"></span>
+        <span class="badge badge-primary pointer">Daily</span>
+        <span class="badge badge-primary pointer">Weekly</span>
+        <span class="badge badge-primary pointer">Monthly</span>
+        <span class="badge badge-primary pointer">Other</span>
 
-                <span class="badge badge-secondary pointer">excite</span>
-                <span class="badge badge-secondary pointer">maintenance</span>
-                <span class="badge badge-secondary pointer">growth</span>
-                <span class="badge badge-secondary pointer">sustain</span>
-                <span class="badge badge-secondary pointer">challenge</span>
+        <span class="badge badge-secondary pointer">excite</span>
+        <span class="badge badge-secondary pointer">maintenance</span>
+        <span class="badge badge-secondary pointer">growth</span>
+        <span class="badge badge-secondary pointer">sustain</span>
+        <span class="badge badge-secondary pointer">challenge</span>
 
-                <form class="">
-                    <div v-for="h,i in habits">
+        <form class="">
+            <div v-for="h,i in habits">
 
-                        <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="decreaseType(i)">-</span>
-                        <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="increaseType(i)">+</span>
-                        <span class="badge badge-larger" v-bind:class="{'badge-primary':(h.type === 'sustain'), 'badge-success':(h.type === 'growth'),'badge-dark':(h.type === 'maintenance'), 'badge-danger':(h.type === 'excite'), 'badge-info':(h.type==='challenge')}">
+                <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="decreaseType(i)">-</span>
+                <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="increaseType(i)">+</span>
+                <span class="badge badge-larger"
+                      v-bind:class="{'badge-primary':(h.type === 'sustain'), 'badge-success':(h.type === 'growth'),'badge-dark':(h.type === 'maintenance'), 'badge-danger':(h.type === 'excite'), 'badge-info':(h.type==='challenge')}">
                             {{h.type}}</span>
 
-                        <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="decreaseTimeCount(i)">-</span>
-                        <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="increaseTimeCount(i)">+</span>
+                <span v-if="habitsEditable" class="badge badge-secondary pointer"
+                      v-on:click="decreaseTimeCount(i)">-</span>
+                <span v-if="habitsEditable" class="badge badge-secondary pointer"
+                      v-on:click="increaseTimeCount(i)">+</span>
 
-                        <span class="badge " v-bind:class="{'badge-dark':(h.f === 'M'), 'badge-secondary':(h.f === 'W'), 'badge-light':(h.f === 'D'), 'badge-info':(h.f==='')}">{{h.times}}&times;{{h.f}}</span>
-                        <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="decreaseTimeSpan(i)">-</span>
-                        <span v-if="habitsEditable" class="badge badge-secondary pointer" v-on:click="increaseTimeSpan(i)">+</span>
+                <span class="badge "
+                      v-bind:class="{'badge-dark':(h.f === 'M'), 'badge-secondary':(h.f === 'W'), 'badge-light':(h.f === 'D'), 'badge-info':(h.f==='')}">{{h.times}}&times;{{h.f}}</span>
+                <span v-if="habitsEditable" class="badge badge-secondary pointer"
+                      v-on:click="decreaseTimeSpan(i)">-</span>
+                <span v-if="habitsEditable" class="badge badge-secondary pointer"
+                      v-on:click="increaseTimeSpan(i)">+</span>
 
-                        <span v-if="!habitsEditable">
+                <span v-if="!habitsEditable">
                             <span class="btn btn-outline btn-sm" v-on:click="markDone(i)">
                                 <span class="fa fa-check"></span>
                             </span>
                             {{h.name}} {{Math.round(Date.now()/1000 - h.lastCompleted)}}
                         </span>
-                        <input v-if="habitsEditable" type="text" v-model="h.name">
+                <input v-if="habitsEditable" type="text" v-model="h.name">
 
-                    </div>
-                </form>
-                <pre>{{JSON.stringify(habits, null, 2)}}</pre>
             </div>
+        </form>
+        <pre>{{JSON.stringify(habits, null, 2)}}</pre>
+    </div>
 
             <% include common/script-footer.html %>
                 <% include common/footer.html %>
                     <script src="/habits.js"></script>
-
 </body>
 
 

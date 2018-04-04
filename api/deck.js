@@ -16,11 +16,11 @@ module.exports = function (deps) {
 				});
 		} else {
 			res.send({});
-
 		}
 	});
 
 	app.get('/decks', (req, res) => {
+
 		if (typeof req.user && req.user.decks) {
 			let userDecks = req.user.decks;
 
@@ -55,7 +55,7 @@ module.exports = function (deps) {
 					details: err
 				});
 			} else {
-				res.send({ status: 'ok' });
+				res.send({status: 'ok'});
 			}
 		}); // card save
 	});
@@ -85,7 +85,7 @@ module.exports = function (deps) {
 					details: err
 				});
 			} else {
-				res.send({ status: 'ok' });
+				res.send({status: 'ok'});
 			}
 		});
 	});

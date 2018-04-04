@@ -3,7 +3,6 @@ const testPassword = require('./testPassword');
 const payloadTransformer = require('./payloadTransformer');
 
 module.exports = function (app, mongoose, passport) {
-
 	app.get(
 		'/profile',
 		require('connect-ensure-login').ensureLoggedIn(),
@@ -84,7 +83,7 @@ module.exports = function (app, mongoose, passport) {
 			}
 		);
 
-		res.writeHead(302, {
+    res.writeHead(302, {
 			Location: '/'
 			//add other headers here...
 		});

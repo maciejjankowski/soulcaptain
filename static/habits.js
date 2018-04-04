@@ -98,6 +98,7 @@ var habits = [{
 	'times': 2,
 	'type': 'growth',
 },
+
 {
 	'frequency': 'weekly',
 	'name': '20 linijek kodu',
