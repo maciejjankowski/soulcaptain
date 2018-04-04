@@ -7,8 +7,8 @@ module.exports = function (deps) {
 
 	app.get('/deck', (req, res) => {
 		// let deckId = req.params.deckId;
-		let userDecks = req.user.decks;
-		if (userDecks.length) {
+		let userDecks = req.user && req.user.decks; // TODO zwróci pierwszy fałsz lub ostatnia prawda
+		if (userDecks && userDecks.length) {
 			Deck.findOne({ '_id': userDecks[0] })
 				.populate('cards')
 				.then((deck) => {
@@ -20,9 +20,8 @@ module.exports = function (deps) {
 	});
 
 	app.get('/decks', (req, res) => {
-
-		if (typeof req.user && req.user.decks) {
-			let userDecks = req.user.decks;
+		if (req.user && req.user.decks) {    
+			let userDecks = req.user && req.user.decks;
 
 			let listOfDecks = userDecks.map(deckId => ({
 				_id: deckId
