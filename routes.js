@@ -20,7 +20,9 @@ module.exports = function _defineRoutes(deps) {
 	});
 
 	app.get('/deck.html', (req, res) => {
-		let templateData = { title: '🎴 Deck' };
+		let templateData = {
+			title: '🎴 Deck'
+		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
 		console.log(templateData.user, 'tu zoba co siedzi');
@@ -28,19 +30,25 @@ module.exports = function _defineRoutes(deps) {
 	});
 
 	app.get('/deckdocument.html', (req, res) => {
-		let templateData = { title: '🎴 📄 Deck Document' };
+		let templateData = {
+			title: '🎴 📄 Deck Document'
+		};
 		greetUser(req, templateData);
 		res.render('deckdocument.html', templateData);
 	});
 
 	app.get('/deckcard.html', (req, res) => {
-		let templateData = { title: '🃏 Single Card' };
+		let templateData = {
+			title: '🃏 Single Card'
+		};
 		greetUser(req, templateData);
 		res.render('deckcard.html', templateData);
 	});
 
 	app.get('/deckcardadd.html', (req, res) => {
-		let templateData = { title: '📝 🃏 DeckCardAdd' };
+		let templateData = {
+			title: '📝 🃏 DeckCardAdd'
+		};
 		greetUser(req, templateData);
 		res.render('deckcardadd.html', templateData);
 	});
@@ -49,32 +57,42 @@ module.exports = function _defineRoutes(deps) {
 		'/deckcardcarousel.html',
 		deps.isAuthenticated,
 		function showDeckCarousel(req, res) {
-			let templateData = { title: '🎠 🃏 DeckCardCarousel' };
+			let templateData = {
+				title: '🎠 🃏 DeckCardCarousel'
+			};
 			greetUser(req, templateData);
 			res.render('deckcardcarousel.html', templateData);
 		}
 	);
 
 	app.get('/habits.html', (req, res) => {
-		let templateData = { title: '❌ DailyX' };
+		let templateData = {
+			title: '❌ DailyX'
+		};
 		greetUser(req, templateData);
 		res.render('habits.html', templateData);
 	});
 
 	app.get('/signup.html', (req, res) => {
-		let templateData = { title: '✍️ Sign Up' };
+		let templateData = {
+			title: '✍️ Sign Up'
+		};
 		greetUser(req, templateData);
 		res.render('signup.html', templateData);
 	});
 
 	app.get('/login.html', (req, res) => {
-		let templateData = { title: '✅ Login' };
+		let templateData = {
+			title: '✅ Login'
+		};
 		greetUser(req, templateData);
 		res.render('login.html', templateData);
 	});
 
 	app.get('/admin.html', (req, res) => {
-		let templateData = { title: 'Dis iz adminz place' };
+		let templateData = {
+			title: 'Dis iz adminz place'
+		};
 		greetUser(req, templateData);
 		res.render('admin.html', templateData);
 	});
@@ -84,9 +102,13 @@ module.exports = function _defineRoutes(deps) {
 };
 
 function greetUser(req, templateData) {
-	if (req.user && req.user.email) {
+	if (req.user &&
+		req.user.email &&
+		req.user.personalInfo &&
+		req.user.personalInfo[0] &&
+		req.user.personalInfo[0].firstName) {
 		templateData.greeting = 'Hello, 👩‍💻 ' + req.user.personalInfo[0].firstName;
 	} else {
-		templateData.greeting = 'Please';
+		templateData.greeting = 'Please log in';
 	}
 }
