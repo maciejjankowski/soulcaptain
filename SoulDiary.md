@@ -1,4 +1,5 @@
 <!-- add gatsby.js for SoulBlog -->
+<!-- to use this type in console > node extras/blogConverter.js static/blog/SoulDiary.md -->
 
 # SoulDiary
 How Soul Captain was developed

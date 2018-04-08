@@ -97,6 +97,14 @@ module.exports = function _defineRoutes(deps) {
 		res.render('admin.html', templateData);
 	});
 
+	app.get('/blog.html', (req, res) => {
+		let templateData = {
+			title: 'Blog'
+		};
+		greetUser(req, templateData);
+		res.render('Blog.html', templateData);
+	});
+
 
 	return app;
 };
