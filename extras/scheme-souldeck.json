@@ -1,6 +1,7 @@
 {
+  "_id" : "5aaeb1e14adb0227720caf0f",
   "soulDeckTitle": "Wiktors' DECK",
-  "soulCards": [
+  "cards": [
     {
       "soulCardTitle": "Proście, Szukajcie, Pukajcie",
       "soulCardSoulencje": [
@@ -23,14 +24,14 @@
         {
           "soulIdParent": "null",
           "soulType": "prayer",
-          "language": "ENG",
-          "text": "Ask and it will be given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened.",
+          "language": "PL",
+          "text": "Daj mi mondrość żebym umiał odróżnić to do czoego nie moge zmienić,a  to co mogę zmienic żebym zmienił",
           "image" :"",
           "video" : "",
           "audio" : "",
           "reason" :"",
           "source": {
-            "author": "Święty Mateusz",
+            "author": "Święty Elizerucz",
             "created": "10",
             "source": "Bibila",
             "sourceLink": "https://pl.wikiquote.org/wiki/Ewangelia_Mateusza"
