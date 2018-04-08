@@ -133,7 +133,7 @@
                                         <label>
                                             author
                                         </label>
-                                        <input class=form-control type="text" name="author" id="author">
+                                        <input class=form-control type="text" id="author">
                                         <small class="form-text text-muted">
                                             "author": "Frank Herbert",
                                         </small>
@@ -201,20 +201,25 @@
                                 <label>
                                     Card Editor JSON Output
                                 </label>
-                                <textarea id="soulOutput2" class="form-control" rows="20" cols="80" style="margin-left: .25em">
+                                <textarea id="soulOutput2" class="form-control" rows="13" cols="80" style="margin-left: .25em">
                                     Here will appear your SoulCard schema.</textarea>
-                                <small class="form-text text-muted">
-                                    Please doublecheck before sending to backend!
-                                </small>
-                                <hr>
-                                <p>
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSchema" aria-expanded="false"
-                                        aria-controls="collapseSchema">
-                                        Show schema exhample
-                                    </button>
-                                </p>
-                                <div class="collapse" id="collapseSchema">
-                                    <pre><code>{
+                        </div>
+
+
+                        <h2> Output Old </h2>
+                        <p>Here will appear your SoulCard schema. Please check it before sending to backend.
+                            <p/>
+                            <div class="form-row">
+                                <!-- action pobiera se id ze zeminnej z pola formularza. docelowo ajaxem -->
+                                <form id="cardForm" method="POST" action="/deck/5aaeb1e14adb0227720caf0f">
+                                    <label>
+                                        Card Editor JSON Output
+                                    </label>
+                                    <textarea id="soulOutput" class="form-control" rows="13" cols="80" style="margin-left: .25em">
+                                        Here will appear your SoulCard schema.</textarea>
+                                    <small class="form-text text-muted">
+                                        Please doublecheck before sending to backend!
+                                        <pre><code>{
 "soulCardId": "",
 "soulCardTitle": "Litany against fear",
 "soulCardSoulencje": [
@@ -235,10 +240,10 @@
 "__v": 0
 }
 </code></pre>
-                                </div>
-                                <input type="submit" form="cardForm" value="Submit" class="btn btn-warning btn-lg btn-block">
-                            </form>
-                        </div>
+                                    </small>
+                                    <input type="submit" form="cardForm" value="Submit" class="btn btn-warning btn-lg btn-block">Send to backend
+                                </form>
+                            </div>
                 </div>
             </div>
 
