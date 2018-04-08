@@ -12,7 +12,7 @@ $('#buttong').on('click', function () {
 $('#buttong').on('click', function () {
 	var out2 = {
 		"soulCardId": "",
-		"soulCardTitle": "Litany against fear",
+		"soulCardTitle": document.getElementById("soulCardTitle").value,
 		"soulCardSoulencje": [{
 			"source": {
 				"author": document.getElementById("author").value,
@@ -24,7 +24,7 @@ $('#buttong').on('click', function () {
 			"soulIdParent": "",
 			"soulType": "",
 			"language": "",
-			"text": "I must not fear. Fear is the mind-killer."
+			"text": document.getElementById("text").value
 		}],
 		"__v": 0
 	};
