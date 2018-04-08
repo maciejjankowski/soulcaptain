@@ -12,23 +12,22 @@ $('#buttong').on('click', function () {
 $('#buttong').on('click', function () {
 	var out2 = {
 		"soulCardId": "",
-		"soulCardTitle": "Litany against fear",
+		"soulCardTitle": document.getElementById("soulCardTitle").value,
 		"soulCardSoulencje": [{
 			"source": {
 				"author": document.getElementById("author").value,
-				"created": "",
-				"source": "",
-				"sourceLink": ""
+				"created": document.getElementById("created").value,
+				"source": document.getElementById("source").value,
+				"sourceLink": document.getElementById("sourceLink").value
 			},
 			"_id": "",
-			"soulIdParent": "",
-			"soulType": "",
-			"language": "",
-			"text": "I must not fear. Fear is the mind-killer."
+			"soulIdParent": document.getElementById("soulIdParent").value,
+			"soulType": document.getElementById("soulType").value,
+			"language": document.getElementById("language").value,
+			"text": document.getElementById("text").value
 		}],
 		"__v": 0
 	};
-
 
 	$('#soulOutput2').html(JSON.stringify(out2, null, 2))
 

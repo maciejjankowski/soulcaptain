@@ -9,7 +9,7 @@
     <!-- navbar start-->
     <% include common/nav.html %>
 
-        <div class="container">
+        <div id="cardMockHere" class="container">
             <h1>Add card to ya SoulDeck</h1>
             <hr>
 
@@ -40,7 +40,7 @@
                             <label>
                                 soulCardTitle
                             </label>
-                            <textarea class="form-control" type="text" name="soulCardTitle" rows="1"></textarea>
+                            <textarea class="form-control" type="text" name="soulCardTitle" id="soulCardTitle" v-model="soulCardTitle" rows="1"></textarea>
                             <small class="form-text text-muted">
                                 "soulCardTitle": "Litany against fear",
                             </small>
@@ -50,7 +50,7 @@
                             <label>
                                 text
                             </label>
-                            <textarea class="form-control" type="text" name="text" rows="3"></textarea>
+                            <textarea class="form-control" type="text" name="text" id="text" v-model="soulCardText" rows="3"></textarea>
                             <small class="form-text text-muted">
                                 "text": "I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face myfear.
                                 I will permit it to pass over me and through me. And when it has gone past I will turn the
@@ -75,7 +75,7 @@
                                         <label>
                                             soulCardId
                                         </label>
-                                        <input class=form-control type="text" name="soulCardId">
+                                        <input class=form-control type="text" id="soulCardId">
                                         <small class="form-text text-muted">
                                             "soulId": "003 "
                                         </small>
@@ -83,11 +83,11 @@
 
                                     <div class="form-group col-md-6">
                                         <label>
-                                            soulIdPArent
+                                            soulIdParent
                                         </label>
-                                        <input class=form-control type="text" name="soulIdPArent">
+                                        <input class=form-control type="text" name="soulIdParent" id="soulIdParent">
                                         <small class="form-text text-muted">
-                                            "soulIdPArent": "null",
+                                            "soulIdParent": "null",
                                         </small>
                                     </div>
 
@@ -99,7 +99,7 @@
                                         <label>
                                             soulType
                                         </label>
-                                        <input class=form-control type="text" name="soulType">
+                                        <input class=form-control type="text" name="soulType" id="soulType">
                                         <small class="form-text text-muted">
                                             "soulType": "prayer ",
                                         </small>
@@ -109,7 +109,7 @@
                                         <label>
                                             language
                                         </label>
-                                        <input class=form-control type="text" name="language">
+                                        <input class=form-control type="text" name="language" id="language">
                                         <small class="form-text text-muted">
                                             "language": "EN ",
                                         </small>
@@ -123,7 +123,7 @@
                                         <label>
                                             source
                                         </label>
-                                        <input class=form-control type="text" name="source">
+                                        <input class=form-control type="text" name="source" id="source">
                                         <small class="form-text text-muted">
                                             "source": {
                                         </small>
@@ -133,7 +133,7 @@
                                         <label>
                                             author
                                         </label>
-                                        <input class=form-control type="text" name="author" id="author">
+                                        <input class=form-control type="text" name="author" id="author" v-model="soulCardAuthor">
                                         <small class="form-text text-muted">
                                             "author": "Frank Herbert",
                                         </small>
@@ -147,7 +147,7 @@
                                         <label>
                                             created
                                         </label>
-                                        <input class=form-control type="text" name="created">
+                                        <input class=form-control type="text" name="created" id="created">
                                         <small class="form-text text-muted">
                                             "created": "1965 ",
                                         </small>
@@ -157,7 +157,7 @@
                                         <label>
                                             source
                                         </label>
-                                        <input class=form-control type="text" name="source">
+                                        <input class=form-control type="text" name="source" id="source">
                                         <small class="form-text text-muted">
                                             "source": "Dune ",
                                         </small>
@@ -171,7 +171,7 @@
                                         <label>
                                             sourceLink
                                         </label>
-                                        <input class=form-control type="text" name="sourceLink">
+                                        <input class=form-control type="text" name="sourceLink" id="sourceLink">
                                         <small class="form-text text-muted" style="word-wrap: break-word;">
                                             "sourceLink": "https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
                                         </small>
@@ -192,7 +192,7 @@
                 </div>
 
                 <div class="col">
-                    <h2> Output 2 </h2>
+                    <h2>JSON Output </h2>
                     <p>Here will appear your SoulCard schema. Please check it before sending to backend.
                         <p/>
                         <div class="form-row">
@@ -210,7 +210,7 @@
                                 <p>
                                     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSchema" aria-expanded="false"
                                         aria-controls="collapseSchema">
-                                        Show schema exhample
+                                        Show schema example
                                     </button>
                                 </p>
                                 <div class="collapse" id="collapseSchema">
@@ -240,6 +240,29 @@
                             </form>
                         </div>
                 </div>
+
+                <div class="col">
+                    <h2>Card Preview</h2>
+                    <p>This is how your card will look like.
+                        <p/>
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-body">
+
+                                <button type="button" class="close" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+
+                                <p class="card-tilte">{{ soulCardTitle }}</p>
+                                <hr>
+                                <div>
+                                    <p class="card-text">{{ soulCardText }}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">{{ soulCardAuthor }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
             </div>
 
         </div>
@@ -247,9 +270,9 @@
 
         <% include common/script-footer.html %>
             <% include common/footer.html %>
-                <script src="/habits.js"></script>
-</body>
+                <script src="/cardMock.js"></script>
+                <script src="/deckCardAdd.js"></script>
 
-<script src="/deckCardAdd.js"></script>
+</body>
 
 </html>

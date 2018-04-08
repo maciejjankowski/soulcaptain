@@ -59,33 +59,43 @@ module.exports = function (deps) {
 		}); // card save
 	});
 
-	app.post('/deck/:deckId', (req, res) => {
+	function saveDeck(req, res) {
 		// find deck by Id
 		// req.user.decks.filter((deck)=>deck.id === req.params.deckId)
+		let mockDeck = require('../extras/scheme-souldeck.json');
 
-		console.log('to je params', JSON.stringify(req.params, null, 2));
-		console.log('to je body', JSON.stringify(req.body, null, 2));
-		let deck = Deck.findOne({ deckId: req.params.deckId }).then(deck => {
-			Object.assign(deck, req.body);
+		let inputDeck = mockDeck;
+
+
+		console.log('this is searched', inputDeck._id);
+
+		let deck = Deck.findOne({ _id: inputDeck._id })
+				.populate({path:'cards', })
+				.then(deck => {
+			console.log('this is found', JSON.stringify(deck, null, 2));
+			console.log('this is added', JSON.stringify(inputDeck, null, 2));
+			Object.assign(deck, inputDeck);
+			console.log('this gets saved', JSON.stringify(deck, null, 2 )) ;
+			// return;
+			deck.soulDeckTitle = "XYZ";
 			deck.save().then(result => {
 				console.log(
 					'SoulCaptain saved the deck (and your soul).',
-					result
+					JSON.stringify(result, null, 2)
 				);
+				res.send("OK");
+			}).catch((err)=>{
+				console.log('save error', err);
+				res.send("BAD\n" + JSON.stringify(err, null, 2));
 			});
-		}).catch(function pokaError(error) { console.log('to je error z findOne', error) });
-
-		Deck.save((err, data) => {
-			if (err) {
-				console.log(err);
-				res.send(400, {
-					status: 'error',
-					error: 'problem saving',
-					details: err
-				});
-			} else {
-				res.send({status: 'ok'});
-			}
+		}).catch(function pokaError(error) { 
+			console.log('to je error z findOne', error);
+			res.send("BAD\n" + JSON.stringify(error, null, 2));
 		});
-	});
+
+	} // saveDeck
+
+	app.post('/deck/:deckId', saveDeck);
+	app.get('/deck/save', saveDeck);
+
 };

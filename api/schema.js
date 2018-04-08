@@ -10,10 +10,10 @@ module.exports = function (mongoose) {
 					soulType: String,
 					language: String,
 					text: String,
-					video : String,
-					audio : String,
-					reason :String,		  
 					image: String,
+					audio : String,
+					video : String,
+					reason :String,		  
 					habit:{
 						type: String, // ['growth', 'excite', 'sustain', 'maintenance', 'challenge'];
 						displayType : String,
