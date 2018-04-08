@@ -29,7 +29,6 @@ $('#buttong').on('click', function () {
 		"__v": 0
 	};
 
-
 	$('#soulOutput2').html(JSON.stringify(out2, null, 2))
 
 })
