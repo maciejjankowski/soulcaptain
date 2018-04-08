@@ -3,7 +3,6 @@ module.exports = function (mongoose) {
 	const Card = mongoose.model(
 		'Card', // http://mongoosejs.com/docs/guide.html
 		{
-			coulCardId: String,
 			soulCardTitle: String,
 			soulCardSoulencje: [
 				{
@@ -11,7 +10,18 @@ module.exports = function (mongoose) {
 					soulType: String,
 					language: String,
 					text: String,
+					video : String,
+					audio : String,
+					reason :String,		  
 					image: String,
+					habit:{
+						type: String, // ['growth', 'excite', 'sustain', 'maintenance', 'challenge'];
+						displayType : String,
+						frequency : String,  // ['just once', hourly','daily','weekly','monthly','quarterly','annually','bi-annually']	
+						timePreference : [], // select date/time, select place, at mornings, mid-day, lunch, end-of-day, weekend, laetr today, next week, next weekend, sunday, end of month, end of year, some day
+						coolDown : String, // czas do następnego powtórzenia - kkiedy nie pokazywać karty
+						timestamps : [Date]
+					},
 					source: {
 						author: String,
 						created: Date,
