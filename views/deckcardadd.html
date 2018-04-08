@@ -10,12 +10,15 @@
     <% include common/nav.html %>
 
         <div class="container">
+            <h1>Add card to ya SoulDeck</h1>
+            <hr>
 
             <div class="row">
 
+
                 <div class="col">
 
-                    <h1>Add card to ya SoulDeck</h1>
+                    <h2>Add/update SoulCard</h2>
 
                     <p>In order to add Card tp your SoulDeck, please fill all fields below and click button "To JSON"
                         <p/>
@@ -77,7 +80,7 @@
                                             "soulId": "003 "
                                         </small>
                                     </div>
-        
+
                                     <div class="form-group col-md-6">
                                         <label>
                                             soulIdPArent
@@ -87,11 +90,11 @@
                                             "soulIdPArent": "null",
                                         </small>
                                     </div>
-        
+
                                 </div>
-        
+
                                 <div class="form-row">
-        
+
                                     <div class="form-group col-md-6">
                                         <label>
                                             soulType
@@ -101,7 +104,7 @@
                                             "soulType": "prayer ",
                                         </small>
                                     </div>
-        
+
                                     <div class="form-group col-md-6">
                                         <label>
                                             language
@@ -111,11 +114,11 @@
                                             "language": "EN ",
                                         </small>
                                     </div>
-        
+
                                 </div>
-        
+
                                 <div class="form-row">
-        
+
                                     <div class="form-group col-md-6">
                                         <label>
                                             source
@@ -125,7 +128,7 @@
                                             "source": {
                                         </small>
                                     </div>
-        
+
                                     <div class="form-group col-md-6">
                                         <label>
                                             author
@@ -135,11 +138,11 @@
                                             "author": "Frank Herbert",
                                         </small>
                                     </div>
-        
+
                                 </div>
-        
+
                                 <div class="form-row">
-        
+
                                     <div class="form-group col-md-6">
                                         <label>
                                             created
@@ -149,7 +152,7 @@
                                             "created": "1965 ",
                                         </small>
                                     </div>
-        
+
                                     <div class="form-group col-md-6">
                                         <label>
                                             source
@@ -159,11 +162,11 @@
                                             "source": "Dune ",
                                         </small>
                                     </div>
-        
+
                                 </div>
-        
+
                                 <div class="form-row">
-        
+
                                     <div class="form-group col-md-6">
                                         <label>
                                             sourceLink
@@ -189,8 +192,7 @@
                 </div>
 
                 <div class="col">
-
-                    <h1> Output </h1>
+                    <h2> Output 2 </h2>
                     <p>Here will appear your SoulCard schema. Please check it before sending to backend.
                         <p/>
                         <div class="form-row">
@@ -199,11 +201,25 @@
                                 <label>
                                     Card Editor JSON Output
                                 </label>
-                                <textarea id="soulOutput" class="form-control" rows="13" cols="80" style="margin-left: .25em">
+                                <textarea id="soulOutput2" class="form-control" rows="13" cols="80" style="margin-left: .25em">
                                     Here will appear your SoulCard schema.</textarea>
-                                <small class="form-text text-muted">
-                                    Please doublecheck before sending to backend!
-                                    <pre><code>{
+                        </div>
+
+
+                        <h2> Output Old </h2>
+                        <p>Here will appear your SoulCard schema. Please check it before sending to backend.
+                            <p/>
+                            <div class="form-row">
+                                <!-- action pobiera se id ze zeminnej z pola formularza. docelowo ajaxem -->
+                                <form id="cardForm" method="POST" action="/deck/5aaeb1e14adb0227720caf0f">
+                                    <label>
+                                        Card Editor JSON Output
+                                    </label>
+                                    <textarea id="soulOutput" class="form-control" rows="13" cols="80" style="margin-left: .25em">
+                                        Here will appear your SoulCard schema.</textarea>
+                                    <small class="form-text text-muted">
+                                        Please doublecheck before sending to backend!
+                                        <pre><code>{
 "soulCardId": "",
 "soulCardTitle": "Litany against fear",
 "soulCardSoulencje": [
@@ -218,16 +234,16 @@
     "soulIdParent": "",
     "soulType": "",
     "language": "",
-    "text": "I must not fear.Fear is the mind-killer."
+    "text": "I must not fear. Fear is the mind-killer."
     }
 ],
 "__v": 0
 }
 </code></pre>
-                                </small>
-                                <input type="submit" form="cardForm" value="Submit" class="btn btn-warning btn-lg btn-block">Send to backend
-                            </form>
-                        </div>
+                                    </small>
+                                    <input type="submit" form="cardForm" value="Submit" class="btn btn-warning btn-lg btn-block">Send to backend
+                                </form>
+                            </div>
                 </div>
             </div>
 
