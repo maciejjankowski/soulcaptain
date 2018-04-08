@@ -16,14 +16,14 @@ $('#buttong').on('click', function () {
 		"soulCardSoulencje": [{
 			"source": {
 				"author": document.getElementById("author").value,
-				"created": "",
-				"source": "",
-				"sourceLink": ""
+				"created": document.getElementById("created").value,
+				"source": document.getElementById("source").value,
+				"sourceLink": document.getElementById("sourceLink").value
 			},
 			"_id": "",
-			"soulIdParent": "",
-			"soulType": "",
-			"language": "",
+			"soulIdParent": document.getElementById("soulIdParent").value,
+			"soulType": document.getElementById("soulType").value,
+			"language": document.getElementById("language").value,
 			"text": document.getElementById("text").value
 		}],
 		"__v": 0
