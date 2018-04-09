@@ -1,17 +1,18 @@
-@media (min-width: 1110px){
+@media screen and (min-width: 1111px){
   .container {
       margin-top: 120px;
   }
 }
 
-@media (min-width: 992px){
+@media screen and (min-width: 992px) and (max-width: 1110px){
   .container {
-      margin-top: 120px;
+      margin-top: 150px;
   }
 }
 
 
-@media (max-width: 991px){
+@media screen and (max-width: 991px){
 .container {
       margin-top: 90px;
   }
+}
