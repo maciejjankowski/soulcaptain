@@ -11,7 +11,7 @@ module.exports = function _defineRoutes(deps) {
 	// TODO refactor: funkcja app.get łyka sobie 3 zmienne z odzielnego statycznego JSONA/scheme
 	app.get('/', (req, res) => {
 		let templateData = {
-			title: '👻 Soulcaptain 🏡 Home',
+			title: '👻🏡 SoulHome',
 			greeting: ''
 		};
 		greetUser(req, templateData);
@@ -31,7 +31,7 @@ module.exports = function _defineRoutes(deps) {
 
 	app.get('/deckdocument.html', (req, res) => {
 		let templateData = {
-			title: '🎴 📄 Deck Document'
+			title: '🎴📄 DeckDocument'
 		};
 		greetUser(req, templateData);
 		res.render('deckdocument.html', templateData);
@@ -39,7 +39,7 @@ module.exports = function _defineRoutes(deps) {
 
 	app.get('/deckcard.html', (req, res) => {
 		let templateData = {
-			title: '🃏 Single Card'
+			title: '🃏 SoulCard'
 		};
 		greetUser(req, templateData);
 		res.render('deckcard.html', templateData);
@@ -47,7 +47,7 @@ module.exports = function _defineRoutes(deps) {
 
 	app.get('/deckcardadd.html', (req, res) => {
 		let templateData = {
-			title: '📝 🃏 DeckCardAdd'
+			title: '🃏📝 CardAdd'
 		};
 		greetUser(req, templateData);
 		res.render('deckcardadd.html', templateData);
@@ -58,7 +58,7 @@ module.exports = function _defineRoutes(deps) {
 		deps.isAuthenticated,
 		function showDeckCarousel(req, res) {
 			let templateData = {
-				title: '🎠 🃏 DeckCardCarousel'
+				title: '🃏🎠 CardCarousel'
 			};
 			greetUser(req, templateData);
 			res.render('deckcardcarousel.html', templateData);
@@ -95,6 +95,14 @@ module.exports = function _defineRoutes(deps) {
 		};
 		greetUser(req, templateData);
 		res.render('admin.html', templateData);
+	});
+
+	app.get('/blog.html', (req, res) => {
+		let templateData = {
+			title: '👻🎊 SoulBlog'
+		};
+		greetUser(req, templateData);
+		res.render('Blog.html', templateData);
 	});
 
 

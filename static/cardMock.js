@@ -6,3 +6,6 @@ var cardMock = new Vue({
         soulCardAuthor: 'SoulCard author'
     }
 });
+
+// TODO jako data prawdziwa schema
+// TODO wczytywanie danych z istniejącej karty celem ładowania do formularza
