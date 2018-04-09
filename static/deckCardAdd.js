@@ -11,17 +11,28 @@ $('#buttong').on('click', function () {
 
 $('#buttong').on('click', function () {
 	var out2 = {
-		"soulCardSoulencje": document.getElementById("deckId").value,
-		"source": {
-			"author": document.getElementById("author"),
-		}
+		"soulCardId": "",
+		"soulCardTitle": document.getElementById("soulCardTitle").value,
+		"soulCardSoulencje": [{
+			"source": {
+				"author": document.getElementById("author").value,
+				"created": document.getElementById("created").value,
+				"source": document.getElementById("source").value,
+				"sourceLink": document.getElementById("sourceLink").value
+			},
+			"_id": "",
+			"soulIdParent": document.getElementById("soulIdParent").value,
+			"soulType": document.getElementById("soulType").value,
+			"language": document.getElementById("language").value,
+			"text": document.getElementById("text").value
+		}],
+		"__v": 0
 	};
 
 	$('#soulOutput2').html(JSON.stringify(out2, null, 2))
 
 })
 
-// TODO @maciej: zrobić zagnieżdżenie dla source
+
 
 //  uzyc funkcji replace
-
