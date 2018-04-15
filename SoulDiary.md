@@ -4,6 +4,8 @@
 node extras/blogConverter.js SoulDiary.md
 -->
 
+<!-- TODO add posts from the past based on real Wiktor diary of good things -->
+
 # 👻🎊 SoulCaptain Blog
 
 How Soul Captain was developed
@@ -37,8 +39,9 @@ We've added event listener to textarea using Vue `v-on:click` attribute:
 [https://developer.mozilla.org/en-US/docs/Web/Events](https://developer.mozilla.org/en-US/docs/Web/Events)
 
 ### Whats next?
-- piece of mongoose that will get payload and writ to mongoDB
-
+- Maciej: piece of mongoose that will get payload and write to mongoDB
+- Wiktor: user view based on CardAdd: fields, v-model bind in HTML, JSON ready for mongoDB user model, POST using `XMLHttpRequest`
+ 
 ---
 
 ## 2018 04 08 17:08
