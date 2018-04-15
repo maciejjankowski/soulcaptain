@@ -1,20 +1,26 @@
-<!-- TODO add gatsby.js for SoulBlog -->
+<!-- TODO add gatsby.js for SoulBlog ? -->
+<!-- TODO add posts from the past based on real Wiktor diary of good things -->
 <!-- to use this type in console >
 node extras/blogConverter.js SoulDiary.md
 -->
-<!-- TODO add posts from the past based on real Wiktor diary of good things -->
+<!-- cheatsheet 
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+-->
 <h1 id="soulcaptainblog">👻🎊 SoulCaptain Blog</h1>
-<p>How Soul Captain was developed</p>
+<p>How Soul Captain is being developed. Step-by-step. Day-by-day</p>
+<hr />
 <h2 id="201804152104">2018 04 15 21:04</h2>
 <p>author: Wiktor</p>
 <p>place: Green Caffè Nero, Andersa 37</p>
 <h3 id="todaywedid">Today we did</h3>
+<p><strong>Card adder</strong></p>
 <p>We've dded new Vue app that stores data from textarea and sends it using <code>XMLHttpRequest</code>:</p>
 <pre><code class="javascript language-javascript">var request = new XMLHttpRequest();
 request.open('POST', '/deck/' + appForAddingCardsToBackendBeta9000.deckId, true);
 request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 request.send(payload);
 </code></pre>
+<p><a href="https://developer.mozilla.org/docs/XMLHttpRequest">https://developer.mozilla.org/docs/XMLHttpRequest</a></p>
 <p>We've binded data from textarea using Vue <code>v-model</code> attribute:</p>
 <pre><code class="html language-html">&lt;textarea id="soulOutput2" v-model="payload" class="form-control" rows="20" cols="80" style="margin-left: .25em"&gt;
 </code></pre>
@@ -24,6 +30,8 @@ request.send(payload);
 </code></pre>
 <p><a href="https://vuejs.org/v2/guide/events.html#Method-Event-Handlers">https://vuejs.org/v2/guide/events.html#Method-Event-Handlers</a>
 <a href="https://developer.mozilla.org/en-US/docs/Web/Events">https://developer.mozilla.org/en-US/docs/Web/Events</a></p>
+<p><strong>Varia</strong></p>
+<p>Added <a href="https://highlightjs.org/usage/">highlightjs</a> (<a href="https://github.com/isagalaev/highlight.js">Github</a>) for SoulBlog :D</p>
 <h3 id="whatsnext">Whats next?</h3>
 <ul>
 <li>Maciej: piece of mongoose that will get payload and write to mongoDB</li>
@@ -34,7 +42,7 @@ request.send(payload);
 <p>author: Wiktor</p>
 <p>place: Kolejowa 5/7</p>
 <h3 id="todaywedid-1">Today we did</h3>
-<p>in deckCardAdd</p>
+<p><strong>Card adder</strong></p>
 <ul>
 <li>new JSON based on inputs (using document.getDocument), that is 100% compatible with mongo Scheme</li>
 <li>new column with preview of card using Vue: static/cardMock.js</li>
@@ -51,4 +59,3 @@ fs.writeFileSync('views/common/blogcontents.html', html)
 <ul>
 <li>CRUD - adding SoulCard using mongoose</li>
 </ul>
-<hr />
