@@ -1,11 +1,37 @@
-<!-- add gatsby.js for SoulBlog -->
-<!-- to use this type in console > node extras/blogConverter.js static/blog/SoulDiary.md -->
+<!-- TODO add gatsby.js for SoulBlog -->
+<!-- to use this type in console >
+node extras/blogConverter.js SoulDiary.md
+-->
 <h1 id="soulcaptainblog">👻🎊 SoulCaptain Blog</h1>
 <p>How Soul Captain was developed</p>
+<h2 id="201804152104">2018 04 15 21:04</h2>
+<p>author: Wiktor</p>
+<p>place: Green Caffè Nero, Andersa 37</p>
+<h3 id="todaywedid">Today we did</h3>
+<p>We've dded new Vue app that stores data from textarea and sends it using <code>XMLHttpRequest</code>:</p>
+<pre><code class="javascript language-javascript">var request = new XMLHttpRequest();
+request.open('POST', '/deck/' + appForAddingCardsToBackendBeta9000.deckId, true);
+request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+request.send(payload);
+</code></pre>
+<p>We've binded data from textarea using Vue <code>v-model</code> attribute:</p>
+<pre><code class="html language-html">&lt;textarea id="soulOutput2" v-model="payload" class="form-control" rows="20" cols="80" style="margin-left: .25em"&gt;
+</code></pre>
+<p><a href="https://vuejs.org/v2/guide/forms.html">https://vuejs.org/v2/guide/forms.</a></p>
+<p>We've added event listener to textarea using Vue <code>v-on:click</code> attribute:</p>
+<pre><code class="html language-html"> &lt;input v-on:click="cardpost" form="cardForm" value="Send to backend" class="btn btn-warning btn-lg btn-block"&gt;
+</code></pre>
+<p><a href="https://vuejs.org/v2/guide/events.html#Method-Event-Handlers">https://vuejs.org/v2/guide/events.html#Method-Event-Handlers</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/Events">https://developer.mozilla.org/en-US/docs/Web/Events</a></p>
+<h3 id="whatsnext">Whats next?</h3>
+<ul>
+<li>piece of mongoose that will get payload and writ to mongoDB</li>
+</ul>
+<hr />
 <h2 id="201804081708">2018 04 08 17:08</h2>
 <p>author: Wiktor</p>
 <p>place: Kolejowa 5/7</p>
-<h3 id="todaywedid">Today we did</h3>
+<h3 id="todaywedid-1">Today we did</h3>
 <p>in deckCardAdd</p>
 <ul>
 <li>new JSON based on inputs (using document.getDocument), that is 100% compatible with mongo Scheme</li>
@@ -19,7 +45,8 @@ text = fs.readFileSync(process.argv[2], 'utf8');
 html = converter.makeHtml(text);
 fs.writeFileSync('views/common/blogcontents.html', html)
 </code></pre>
-<h3 id="whatsnext">Whats next?</h3>
+<h3 id="whatsnext-1">Whats next?</h3>
 <ul>
 <li>CRUD - adding SoulCard using mongoose</li>
 </ul>
+<hr />
