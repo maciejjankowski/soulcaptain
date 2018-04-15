@@ -27,13 +27,13 @@ var app = new Vue({
 				return alert('hasła się nie zgadzają');
 			}
 			$.ajax({
-					method: 'POST',
-					url: '/user',
-					data: JSON.stringify({
-						payload: $('#userAddForm')
-					}),
-					contentType: 'application/json; charset=utf-8'
-				})
+				method: 'POST',
+				url: '/user',
+				data: JSON.stringify({
+					payload: $('#userAddForm')
+				}),
+				contentType: 'application/json; charset=utf-8'
+			})
 				.then(() => {
 					$('#saveUserButton').removeAttr('disabled');
 					alert('user created');
@@ -72,7 +72,6 @@ $(function _onload() {
 	});
 
 }); // onload
-
 
 /*
 var MockDeck = {

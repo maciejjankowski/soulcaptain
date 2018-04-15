@@ -9,7 +9,7 @@
     <!-- navbar start-->
     <% include common/nav.html %>
 
-        <div id="cardadder" class="container">
+        <div id="cardMockHere" class="container">
             <h1>Add card to ya SoulDeck</h1>
             <hr>
 
@@ -29,7 +29,8 @@
                             <label>
                                 deckId
                             </label>
-                            <input id="deckId" v-model="deckId" class="form-control" name="deckId" type="text" value="5aaeb1e14adb0227720caf0f" disabled>
+                            <input id="deckId" class="form-control" name="deckId" type="text" placeholder="5aaeb1e14adb0227720caf0f" value="5aaeb1e14adb0227720caf0f"
+                                disabled>
                             <small class="form-text text-muted">
                                 "deckId": "5aaeb1e14adb0227720caf0f"
                             </small>
@@ -200,7 +201,7 @@
                                 <label>
                                     Card Editor JSON Output
                                 </label>
-                                <textarea id="soulOutput2" v-model="payload" class="form-control" rows="20" cols="80" style="margin-left: .25em">
+                                <textarea id="soulOutput2" class="form-control" rows="20" cols="80" style="margin-left: .25em">
                                     Here will appear your SoulCard schema.</textarea>
                                 <small class="form-text text-muted">
                                     Please doublecheck before sending to backend!
@@ -235,7 +236,7 @@
 }
 </code></pre>
                                 </div>
-                                <input v-on:click="cardpost" form="cardForm" value="Send to backend" class="btn btn-warning btn-lg btn-block">
+                                <input type="submit" form="cardForm" value="Submit" class="btn btn-warning btn-lg btn-block">
                             </form>
                         </div>
                 </div>
@@ -269,7 +270,7 @@
 
         <% include common/script-footer.html %>
             <% include common/footer.html %>
-                <script src="/cardadd.js"></script>
+                <script src="/cardMock.js"></script>
                 <script src="/deckCardAdd.js"></script>
 
 </body>
