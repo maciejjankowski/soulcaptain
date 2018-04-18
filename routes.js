@@ -102,7 +102,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '👻🎊 SoulBlog'
 		};
 		greetUser(req, templateData);
-		res.render('blog.html', templateData);
+		res.render('Blog.html', templateData);
 	});
 
 
