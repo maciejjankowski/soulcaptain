@@ -88,23 +88,6 @@ module.exports = function (deps) {
 				console.log('save error', err);
 				res.send("BAD\n" + JSON.stringify(err, null, 2));
 			});
-          
-      deck.cards.forEach(inputCard => {
-        Card.findOne({_id : inputCard._id}).then((foundCard) => {
-          Object.assign(foundCard, inputCard);
-          
-        }).catch((err)=>{
-          console.log('notfound?', err);
-          let newCard = new Card(inputCard);
-          newCard.save().then(result => {
-            console.log('ard saved');
-          }).catch((err)=>{
-            console.log('smsng went wronk');
-          })
-          
-        });
-      });    
-    
 		}).catch(function pokaError(error) { 
 			console.log('to je error z findOne', error);
 			res.send("BAD\n" + JSON.stringify(error, null, 2));
