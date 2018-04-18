@@ -75,6 +75,20 @@ module.exports = function (deps) {
 			console.log('this is found', JSON.stringify(deck, null, 2));
 			console.log('this is added', JSON.stringify(inputDeck, null, 2));
 			Object.assign(deck, inputDeck);
+      
+      // read all cards and save individually
+          
+      inputDeck.cards.forEach((inputCard)=>{
+        if (deck.cards.filter((card)=>card._id === inputCard._id).length){
+          // update
+          Card.findOne().then({})
+        } else {
+          // save, getId, add Id
+          deck.cards.push(inputCard);
+          
+        }
+      })
+          
 			console.log('this gets saved', JSON.stringify(deck, null, 2 )) ;
 			// return;
 			deck.soulDeckTitle = "XYZ";
