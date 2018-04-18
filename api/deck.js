@@ -81,35 +81,63 @@ module.exports = function (deps) {
       inputDeck.cards.forEach((inputCard)=>{
         if (deck.cards.filter((card)=>card._id === inputCard._id).length){
           // update
-          Card.findOne().then({})
+          Card.findOne().then({});
         } else {
           // save, getId, add Id
           deck.cards.push(inputCard);
           
         }
-      })
+      });
           
 			console.log('this gets saved', JSON.stringify(deck, null, 2 )) ;
 			// return;
-			deck.soulDeckTitle = "XYZ";
+			deck.soulDeckTitle = 'XYZ';
 			deck.save().then(result => {
 				console.log(
 					'SoulCaptain saved the deck (and your soul).',
 					JSON.stringify(result, null, 2)
 				);
-				res.send("OK");
+				res.send('OK');
 			}).catch((err)=>{
 				console.log('save error', err);
-				res.send("BAD\n" + JSON.stringify(err, null, 2));
+				res.send('BAD\n' + JSON.stringify(err, null, 2));
 			});
 		}).catch(function pokaError(error) { 
 			console.log('to je error z findOne', error);
-			res.send("BAD\n" + JSON.stringify(error, null, 2));
+			res.send('BAD\n' + JSON.stringify(error, null, 2));
 		});
 
 	} // saveDeck
 
+	function createCard(req, res){
+		let deckId = req.params.deckId;
+		console.log('method', req.method);
+		req.body = require('../extras/scheme-souldeck.json').cards[0]; // TODO REMOVE;
+
+		// TODO!!!! walidacja karty w req.body;
+
+		let card = new Card(req.body); // req;
+		card.save().then((response) => {
+			console.log('created Card', response._id, response);
+			Deck.findOne({_id : deckId}).then(function _handleFoundDeck(foundDeck){
+				foundDeck.cards.push(response._id);
+				foundDeck.save().then(function(result){
+					console.log('updated deck with new card', result);
+				}).catch(function _handleError(err){
+					console.log('zapis się wysrał', err);
+				});
+			});
+		}).catch(err => {
+			console.log('createCard wyjebka', err);
+		});
+		
+		console.log('deckId, card', deckId, card);
+		res.send('OK');
+	}
+
 	app.post('/deck/:deckId', saveDeck);
 	app.get('/deck/save', saveDeck);
+	app.post('/deck/:deckId/card', createCard);
+	app.get('/deck/:deckId/card/save', createCard);
 
 };
