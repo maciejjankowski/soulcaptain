@@ -111,8 +111,8 @@ module.exports = function (deps) {
 
 	function createCard(req, res){
 		let deckId = req.params.deckId;
-		console.log('method', req.method);
-		req.body = require('../extras/scheme-souldeck.json').cards[0]; // TODO REMOVE;
+		console.log('body', req.body);
+		//req.body = require('../extras/scheme-souldeck.json').cards[0]; // TODO REMOVE;
 
 		// TODO!!!! walidacja karty w req.body;
 
