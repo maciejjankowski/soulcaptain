@@ -59,3 +59,6 @@ nauczyć się than js
 opisać działanie addEventListener w zeszyciku
 
 homework: profil użytkownika na wzór DeckCardAdd
+
+dodać modal dla edytora kart https://getbootstrap.com/docs/4.0/components/modal/
+

@@ -12,7 +12,7 @@ var appForAddingCardsToBackendBeta9000 = new Vue({
             let payload = appForAddingCardsToBackendBeta9000.payload
             console.log("W tej chwili do backendu leci:", appForAddingCardsToBackendBeta9000.payload)
             var request = new XMLHttpRequest();
-            request.open('POST', '/deck/' + appForAddingCardsToBackendBeta9000.deckId + '/card', true);
+            request.open('POST', '/deck/' + appForAddingCardsToBackendBeta9000.deckId, true);
             request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
             request.send(payload);
 
