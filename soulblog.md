@@ -27,13 +27,17 @@ place: Kolejowa
 2. Learn code
 3. Using Firebase; write Mood Diary as a proof of concept
 
-### Today we did
-1. Double check card adding
+## What we did today
+1. Double check Card adding
 2. Better UX/UI for Deck view
 3. Better UX/UI for Card add view  
-4. Read one card (not whole deck)
-5. Update card
-6. Destroy card 
+4. Read one Card (not whole deck)
+5. Update Card
+6. Update Deck
+6. Destroy Card 
+
+## Next time
+Using Firebase; write Mood Diary as a proof of concept
 
 ---
 
