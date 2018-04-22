@@ -1,0 +1,37 @@
+{
+      "soulCardTitle": "a po co ta pani?",
+      "soulCardSoulencje": [
+        {
+          "soulIdParent": "null",
+          "soulType": "prayer",
+          "language": "PL",
+          "text": "Proście, a będzie wam poruchane; pukajcie, a dojdziecie; kołaczcie, a otworzą wam. Albowiem każdy, kto prosi, otrzymuje; kto szuka, znajduje; a kołaczącemu otworzą.",
+          "image" :"",
+          "video" : "",
+          "audio" : "",
+          "reason" :"",
+          "source": {
+            "author": "Święty Mateusz",
+            "created": "10",
+            "source": "Bibila",
+            "sourceLink": "https://pl.wikiquote.org/wiki/Ewangelia_Mateusza"
+          }
+        },
+        {
+          "soulIdParent": "null",
+          "soulType": "prayer",
+          "language": "PL",
+          "text": "Daj mi mondrość żebym umiał odróżnić to do czoego nie moge zmienić,a  to co mogę zmienic żebym zmienił",
+          "image" :"",
+          "video" : "",
+          "audio" : "",
+          "reason" :"",
+          "source": {
+            "author": "Święty Elizerucz",
+            "created": "10",
+            "source": "Bibila",
+            "sourceLink": "https://pl.wikiquote.org/wiki/Ewangelia_Mateusza"
+          }
+        }
+      ]
+    }
