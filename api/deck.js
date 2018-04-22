@@ -174,7 +174,6 @@ module.exports = function (deps) {
 			console.log('szukanie/zapis karty failed', err);
 			res.send(400, 'NOT OK');
 		});
-		
 	}
 
 	function updateDeck(req, res){
@@ -206,6 +205,8 @@ module.exports = function (deps) {
 	function getCard(req, res){
 		let cardId = req.params.cardId;
 		// TODO allow reading public cards
+		// TODO refactor - IMPORTNANT
+		// TODO cards not populated!!!
 		if ((!req.user || !req.user.decks) || !req.user.decks.reduce((p, c) => {
 			return p || (c.cards.findIndex((card) => card._id === cardId) > -1);
 		}, 0)){
@@ -220,13 +221,57 @@ module.exports = function (deps) {
 		});
 	}
 
+	function deleteCard(req, res){
+		let cardId = req.params.cardId;
+		let deckId = req.params.deckId;
+		console.log('decks', req.user.decks);
+		if ((!req.user || !req.user.decks) || req.user.decks.indexOf(deckId) === -1){
+			console.log('trying to read someone elses card or not logged in');
+			res.send(403, 'NOT OK');
+			return -1;
+		}
+		
+		Card.findOne({_id : cardId}).then(card => {
+			card.remove().then((result) => {
+				console.log('removed card', result);
+				if (req.user.decks.indexOf(deckId) > -1){
+					Deck.findOne({_id : deckId}).then(deck => {
+						console.log('cards', deck);
+						let cardIndex = deck.cards.find((card) => card._id === cardId);
+						if (cardIndex > -1){
+							deck.cards.splice(cardIndex, 1);
+							deck.save().then(() => {
+								res.send('OK');
+								console.log('deck saved');
+							}).catch((err) => {
+								res.send(400, 'NOT OK');
+								console.log('decks save not working', err);
+							});	
+						}
+					});
+				}
+			})
+			.catch(err => {
+				res.send(400, 'NOT OK');
+				console.log('delete not deletes?', err);
+			});
+		}).catch(err => {
+			console.log('card not found');
+			res.status(404).send('NOT OK');
+		});
+	}
+
+	app.get('/card/:cardId', getCard);
+	app.put('/card/:cardId', updateCard);
+	app.post('/card/:cardId', updateCard);
+	app.get('/card/:cardId/update', updateCard);
+	
 	app.post('/deck/:deckId', saveDeck);
 	app.put('/deck/:deckId', updateDeck);
 	app.get('/deck/save', saveDeck);
 	app.post('/deck/:deckId/card', createCard);
 	app.get('/deck/:deckId/card/save', createCard);
-	app.put('/card/:cardId', updateCard);
-	app.post('/card/:cardId', updateCard);
-	app.get('/card/:cardId/update', updateCard);
-	app.get('/card/:cardId', getCard);
+	
+	app.delete('/deck/:deckId/card/:cardId', deleteCard);
+	app.get('/deck/:deckId/card/:cardId/delete', deleteCard);
 };
