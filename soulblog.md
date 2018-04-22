@@ -30,7 +30,10 @@ place: Kolejowa
 ### Today we did
 1. Double check card adding
 2. Better UX/UI for Deck view
-3. Better UX/UI Card add view  
+3. Better UX/UI for Card add view  
+4. Read one card (not whole deck)
+5. Update card
+6. Destroy card 
 
 ---
 
