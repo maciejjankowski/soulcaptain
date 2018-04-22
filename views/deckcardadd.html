@@ -196,7 +196,7 @@
                         <p/>
                         <div class="form-row">
                             <!-- action pobiera se id ze zeminnej z pola formularza. docelowo ajaxem -->
-                            <form id="cardForm" method="POST" action="/deck/5aaeb1e14adb0227720caf0f">
+                            <form id="cardForm">
                                 <label>
                                     Card Editor JSON Output
                                 </label>
@@ -224,7 +224,6 @@
         "source": "",
         "sourceLink": ""
     },
-    "_id": "",
     "soulIdParent": "",
     "soulType": "",
     "language": "",
@@ -235,7 +234,7 @@
 }
 </code></pre>
                                 </div>
-                                <input v-on:click="cardpost" form="cardForm" value="Send to backend" class="btn btn-warning btn-lg btn-block">
+                                <button v-on:click="cardpost" class="btn btn-warning btn-lg btn-block">Send to backend</button>
                             </form>
                         </div>
                 </div>
@@ -246,7 +245,6 @@
                         <p/>
                         <div class="card mb-4 box-shadow">
                             <div class="card-body">
-
                                 <button type="button" class="close" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -270,8 +268,6 @@
         <% include common/script-footer.html %>
             <% include common/footer.html %>
                 <script src="/cardadd.js"></script>
-                <script src="/deckCardAdd.js"></script>
-
 </body>
 
 </html>

@@ -23,7 +23,6 @@ var appForAddingCardsToBackendBeta9000 = new Vue({
             } else {
                 dump(request.responseText)
             }
-
         },
         inputs2json: function () {
             var out2 = {
@@ -36,7 +35,6 @@ var appForAddingCardsToBackendBeta9000 = new Vue({
                         "source": document.getElementById("source").value,
                         "sourceLink": document.getElementById("sourceLink").value
                     },
-                    "_id": "",
                     "soulIdParent": document.getElementById("soulIdParent").value,
                     "soulType": document.getElementById("soulType").value,
                     "language": document.getElementById("language").value,
