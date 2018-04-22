@@ -27,6 +27,10 @@ place: Kolejowa
 2. Learn code
 3. Using Firebase; write Mood Diary as a proof of concept
 
+### Today we did
+1. Better Deck view
+2. 
+
 ---
 
 ## 2018 04 18 21:04
