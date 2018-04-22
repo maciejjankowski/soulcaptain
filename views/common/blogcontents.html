@@ -1,7 +1,7 @@
 <!-- TODO add gatsby.js for SoulBlog ? -->
 <!-- TODO add posts from the past based on real Wiktor diary of good things -->
 <!-- to use this type in console >
-node extras/blogConverter.js SoulDiary.md
+node extras/blogConverter.js soulblog.md
 -->
 <!-- cheatsheet 
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
@@ -9,10 +9,71 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 <h1 id="soulcaptainblog">👻🎊 SoulCaptain Blog</h1>
 <p>How Soul Captain is being developed. Step-by-step. Day-by-day</p>
 <hr />
+<h2 id="201804221411">2018 04 22 14:11</h2>
+<p>author: Wiktor</p>
+<p>place: Kolejowa</p>
+<h2 id="planfortoday">Plan for today</h2>
+<ol>
+<li>Create card - finish works</li>
+<li>Learn code</li>
+<li>Using Firebase; write Mood Diary as a proof of concept</li>
+</ol>
+<hr />
+<h2 id="201804182104">2018 04 18 21:04</h2>
+<p>author: Wiktor</p>
+<p>place: Green Caffè Nero, Rondo Daszyńskiego &amp; Kolejowa</p>
+<h3 id="todaywedid">Today we did</h3>
+<p><strong>Card adder</strong>
+Finally worked! We can add card to mongoDB via mongoose.</p>
+<p><strong>Code learning</strong></p>
+<p>Chapter 4: Datatypes in JavaScript</p>
+<p>function to check if sth. is array</p>
+<pre><code class="javascript language-javascript">Array.isArray([klek, szczek])
+true
+</code></pre>
+<p>Warning: if you create variable with number starting with <code>0</code>, js will return you natural number, so without <code>0</code> at the beginning</p>
+<pre><code class="javascript language-javascript">var kodDoKibla = 0494
+undefined
+
+kodDoKibla
+494
+</code></pre>
+<p><code>typeof</code> can be used to check if variable exist and/or has value:</p>
+<pre><code class="js language-js">var wiktor
+undefined
+typeof wiktor
+"undefined"
+wiktor = 1
+1
+typeof wiktor
+"number"
+</code></pre>
+<p><code>arguments</code> as function arguments
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments</p>
+<pre><code class="js language-js">function func1(a, b, c) {
+  console.log(arguments[0]);
+  // expected output: 1
+</code></pre>
+<p>Operator <code>new</code>
+[https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Operator_new](Operator new)</p>
+<pre><code class="js language-js">function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
+
+var car1 = new Car('Eagle', 'Talon TSi', 1993);
+
+console.log(car1.make);
+// expected output: "Eagle"
+</code></pre>
+<p><code>Array.prototype.sort()</code>
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort](array sort)</p>
+<hr />
 <h2 id="201804152104">2018 04 15 21:04</h2>
 <p>author: Wiktor</p>
 <p>place: Green Caffè Nero, Andersa 37</p>
-<h3 id="todaywedid">Today we did</h3>
+<h3 id="todaywedid-1">Today we did</h3>
 <p><strong>Card adder</strong></p>
 <p>We've dded new Vue app that stores data from textarea and sends it using <code>XMLHttpRequest</code>:</p>
 <pre><code class="javascript language-javascript">var request = new XMLHttpRequest();
@@ -41,7 +102,7 @@ request.send(payload);
 <h2 id="201804081708">2018 04 08 17:08</h2>
 <p>author: Wiktor</p>
 <p>place: Kolejowa 5/7</p>
-<h3 id="todaywedid-1">Today we did</h3>
+<h3 id="todaywedid-2">Today we did</h3>
 <p><strong>Card adder</strong></p>
 <ul>
 <li>new JSON based on inputs (using document.getDocument), that is 100% compatible with mongo Scheme</li>
