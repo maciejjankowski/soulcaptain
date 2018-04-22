@@ -69,10 +69,7 @@ module.exports = function (deps) {
 		// find deck by Id
 		// req.user.decks.filter((deck)=>deck.id === req.params.deckId)
 		let mockDeck = require('../extras/scheme-souldeck.json');
-
 		let inputDeck = mockDeck;
-
-
 		console.log('this is searched', inputDeck._id);
 
 		let deck = Deck.findOne({
@@ -122,9 +119,6 @@ module.exports = function (deps) {
 
 	function createCard(req, res) {
 		let deckId = req.params.deckId;
-		console.log('body', req.body);
-		//req.body = require('../extras/scheme-souldeck.json').cards[0]; // TODO REMOVE;
-
 		// TODO!!!! walidacja karty w req.body;
 
 		let card = new Card(req.body); // req;
@@ -145,14 +139,36 @@ module.exports = function (deps) {
 		}).catch(err => {
 			console.log('createCard error in card.save().then((response)', err);
 		});
-
 		console.log('deckId, card', deckId, card);
 		res.send('OK');
 	}
 
+	function updateCard(req, res){
+		let formCard = req.body;
+		if (req.method === 'GET'){
+			formCard = require('../extras/scheme-soulcard.json');
+		}
+		let cardId = req.params.cardId;
+		Card.findOne({_id : cardId}).then(card=>{
+			Object.assign(card, formCard);
+			return card.save();
+		}).catch(err => {
+			console.log('szukanie/zapis karty failed', err);
+		});
+		res.send('OK');
+	}
+
+	function updateDeck(req, res){
+		res.send('NOT OK');
+	}
+
 	app.post('/deck/:deckId', saveDeck);
+	app.put('/deck/:deckId', updateDeck);
 	app.get('/deck/save', saveDeck);
 	app.post('/deck/:deckId/card', createCard);
 	app.get('/deck/:deckId/card/save', createCard);
-
+	app.put('/card/:cardId', updateCard);
+	app.post('/card/:cardId', updateCard);
+	app.get('/card/:cardId/update', updateCard);
+	
 };
