@@ -16,13 +16,26 @@ How Soul Captain is being developed. Step-by-step. Day-by-day
 
 ---
 
+## 2018 04 26 22:23
+
+author: Wiktor
+
+place: Kolejowa
+
+### Today we did
+1. Maciej new MacBook setup
+2. Wiktor installed oh my zsh
+3. Wiktor with help of Maciej wrote diary.js and started diary.html
+
+---
+
 ## 2018 04 22 14:11
 
 author: Wiktor
 
 place: Kolejowa
 
-## Plan for today
+### Plan for today
 1. Create card - finish works
 2. Learn code
 3. Using Firebase; write Mood Diary as a proof of concept
