@@ -20,7 +20,7 @@ How Soul Captain is being developed. Step-by-step. Day-by-day
 
 author: Wiktor
 
-place: Kolejowa
+place: Green Caffè Nero, Przeskok 2
 
 ### Today we did
 1. Maciej new MacBook setup

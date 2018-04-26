@@ -6,9 +6,9 @@ module.exports = function (deps) {
     app.get('/diary', function (req, res) {
 
         var diaryEntryData = {
-            diaryDate: "String",
-            diaryNote: "String",
-            diaryMood: "String"
+            diaryDate: 'String',
+            diaryNote: 'String',
+            diaryMood: 'String'
         };
 
         req.body = diaryEntryData;
