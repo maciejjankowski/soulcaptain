@@ -44,12 +44,17 @@ const deps = { //TODO dependencies object passed to every require function (poor
 };
 
 // TODO passport rename to stampedPassport
+// deps
 require('./api/passport.js')(mongoose, passport);
 require('./api/login.js')(app, passport);
 require('./api/deck.js')(deps);
 require('./api/habits.js')(app, mongoose, isAuthenticated);
 require('./api/user.js')(app, mongoose, passport);
 require('./routes.js')(deps);
+require('./api/deck.js')(deps);
+require('./api/diary.js')(deps);
+
+
 
 var listener = app.listen(process.env.PORT || 9000, function () {
 	console.log('SoulCaptain is listening on port ' + listener.address().port);
