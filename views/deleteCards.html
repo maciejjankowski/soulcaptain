@@ -1,0 +1,20 @@
+<h1>
+  test?
+</h1>
+<% for (let i = 0; i < decks.length; i++) { %>
+  <li>
+    <a href="/deck/<%= decks[0].id %>/delete">
+      <%= decks[0].title || decks[0].id %>
+    </a>
+    <ul>
+      <% for (let j = 0; j < decks[i].cards.length; j++){ %>
+      <li>
+        <a href="/deck/<%= decks[i].id %>/card/<%= decks[i].cards[j].id %>/delete">
+          <%= decks[i].cards[j].id %>
+        </a>
+        <%= decks[i].cards[j].soulCardTitle %>
+      </li>
+      <% } %>
+    </ul>
+  </li>
+<% } %>
