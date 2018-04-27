@@ -11,7 +11,7 @@
     "watch": "nodemon server.js"
   },
   "dependencies": {
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^2.0.1",
     "body-parser": "^1.18.2",
     "connect-ensure-login": "^0.1.1",
     "connect-mongo": "^2.0.1",
@@ -31,7 +31,8 @@
     "passport-local": "^1.0.0",
     "request": "^2.83.0",
     "showdown": "^1.8.6",
-    "smsapi": "^1.5.6"
+    "smsapi": "^1.5.6",
+    "winston": "^3.0.0-rc5"
   },
   "engines": {
     "node": "6.10"

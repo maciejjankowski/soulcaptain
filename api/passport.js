@@ -1,10 +1,13 @@
-const FacebookStrategy = require('passport-facebook').Strategy;
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
+// const FacebookStrategy = require('passport-facebook').Strategy;
+// const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const testPassword = require('./testPassword.js');
 
-module.exports = function (mongoose, passport) {
+module.exports = function (deps) {
+	const logger = deps.logger;
+	const mongoose = deps.mongoose;
+	const passport = deps.passport;
 	const User = mongoose.models.User;
 
 	passport.use(
@@ -26,7 +29,7 @@ module.exports = function (mongoose, passport) {
 								msg: `Email ${email} not found.`
 							});
 						}
-						console.log('passport login', password, user.password);
+						logger.info('passport login', password, user.password);
 						testPassword(
 							password,
 							user.password,
@@ -35,7 +38,7 @@ module.exports = function (mongoose, passport) {
 									return done(err);
 								}
 								if (isMatch) {
-									console.log('password matches!');
+									logger.info('password matches!');
 									return done(null, user);
 								}
 								return done(null, false, {
@@ -50,20 +53,24 @@ module.exports = function (mongoose, passport) {
 	);
 
 	passport.serializeUser((user, done) => {
-		console.log('serialize user');
+		// logger.info('serialize user', user.id);
 		done(null, user.id);
 	});
 
 	passport.deserializeUser((id, done) => {
-		console.log('deserialize', id);
+		// logger.info('deserialize', id);
 		User.findOne(
 			{
 				_id: id
-			},
-			(err, user) => {
-				console.log('deserialize, returned:', err, user);
-				done(err, user);
 			}
-		);
+		)
+		.populate({path : 'decks', populate : { path : 'cards' } })
+		.then((user) => {
+				// logger.info('deserialize, returned:', JSON.stringify(user, null, 2));
+				done(null, user);
+			}).catch((err) => {
+				logger.info('error', err);
+				done(err, null);
+			});
 	});
 };

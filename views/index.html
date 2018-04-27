@@ -9,6 +9,7 @@
 
     <!-- navbar start-->
     <% include common/nav.html %>
+
         <!-- navbar start-->
 
         <main class="contaiter" role="main">
@@ -20,6 +21,15 @@
                             <h1>
                                 👻 SoulCaptain
                             </h1>
+                            <% if (user &&
+		user.email &&
+		user.personalInfo &&
+		user.personalInfo[0] &&
+		user.personalInfo[0].firstName) { %>
+                                <% include common/indexloggedin.html %>
+                                    <% } else { %>
+                                        <% include common/indexloggedout.html %>
+                                            <% } %>
                         </div>
                     </div>
                 </div>
