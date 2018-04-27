@@ -228,10 +228,10 @@ module.exports = function (deps) {
 	function deleteCard(req, res) {
 		let cardId = req.params.cardId;
 		let deckId = req.params.deckId;
-		console.log('decks', req.user.decks);
-		if ((!req.user || !req.user.decks) || req.user.decks.indexOf(deckId) === -1) {
+		// console.log('decks', req.user.decks);
+		if ((!req.user || !req.user.decks) || req.user.decks.filter((deck) => deck._id === deckId).length) {
 			console.log('trying to read someone elses card or not logged in');
-			res.send(403, 'NOT OK');
+			res.status(403).send('NOT OK');
 			return -1;
 		}
 
@@ -252,7 +252,7 @@ module.exports = function (deps) {
 									res.send('OK');
 									console.log('deck saved');
 								}).catch((err) => {
-									res.send(400, 'NOT OK');
+									res.status(400).sent('NOT OK');
 									console.log('decks save not working', err);
 								});
 							}
@@ -260,7 +260,7 @@ module.exports = function (deps) {
 					}
 				})
 				.catch(err => {
-					res.send(400, 'NOT OK');
+					res.status(400).send('NOT OK');
 					console.log('delete not deletes?', err);
 				});
 		}).catch(err => {
@@ -285,4 +285,12 @@ module.exports = function (deps) {
 
 	app.delete('/deck/:deckId/card/:cardId', deleteCard);
 	app.get('/deck/:deckId/card/:cardId/delete', deleteCard);
+
+	app.get('/deck/:deckId/cards/delete', (req, res) => {
+		let templateData = {
+			decks : req.user.decks,
+			cards : req.user.decks[0].cards
+		};
+		res.render('deleteCards.html', templateData);
+	});
 };
