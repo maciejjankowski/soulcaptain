@@ -20,6 +20,18 @@ How Soul Captain is being developed. Step-by-step. Day-by-day
 
 author: Wiktor
 
+place: Czytelnia, Aleja Zjednoczenia 46
+
+### Today we did
+1. Wiktor new DELL setup
+2. 
+
+---
+
+## 2018 04 26 22:23
+
+author: Wiktor
+
 place: Green Caffè Nero, Przeskok 2
 
 ### Today we did
