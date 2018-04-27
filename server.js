@@ -34,15 +34,18 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+const logger = require('./logger.js')();
+
 // DOC using passport: https://stackoverflow.com/questions/45381931/basics-of-passport-session-expressjs-why-do-we-need-to-serialize-and-deseriali
-const schema = require('./api/schema.js')(mongoose);
 const deps = { //TODO dependencies object passed to every require function (poor mans dependency injection)
 	app,
 	mongoose,
 	passport,
-	isAuthenticated
+	isAuthenticated,
+	logger
 };
 
+const schema = require('./api/schema.js')(mongoose);
 // TODO passport rename to stampedPassport
 require('./api/passport.js')(deps);
 require('./api/login.js')(app, passport);
@@ -52,7 +55,7 @@ require('./api/user.js')(app, mongoose, passport);
 require('./routes.js')(deps);
 
 var listener = app.listen(process.env.PORT || 9000, function () {
-	console.log('SoulCaptain is listening on port ' + listener.address().port);
+	logger.info('SoulCaptain is listening on port ' + listener.address().port);
 });
 
 /**
@@ -61,13 +64,13 @@ var listener = app.listen(process.env.PORT || 9000, function () {
 function isAuthenticated(req, res, next) {
 
 	// TODO wyświetlanie komunikatów jako Bootstrap Alerts
-	console.log('SoulCaptain is testing your login');
+	logger.info('SoulCaptain is testing your login');
 	if (req.isAuthenticated()) {
-		console.log('SoulCaptain says that login is ok');
+		logger.info('SoulCaptain says that login is ok');
 		return next();
 	} else {
 
-		console.log('SoulCaptain says that you are not logged in');
+		logger.info('SoulCaptain says that you are not logged in');
 
 		if (req.headers['content-type'] === 'application/json; charset=UTF-8') {
 			res.status(403).send('Soul captain asks you kindly to log in');

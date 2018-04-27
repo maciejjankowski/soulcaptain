@@ -1,6 +1,7 @@
 module.exports = function (deps) {
 	let app = deps.app;
 	let mongoose = deps.mongoose;
+	const logger = deps.logger;
 	const Card = mongoose.models.Card;
 	const Deck = mongoose.models.Deck;
 	// const Deck = mongoose.models.Deck;
@@ -28,15 +29,15 @@ module.exports = function (deps) {
 			let listOfDecks = userDecks.map(deckId => ({
 				_id: deckId
 			}));
-			console.log('listOfDecks', JSON.stringify(listOfDecks, null, 2));
+			logger.info('listOfDecks', JSON.stringify(listOfDecks, null, 2));
 			Deck.find({
 				$or: listOfDecks
 			}).then(function _handleDecks(decks) {
-				console.log('decks:', decks);
+				logger.info('decks:', decks);
 				// TODO: nie pokazywać userowi wszystkich pól obiektu
 				res.send(decks);
 			}).catch(function _handleDeckFail(err) {
-				console.log('deck error', err);
+				logger.info('deck error', err);
 			});
 
 		} else {
@@ -51,7 +52,7 @@ module.exports = function (deps) {
 
 		card.save(function (err) {
 			if (err) {
-				console.log(err);
+				logger.info(err);
 				res.send(400, {
 					status: 'error',
 					error: 'problem saving',
@@ -70,7 +71,7 @@ module.exports = function (deps) {
 		// req.user.decks.filter((deck)=>deck.id === req.params.deckId)
 		let mockDeck = require('../extras/scheme-souldeck.json');
 		let inputDeck = mockDeck;
-		console.log('this is searched', inputDeck._id);
+		logger.info('this is searched', inputDeck._id);
 
 		let deck = Deck.findOne({
 				_id: inputDeck._id
@@ -79,8 +80,8 @@ module.exports = function (deps) {
 				path: 'cards',
 			})
 			.then(deck => {
-				console.log('this is found', JSON.stringify(deck, null, 2));
-				console.log('this is added', JSON.stringify(inputDeck, null, 2));
+				logger.info('this is found', JSON.stringify(deck, null, 2));
+				logger.info('this is added', JSON.stringify(inputDeck, null, 2));
 				Object.assign(deck, inputDeck);
 
 				// read all cards and save individually
@@ -88,7 +89,7 @@ module.exports = function (deps) {
 				inputDeck.cards.forEach((inputCard) => {
 					if (deck.cards.filter((card) => card._id == inputCard._id).length) {
 						// update
-						console.log('if dla funkcji deck.cards.filter');
+						logger.info('if dla funkcji deck.cards.filter');
 						Card.findOne().then({});
 					} else {
 						// save, getId, add Id
@@ -97,21 +98,21 @@ module.exports = function (deps) {
 					}
 				});
 
-				console.log('this gets saved', JSON.stringify(deck, null, 2));
+				logger.info('this gets saved', JSON.stringify(deck, null, 2));
 				// return;
 				deck.soulDeckTitle = 'XYZ';
 				deck.save().then(result => {
-					console.log(
+					logger.info(
 						'SoulCaptain saved the deck (and your soul).',
 						JSON.stringify(result, null, 2)
 					);
 					res.send('OK');
 				}).catch((err) => {
-					console.log('save error', err);
+					logger.info('save error', err);
 					res.status(400).send('BAD\n' + JSON.stringify(err, null, 2));
 				});
 			}).catch(function pokaError(error) {
-				console.log('to je error z findOne', error);
+				logger.info('to je error z findOne', error);
 				res.status(400).send('BAD\n' + JSON.stringify(error, null, 2));
 			});
 
@@ -119,9 +120,9 @@ module.exports = function (deps) {
 
 	function createCard(req, res) {
 		let deckId = req.params.deckId;
-		console.log(req.user.decks[0]._id, deckId, ' decks found')
+		logger.info(req.user.decks[0]._id, deckId, ' decks found')
 		if ((!req.user || !req.user.decks) || !req.user.decks.filter((deck) => deck._id == deckId).length) {
-			console.log('trying to save someone elses card or not logged in');
+			logger.info('trying to save someone elses card or not logged in');
 			res.status(403).send('NOT OK');
 			return -1;
 		}
@@ -133,18 +134,18 @@ module.exports = function (deps) {
 			}).then(function _handleFoundDeck(foundDeck) {
 				foundDeck.cards.push(response._id);
 				foundDeck.save().then(function (result) {
-					console.log('updated deck with new card', result);
+					logger.info('updated deck with new card', result);
 					res.send('OK');
 				}).catch(function _handleError(err) {
-					console.log('zapis się wysrał', err);
+					logger.info('zapis się wysrał', err);
 					res.status(400).send('NOT OK');
 				});
 			}).catch(err => {
-				console.log('createCard error in .then(function _handleFoundDeck(foundDeck)', err);
+				logger.info('createCard error in .then(function _handleFoundDeck(foundDeck)', err);
 				res.status(400).send('NOT OK');
 			});
 		}).catch(err => {
-			console.log('createCard error in card.save().then((response)', err);
+			logger.info('createCard error in card.save().then((response)', err);
 			res.status(400).send('NOT OK');
 		});
 	}
@@ -158,7 +159,7 @@ module.exports = function (deps) {
 		if ((!req.user || !req.user.decks) || !req.user.decks.reduce((p, c) => {
 				return p || (c.cards.findIndex((card) => card._id == cardId) > -1);
 			}, 0)) {
-			console.log('trying to save someone elses card or not logged in');
+			logger.info('trying to save someone elses card or not logged in');
 			res.status(403).send('NOT OK');
 			return -1;
 		}
@@ -170,11 +171,11 @@ module.exports = function (deps) {
 			card.save().then(() => {
 				res.send('OK');
 			}).catch(err => {
-				console.log('update failed', err);
+				logger.info('update failed', err);
 				res.status(400).send('NOT OK');
 			});
 		}).catch(err => {
-			console.log('szukanie/zapis karty failed', err);
+			logger.info('szukanie/zapis karty failed', err);
 			res.status(400).send('NOT OK');
 		});
 	}
@@ -183,7 +184,7 @@ module.exports = function (deps) {
 		let deckId = req.params.deckId;
 		let inputDeck = req.body;
 		if ((!req.user || !req.user.decks) || req.user.decks.filter((deck) => deck._id == deckId).length) {
-			console.log('trying to save someone elses card or not logged in');
+			logger.info('trying to save someone elses card or not logged in');
 			res.status(403).send('NOT OK');
 			return -1;
 		}
@@ -193,14 +194,14 @@ module.exports = function (deps) {
 		}).then(function _handleFoundDeck(foundDeck) {
 			Object.assign(foundDeck, inputDeck);
 			foundDeck.save().then(function (result) {
-				console.log('updated deck with new card', result);
+				logger.info('updated deck with new card', result);
 				res.send('OK');
 			}).catch(function _handleError(err) {
-				console.log('zapis się wysrał', err);
+				logger.info('zapis się wysrał', err);
 				res.status(400).send('NOT OK');
 			});
 		}).catch(err => {
-			console.log('createCard error in .then(function _handleFoundDeck(foundDeck)', err);
+			logger.info('createCard error in .then(function _handleFoundDeck(foundDeck)', err);
 			res.status(400).send('NOT OK');
 		});
 	}
@@ -213,7 +214,7 @@ module.exports = function (deps) {
 		if ((!req.user || !req.user.decks) || !req.user.decks.reduce((p, c) => {
 				return p || (c.cards.findIndex((card) => card._id == cardId) > -1);
 			}, 0)) {
-			console.log('trying to read someone elses card or not logged in');
+			logger.info('trying to read someone elses card or not logged in');
 			res.status(403).send('NOT OK');
 			return -1;
 		}
@@ -229,9 +230,9 @@ module.exports = function (deps) {
 	function deleteCard(req, res) {
 		let cardId = req.params.cardId;
 		let deckId = req.params.deckId;
-		console.log('decks', req.user.decks.map((deck)=>deck._id));
+		logger.info('decks', req.user.decks.map((deck)=>deck._id));
 		if ((!req.user || !req.user.decks) || !req.user.decks.filter((deck) => deck._id == deckId).length) {
-			console.log('trying to read someone elses card or not logged in', deckId, cardId);
+			logger.info('trying to read someone elses card or not logged in', deckId, cardId);
 			res.status(403).send('NOT OK');
 			return -1;
 		}
@@ -239,27 +240,27 @@ module.exports = function (deps) {
 		Card.findOne({
 			_id: cardId
 		}).then(card => {
-			console.log('renoving', cardId, ' from ', deckId);
+			logger.info('renoving', cardId, ' from ', deckId);
 			card.remove().then((result) => {
-					console.log('removed card', result);
+					logger.info('removed card', result);
 					if (req.user.decks.filter((deck) => deck._id == deckId).length) {
 						Deck.findOne({
 							_id: deckId
 						}).then(deck => {
 							let cardIndex = deck.cards.indexOf(cardId);
-							console.log('cards', cardIndex);
+							logger.info('cards', cardIndex);
 							if (cardIndex > -1) {
 								deck.cards.splice(cardIndex, 1);
 								deck.save().then(() => {
 									res.send('OK');
-									console.log('deck saved');
+									logger.info('deck saved');
 								}).catch((err) => {
 									res.status(400).sent('NOT OK');
-									console.log('decks save not working', err);
+									logger.info('decks save not working', err);
 								});
 							} else {
 								res.status(400).send('NOT OK???')
-								console.log('to się dzieje');
+								logger.info('to się dzieje');
 							}
 						}).catch((err) => {
 							res.status(400).send('NOT OK??');
@@ -271,10 +272,10 @@ module.exports = function (deps) {
 				})
 				.catch(err => {
 					res.status(400).send('NOT OK');
-					console.log('delete not deletes?', err);
+					logger.info('delete not deletes?', err);
 				});
 		}).catch(err => {
-			console.log('card not found');
+			logger.info('card not found');
 			res.status(404).send('NOT OK');
 		});
 	}

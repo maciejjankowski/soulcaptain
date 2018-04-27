@@ -31,7 +31,8 @@
     "passport-local": "^1.0.0",
     "request": "^2.83.0",
     "showdown": "^1.8.6",
-    "smsapi": "^1.5.6"
+    "smsapi": "^1.5.6",
+    "winston": "^3.0.0-rc5"
   },
   "engines": {
     "node": "6.10"
