@@ -41,7 +41,7 @@ module.exports = function (deps) {
 			});
 
 		} else {
-			console.error('niezalogowany');
+			logger.error('niezalogowany');
 			res.status(403).send('Log in first');
 		}
 	});
@@ -73,7 +73,7 @@ module.exports = function (deps) {
 		let inputDeck = mockDeck;
 		logger.info('this is searched', inputDeck._id);
 
-		let deck = Deck.findOne({
+		Deck.findOne({
 				_id: inputDeck._id
 			})
 			.populate({
@@ -115,12 +115,11 @@ module.exports = function (deps) {
 				logger.info('to je error z findOne', error);
 				res.status(400).send('BAD\n' + JSON.stringify(error, null, 2));
 			});
-
 	} // saveDeck
 
 	function createCard(req, res) {
 		let deckId = req.params.deckId;
-		logger.info(req.user.decks[0]._id, deckId, ' decks found')
+		logger.info(req.user.decks[0]._id, deckId, ' decks found');
 		if ((!req.user || !req.user.decks) || !req.user.decks.filter((deck) => deck._id == deckId).length) {
 			logger.info('trying to save someone elses card or not logged in');
 			res.status(403).send('NOT OK');
@@ -222,7 +221,7 @@ module.exports = function (deps) {
 			_id: cardId
 		}).then(card => {
 			res.send(card);
-		}).catch(err => {
+		}).catch(() => {
 			res.status(404).send('NOT OK');
 		});
 	}
@@ -259,12 +258,12 @@ module.exports = function (deps) {
 									logger.info('decks save not working', err);
 								});
 							} else {
-								res.status(400).send('NOT OK???')
+								res.status(400).send('NOT OK???');
 								logger.info('to się dzieje');
 							}
 						}).catch((err) => {
 							res.status(400).send('NOT OK??');
-							console.error('not found', err);
+							logger.error('not found', err);
 						});
 					} else {
 						res.status(400).send('NOT OK?');
@@ -275,7 +274,7 @@ module.exports = function (deps) {
 					logger.info('delete not deletes?', err);
 				});
 		}).catch(err => {
-			logger.info('card not found');
+			logger.info('card not found', err);
 			res.status(404).send('NOT OK');
 		});
 	}

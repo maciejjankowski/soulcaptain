@@ -45,7 +45,7 @@ const deps = { //TODO dependencies object passed to every require function (poor
 	logger
 };
 
-const schema = require('./api/schema.js')(deps);
+require('./api/schema.js')(deps);
 // TODO passport rename to stampedPassport
 require('./api/passport.js')(deps);
 require('./api/login.js')(deps);
