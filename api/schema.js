@@ -1,5 +1,6 @@
 // TODO @maciej dodać do sheme isHabitable czyli dodać wszelkie inforamcje potrzebne by zrobić odhaczankę posługując się tym modelem
-module.exports = function (mongoose) {
+module.exports = function (deps) {
+	const mongoose = deps.mongoose;
 	const Card = mongoose.model(
 		'Card', // http://mongoosejs.com/docs/guide.html
 		{
