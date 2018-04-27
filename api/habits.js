@@ -4,7 +4,7 @@ module.exports = function(deps) {
 	// const isAuthenticated = deps.isAuthenticated;
 	const logger = deps.logger;
 
-	var timeSpansLength = [
+	/* var timeSpansLength = [
 		1,
 		24,
 		24 * 7,
@@ -23,7 +23,7 @@ module.exports = function(deps) {
 		'bi-annually'
 	];
 	var habitType = ['growth', 'excite', 'sustain', 'maintenance', 'challenge'];
-
+ */
 	const Habit = mongoose.models.Habit;
 	/*
 	expect(req.body.payload).to.beArray()
