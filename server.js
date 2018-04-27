@@ -44,7 +44,7 @@ const deps = { //TODO dependencies object passed to every require function (poor
 };
 
 // TODO passport rename to stampedPassport
-require('./api/passport.js')(mongoose, passport);
+require('./api/passport.js')(deps);
 require('./api/login.js')(app, passport);
 require('./api/deck.js')(deps);
 require('./api/habits.js')(app, mongoose, isAuthenticated);
