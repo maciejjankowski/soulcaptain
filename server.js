@@ -48,10 +48,10 @@ const deps = { //TODO dependencies object passed to every require function (poor
 const schema = require('./api/schema.js')(deps);
 // TODO passport rename to stampedPassport
 require('./api/passport.js')(deps);
-require('./api/login.js')(app, passport);
+require('./api/login.js')(app);
 require('./api/deck.js')(deps);
-require('./api/habits.js')(app, mongoose, isAuthenticated);
-require('./api/user.js')(app, mongoose, passport);
+require('./api/habits.js')(app);
+require('./api/user.js')(deps);
 require('./routes.js')(deps);
 
 var listener = app.listen(process.env.PORT || 9000, function () {

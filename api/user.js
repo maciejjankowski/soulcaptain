@@ -1,14 +1,18 @@
 const bcrypt = require('bcrypt');
 const testPassword = require('./testPassword');
-const payloadTransformer = require('./payloadTransformer');
+// const payloadTransformer = require('./payloadTransformer');
 
-module.exports = function (app, mongoose, passport) {
+module.exports = function (deps) {
+	const app = deps.app;
+	const mongoose = deps.mongoose;
+	const passport = deps.passport;
+	const logger = deps.logger;
 	app.get(
 		'/profile',
 		require('connect-ensure-login').ensureLoggedIn(),
 		// isAuthenticated,
 		function (req, res) {
-			console.log('/profile');
+			logger.info('/profile');
 
 			res.send({ user: req.user });
 		}
@@ -19,7 +23,7 @@ module.exports = function (app, mongoose, passport) {
 
 	app.post('/postSignup', function postSignup(req, res) {
 		let payloadFields = (req.body && req.body.payload) || req.body;
-		console.log('to jest konsol log dla payloadFields', payloadFields);
+		logger.info('to jest konsol log dla payloadFields', payloadFields);
 
 
 		let payloadApproved = {};
@@ -35,7 +39,7 @@ module.exports = function (app, mongoose, passport) {
 				payloadApproved[key] = payloadFields[key];
 			}
 		});
-		console.log(
+		logger.info(
 			'to jest konsol log zestawiający',
 			payloadFields.firstName,
 			payloadApproved.firstName,
@@ -47,19 +51,19 @@ module.exports = function (app, mongoose, passport) {
 			payloadApproved.repeatpassword
 		);
 
-		console.log('to jest konsol log dla payloadApproved', payloadApproved);
+		logger.info('to jest konsol log dla payloadApproved', payloadApproved);
 
 		mongoose.models.User.findOne({ loginId: payloadApproved.email }).then(
 			user => {
 				if (user) {
-					console.log(user);
+					logger.info(user);
 					testPassword(user.password, err => {
 						if (err) {
-							return console.log(
+							return logger.info(
 								'Wrong password (account for this email allready exist).'
 							);
 						} else {
-							console.log('Login successful', user);
+							logger.info('Login successful', user);
 							res.send('Login successful');
 						}
 					});

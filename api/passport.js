@@ -5,6 +5,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const testPassword = require('./testPassword.js');
 
 module.exports = function (deps) {
+	const logger = deps.logger;
 	const mongoose = deps.mongoose;
 	const passport = deps.passport;
 	const User = mongoose.models.User;
@@ -28,7 +29,7 @@ module.exports = function (deps) {
 								msg: `Email ${email} not found.`
 							});
 						}
-						console.log('passport login', password, user.password);
+						logger.info('passport login', password, user.password);
 						testPassword(
 							password,
 							user.password,
@@ -37,7 +38,7 @@ module.exports = function (deps) {
 									return done(err);
 								}
 								if (isMatch) {
-									console.log('password matches!');
+									logger.info('password matches!');
 									return done(null, user);
 								}
 								return done(null, false, {
@@ -52,12 +53,12 @@ module.exports = function (deps) {
 	);
 
 	passport.serializeUser((user, done) => {
-		// console.log('serialize user', user.id);
+		// logger.info('serialize user', user.id);
 		done(null, user.id);
 	});
 
 	passport.deserializeUser((id, done) => {
-		// console.log('deserialize', id);
+		// logger.info('deserialize', id);
 		User.findOne(
 			{
 				_id: id
@@ -65,10 +66,10 @@ module.exports = function (deps) {
 		)
 		.populate({path : 'decks', populate : { path : 'cards' } })
 		.then((user) => {
-				// console.log('deserialize, returned:', JSON.stringify(user, null, 2));
+				// logger.info('deserialize, returned:', JSON.stringify(user, null, 2));
 				done(null, user);
 			}).catch((err) => {
-				console.log('error', err);
+				logger.info('error', err);
 				done(err, null);
 			});
 	});

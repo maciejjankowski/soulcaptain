@@ -1,4 +1,5 @@
 module.exports = function _defineRoutes(deps) {
+	const logger = deps.logger;
 	var app;
 	if (typeof deps.app === 'undefined') {
 		throw new Error(
@@ -25,7 +26,7 @@ module.exports = function _defineRoutes(deps) {
 		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
-		console.log(templateData.user, 'tu zoba co siedzi');
+		logger.info(templateData.user, 'tu zoba co siedzi');
 		res.render('deck.html', templateData);
 	});
 

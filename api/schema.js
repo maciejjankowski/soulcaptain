@@ -63,7 +63,8 @@ module.exports = function (deps) {
 				type: mongoose.Schema.Types.ObjectId,
 				ref: 'Card'
 			}
-		]
+		],
+		name : String
 	});
 
 	return {
