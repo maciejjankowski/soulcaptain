@@ -52,12 +52,12 @@ module.exports = function (deps) {
 	);
 
 	passport.serializeUser((user, done) => {
-		console.log('serialize user');
+		// console.log('serialize user', user.id);
 		done(null, user.id);
 	});
 
 	passport.deserializeUser((id, done) => {
-		console.log('deserialize', id);
+		// console.log('deserialize', id);
 		User.findOne(
 			{
 				_id: id

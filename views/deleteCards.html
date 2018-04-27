@@ -3,14 +3,21 @@
 </h1>
 <% for (let i = 0; i < decks.length; i++) { %>
   <li>
-    <a href="/deck/<%= decks[0].id %>/delete">
+
+    <a href="/deck/<%= decks[0].id %>">
       <%= decks[0].title || decks[0].id %>
+    </a>&nbsp; 
+    <a href="/deck/<%= decks[0].id %>/delete">
+      &times;
     </a>
     <ul>
       <% for (let j = 0; j < decks[i].cards.length; j++){ %>
       <li>
+          <a href="/card/<%= decks[i].cards[j].id %>" >
+              <%= decks[i].cards[j].id %>
+          </a>&nbsp;
         <a href="/deck/<%= decks[i].id %>/card/<%= decks[i].cards[j].id %>/delete">
-          <%= decks[i].cards[j].id %>
+          &times;
         </a>
         <%= decks[i].cards[j].soulCardTitle %>
       </li>
