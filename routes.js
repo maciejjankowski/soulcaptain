@@ -137,6 +137,6 @@ function greetUser(req, templateData) {
 		req.user.personalInfo[0].firstName) {
 		templateData.greeting = 'Hello, 👩‍💻 ' + req.user.personalInfo[0].firstName;
 	} else {
-		templateData.greeting = 'Please log in';
+		templateData.greeting = 'Oh, hi there! Please';
 	}
 }
