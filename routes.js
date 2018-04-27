@@ -37,6 +37,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '📖 Diary'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('diary.html', templateData);
 	});
 
@@ -45,6 +46,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '🎴📄 DeckDocument'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('deckdocument.html', templateData);
 	});
 
@@ -53,6 +55,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '🃏 SoulCard'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('deckcard.html', templateData);
 	});
 
@@ -61,6 +64,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '🃏📝 CardAdd'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('deckcardadd.html', templateData);
 	});
 
@@ -72,6 +76,7 @@ module.exports = function _defineRoutes(deps) {
 				title: '🃏🎠 CardCarousel'
 			};
 			greetUser(req, templateData);
+			templateData.user = req.user;
 			res.render('deckcardcarousel.html', templateData);
 		}
 	);
@@ -81,6 +86,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '❌ DailyX'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('habits.html', templateData);
 	});
 
@@ -89,6 +95,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '✍️ Sign Up'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('signup.html', templateData);
 	});
 
@@ -97,6 +104,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '✅ Login'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('login.html', templateData);
 	});
 
@@ -105,6 +113,7 @@ module.exports = function _defineRoutes(deps) {
 			title: 'Dis iz adminz place'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('admin.html', templateData);
 	});
 
@@ -113,6 +122,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '👻🎊 SoulBlog'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('blog.html', templateData);
 	});
 
@@ -128,6 +138,6 @@ function greetUser(req, templateData) {
 		req.user.personalInfo[0].firstName) {
 		templateData.greeting = 'Hello, 👩‍💻 ' + req.user.personalInfo[0].firstName;
 	} else {
-		templateData.greeting = 'Please log in';
+		templateData.greeting = 'Oh, hi there! Please';
 	}
 }
