@@ -11,9 +11,11 @@ module.exports = function _defineRoutes(deps) {
 
 	// TODO refactor: funkcja app.get łyka sobie 3 zmienne z odzielnego statycznego JSONA/scheme
 	app.get('/', (req, res) => {
+		console.log('HALKO', req.user, 'SIEMANKO')
 		let templateData = {
 			title: '👻🏡 SoulHome',
-			greeting: ''
+			greeting: '',
+			user: req.user
 		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
@@ -28,6 +30,14 @@ module.exports = function _defineRoutes(deps) {
 		templateData.user = req.user;
 		logger.info(templateData.user, 'tu zoba co siedzi');
 		res.render('deck.html', templateData);
+	});
+
+	app.get('/diary.html', (req, res) => {
+		let templateData = {
+			title: '📖 Diary'
+		};
+		greetUser(req, templateData);
+		res.render('diary.html', templateData);
 	});
 
 	app.get('/deckdocument.html', (req, res) => {

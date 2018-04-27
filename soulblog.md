@@ -16,13 +16,57 @@ How Soul Captain is being developed. Step-by-step. Day-by-day
 
 ---
 
+## 2018 04 26 22:23
+
+author: Wiktor
+
+place: Czytelnia, Aleja Zjednoczenia 46
+
+### Today we did
+1. Wiktor new DELL setup
+2. Bump bcrypt to 2.0.x
+3. Logout function [passport logout](http://www.passportjs.org/docs/logout/)
+```
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+```
+4. EJS with if depending on user session status
+```
+<% if (user &&
+		user.email &&
+		user.personalInfo &&
+		user.personalInfo[0] &&
+		user.personalInfo[0].firstName) { %>
+                                <% include common/indexloggedin.html %>
+                                    <% } else { %>
+                                        <% include common/indexloggedout.html %>
+                                            <% } %>
+```
+
+---
+
+## 2018 04 26 22:23
+
+author: Wiktor
+
+place: Green Caffè Nero, Przeskok 2
+
+### Today we did
+1. Maciej new MacBook setup
+2. Wiktor installed oh my zsh
+3. Wiktor with help of Maciej wrote diary.js and started diary.html
+
+---
+
 ## 2018 04 22 14:11
 
 author: Wiktor
 
 place: Kolejowa
 
-## Plan for today
+### Plan for today
 1. Create card - finish works
 2. Learn code
 3. Using Firebase; write Mood Diary as a proof of concept

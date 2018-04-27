@@ -9,16 +9,54 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 <h1 id="soulcaptainblog">👻🎊 SoulCaptain Blog</h1>
 <p>How Soul Captain is being developed. Step-by-step. Day-by-day</p>
 <hr />
+<h2 id="201804262223">2018 04 26 22:23</h2>
+<p>author: Wiktor</p>
+<p>place: Czytelnia, Aleja Zjednoczenia 46</p>
+<h3 id="todaywedid">Today we did</h3>
+<ol>
+<li>Wiktor new DELL setup</li>
+<li>Bump bcrypt to 2.0.x</li>
+<li>Logout function <a href="http://www.passportjs.org/docs/logout/">passport logout</a></li>
+</ol>
+<pre><code>app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+</code></pre>
+<ol start="4">
+<li>EJS with if depending on user session status</li>
+</ol>
+<pre><code>&lt;% if (user &amp;&amp;
+        user.email &amp;&amp;
+        user.personalInfo &amp;&amp;
+        user.personalInfo[0] &amp;&amp;
+        user.personalInfo[0].firstName) { %&gt;
+                                &lt;% include common/indexloggedin.html %&gt;
+                                    &lt;% } else { %&gt;
+                                        &lt;% include common/indexloggedout.html %&gt;
+                                            &lt;% } %&gt;
+</code></pre>
+<hr />
+<h2 id="201804262223-1">2018 04 26 22:23</h2>
+<p>author: Wiktor</p>
+<p>place: Green Caffè Nero, Przeskok 2</p>
+<h3 id="todaywedid-1">Today we did</h3>
+<ol>
+<li>Maciej new MacBook setup</li>
+<li>Wiktor installed oh my zsh</li>
+<li>Wiktor with help of Maciej wrote diary.js and started diary.html</li>
+</ol>
+<hr />
 <h2 id="201804221411">2018 04 22 14:11</h2>
 <p>author: Wiktor</p>
 <p>place: Kolejowa</p>
-<h2 id="planfortoday">Plan for today</h2>
+<h3 id="planfortoday">Plan for today</h3>
 <ol>
 <li>Create card - finish works</li>
 <li>Learn code</li>
 <li>Using Firebase; write Mood Diary as a proof of concept</li>
 </ol>
-<h2 id="whatwedidtoday">What we did today</h2>
+<h3 id="todaywedid-2">Today we did</h3>
 <ol>
 <li>Double check Card adding</li>
 <li>Better UX/UI for Deck view</li>
@@ -34,7 +72,7 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 <h2 id="201804182104">2018 04 18 21:04</h2>
 <p>author: Wiktor</p>
 <p>place: Green Caffè Nero, Rondo Daszyńskiego &amp; Kolejowa</p>
-<h3 id="todaywedid">Today we did</h3>
+<h3 id="todaywedid-3">Today we did</h3>
 <p><strong>Card adder</strong>
 Finally worked! We can add card to mongoDB via mongoose.</p>
 <p><strong>Code learning</strong></p>
@@ -85,7 +123,7 @@ console.log(car1.make);
 <h2 id="201804152104">2018 04 15 21:04</h2>
 <p>author: Wiktor</p>
 <p>place: Green Caffè Nero, Andersa 37</p>
-<h3 id="todaywedid-1">Today we did</h3>
+<h3 id="todaywedid-4">Today we did</h3>
 <p><strong>Card adder</strong></p>
 <p>We've dded new Vue app that stores data from textarea and sends it using <code>XMLHttpRequest</code>:</p>
 <pre><code class="javascript language-javascript">var request = new XMLHttpRequest();
@@ -114,7 +152,7 @@ request.send(payload);
 <h2 id="201804081708">2018 04 08 17:08</h2>
 <p>author: Wiktor</p>
 <p>place: Kolejowa 5/7</p>
-<h3 id="todaywedid-2">Today we did</h3>
+<h3 id="todaywedid-5">Today we did</h3>
 <p><strong>Card adder</strong></p>
 <ul>
 <li>new JSON based on inputs (using document.getDocument), that is 100% compatible with mongo Scheme</li>

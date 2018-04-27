@@ -20,6 +20,11 @@ module.exports = function (deps) {
 
 	// TODO napisać lub użyć logout 
 	app.get('/login', passport.authenticate());
+	app.get('/logout', function(req, res){
+		req.logout();
+		res.redirect('/');
+	  });
+
 
 	app.post('/postSignup', function postSignup(req, res) {
 		let payloadFields = (req.body && req.body.payload) || req.body;
@@ -87,7 +92,7 @@ module.exports = function (deps) {
 			}
 		);
 
-    res.writeHead(302, {
+		res.writeHead(302, {
 			Location: '/'
 			//add other headers here...
 		});
