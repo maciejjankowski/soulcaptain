@@ -24,7 +24,26 @@ place: Czytelnia, Aleja Zjednoczenia 46
 
 ### Today we did
 1. Wiktor new DELL setup
-2. 
+2. Bump bcrypt to 2.0.x
+3. Logout function [passport logout](http://www.passportjs.org/docs/logout/)
+```
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+```
+4. EJS with if depending on user session status
+```
+<% if (user &&
+		user.email &&
+		user.personalInfo &&
+		user.personalInfo[0] &&
+		user.personalInfo[0].firstName) { %>
+                                <% include common/indexloggedin.html %>
+                                    <% } else { %>
+                                        <% include common/indexloggedout.html %>
+                                            <% } %>
+```
 
 ---
 
