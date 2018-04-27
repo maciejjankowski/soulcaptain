@@ -1,10 +1,12 @@
-const FacebookStrategy = require('passport-facebook').Strategy;
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
+// const FacebookStrategy = require('passport-facebook').Strategy;
+// const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const testPassword = require('./testPassword.js');
 
-module.exports = function (mongoose, passport) {
+module.exports = function (deps) {
+	const mongoose = deps.mongoose;
+	const passport = deps.passport;
 	const User = mongoose.models.User;
 
 	passport.use(
@@ -59,11 +61,15 @@ module.exports = function (mongoose, passport) {
 		User.findOne(
 			{
 				_id: id
-			},
-			(err, user) => {
-				console.log('deserialize, returned:', err, user);
-				done(err, user);
 			}
-		);
+		)
+		.populate({path : 'decks', populate : { path : 'cards' } })
+		.then((user) => {
+				// console.log('deserialize, returned:', JSON.stringify(user, null, 2));
+				done(null, user);
+			}).catch((err) => {
+				console.log('error', err);
+				done(err, null);
+			});
 	});
 };
