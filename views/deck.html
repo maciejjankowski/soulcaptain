@@ -6,6 +6,7 @@
 </head>
 
 <body>
+
     <!-- navbar start-->
     <% include ../views/common/nav.html %>
         <div class="container">
@@ -15,9 +16,9 @@
                         <section class="jumbotron text-center">
                             <div class="container">
                                 <h1 class="jumbotron-heading">🎴 SoulDeck Example</h1>
-                                <p class="lead text-muted">This is SoulDeck. One of the mail features in SoulCaptain. Decks' main purpose is to gahter
+                                <p class="lead text-muted">This is SoulDeck. One of the mail features in SoulCaptain. Decks' main purpose is to gather
                                     SoulNodes gathered in Cards. Decks can be browsed on regular basis or you can create
-                                    collecion on special occasion.
+                                    collection on special occasion.
                                 </p>
                                 <p>
                                     <a href="/deckcard.html" class="btn btn-primary my-2">Full screen</a>
@@ -30,10 +31,10 @@
                                 <div class="row">
 
                                     <!-- pętla wypluwająca ładne karciochy -->
-                                    <div v-for="card in soulDeck.soulDeckCards" class="col-md-4">
+                                    <div v-for="card in soulDeck.cards" class="col-md-4">
                                         <div class="card mb-4 box-shadow">
                                             <div class="card-body">
-                                                <p class="card-tilte">{{card.soulCardTitle}}
+                                                <p class="card-title">{{card.soulCardTitle}}
                                                 </p>
                                                 <hr>
                                                 <div v-for="encja in card.soulCardSoulencje">
@@ -47,30 +48,34 @@
                                                     </p>
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="btn-group">
-                                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                            <button type="button" class="btn btn-sm btn-outline-secondary">
+                                                                View
+                                                            </button>
+                                                            <button type="button" class="btn btn-sm btn-outline-secondary">
+                                                                Edit
+                                                            </button>
                                                         </div>
                                                         <small class="text-muted">{{encja.source.author}}</small>
                                                     </div>
                                                 </div>
+                                                <small class="text-muted">{{encja.source.author}}</small>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- pętla wypluwająca ładne karciochy -->
-
-
                                 </div>
                             </div>
-
                         </div>
-
                     </main>
                 </div>
-            </div>
+            </main>
         </div>
+    </div>
+</div>
 
-        <% include common/footer.html %>
-        <script src="/main.js"></script>
+        <% include common/script-footer.html %>
+            <% include common/footer.html %>
+                <script src="/main.js"></script>
 
 </body>
 

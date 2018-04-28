@@ -1,70 +1,80 @@
-{  
-   "soulDeckId":"201801191933450000000001",
-   "soulDeckTitle":"Wiktors' DECK",
-   "soulCards":[  
-      {  
-         "soulCardId":"00001",
-         "soulCardTitle":"Proście, Szukajcie, Pukajcie",
-         "soulCardSoulencje":[  
-            {  
-               "soulId":"001",
-               "soulIdParent":"null",
-               "soulType":"prayer",
-               "language":"PL",
-               "text":"Proście, a będzie wam dane; szukajcie, a znajdziecie; kołaczcie, a otworzą wam. Albowiem każdy, kto prosi, otrzymuje; kto szuka, znajduje; a kołaczącemu otworzą.",
-               "source":{  
-                  "author":"Święty Mateusz",
-                  "created":"10",
-                  "source":"Bibila",
-                  "sourceLink":"https://pl.wikiquote.org/wiki/Ewangelia_Mateusza"
-               }
-            },
-            {  
-               "soulId":"002",
-               "soulIdParent":"null",
-               "soulType":"prayer",
-               "language":"ENG",
-               "text":"Ask and it will be given to you; seek and you will find; knock and the door will be opened to you. For everyone who asks receives; the one who seeks finds; and to the one who knocks, the door will be opened.",
-               "source":{  
-                  "author":"Święty Mateusz",
-                  "created":"10",
-                  "source":"Bibila",
-                  "sourceLink":"https://pl.wikiquote.org/wiki/Ewangelia_Mateusza"
-               }
-            }
-         ]
-      },
-      {  
-         "soulCardId":"00002",
-         "soulCardTitle":"litany against fear",
-         "soulCardSoulencje":[  
-            {  
-               "soulId":"003",
-               "soulIdParent":"null",
-               "soulType":"prayer",
-               "language":"EN",
-               "text":"I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain.",
-               "source":{  
-                  "author":"Frank Herbert",
-                  "created":"1965",
-                  "source":"Dune",
-                  "sourceLink":"https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
-               }
-            },
-            {  
-               "soulId":"004",
-               "soulIdParent":"null",
-               "soulType":"prayer",
-               "language":"ENG",
-               "text":"Nie wolno się bać. Strach zabija duszę.  Strach to mała śmierć, a wielkie unicestwienie.  Stawię mu czoło.  Niech przejdzie po mnie i przeze mnie.  A kiedy przejdzie, odwrócę oko swej jaźni na jego drogę.  Którędy przeszedł strach, tam nie ma nic. Jestem tylko ja.",
-               "source":{  
-                  "author":"Frank Herbert",
-                  "created":"1965",
-                  "source":"Dune",
-                  "sourceLink":"hhttps://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
-               }
-            }
-         ]
-      }
-   ]
+{
+  "_id" : "5aaeb1e14adb0227720caf0f",
+  "soulDeckTitle": "Wiktors' DECK",
+  "cards": [
+    {
+      "soulCardTitle": "Proście, Szukajcie, Pukajcie",
+      "soulCardSoulencje": [
+        {
+          "soulIdParent": "null",
+          "soulType": "prayer",
+          "language": "PL",
+          "text": "Proście, a będzie wam dane; szukajcie, a znajdziecie; kołaczcie, a otworzą wam. Albowiem każdy, kto prosi, otrzymuje; kto szuka, znajduje; a kołaczącemu otworzą.",
+          "image" :"",
+          "video" : "",
+          "audio" : "",
+          "reason" :"",
+          "source": {
+            "author": "Święty Mateusz",
+            "created": "10",
+            "source": "Bibila",
+            "sourceLink": "https://pl.wikiquote.org/wiki/Ewangelia_Mateusza"
+          }
+        },
+        {
+          "soulIdParent": "null",
+          "soulType": "prayer",
+          "language": "PL",
+          "text": "Daj mi mondrość żebym umiał odróżnić to do czoego nie moge zmienić,a  to co mogę zmienic żebym zmienił",
+          "image" :"",
+          "video" : "",
+          "audio" : "",
+          "reason" :"",
+          "source": {
+            "author": "Święty Elizerucz",
+            "created": "10",
+            "source": "Bibila",
+            "sourceLink": "https://pl.wikiquote.org/wiki/Ewangelia_Mateusza"
+          }
+        }
+      ]
+    },
+    {
+      "soulCardTitle": "litany against fear",
+      "soulCardSoulencje": [
+        {
+          "soulIdParent": "null",
+          "soulType": "prayer",
+          "language": "EN",
+          "text": "I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain.",
+          "image" :"",
+          "video" : "",
+          "audio" : "",
+          "reason" :"",
+          "source": {
+            "author": "Frank Herbert",
+            "created": "1965",
+            "source": "Dune",
+            "sourceLink": "https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
+          }
+        },
+        {
+          "soulIdParent": "null",
+          "soulType": "prayer",
+          "language": "ENG",
+          "text": "Nie wolno się bać. Strach zabija duszę.  Strach to mała śmierć, a wielkie unicestwienie.  Stawię mu czoło.  Niech przejdzie po mnie i przeze mnie.  A kiedy przejdzie, odwrócę oko swej jaźni na jego drogę.  Którędy przeszedł strach, tam nie ma nic. Jestem tylko ja.",
+          "image" :"",
+          "video" : "",
+          "audio" : "",
+          "reason" :"",
+          "source": {
+            "author": "Frank Herbert",
+            "created": "1965",
+            "source": "Dune",
+            "sourceLink": "hhttps://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
+          }
+        }
+      ]
+    }
+  ]
 }

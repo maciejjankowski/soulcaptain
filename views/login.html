@@ -3,21 +3,15 @@
 
 <head>
     <% include common/head.html %>
-    <link href="floating-labels.css" rel="stylesheet">
+        <link href="floating-labels.css" rel="stylesheet">
 </head>
 
 <body>
-
     <!-- navbar start-->
     <% include ../views/common/nav.html %>
-        <div>
+        <div class="container">
             <form class="form-signin" action="/login" method="POST" id="formSignin">
-                
-                
-                
-                
-                
-                
+
                 <div class="conteiner">
                     <div class="text-center mb-4">
                         <h1 class="h1 mb-3 font-weight-heavy">✅ Sign in</h1>
@@ -39,20 +33,25 @@
 
                     <div class="checkbox mb-3">
                         <label>
+                            <!-- TODO obsługa remember me przy logowaniu -->
                             <input type="checkbox" value="remember-me"> Remember me
                         </label>
                     </div>
 
-                    <button type="submit" form="formSignin" value="Submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
+                    <button type="submit" form="formSignin" value="Submit" class="btn btn-lg btn-primary btn-block">Sign in
+                    </button>
 
             </form>
-            </div>
-            
+
+            <% include common/script-footer.html %>
             <% include common/footer.html %>
 
-        </div>
+            
 
-        <script src="/main.js"></script>
+        </div>
+        <!-- TODO zaznaczanie divów jak Webstorm wtyczka -->
+
+            <script src="/main.js"></script>
 
 </body>
 

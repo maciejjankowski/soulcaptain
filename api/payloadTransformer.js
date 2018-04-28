@@ -1,6 +1,5 @@
 module.exports = function payloadTransformer(payload) {
+	let transformed = {};
 
-  let transformed = {};
-
-  return transformed;
+	return transformed;
 };
