@@ -3,7 +3,8 @@
 var app = new Vue({
 	el: '#app',
 	data: {
-		message: 'Hello Vue!',
+		selectedCard : 0,
+		cardEditMode : false,
 		soulDeck: { // rozszerz sobie ten obiekt i zrób z niego widok
 			'soulDeckId': '201801191933450000000001',
 			'soulDeckProperities': {
@@ -48,9 +49,16 @@ var app = new Vue({
 			$.get('/deck/1').then(function _handleResponse(response) {
 				app.soulDeck = response;
 			});
-		}
+		},
+		saveDeck : saveDeck,
+		enterEditForm : ()=>{app.cardEditMode = true;},
+		exitEditForm : () => {app.cardEditMode = false;}
 	}
 });
+
+function saveDeck(){
+
+}
 
 function login(e) {
 	e.preventDefault();
