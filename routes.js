@@ -1,4 +1,5 @@
 module.exports = function _defineRoutes(deps) {
+
 	// const logger = deps.logger;
 	var app;
 	if (typeof deps.app === 'undefined') {
@@ -11,6 +12,7 @@ module.exports = function _defineRoutes(deps) {
 
 	// TODO refactor: funkcja app.get łyka sobie 3 zmienne z odzielnego statycznego JSONA/scheme
 	app.get('/', (req, res) => {
+		console.log('HALKO', req.user, 'SIEMANKO')
 		let templateData = {
 			title: '👻🏡 SoulHome',
 			greeting: '',
