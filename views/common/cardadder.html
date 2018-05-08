@@ -1,0 +1,231 @@
+<div id="cardadder" class="container">
+    <h1>Add new card to SoulDeck</h1>
+    <hr>
+
+    <div class="row">
+
+        <div class="col">
+
+            <h2>Card info</h2>
+
+            <form action=""></form>
+
+            <div class="form-row">
+                <label>
+                    deckId
+                </label>
+                <input id="deckId" v-model="deckId" class="form-control" name="deckId" type="text" value="5aaeb1e14adb0227720caf0f" disabled>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    soulCardTitle
+                </label>
+                <textarea class="form-control" type="text" name="soulCardTitle" id="soulCardTitle" v-model="soulCardTitle" rows="1"></textarea>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    text
+                </label>
+                <textarea class="form-control" type="text" name="text" id="text" v-model="soulCardText" rows="3"></textarea>
+
+
+                <!-- ukrywanie pól  -->
+                <p>
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Show advanced fields
+                    </button>
+                </p>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label>
+                                    soulCardId
+                                </label>
+                                <input class=form-control type="text" id="soulCardId">
+                                <small class="form-text text-muted">
+                                    "soulId": "003 "
+                                </small>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>
+                                    soulIdParent
+                                </label>
+                                <input class=form-control type="text" name="soulIdParent" id="soulIdParent">
+                                <small class="form-text text-muted">
+                                    "soulIdParent": "null",
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label>
+                                    soulType
+                                </label>
+                                <input class=form-control type="text" name="soulType" id="soulType">
+                                <small class="form-text text-muted">
+                                    "soulType": "prayer ",
+                                </small>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>
+                                    language
+                                </label>
+                                <input class=form-control type="text" name="language" id="language">
+                                <small class="form-text text-muted">
+                                    "language": "EN ",
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label>
+                                    source
+                                </label>
+                                <input class=form-control type="text" name="source" id="source">
+                                <small class="form-text text-muted">
+                                    "source": {
+                                </small>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>
+                                    author
+                                </label>
+                                <input class=form-control type="text" name="author" id="author" v-model="soulCardAuthor">
+                                <small class="form-text text-muted">
+                                    "author": "Frank Herbert",
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label>
+                                    created
+                                </label>
+                                <input class=form-control type="text" name="created" id="created">
+                                <small class="form-text text-muted">
+                                    "created": "1965 ",
+                                </small>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>
+                                    source
+                                </label>
+                                <input class=form-control type="text" name="source" id="source">
+                                <small class="form-text text-muted">
+                                    "source": "Dune ",
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label>
+                                    sourceLink
+                                </label>
+                                <input class=form-control type="text" name="sourceLink" id="sourceLink">
+                                <small class="form-text text-muted" style="word-wrap: break-word;">
+                                    "sourceLink": "https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ukrywanie pól  -->
+            </div>
+
+            </form>
+        </div>
+
+        <div class="col">
+            <h2>Card Preview</h2>
+            <p>This is how your card will look like.
+                <p/>
+                <div class="card mb-4 box-shadow">
+                    <div class="card-body">
+                        <button type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                        <p class="card-tilte">{{ soulCardTitle }}</p>
+                        <hr>
+                        <div>
+                            <p class="card-text">{{ soulCardText }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">{{ soulCardAuthor }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="buttong" v-on:click="inputs2json" type="button" class="btn btn-primary btn-lg btn-block" data-toggle="collapse"
+                    data-target="#collapseCardOutput" aria-controls="collapseCardOutput">Generate card</button>
+        </div>
+
+
+        <div class="col">
+            <div class="collapse" id="collapseCardOutput">
+
+                <h2>Card JSON</h2>
+                <div class="form-row">
+                    <!-- action pobiera se id ze zeminnej z pola formularza. docelowo ajaxem -->
+                    <form id="cardForm">
+                        <label>
+                            This is your card in JSON format
+                        </label>
+                        <textarea id="soulOutput2" v-model="payload" class="form-control" rows="20" cols="80" style="margin-left: .25em">
+                            Here will appear your SoulCard schema.</textarea>
+
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSchema" aria-expanded="false" aria-controls="collapseSchema">
+                            Show schema example
+                        </button>
+
+                        <div class="collapse" id="collapseSchema">
+                            <pre><code>{
+"soulCardId": "",
+"soulCardTitle": "Litany against fear",
+"soulCardSoulencje": [
+{
+"source": {
+    "author": "",
+    "created": "",
+    "source": "",
+    "sourceLink": ""
+},
+"soulIdParent": "",
+"soulType": "",
+"language": "",
+"text": "I must not fear. Fear is the mind-killer."
+}
+],
+"__v": 0
+}
+</code></pre>
+                        </div>
+                        <button v-on:click="cardpost" class="btn btn-success btn-lg btn-block">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

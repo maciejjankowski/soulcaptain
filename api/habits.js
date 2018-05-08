@@ -1,5 +1,10 @@
-module.exports = function (app, mongoose, isAuthenticated) {
-	var timeSpansLength = [
+module.exports = function(deps) {
+	const app = deps.app;
+	const mongoose = deps.mongoose;
+	// const isAuthenticated = deps.isAuthenticated;
+	const logger = deps.logger;
+
+	/* var timeSpansLength = [
 		1,
 		24,
 		24 * 7,
@@ -18,7 +23,7 @@ module.exports = function (app, mongoose, isAuthenticated) {
 		'bi-annually'
 	];
 	var habitType = ['growth', 'excite', 'sustain', 'maintenance', 'challenge'];
-
+ */
 	const Habit = mongoose.models.Habit;
 	/*
 	expect(req.body.payload).to.beArray()
@@ -28,35 +33,37 @@ module.exports = function (app, mongoose, isAuthenticated) {
 		if (req.body && req.body.payload && req.body.payload.length) {
 			let count = req.body.payload.length;
 			req.body.payload.forEach(habit => {
-				console.log('habit', JSON.stringify(habit, null, 2));
+				logger.info('habit', JSON.stringify(habit, null, 2));
 				Habit.findOne({
-					id: habit.habitId
-				}).then(foundHabit => {
-					// /* expect(foundHabit).not.to.be.empty() */
-					if (foundHabit) {
-						foundHabit.lastCompleted.push(Date.now());
-						foundHabit
-							.save()
-							.then(() => {
-								count--;
-								if (!count) res.send('OK');
-							})
-							.catch(err => {
-								console.log('error saving', err);
-								count--;
-								if (!count) res.send('ERR');
-							});
-					} else {
-						count--;
-						console.log('habit', JSON.stringify(habit, null, 2));
-						let newHabit = new Habit(habit);
-						newHabit.lastCompleted = [Date.now()];
-						newHabit.save().then(() => {
-							console.log('saved');
-						});
-						if (!count) res.send('OK');
-					}
-				});
+						id: habit.habitId
+					})
+					.then(foundHabit => {
+						// /* expect(foundHabit).not.to.be.empty() */
+						if (foundHabit) {
+							foundHabit.lastCompleted.push(Date.now());
+							foundHabit
+								.save()
+								.then(() => {
+									count--;
+									if (!count) res.send('OK');
+								})
+								.catch(err => {
+									logger.info('error saving', err);
+									count--;
+									if (!count) res.send('ERR');
+								});
+						} else {
+							count--;
+							logger.info('habit', JSON.stringify(habit, null, 2));
+							let newHabit = new Habit(habit);
+							newHabit.lastCompleted = [Date.now()];
+							newHabit.save()
+								.then(() => {
+									logger.info('saved');
+								});
+							if (!count) res.send('OK');
+						}
+					});
 			});
 		}
 	}); // POST /habits

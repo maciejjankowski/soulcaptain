@@ -23,24 +23,22 @@ var appForAddingCardsToBackendBeta9000 = new Vue({
             } else {
                 dump(request.responseText)
             }
-
         },
         inputs2json: function () {
             var out2 = {
                 "soulCardId": "",
                 "soulCardTitle": document.getElementById("soulCardTitle").value,
                 "soulCardSoulencje": [{
+                    "text": document.getElementById("text").value,
                     "source": {
                         "author": document.getElementById("author").value,
                         "created": document.getElementById("created").value,
                         "source": document.getElementById("source").value,
                         "sourceLink": document.getElementById("sourceLink").value
                     },
-                    "_id": "",
-                    "soulIdParent": document.getElementById("soulIdParent").value,
-                    "soulType": document.getElementById("soulType").value,
                     "language": document.getElementById("language").value,
-                    "text": document.getElementById("text").value
+                    "soulType": document.getElementById("soulType").value,
+                    "soulIdParent": document.getElementById("soulIdParent").value,
                 }],
                 "__v": 0
             };

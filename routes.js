@@ -1,4 +1,5 @@
 module.exports = function _defineRoutes(deps) {
+	const logger = deps.logger;
 	var app;
 	if (typeof deps.app === 'undefined') {
 		throw new Error(
@@ -10,9 +11,11 @@ module.exports = function _defineRoutes(deps) {
 
 	// TODO refactor: funkcja app.get łyka sobie 3 zmienne z odzielnego statycznego JSONA/scheme
 	app.get('/', (req, res) => {
+		console.log('HALKO', req.user, 'SIEMANKO')
 		let templateData = {
 			title: '👻🏡 SoulHome',
-			greeting: ''
+			greeting: '',
+			user: req.user
 		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
@@ -25,8 +28,17 @@ module.exports = function _defineRoutes(deps) {
 		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
-		console.log(templateData.user, 'tu zoba co siedzi');
+		logger.info(templateData.user, 'tu zoba co siedzi');
 		res.render('deck.html', templateData);
+	});
+
+	app.get('/diary.html', (req, res) => {
+		let templateData = {
+			title: '📖 Diary'
+		};
+		greetUser(req, templateData);
+		templateData.user = req.user;
+		res.render('diary.html', templateData);
 	});
 
 	app.get('/deckdocument.html', (req, res) => {
@@ -34,6 +46,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '🎴📄 DeckDocument'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('deckdocument.html', templateData);
 	});
 
@@ -42,6 +55,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '🃏 SoulCard'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('deckcard.html', templateData);
 	});
 
@@ -50,6 +64,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '🃏📝 CardAdd'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('deckcardadd.html', templateData);
 	});
 
@@ -61,6 +76,7 @@ module.exports = function _defineRoutes(deps) {
 				title: '🃏🎠 CardCarousel'
 			};
 			greetUser(req, templateData);
+			templateData.user = req.user;
 			res.render('deckcardcarousel.html', templateData);
 		}
 	);
@@ -70,6 +86,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '❌ DailyX'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('habits.html', templateData);
 	});
 
@@ -78,6 +95,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '✍️ Sign Up'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('signup.html', templateData);
 	});
 
@@ -86,6 +104,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '✅ Login'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('login.html', templateData);
 	});
 
@@ -94,6 +113,7 @@ module.exports = function _defineRoutes(deps) {
 			title: 'Dis iz adminz place'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('admin.html', templateData);
 	});
 
@@ -102,6 +122,7 @@ module.exports = function _defineRoutes(deps) {
 			title: '👻🎊 SoulBlog'
 		};
 		greetUser(req, templateData);
+		templateData.user = req.user;
 		res.render('blog.html', templateData);
 	});
 
@@ -117,6 +138,6 @@ function greetUser(req, templateData) {
 		req.user.personalInfo[0].firstName) {
 		templateData.greeting = 'Hello, 👩‍💻 ' + req.user.personalInfo[0].firstName;
 	} else {
-		templateData.greeting = 'Please log in';
+		templateData.greeting = 'Oh, hi there! Please';
 	}
 }
