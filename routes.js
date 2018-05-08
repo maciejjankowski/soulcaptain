@@ -1,5 +1,5 @@
 module.exports = function _defineRoutes(deps) {
-	const logger = deps.logger;
+	// const logger = deps.logger;
 	var app;
 	if (typeof deps.app === 'undefined') {
 		throw new Error(
@@ -11,7 +11,6 @@ module.exports = function _defineRoutes(deps) {
 
 	// TODO refactor: funkcja app.get łyka sobie 3 zmienne z odzielnego statycznego JSONA/scheme
 	app.get('/', (req, res) => {
-		console.log('HALKO', req.user, 'SIEMANKO')
 		let templateData = {
 			title: '👻🏡 SoulHome',
 			greeting: '',
@@ -28,7 +27,6 @@ module.exports = function _defineRoutes(deps) {
 		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
-		logger.info(templateData.user, 'tu zoba co siedzi');
 		res.render('deck.html', templateData);
 	});
 
@@ -125,8 +123,6 @@ module.exports = function _defineRoutes(deps) {
 		templateData.user = req.user;
 		res.render('blog.html', templateData);
 	});
-
-
 	return app;
 };
 

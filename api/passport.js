@@ -29,7 +29,6 @@ module.exports = function (deps) {
 								msg: `Email ${email} not found.`
 							});
 						}
-						logger.info('passport login', password, user.password);
 						testPassword(
 							password,
 							user.password,
