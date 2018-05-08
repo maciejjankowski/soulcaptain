@@ -3,6 +3,7 @@
 var app = new Vue({
 	el: '#app',
 	data: {
+		selectedCard : 0,
 		cardEditMode : false,
 		soulDeck: { // rozszerz sobie ten obiekt i zrób z niego widok
 			'soulDeckId': '201801191933450000000001',
