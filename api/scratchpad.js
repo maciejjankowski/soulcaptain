@@ -9,8 +9,17 @@ app.get('/testx', (req, res) => {
 		testField: 'testValue'
 	};
 	res.send('OK');
-	res.render('password', data, function (err, body) {
+	res.render('/emails/password', data, function (err, body) {
 		if (err) return console.error(err);
-		mail('', 'subject', body, 'this is just a text');
+		mail('', 'subject', body, 'this email is in HTML, sorry!');
+	});
+	res.render('/emails/welcome', data, function (err, body) {
+		if (err) return console.error(err);
+		mail('', 'Welcome to SoulCaptain', body, 'this email is in HTML, sorry!');
 	});
 });
+
+
+
+// this is from email.js
+// module.exports = function (recipient, subject, body, plainText, cb) 
