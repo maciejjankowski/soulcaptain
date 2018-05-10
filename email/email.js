@@ -29,16 +29,17 @@ function mail(recipient, subject, body, plainText, cb) {
 module.exports = {
 	sendWelcome: function welcomeEmailContents(res, userEmailFoReal) {
 		var data = {};
-		res.render('/email/templates/welcome', data, function (err, body) {
+		res.render('./email/welcome.html', data, function (err, body) {
 			if (err) return console.error(err);
 			mail(userEmailFoReal, 'Welcome to SoulCaptain', body, 'this email is in HTML, sorry!', function welcomeEmailSentYes(thisIsNotGood, thisIsGood) {
-				console.log(thisIsNotGood, thisIsGood)
+				console.log(thisIsNotGood, thisIsGood);
 			});
 		});
 	},
 
-	sendPasswordReminder: function sendPasswordReminderContents() {
-		res.render('/email/templates/password', data, function (err, body) {
+	sendPasswordReminder: function sendPasswordReminderContents(res, userEmailFoReal) {
+		var data = {};
+		res.render('./email/password.html', data, function (err, body) {
 			if (err) return console.error(err);
 			mail('', 'SoulCaptain pssword reminder', body, 'this email is in HTML, sorry!');
 		});
