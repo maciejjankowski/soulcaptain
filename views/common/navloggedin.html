@@ -11,11 +11,16 @@
                 <%= greeting %>
             </a>
         </li>
-        
+
         <li class="nav-item">
             <a class="nav-link active" href="/logout">➡️ Logout</a>
         </li>
     </ul>
+
+    <span id="closeNavButton" class="closeNavButton" style="font-size:30px;cursor:pointer" onclick="closeNav()">&times; Menu</span>
+
+    <span id="openNavButton" class="openNavButton hideButton" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
 </nav>
 
 <% include ../common/navleft.html %>

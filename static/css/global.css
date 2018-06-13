@@ -19,3 +19,13 @@
 .navbarleft {
   margin-top: 65px;
 }
+
+/* Left navbar CSS */
+
+.hideNavbarLeft {
+  margin-left: -300px;
+}
+
+.hideButton {
+  display: none;
+}
