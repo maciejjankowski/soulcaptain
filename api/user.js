@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const testPassword = require('./testPassword');
+const EmailsToUser = require('../email/email.js');
 // const payloadTransformer = require('./payloadTransformer');
 
 module.exports = function (deps) {
@@ -14,16 +15,18 @@ module.exports = function (deps) {
 		function (req, res) {
 			logger.info('/profile');
 
-			res.send({ user: req.user });
+			res.send({
+				user: req.user
+			});
 		}
 	);
 
 	// TODO napisać lub użyć logout 
 	app.get('/login', passport.authenticate());
-	app.get('/logout', function(req, res){
+	app.get('/logout', function (req, res) {
 		req.logout();
 		res.redirect('/');
-	  });
+	});
 
 
 	app.post('/postSignup', function postSignup(req, res) {
@@ -58,7 +61,9 @@ module.exports = function (deps) {
 
 		logger.info('to jest konsol log dla payloadApproved', payloadApproved);
 
-		mongoose.models.User.findOne({ loginId: payloadApproved.email }).then(
+		mongoose.models.User.findOne({
+			loginId: payloadApproved.email
+		}).then(
 			user => {
 				if (user) {
 					logger.info(user);
@@ -80,13 +85,17 @@ module.exports = function (deps) {
 							loginType: 'email',
 							email: payloadApproved.email,
 							password: pwhash,
-							personalInfo: [
-								{
-									firstName: payloadApproved.firstName,
-									lastName: 'nie zbieramy'
-								}
-							]
-						}).save();
+							personalInfo: [{
+								firstName: payloadApproved.firstName,
+								lastName: 'nie zbieramy'
+							}]
+						}).save(
+							function sendWelcomeEmail(err, user) {
+								logger.error({msg : 'user save failed', error : err});
+								if (err) throw err;
+								EmailsToUser.sendWelcome(res, user.email);
+							}
+						);
 					});
 				}
 			}
