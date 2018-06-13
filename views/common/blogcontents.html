@@ -9,10 +9,74 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 <h1 id="soulcaptainblog">👻🎊 SoulCaptain Blog</h1>
 <p>How Soul Captain is being developed. Step-by-step. Day-by-day</p>
 <hr />
+<h2 id="201806132147">2018 06 13 21:47</h2>
+<p>author: Wiktor</p>
+<p>place: Kle</p>
+<h3 id="todaywedid">Today we did</h3>
+<p><strong>1. Github parondkes.</strong></p>
+<p><strong>2. Maciej - routing fix, authntication needed for card operations</strong></p>
+<p>simply meant to add <code>deps.isAuthenticated</code> in plenty of code lines</p>
+<p><strong>3. Wiktor: I want to make left sidebar that will collapse from left after clicking menu button</strong></p>
+<p>I wanted it to work like this: <a href="https://bootstrapious.com/p/bootstrap-sidebar">https://bootstrapious.com/p/bootstrap-sidebar</a>
+or like this <a href="https://www.w3schools.com/howto/howto_js_sidenav.asp">https://www.w3schools.com/howto/howto<em>js</em>sidenav.asp</a></p>
+<p>What i wrote:</p>
+<p>CSS</p>
+<pre><code class="css language-css">/* Left navbar CSS */
+
+.hideNavbarLeft {
+  margin-left: -300px;
+}
+
+.hideButton {
+  display: none;
+</code></pre>
+<p>javascript</p>
+<pre><code class="javascript language-javascript">// Navbar js
+
+// el.classList.add(className); i tutaj 'el' to 'document.getElementById("leftNavbar")'
+function closeNav() {
+    document.getElementById("leftNavbar").classList.add("hideNavbarLeft");
+    document.getElementById("closeNavButton").classList.add("hideButton");
+    document.getElementById("openNavButton").classList.remove("hideButton");
+}
+
+function openNav() {
+    document.getElementById("leftNavbar").classList.remove("hideNavbarLeft");
+    document.getElementById("openNavButton").classList.add("hideButton");
+    document.getElementById("closeNavButton").classList.remove("hideButton");
+} 
+</code></pre>
+<p>html</p>
+<pre><code class="html language-html">&lt;nav class="navbar fixed-top navbar-light bg-light navbar-expand-lg navbar-light bg-light"&gt;
+    &lt;a class="navbar-brand" href="/"&gt;👻 SoulCaptain&lt;/a&gt;
+
+
+    &lt;ul class="navbar-nav mr-auto mt-2 mt-lg-0"&gt;
+
+    &lt;/ul&gt;
+    &lt;ul class="navbar-nav"&gt;
+        &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link active"&gt;
+                &lt;%= greeting %&gt;
+            &lt;/a&gt;
+        &lt;/li&gt;
+
+        &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link active" href="/logout"&gt;➡️ Logout&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;span id="closeNavButton" class="closeNavButton" style="font-size:30px;cursor:pointer" onclick="closeNav()"&gt;&amp;times; Menu&lt;/span&gt;
+
+    &lt;span id="openNavButton" class="openNavButton hideButton" style="font-size:30px;cursor:pointer" onclick="openNav()"&gt;&amp;#9776; Menu&lt;/span&gt;
+
+&lt;/nav&gt;
+</code></pre>
+<hr />
 <h2 id="201804262223">2018 04 26 22:23</h2>
 <p>author: Wiktor</p>
 <p>place: Czytelnia, Aleja Zjednoczenia 46</p>
-<h3 id="todaywedid">Today we did</h3>
+<h3 id="todaywedid-1">Today we did</h3>
 <ol>
 <li>Wiktor new DELL setup</li>
 <li>Bump bcrypt to 2.0.x</li>
@@ -40,7 +104,7 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 <h2 id="201804262223-1">2018 04 26 22:23</h2>
 <p>author: Wiktor</p>
 <p>place: Green Caffè Nero, Przeskok 2</p>
-<h3 id="todaywedid-1">Today we did</h3>
+<h3 id="todaywedid-2">Today we did</h3>
 <ol>
 <li>Maciej new MacBook setup</li>
 <li>Wiktor installed oh my zsh</li>
@@ -56,7 +120,7 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 <li>Learn code</li>
 <li>Using Firebase; write Mood Diary as a proof of concept</li>
 </ol>
-<h3 id="todaywedid-2">Today we did</h3>
+<h2 id="whatwedidtoday">What we did today</h2>
 <ol>
 <li>Double check Card adding</li>
 <li>Better UX/UI for Deck view</li>
