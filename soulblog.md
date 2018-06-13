@@ -16,6 +16,18 @@ How Soul Captain is being developed. Step-by-step. Day-by-day
 
 ---
 
+## 2018 06 13 21:47
+
+author: Wiktor
+
+place: Kle
+
+### Today we did
+1. Github parondkes.
+2. Wiktor: I want to make left sidebar, wich will work like this: https://bootstrapious.com/p/bootstrap-sidebar https://www.w3schools.com/howto/howto_js_sidenav.asp
+
+---
+
 ## 2018 04 26 22:23
 
 author: Wiktor
