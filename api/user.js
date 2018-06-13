@@ -14,7 +14,6 @@ module.exports = function (deps) {
 		// isAuthenticated,
 		function (req, res) {
 			logger.info('/profile');
-
 			res.send({
 				user: req.user
 			});
@@ -28,11 +27,9 @@ module.exports = function (deps) {
 		res.redirect('/');
 	});
 
-
 	app.post('/postSignup', function postSignup(req, res) {
 		let payloadFields = (req.body && req.body.payload) || req.body;
 		logger.info('to jest konsol log dla payloadFields', payloadFields);
-
 
 		let payloadApproved = {};
 
