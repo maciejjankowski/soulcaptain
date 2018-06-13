@@ -9,6 +9,7 @@
 
 <body>
 
+
 	<!-- navbar start-->
 	<% include ../views/common/nav.html %>
 		<div id="app">
@@ -55,7 +56,7 @@
 									</div>
 								</div>
 
-								<div v-for="card in soulDeck.cards" class="col-md-4">
+								<div v-for="(card, cardIndex) in soulDeck.cards" class="col-md-4">
 
 									<div class="card mb-4 box-shadow">
 										<img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]"
@@ -68,15 +69,15 @@
 										<input v-if="cardEditMode" type="text" v-model="card.soulCardTitle">
 									</h5>
 									<style>.encjaEdit {width: 300px !important; height:60px !important}</style>
-											<p v-for="encja in card.soulCardSoulencje" class="card-text">
+											<p v-for="(encja, encjaIndex) in card.soulCardSoulencje" class="card-text">
 												<span v-if="!cardEditMode">{{encja.text}}</span>
 												
-												<textarea rows=5 columns=20 v-model="encja.text" v-if="cardEditMode" class="encjaEdit"></textarea>
+												<textarea rows="5" columns="20" v-model="encja.text" v-if="cardEditMode" class="encjaEdit"></textarea>
 											</p>
 											<div class="d-flex justify-content-between align-items-center">
 												<div class="btn-group">
-													<button type="button" class="btn btn-sm btn-outline-secondary" v-if="cardEditMode" v-on:click="exitEditForm(card)">View</button>
-													<button type="button" class="btn btn-sm btn-outline-secondary" v-if="!cardEditMode" v-on:click="enterEditForm(card)">Edit</button>
+													<button type="button" class="btn btn-sm btn-outline-secondary" v-if="cardEditMode" v-on:click="exitEditForm(card, cardIndex, encjaIndex)">View</button>
+													<button type="button" class="btn btn-sm btn-outline-secondary" v-if="!cardEditMode" v-on:click="enterEditForm(card, cardIndex, encjaIndex)">Edit</button>
 												</div>
 												<small class="text-muted">9 mins</small>
 											</div>
@@ -96,7 +97,6 @@
 		<% include common/script-footer.html %>
 			<% include common/footer.html %>
 				<script src="/main.js"></script>
-
 </body>
 
 </html>
