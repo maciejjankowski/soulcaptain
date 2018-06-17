@@ -74,13 +74,10 @@ var app = new Vue({
 });
 
 function saveDeck(deck){
-
-	let cards = deck.cards.map(card => card._id);
-
 	let newDeck = {};
+	let cards = deck.cards.map(card => card._id);
 	Object.assign(newDeck, deck);
 	newDeck.cards = cards;
-	console.log('saving deck', newDeck);
 	$.ajax({
 		method: 'POST',
 		url: '/deck/' + deck._id,
@@ -88,7 +85,7 @@ function saveDeck(deck){
 		contentType: 'application/json; charset=utf-8'
 	})
 	.then(() => {
-		console.info('saved');
+		// console.info('saved');
 	});
 }
 

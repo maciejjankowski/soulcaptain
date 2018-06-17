@@ -29,23 +29,22 @@ module.exports = function (deps) {
 
 	function saveDeck(req, res){
 		const inputDeck = req.body;
-		console.log('input deck', inputDeck);
+		// console.log('input deck', inputDeck);
 		Deck.findOne({
 			_id: inputDeck._id
 		}).then(foundDeck => {
-			console.log('found', foundDeck);
-
+			// console.log('found', foundDeck);
 			Object.assign(foundDeck, inputDeck);
-			console.log('updated', foundDeck);
+			// console.log('updated', foundDeck);
 			foundDeck.save().then(result => {
-				console.log('save ok');
+				// console.log('save ok');
 				res.send('OK');
 			}).catch(e => {
-				console.log('save not', e);
+				// console.log('save not', e);
 				res.send('NOT OK');
 			});
 		}).catch(e => {
-			console.log('find fail', e);
+			// console.log('find fail', e);
 			res.send('NOT OK');
 		});
 	}
