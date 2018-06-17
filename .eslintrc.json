@@ -21,6 +21,7 @@
     "quotes": [
       "warn",
       "single"
-    ]
+    ],
+    "no-console" : 0
   }
 }
