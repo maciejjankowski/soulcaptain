@@ -169,3 +169,4 @@
 {"message":"password matches!","level":"info"}
 {"message":"Success! Redirecting to /","level":"info"}
 {"level":"info","message":"info"}
+{"message":"SoulCaptain is listening on port 9000","level":"info"}
