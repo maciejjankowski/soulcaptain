@@ -27,7 +27,29 @@ module.exports = function (deps) {
 		}); // card save
 	});
 
-	function saveDeck(req, res) {
+	function saveDeck(req, res){
+		const inputDeck = req.body;
+		// console.log('input deck', inputDeck);
+		Deck.findOne({
+			_id: inputDeck._id
+		}).then(foundDeck => {
+			// console.log('found', foundDeck);
+			Object.assign(foundDeck, inputDeck);
+			// console.log('updated', foundDeck);
+			foundDeck.save().then(result => {
+				// console.log('save ok');
+				res.send('OK');
+			}).catch(e => {
+				// console.log('save not', e);
+				res.send('NOT OK');
+			});
+		}).catch(e => {
+			// console.log('find fail', e);
+			res.send('NOT OK');
+		});
+	}
+
+	function saveDeckX(req, res) {
 		// find deck by Id
 		// req.user.decks.filter((deck)=>deck.id === req.params.deckId)
 		let mockDeck = require('../extras/scheme-souldeck.json');
