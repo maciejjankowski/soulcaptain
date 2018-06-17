@@ -59,6 +59,15 @@ var app = new Vue({
 			app.cardEditMode = false;
 			app.cardEditIndex = 0;
 			saveCard(card);
+		},
+		moveDn : (cardIndex) => {
+			var old = app.soulDeck.cards.splice(cardIndex, 1).pop();
+			app.soulDeck.cards.splice(Math.max(0, cardIndex - 1), 0, old);
+		},
+		moveUp : (cardIndex) => {
+			var old = app.soulDeck.cards.splice(cardIndex, 1).pop();
+			app.soulDeck.cards.splice(Math.min(app.soulDeck.cards.length, cardIndex + 1), 0, old);
+		
 		}
 	}
 });

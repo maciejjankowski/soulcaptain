@@ -80,6 +80,8 @@
 														v-if="cardEditMode && cardIndex === cardEditIndex" 
 														v-on:click="exitEditForm(card, cardIndex)">
 														Save</button>
+														<a href="#!" v-on:click="moveUp(cardIndex)">up</a>
+														<a href="#!" v-on:click="moveDn(cardIndex)">dn</a>
 													<button type="button" class="btn btn-sm btn-outline-secondary" 
 														v-if="!cardEditMode" 
 														v-on:click="enterEditForm(card, cardIndex)">
