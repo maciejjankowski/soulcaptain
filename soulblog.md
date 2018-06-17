@@ -16,6 +16,20 @@ How Soul Captain is being developed. Step-by-step. Day-by-day
 
 ---
 
+## 2018 06 17 12:34
+
+author: Wiktor
+
+place: Kolejowa 5/7
+
+### Today we did
+
+1. Maciej told me that i do not have to remove/add class like I did last time; i can toggle classes: http://youmightnotneedjquery.com/#toggle_class
+
+2. 
+
+---
+
 ## 2018 06 13 21:47
 
 author: Wiktor
