@@ -16,6 +16,20 @@ How Soul Captain is being developed. Step-by-step. Day-by-day
 
 ---
 
+## 2018 06 17 12:34
+
+author: Wiktor
+
+place: Kolejowa 5/7
+
+### Today we did
+
+1. Maciej told me that i do not have to remove/add class like I did last time; i can toggle classes: http://youmightnotneedjquery.com/#toggle_class
+
+2. 
+
+---
+
 ## 2018 06 13 21:47
 
 author: Wiktor
@@ -23,8 +37,81 @@ author: Wiktor
 place: Kle
 
 ### Today we did
-1. Github parondkes.
-2. Wiktor: I want to make left sidebar, wich will work like this: https://bootstrapious.com/p/bootstrap-sidebar https://www.w3schools.com/howto/howto_js_sidenav.asp
+
+**1. Github parondkes.**
+
+ 
+
+**2. Maciej - routing fix, authntication needed for card operations**
+
+simply meant to add `deps.isAuthenticated` in plenty of code lines
+
+ 
+
+**3. Wiktor: I want to make left sidebar that will collapse from left after clicking menu button**
+
+I wanted it to work like this: [https://bootstrapious.com/p/bootstrap-sidebar](https://bootstrapious.com/p/bootstrap-sidebar)
+or like this [https://www.w3schools.com/howto/howto_js_sidenav.asp](https://www.w3schools.com/howto/howto_js_sidenav.asp)
+
+What i wrote:
+
+CSS
+```css
+/* Left navbar CSS */
+
+.hideNavbarLeft {
+  margin-left: -300px;
+}
+
+.hideButton {
+  display: none;
+```
+
+javascript
+```javascript
+// Navbar js
+
+// el.classList.add(className); i tutaj 'el' to 'document.getElementById("leftNavbar")'
+function closeNav() {
+	document.getElementById("leftNavbar").classList.add("hideNavbarLeft");
+	document.getElementById("closeNavButton").classList.add("hideButton");
+	document.getElementById("openNavButton").classList.remove("hideButton");
+}
+
+function openNav() {
+	document.getElementById("leftNavbar").classList.remove("hideNavbarLeft");
+	document.getElementById("openNavButton").classList.add("hideButton");
+	document.getElementById("closeNavButton").classList.remove("hideButton");
+} 
+```
+
+html
+```html
+<nav class="navbar fixed-top navbar-light bg-light navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">👻 SoulCaptain</a>
+
+
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+    </ul>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link active">
+                <%= greeting %>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link active" href="/logout">➡️ Logout</a>
+        </li>
+    </ul>
+
+    <span id="closeNavButton" class="closeNavButton" style="font-size:30px;cursor:pointer" onclick="closeNav()">&times; Menu</span>
+
+    <span id="openNavButton" class="openNavButton hideButton" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+</nav>
+```
 
 ---
 
