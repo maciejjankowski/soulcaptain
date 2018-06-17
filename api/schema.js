@@ -53,6 +53,8 @@ module.exports = function (deps) {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User'
 		},
+		title: String,
+		description: String,
 		cards: [{
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Card'

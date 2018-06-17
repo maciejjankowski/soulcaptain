@@ -17,20 +17,28 @@
 
 				<main role="main">
 
-					<section v-if="soulDeck && soulDeck.cards && soulDeck.cards.length === 0" class="jumbotron text-center">
+					<section class="jumbotron">
 						<div class="container">
 							<h1 class="jumbotron-heading">🎴 SoulDeck Example</h1>
-							<p class="lead text-muted">This is SoulDeck. One of the mail features in SoulCaptain. Decks' main purpose is to gather SoulNodes
-								gathered in Cards. Decks can be browsed on regular basis or you can create collection on
-								special occasion.
+							<p class="lead">This is SoulDeck. One of the mail features in SoulCaptain. Decks' main purpose is to gather SoulNodes gathered in
+								Cards. Decks can be browsed on regular basis or you can create collection on special occasion.
 							</p>
-							<p>
-								<a href="/deckcardadd.html" class="btn btn-primary my-2">Add card</a>
-								<a href="/deckcardcarousel.html" class="btn btn-secondary my-2">Full screen</a>
-								<a href="#" class="btn btn-secondary my-2">Edit/remix this deck</a>
-							</p>
+							<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+								<div class="btn-group" role="group" aria-label="First group">
+									<a href="/deckcardadd.html" type="button" class="btn btn-primary">Add card</a>
+								</div>
+								<div class="btn-group">
+									<div class="btn-group" role="group" aria-label="First group">
+										<a href="/deck.html" type="button" class="btn btn-secondary">Grid</a>
+										<a href="/deckdocument.html" type="button" class="btn btn-secondary">Document</a>
+										<a href="/deckcardcarousel.html" type="button" class="btn btn-secondary">Fullscreen</a>
+									</div>
+								</div>
+							</div>
 						</div>
 					</section>
+
+
 
 					<div class="album py-5 bg-light">
 						<div class="container">
@@ -39,16 +47,18 @@
 								<div v-if="soulDeck && soulDeck.cards && soulDeck.cards.length === 0" class="col-md-4">
 									<div class="card mb-4 box-shadow">
 										<img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]"
-											style="height: 225px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_162ed92fb30%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_162ed92fb30%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-											data-holder-rendered="true">
+										    style="height: 225px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_162ed92fb30%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_162ed92fb30%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+										    data-holder-rendered="true">
 										<div class="card-body">
 											<h5 class="card-title">Card title</h5>
-											<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-												content. This content is a little bit longer.</p>
+											<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a
+												little bit longer.</p>
 											<div class="d-flex justify-content-between align-items-center">
 												<div class="btn-group">
 													<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
 													<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+													<button type="button" class="btn btn-danger">Danger</button>
+
 												</div>
 												<small class="text-muted">9 mins</small>
 											</div>
@@ -60,34 +70,50 @@
 
 									<div class="card mb-4 box-shadow">
 										<img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]"
-											style="height: 225px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_162ed92fb30%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_162ed92fb30%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-											data-holder-rendered="true">
+										    style="height: 225px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_162ed92fb30%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_162ed92fb30%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+										    data-holder-rendered="true">
 										<div class="card-body">
 
-									<h5 class="card-title">
-										<span v-if="!cardEditMode">{{card.soulCardTitle}}</span>
-										<input v-if="cardEditMode && cardIndex === cardEditIndex" type="text" v-model="card.soulCardTitle">
-									</h5>
-									<style>.encjaEdit {width: 300px !important; height:60px !important}</style>
+											<h5 class="card-title">
+												<span v-if="!cardEditMode">{{card.soulCardTitle}}</span>
+												<input v-if="cardEditMode && cardIndex === cardEditIndex" type="text" v-model="card.soulCardTitle">
+											</h5>
+											<style>
+												.encjaEdit {
+													width: 300px !important;
+													height: 60px !important
+												}
+											</style>
 											<p v-for="(encja, encjaIndex) in card.soulCardSoulencje" class="card-text">
 												<span v-if="!cardEditMode">{{encja.text}}</span>
-												
+
 												<textarea rows="5" columns="20" v-model="encja.text" v-if="cardEditMode && cardIndex === cardEditIndex" class="encjaEdit"></textarea>
 											</p>
+											<small class="text-muted" v-if="cardEditMode">CardID: {{card._id}}</small>
 											<div class="d-flex justify-content-between align-items-center">
 												<div class="btn-group">
+
 													<button type="button" class="btn btn-sm btn-outline-secondary" 
-														v-if="cardEditMode && cardIndex === cardEditIndex" 
-														v-on:click="exitEditForm(card, cardIndex)">
+                            v-if="cardEditMode && cardIndex === cardEditIndex"
+                            v-on:click="exitEditForm">
+														Cancel</button>
+													<button type="button" class="btn btn-sm btn-primary" 
+                            v-if="cardEditMode && cardIndex === cardEditIndex" 
+                            v-on:click="exitEditForm(card, cardIndex)">
 														Save</button>
-														<a href="#!" v-on:click="moveUp(cardIndex)"><i class="fa fa-chevron-up"></i></a>
-														<a href="#!" v-on:click="moveDn(cardIndex)"><i class="fa fa-chevron-down"></i></a>
 													<button type="button" class="btn btn-sm btn-outline-secondary" 
-														v-if="!cardEditMode" 
-														v-on:click="enterEditForm(card, cardIndex)">
+                            v-if="!cardEditMode" 
+                            v-on:click="enterEditForm(card, cardIndex)">
 														Edit</button>
+													<button type="button" class="btn btn-danger" 
+                            v-if="cardEditMode && cardIndex === cardEditIndex" 
+                            v-on:click="cardDelete(soulDeck._id, card._id)">
+                            Delete</button>
+                          
+                        <a href="#!" v-on:click="moveUp(cardIndex)"><i class="fa fa-chevron-up"></i></a>
+												<a href="#!" v-on:click="moveDn(cardIndex)"><i class="fa fa-chevron-down"></i></a>
+
 												</div>
-												<small class="text-muted">po co tu tekst?</small>
 											</div>
 										</div>
 									</div>
@@ -103,7 +129,7 @@
 		</div>
 
 		<% include common/script-footer.html %>
-		<% include common/footer.html %>
+			<% include common/footer.html %>
 				<script src="/main.js"></script>
 </body>
 
