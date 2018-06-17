@@ -3,8 +3,8 @@
 var app = new Vue({
 	el: '#app',
 	data: {
-		selectedCard : 0,
-		cardEditMode : false,
+		selectedCard: 0,
+		cardEditMode: false,
 		soulDeck: { // rozszerz sobie ten obiekt i zrób z niego widok
 			'soulDeckId': '201801191933450000000001',
 			'soulDeckProperities': {
@@ -50,13 +50,17 @@ var app = new Vue({
 				app.soulDeck = response;
 			});
 		},
-		saveDeck : saveDeck,
-		enterEditForm : ()=>{app.cardEditMode = true;},
-		exitEditForm : () => {app.cardEditMode = false;}
+		saveDeck: saveDeck,
+		enterEditForm: () => {
+			app.cardEditMode = true;
+		},
+		exitEditForm: () => {
+			app.cardEditMode = false;
+		}
 	}
 });
 
-function saveDeck(){
+function saveDeck() {
 
 }
 
@@ -209,12 +213,16 @@ var MockDeck = {
 // el.classList.add(className); i tutaj 'el' to 'document.getElementById("leftNavbar")'
 function closeNav() {
 	document.getElementById("leftNavbar").classList.add("hideNavbarLeft");
+	document.getElementById("navbarLeftNavTag").classList.remove("fixed-top");
+
 	document.getElementById("closeNavButton").classList.add("hideButton");
 	document.getElementById("openNavButton").classList.remove("hideButton");
 }
 
 function openNav() {
 	document.getElementById("leftNavbar").classList.remove("hideNavbarLeft");
+	document.getElementById("navbarLeftNavTag").classList.add("fixed-top");
+
 	document.getElementById("openNavButton").classList.add("hideButton");
 	document.getElementById("closeNavButton").classList.remove("hideButton");
 }
