@@ -94,10 +94,6 @@
 												<div class="btn-group">
 													<button type="button" class="btn btn-sm btn-outline-secondary" v-if="cardEditMode" v-on:click="exitEditForm">
 														Cancel</button>
-													<button type="button" class="btn btn-sm btn-outline-secondary" v-if="cardEditMode" v-on:click="">
-														Up</button>
-													<button type="button" class="btn btn-sm btn-outline-secondary" v-if="cardEditMode" v-on:click="">
-														Down</button>
 													<button type="button" class="btn btn-sm btn-primary" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="exitEditForm(card, cardIndex)">
 														Save</button>
 													<button type="button" class="btn btn-sm btn-outline-secondary" v-if="!cardEditMode" v-on:click="enterEditForm(card, cardIndex)">
