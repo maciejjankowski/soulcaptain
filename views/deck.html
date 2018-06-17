@@ -80,15 +80,22 @@
 
 												<textarea rows="5" columns="20" v-model="encja.text" v-if="cardEditMode && cardIndex === cardEditIndex" class="encjaEdit"></textarea>
 											</p>
+											<small class="text-muted" v-if="cardEditMode">CardID: {{card._id}}</small>
 											<div class="d-flex justify-content-between align-items-center">
 												<div class="btn-group">
-													<button type="button" class="btn btn-sm btn-outline-secondary" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="exitEditForm(card, cardIndex)">
-														View</button>
+													<button type="button" class="btn btn-sm btn-outline-secondary" v-if="cardEditMode" v-on:click="exitEditForm">
+														Cancel</button>
+													<button type="button" class="btn btn-sm btn-outline-secondary" v-if="cardEditMode" v-on:click="">
+														Up</button>
+													<button type="button" class="btn btn-sm btn-outline-secondary" v-if="cardEditMode" v-on:click="">
+														Down</button>
+													<button type="button" class="btn btn-sm btn-primary" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="exitEditForm(card, cardIndex)">
+														Save</button>
 													<button type="button" class="btn btn-sm btn-outline-secondary" v-if="!cardEditMode" v-on:click="enterEditForm(card, cardIndex)">
 														Edit</button>
 													<button type="button" class="btn btn-danger" v-if="cardEditMode" v-on:click="cardDelete(soulDeck._id, card._id)">Delete</button>
+
 												</div>
-												<small class="text-muted">po co tu tekst?</small>
 											</div>
 										</div>
 									</div>
