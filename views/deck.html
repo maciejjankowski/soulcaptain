@@ -86,8 +86,7 @@
 														View</button>
 													<button type="button" class="btn btn-sm btn-outline-secondary" v-if="!cardEditMode" v-on:click="enterEditForm(card, cardIndex)">
 														Edit</button>
-													<button type="button" class="btn btn-danger" v-if="cardEditMode" v-on:click="enterEditForm(card, cardIndex)">Delete</button>
-
+													<button type="button" class="btn btn-danger" v-if="cardEditMode" v-on:click="cardDelete(soulDeck._id, card._id)">Delete</button>
 												</div>
 												<small class="text-muted">po co tu tekst?</small>
 											</div>

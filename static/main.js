@@ -72,7 +72,19 @@ function saveCard(card){
 		contentType: 'application/json; charset=utf-8'
 	})
 	.then(() => {
-		console.info('saved');
+		console.info('saved', card.soulCardSoulencje);
+	});
+}
+
+function cardDelete(deckId, cardId){
+	console.warn(cardId);
+	$.ajax({
+		method: 'DELETE',
+		url: '/deck/'+deckId+'/card/'+cardId,
+		contentType: 'application/json; charset=utf-8'
+	})
+	.then(() => {
+		console.info('Deleted card', cardId, 'from deck', deckId);
 	});
 }
 
