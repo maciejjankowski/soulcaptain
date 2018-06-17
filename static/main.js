@@ -60,17 +60,37 @@ var app = new Vue({
 			app.cardEditIndex = 0;
 			saveCard(card);
 		},
-		moveDn : (cardIndex) => {
-			var old = app.soulDeck.cards.splice(cardIndex, 1).pop();
-			app.soulDeck.cards.splice(Math.max(0, cardIndex - 1), 0, old);
-		},
 		moveUp : (cardIndex) => {
 			var old = app.soulDeck.cards.splice(cardIndex, 1).pop();
+			app.soulDeck.cards.splice(Math.max(0, cardIndex - 1), 0, old);
+			saveDeck(app.soulDeck);
+		},
+		moveDn : (cardIndex) => {
+			var old = app.soulDeck.cards.splice(cardIndex, 1).pop();
 			app.soulDeck.cards.splice(Math.min(app.soulDeck.cards.length, cardIndex + 1), 0, old);
-		
+			saveDeck(app.soulDeck);
 		}
 	}
 });
+
+function saveDeck(deck){
+
+	let cards = deck.cards.map(card => card._id);
+
+	let newDeck = {};
+	Object.assign(newDeck, deck);
+	newDeck.cards = cards;
+	console.log('saving deck', newDeck);
+	$.ajax({
+		method: 'POST',
+		url: '/deck/' + deck._id,
+		data: JSON.stringify(newDeck),
+		contentType: 'application/json; charset=utf-8'
+	})
+	.then(() => {
+		console.info('saved');
+	});
+}
 
 function saveCard(card){
 	console.log(card.soulCardSoulencje);
