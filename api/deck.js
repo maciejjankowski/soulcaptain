@@ -6,47 +6,8 @@ module.exports = function (deps) {
 	const Deck = mongoose.models.Deck;
 	// const Deck = mongoose.models.Deck;
 
-	app.get('/deck', (req, res) => {
-		// let deckId = req.params.deckId;
-		let userDecks = req.user && req.user.decks; // TODO zwróci pierwszy fałsz lub ostatnia prawda
-		if (userDecks && userDecks.length) {
-			Deck.findOne({
-					'_id': userDecks[0]
-				})
-				.populate('cards')
-				.then((deck) => {
-					res.send(deck);
-				});
-		} else {
-			res.send({});
-		}
-	});
-
-	app.get('/decks', (req, res) => {
-		if (req.user && req.user.decks) {
-			let userDecks = req.user && req.user.decks;
-
-			let listOfDecks = userDecks.map(deckId => ({
-				_id: deckId
-			}));
-			logger.info('listOfDecks', JSON.stringify(listOfDecks, null, 2));
-			Deck.find({
-				$or: listOfDecks
-			}).then(function _handleDecks(decks) {
-				logger.info('decks:', decks);
-				// TODO: nie pokazywać userowi wszystkich pól obiektu
-				res.send(decks);
-			}).catch(function _handleDeckFail(err) {
-				logger.info('deck error', err);
-			});
-
-		} else {
-			logger.error('niezalogowany');
-			res.status(403).send('Log in first');
-		}
-	});
-
-	app.post('/card2', (req, res) => {
+	
+	app.post('/card2', function(req, res){
 		var cardData = {};
 		var card = new Card(cardData);
 
@@ -66,7 +27,29 @@ module.exports = function (deps) {
 		}); // card save
 	});
 
-	function saveDeck(req, res) {
+	function saveDeck(req, res){
+		const inputDeck = req.body;
+		// console.log('input deck', inputDeck);
+		Deck.findOne({
+			_id: inputDeck._id
+		}).then(foundDeck => {
+			// console.log('found', foundDeck);
+			Object.assign(foundDeck, inputDeck);
+			// console.log('updated', foundDeck);
+			foundDeck.save().then(result => {
+				// console.log('save ok');
+				res.send('OK');
+			}).catch(e => {
+				// console.log('save not', e);
+				res.send('NOT OK');
+			});
+		}).catch(e => {
+			// console.log('find fail', e);
+			res.send('NOT OK');
+		});
+	}
+
+	function saveDeckX(req, res) {
 		// find deck by Id
 		// req.user.decks.filter((deck)=>deck.id === req.params.deckId)
 		let mockDeck = require('../extras/scheme-souldeck.json');
@@ -281,22 +264,70 @@ module.exports = function (deps) {
 
 	//TODO parkondkes: usunąć to co służyło do testowania
 
+	function getDecks(req, res) {
+		if (req.user && req.user.decks) {
+			let userDecks = req.user && req.user.decks;
 
-	app.get('/card/:cardId', getCard);
-	app.put('/card/:cardId', updateCard);
-	app.post('/card/:cardId', updateCard);
-	app.get('/card/:cardId/update', updateCard);
+			let listOfDecks = userDecks.map(deckId => ({
+				_id: deckId
+			}));
 
-	app.post('/deck/:deckId', saveDeck);
-	app.put('/deck/:deckId', updateDeck);
-	app.get('/deck/save', saveDeck);
-	app.post('/deck/:deckId/card', createCard);
-	app.get('/deck/:deckId/card/save', createCard);
+			logger.info('listOfDecks', JSON.stringify(listOfDecks, null, 2));
+			Deck.find({
+				$or: listOfDecks
+			}).then(function _handleDecks(decks) {
+				logger.info('decks:', decks);
+				// TODO: nie pokazywać userowi wszystkich pól obiektu
+				res.send(decks);
+			}).catch(function _handleDeckFail(err) {
+				logger.info('deck error', err);
+			});
 
-	app.delete('/deck/:deckId/card/:cardId', deleteCard);
-	app.get('/deck/:deckId/card/:cardId/delete', deleteCard);
+		} else {
+			logger.error('niezalogowany');
+			res.status(403).send('Log in first');
+		}
+	}
 
-	app.get('/deck/:deckId/cards/delete', (req, res) => {
+	function getDeck(req, res) {
+		// let deckId = req.params.deckId;
+		let userDecks = req.user && req.user.decks; // TODO zwróci pierwszy fałsz lub ostatnia prawda
+		console.log('req.user', req.user, req.user && req.user.decks);
+		if (req.params.deckId || (userDecks && userDecks.length)) {
+			Deck.findOne({
+					'_id': req.params.deckId || userDecks[0]
+				})
+				.populate('cards')
+				.then((deck) => {
+					res.send(deck);
+				});
+		} else {
+			res.send({});
+		}
+	}
+
+
+	app.get('/card/:cardId', deps.isAuthenticated, getCard);
+	app.put('/card/:cardId', deps.isAuthenticated, updateCard);
+	app.post('/card/:cardId', deps.isAuthenticated, updateCard);
+	app.get('/card/:cardId/update', deps.isAuthenticated, updateCard);
+
+
+	app.get('/deck/:deckId', deps.isAuthenticated, getDeck);
+	app.get('/deck', deps.isAuthenticated, getDeck);
+	app.get('/decks', deps.isAuthenticated, getDecks);
+
+	app.post('/deck/:deckId', deps.isAuthenticated, saveDeck);
+	app.put('/deck/:deckId', deps.isAuthenticated, updateDeck);
+	app.get('/deck/save', deps.isAuthenticated, saveDeck);
+	app.post('/deck/:deckId/card', deps.isAuthenticated, createCard);
+	
+	app.get('/deck/:deckId/card/save', deps.isAuthenticated, createCard);
+
+	app.delete('/deck/:deckId/card/:cardId', deps.isAuthenticated, deleteCard);
+	app.get('/deck/:deckId/card/:cardId/delete', deps.isAuthenticated, deleteCard);
+
+	app.get('/deck/:deckId/cards/delete', deps.isAuthenticated, (req, res) => {
 		let templateData = {
 			decks : req.user.decks,
 			cards : req.user.decks[0].cards
