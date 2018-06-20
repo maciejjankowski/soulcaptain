@@ -1,7 +1,5 @@
 @media screen and (min-width: 1111px) {
   .container {
-    margin-top: -20px;
-    margin-bottom: -30px;
   }
 }
 
@@ -49,4 +47,15 @@
   border-bottom: 1px;
   border-bottom-style: ridge;
   padding-bottom: 10px;
+}
+
+
+/* stylowanko deck.html */
+.cardeditcss{
+  width: 100%;
+}
+
+.encjaEdit {
+  width: 288px;
+  height: 300px;
 }
