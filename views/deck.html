@@ -53,15 +53,12 @@
 											<div class="card-body">
 
 												<h5 class="card-title">
+
 													<span v-if="!cardEditMode">{{card.soulCardTitle}}</span>
-													<input v-if="cardEditMode && cardIndex === cardEditIndex" type="text" v-model="card.soulCardTitle">
+
+													<input class="cardeditcss" v-if="cardEditMode && cardIndex === cardEditIndex" type="text" v-model="card.soulCardTitle">
 												</h5>
-												<style>
-													.encjaEdit {
-														width: 300px !important;
-														height: 60px !important
-													}
-												</style>
+
 												<p v-for="(encja, encjaIndex) in card.soulCardSoulencje" class="card-text">
 													<span v-if="!cardEditMode">{{encja.text}}</span>
 
