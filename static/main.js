@@ -6,20 +6,13 @@ var app = new Vue({
 		selectedCard : 0,
 		cardEditMode : false,
 		cardEditIndex : 0,
-		soulDeck: {
-			'soulDeckId': '201801191933450000000001',
-			'soulDeckProperities': {
-				'soulDeckTitle': 'Wiktors\' DECK',
-				'soulDeckCreated': '2018.01.01'
-			}
-		},
+		soulDeck: {},
+		soulDecks : [],
 		soulCard: {},
 		admin: 0,
 		loggedIn: 1,
 		habits: []
 	},
-
-
 	methods: {
 		saveUser: (e) => {
 			e.preventDefault();

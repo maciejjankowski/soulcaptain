@@ -60,12 +60,33 @@ module.exports = function _defineRoutes(deps) {
 	});
 
 	app.get('/deckcardadd.html', (req, res) => {
-		let templateData = {
-			title: '🃏📝 CardAdd'
+		let cardId = req.query.cardId;
+		var templateData = {
+			title: '🃏📝 CardAdd',
+			cardId : cardId || null,
+			user : req.user || {},
+			cardData : {},
+			greeting : greetUser(req)
 		};
-		greetUser(req, templateData);
-		templateData.user = req.user;
-		res.render('deckcardadd.html', templateData);
+		
+		if (cardId) {
+			deps.mongoose.models.Card.findOne({_id : cardId})
+				.then((foundCard) => {
+					if (foundCard){
+						console.info('found card! YAY!');
+					} else {
+						console.info('card not found', cardId);
+					}
+					templateData.cardData = foundCard;
+					res.render('deckcardadd.html', templateData);
+				}).catch(e => {
+					console.log('not found', e)
+					res.render('deckcardadd.html', templateData);
+				});
+		} else {
+			console.log('no cardId specified:', cardId)
+			res.render('deckcardadd.html', templateData);
+		}
 	});
 
 	app.get(
@@ -129,6 +150,9 @@ module.exports = function _defineRoutes(deps) {
 };
 
 function greetUser(req, templateData) {
+	if (typeof templateData === 'undefined'){
+		templateData = {};
+	}
 	if (req.user &&
 		req.user.email &&
 		req.user.personalInfo &&
@@ -138,4 +162,6 @@ function greetUser(req, templateData) {
 	} else {
 		templateData.greeting = 'Oh, hi there! Please';
 	}
+	return templateData.greeting; // TODO 'refactor this because it should not modify the 
+	// original greeting, but simply return a value'
 }

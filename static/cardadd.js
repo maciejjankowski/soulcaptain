@@ -1,11 +1,12 @@
+// TODO "wciągać poprawne wartości z obiektu"
 var appForAddingCardsToBackendBeta9000 = new Vue({
     el: '#cardadder',
     data: {
-        soulCardTitle: 'SoulCard Title',
-        soulCardText: 'SoulCard text',
-        soulCardAuthor: 'SoulCard author',
+        soulCardTitle: cardAdderTemplateData.soulCardTitle || 'SoulCard Title', 
+        soulCardText: cardAdderTemplateData.soulCardText || 'SoulCard text',
+        soulCardAuthor: cardAdderTemplateData.soulCardAuthor || 'SoulCard author',
         payload: 'Here will appear your SoulCard schema :D',
-        deckId: '5aaeb1e14adb0227720caf0f'
+        deckId:  '5aaeb1e14adb0227720caf0f'
     },
     methods: {
         cardpost: function () {
