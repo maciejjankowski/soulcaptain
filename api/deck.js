@@ -7,7 +7,7 @@ module.exports = function (deps) {
 	// const Deck = mongoose.models.Deck;
 
 	
-	app.post('/card2', (req, res) => {
+	app.post('/card2', function(req, res){
 		var cardData = {};
 		var card = new Card(cardData);
 
