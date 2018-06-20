@@ -26,7 +26,16 @@ place: Kolejowa 5/7
 
 1. Maciej told me that i do not have to remove/add class like I did last time; i can toggle classes: http://youmightnotneedjquery.com/#toggle_class
 
-2. 
+2 Wiktor:
+* better left menu
+* jumbotron
+* something smaller than jumbotron
+* new way to navigate deck
+* button remove card
+
+3 Maciej:
+* reaorder cards in deck!
+
 
 ---
 
