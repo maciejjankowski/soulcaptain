@@ -45,7 +45,7 @@ place: Kolejowa 5/7
 * button remove card
 
 3 Maciej:
-* reaorder cards in deck!
+* ability to reorder cards in deck!
 
 
 ---
