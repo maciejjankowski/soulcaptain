@@ -26,8 +26,8 @@
 									<div v-if="soulDeck && soulDeck.cards && soulDeck.cards.length === 0" class="col-md-4">
 										<div class="card mb-4 box-shadow">
 											<img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]"
-											 style="height: 225px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_162ed92fb30%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_162ed92fb30%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-											 data-holder-rendered="true">
+											    style="height: 225px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_162ed92fb30%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_162ed92fb30%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+											    data-holder-rendered="true">
 											<div class="card-body">
 												<h5 class="card-title">Card title</h5>
 												<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a
@@ -47,8 +47,7 @@
 									<div v-for="(card, cardIndex) in soulDeck.cards" class="col-md-4">
 
 										<div class="card mb-4 box-shadow">
-											<img v-if="card.image" class="card-img-top"  alt="soulImg"
-											    style="height: 225px; width: 100%; display: block;" v-bind:src="card.image"
+											<img v-if="card.image" class="card-img-top" alt="soulImg" style="height: 225px; width: 100%; display: block;" v-bind:src="card.image"
 											    data-holder-rendered="true">
 
 											<div class="card-body">
@@ -65,6 +64,18 @@
 
 													<textarea rows="5" columns="20" v-model="encja.text" v-if="cardEditMode && cardIndex === cardEditIndex" class="encjaEdit"></textarea>
 												</p>
+
+												<div role="group" aria-label="first group">
+
+													<div class="btn-group">
+
+														<a href="#!" v-if="cardEditMode" v-bind:href="'/deckcardadd.html/?cardId=' + card._id" v-if="!cardEditMode">
+															Advanced edit
+														</a>
+
+													</div>
+												</div>
+
 												<small class="text-muted" v-if="cardEditMode">CardID: {{card._id}}</small>
 												<div class="d-flex justify-content-between align-items-center">
 
@@ -76,13 +87,12 @@
 																Cancel</button>
 															<button type="button" class="btn btn-sm btn-primary" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="exitEditForm(card, cardIndex)">
 																Save</button>
-															<button type="button" class="btn btn-sm btn-outline-secondary" v-if="!cardEditMode" v-on:click="enterEditForm(card, cardIndex)">
-																Edit</button>
-                              														<a href="#!" v-bind:href="'/deckcardadd.html/?cardId=' + card._id" 
-															v-if="!cardEditMode">
-															<i class="fa fa-edit"></i></a>
+
 															<button type="button" class="btn btn-danger" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="cardDelete(soulDeck._id, card._id)">
 																Delete</button>
+
+															<button type="button" class="btn btn-sm btn-outline-secondary" v-if="!cardEditMode" v-on:click="enterEditForm(card, cardIndex)">
+																Edit</button>
 
 														</div>
 													</div>

@@ -16,6 +16,16 @@ How Soul Captain is being developed. Step-by-step. Day-by-day
 
 ---
 
+## 2018 06 24 11:01
+
+author: Wiktor
+
+place: Kle
+
+1. 
+
+---
+
 ## 2018 06 17 12:34
 
 author: Wiktor
