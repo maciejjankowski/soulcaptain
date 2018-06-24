@@ -44,3 +44,6 @@ https://news.ycombinator.com/item?id=16515080
 * Czy nie było złej energii?
 * Co można zrobić lepiej?
 * Co robimy za tydzień?
+
+### Commit messajes
+* "Zrobił Ctrl+V i wiedział, że jest dobre
