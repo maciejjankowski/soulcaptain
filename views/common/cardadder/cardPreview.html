@@ -1,0 +1,23 @@
+<div class="col">
+  <h2>Card Preview</h2>
+  <p>This is how your card will look like.
+      <p/>
+      <div class="card mb-4 box-shadow">
+          <div class="card-body">
+              <button type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+
+              <p class="card-tilte">{{ soulCardTitle }}</p>
+              <hr>
+              <div>
+                  <p class="card-text">{{ soulCardText }}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                      <small class="text-muted">{{ soulCardAuthor }}</small>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <button id="buttong" v-on:click="inputs2json" type="button" class="btn btn-primary btn-lg btn-block" data-toggle="collapse"
+          data-target="#collapseCardOutput" aria-controls="collapseCardOutput">Generate card</button>
+</div>
