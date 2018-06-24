@@ -58,16 +58,17 @@
 														<a href="#!" v-if="!cardEditMode" v-on:click="moveUp(cardIndex)" type="btn btn-link" class="nav-link">
 															<i class="fa fa-chevron-up"></i>
 														</a>
+
 														<a href="#!" v-if="!cardEditMode" v-on:click="moveDn(cardIndex)" type="btn btn-link" class="nav-link">
 															<i class="fa fa-chevron-down"></i>
 														</a>
+
 													</div>
 
-													<div class="btn-group" role="group" aria-label="second group">
-
-														<button type="button" class="btn btn-sm btn-outline-secondary" v-if="!cardEditMode" v-on:click="enterEditForm(card, cardIndex)">
-															Edit</button>
-													</div>
+													<a v-if="!cardEditMode" v-on:click="enterEditForm(card, cardIndex)" href="#!" v-if="!cardEditMode" v-on:click="moveDn(cardIndex)"
+													    type="btn btn-link" class="nav-link">
+														<i class="fa fa-edit"></i>
+													</a>
 
 												</div>
 											</div>
@@ -110,7 +111,7 @@
 
 															<button type="button" class="btn btn-sm btn-outline-secondary" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="exitEditForm">
 																Cancel</button>
-																
+
 															<button type="button" class="btn btn-sm btn-primary" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="exitEditForm(card, cardIndex)">
 																Save</button>
 
