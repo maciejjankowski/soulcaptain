@@ -22,7 +22,8 @@ author: Wiktor
 
 place: Kle
 
-1. 
+1. Wiktor: advanced card edit only in edit mode
+2. Maciej: ability to edit card in advanced mode
 
 ---
 
