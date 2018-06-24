@@ -9,6 +9,60 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 <h1 id="soulcaptainblog">👻🎊 SoulCaptain Blog</h1>
 <p>How Soul Captain is being developed. Step-by-step. Day-by-day</p>
 <hr />
+<h2 id="201806241101">2018 06 24 11:01</h2>
+<p>author: Wiktor</p>
+<p>place: Kle</p>
+<ol>
+<li>Wiktor: advanced card edit only in edit mode</li>
+<li>Maciej: ability to edit card in advanced mode</li>
+</ol>
+<p><em>Show or not HTML tak with vue.js triggered with button</em></p>
+<p>HTML - insert <code>v-if="deckEditMode"</code> for tag you want to show or hide</p>
+<pre><code class="html language-html">                                            &lt;div v-if="deckEditMode" class="card-header bg-transparent"&gt;
+
+                                                &lt;div v-if="!cardEditMode" class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups"&gt;
+
+                                                    &lt;div class="btnUpDownStyle btn-group" role="group" aria-label="second group"&gt;
+
+                                                        &lt;a href="#!" v-if="!cardEditMode" v-on:click="moveUp(cardIndex)" type="btn btn-link" class="nav-link"&gt;
+                                                            &lt;i class="fa fa-chevron-up"&gt;&lt;/i&gt;
+                                                        &lt;/a&gt;
+                                                        &lt;a href="#!" v-if="!cardEditMode" v-on:click="moveDn(cardIndex)" type="btn btn-link" class="nav-link"&gt;
+                                                            &lt;i class="fa fa-chevron-down"&gt;&lt;/i&gt;
+                                                        &lt;/a&gt;
+                                                    &lt;/div&gt;
+
+                                                    &lt;div class="btn-group" role="group" aria-label="second group"&gt;
+
+                                                        &lt;button type="button" class="btn btn-sm btn-outline-secondary" v-if="!cardEditMode" v-on:click="enterEditForm(card, cardIndex)"&gt;
+                                                            Edit&lt;/button&gt;
+                                                    &lt;/div&gt;
+
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+</code></pre>
+<p>js - in main.js </p>
+<p>add parameter that will store information wether to show tag or not, in example <code>deckEditMode</code>:</p>
+<pre><code class="js language-js">var app = new Vue({
+    el: '#app',
+    data: {
+        deckEditMode : false;
+    }
+})
+</code></pre>
+<p>write functions for changing <code>deckEditMode</code> state:</p>
+<pre><code class="js language-js">        enterDeckEdit: () =&gt;{
+            app.deckEditMode = true;
+        },
+        exitDeckEdit: () =&gt;{
+            app.deckEditMode = false;
+        },
+</code></pre>
+<p>finally add <code>v-on:click</code> to change <code>enterDeckEdit</code> parameter: <code>v-on:click="enterDeckEdit"</code></p>
+<pre><code class="html language-html">            &lt;a v-on:click="enterDeckEdit" href="#!" type="btn btn-secondary" class="btn btn-outline-secondary"&gt;Edit Deck&lt;/a&gt;
+</code></pre>
+<p>Done! :)</p>
+<hr />
 <h2 id="201806171234">2018 06 17 12:34</h2>
 <p>author: Wiktor</p>
 <p>place: Kolejowa 5/7</p>
@@ -26,7 +80,7 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 </ul>
 <p>3 Maciej:</p>
 <ul>
-<li>reaorder cards in deck!</li>
+<li>ability to reorder cards in deck!</li>
 </ul>
 <hr />
 <h2 id="201806132147">2018 06 13 21:47</h2>

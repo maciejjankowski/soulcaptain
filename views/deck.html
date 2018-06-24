@@ -49,9 +49,9 @@
 									<div v-for="(card, cardIndex) in soulDeck.cards" class="col-md-4">
 
 										<div class="card mb-4 box-shadow">
-											<div v-if="!cardEditMode" class="card-header bg-transparent">
+											<div v-if="deckEditMode" class="card-header bg-transparent">
 
-												<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+												<div v-if="!cardEditMode" class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
 
 													<div class="btnUpDownStyle btn-group" role="group" aria-label="second group">
 
@@ -110,6 +110,7 @@
 
 															<button type="button" class="btn btn-sm btn-outline-secondary" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="exitEditForm">
 																Cancel</button>
+																
 															<button type="button" class="btn btn-sm btn-primary" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="exitEditForm(card, cardIndex)">
 																Save</button>
 
