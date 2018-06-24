@@ -1,14 +1,23 @@
 // TODO "wciągać poprawne wartości z obiektu"
+
+var newCardTemplate = {
+    soulCardTitle: cardAdderTemplateData.soulCardTitle || 'SoulCard Title', 
+    soulCardText: cardAdderTemplateData.soulCardText || 'SoulCard text',
+    soulCardAuthor: cardAdderTemplateData.soulCardAuthor || 'SoulCard author',
+    soulCards : []
+};
+
 var appForAddingCardsToBackendBeta9000 = new Vue({
     el: '#cardadder',
     data: {
-        soulCardTitle: cardAdderTemplateData.soulCardTitle || 'SoulCard Title', 
-        soulCardText: cardAdderTemplateData.soulCardText || 'SoulCard text',
-        soulCardAuthor: cardAdderTemplateData.soulCardAuthor || 'SoulCard author',
         payload: 'Here will appear your SoulCard schema :D',
-        deckId:  '5aaeb1e14adb0227720caf0f'
+        deckId:  '5aaeb1e14adb0227720caf0f',
+        cardData : cardAdderTemplateData || newCardTemplate
     },
     methods: {
+        addNewSoulencja : function(){
+            app.cardData.soulCards.push({});
+        },
         cardpost: function () {
             let payload = appForAddingCardsToBackendBeta9000.payload
             console.log("W tej chwili do backendu leci:", appForAddingCardsToBackendBeta9000.payload)
@@ -26,6 +35,7 @@ var appForAddingCardsToBackendBeta9000 = new Vue({
             }
         },
         inputs2json: function () {
+            // TODO rekaftorka - by brało z modelu
             var out2 = {
                 "soulCardId": "",
                 "soulCardTitle": document.getElementById("soulCardTitle").value,

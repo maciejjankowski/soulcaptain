@@ -4,12 +4,12 @@
 
   <form action=""></form>
 
-  <div class="form-row">
+  <!-- <div class="form-row">
       <label>
           deckId
       </label>
-      <input id="deckId" v-model="deckId" class="form-control" name="deckId" type="text" value="5aaeb1e14adb0227720caf0f" disabled>
-  </div>
+      <input id="deckId" v-model="deckId" class="form-control" name="deckId" type="text" disabled>
+  </div> -->
 
   <div class="form-row">
       <label>
@@ -18,7 +18,14 @@
       <textarea class="form-control" type="text" name="soulCardTitle" id="soulCardTitle" v-model="soulCardTitle" rows="1"></textarea>
   </div>
 
-  <div class="form-row">
+  <h2>Soulencje</h2>
+
+    <button v-on:click="addNewSoulencja">Add soulencja</button>
+
+    
+    <div class="form-row">
+
+
       <label>
           text
       </label>
@@ -33,8 +40,8 @@
       </p>
       <div class="collapse" id="collapseExample">
           <div class="card card-body">
+<!--             
               <div class="form-row">
-
                   <div class="form-group col-md-6">
                       <label>
                           soulCardId
@@ -54,11 +61,10 @@
                           "soulIdParent": "null",
                       </small>
                   </div>
-
-              </div>
+-->
+          </div>
 
               <div class="form-row">
-
                   <div class="form-group col-md-6">
                       <label>
                           soulType
@@ -68,7 +74,7 @@
                           "soulType": "prayer ",
                       </small>
                   </div>
-
+<!-- 
                   <div class="form-group col-md-6">
                       <label>
                           language
@@ -78,21 +84,10 @@
                           "language": "EN ",
                       </small>
                   </div>
-
+ -->
               </div>
 
               <div class="form-row">
-
-                  <div class="form-group col-md-6">
-                      <label>
-                          source
-                      </label>
-                      <input class=form-control type="text" name="source" id="source">
-                      <small class="form-text text-muted">
-                          "source": {
-                      </small>
-                  </div>
-
                   <div class="form-group col-md-6">
                       <label>
                           author
@@ -102,11 +97,9 @@
                           "author": "Frank Herbert",
                       </small>
                   </div>
-
               </div>
 
               <div class="form-row">
-
                   <div class="form-group col-md-6">
                       <label>
                           created
@@ -126,11 +119,9 @@
                           "source": "Dune ",
                       </small>
                   </div>
-
               </div>
 
               <div class="form-row">
-
                   <div class="form-group col-md-6">
                       <label>
                           sourceLink
@@ -141,6 +132,7 @@
                       </small>
                   </div>
               </div>
+
           </div>
       </div>
       <!-- ukrywanie pól  -->
