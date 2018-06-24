@@ -46,4 +46,5 @@ https://news.ycombinator.com/item?id=16515080
 * Co robimy za tydzień?
 
 ### Commit messajes
-* "Zrobił Ctrl+V i wiedział, że jest dobre
+* "Zrobił Ctrl+V i wiedział, że jest dobre"
+* "Halo, policja? Proszę przyjechać na githuba. Ktoś kradnie mój kod."
