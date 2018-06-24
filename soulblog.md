@@ -16,6 +16,17 @@ How Soul Captain is being developed. Step-by-step. Day-by-day
 
 ---
 
+## 2018 06 24 11:01
+
+author: Wiktor
+
+place: Kle
+
+1. Wiktor: advanced card edit only in edit mode
+2. Maciej: ability to edit card in advanced mode
+
+---
+
 ## 2018 06 17 12:34
 
 author: Wiktor
@@ -34,7 +45,7 @@ place: Kolejowa 5/7
 * button remove card
 
 3 Maciej:
-* reaorder cards in deck!
+* ability to reorder cards in deck!
 
 
 ---
