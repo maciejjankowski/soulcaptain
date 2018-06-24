@@ -2,8 +2,8 @@
     <div class="deckjumbotronpas btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
         <div role="group" aria-label="first group">
             <a href="/deckcardadd.html" type="btn btn-primary" class="btn btn-outline-primary">+ Add card</a>
-            <a v-on:click="enterDeckEdit" href="#!" type="btn btn-secondary" class="btn btn-outline-secondary">Edit Deck</a>
-
+            <a v-on:click="enterDeckEdit" v-if="!deckEditMode" href="#!" type="btn btn-secondary" class="btn btn-outline-secondary">Edit Deck</a>
+            <a v-on:click="exitDeckEdit" v-if="deckEditMode" href="#!" type="btn btn-secondary" class="btn btn-outline-secondary">Exit Deck edit</a>
         </div>
         <div class="btn-group">
             <div class="btn-group" role="group" aria-label="second group">

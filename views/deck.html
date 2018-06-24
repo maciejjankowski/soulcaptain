@@ -49,7 +49,7 @@
 									<div v-for="(card, cardIndex) in soulDeck.cards" class="col-md-4">
 
 										<div class="card mb-4 box-shadow">
-											<div v-if="deckEditMode" class="card-header bg-transparent">
+											<div v-if="deckEditMode && !cardEditMode" class="card-header bg-transparent">
 
 												<div v-if="!cardEditMode" class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
 
