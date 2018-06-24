@@ -1,22 +1,49 @@
 // TODO "wciągać poprawne wartości z obiektu"
-
-var newCardTemplate = {
-    soulCardTitle: cardAdderTemplateData.soulCardTitle || 'SoulCard Title', 
-    soulCardText: cardAdderTemplateData.soulCardText || 'SoulCard text',
-    soulCardAuthor: cardAdderTemplateData.soulCardAuthor || 'SoulCard author',
-    soulCards : []
+var soulencjaSeedData = {
+    soulIdParent: "",
+    soulType: "",
+    language: "",
+    text: "",
+    image: "",
+    audio: "",
+    video: "",
+    reason: "",
+    habit: {
+        type: "", // ['growth', 'excite', 'sustain', 'maintenance', 'challenge'];
+        displayType: "",
+        frequency: "", // ['just once', hourly','daily','weekly','monthly','quarterly','annually','bi-annually']	
+        timePreference: [], // select date/time, select place, at mornings, mid-day, lunch, end-of-day, weekend, laetr today, next week, next weekend, sunday, end of month, end of year, some day
+        coolDown: "", // czas do następnego powtórzenia - kkiedy nie pokazywać karty
+        timestamps: []
+    },
+    source: {
+        author: "",
+        created: "",
+        source: "",
+        sourceLink: ""
+    }
 };
+var cardSeedData = {
+    soulCardTitle: 'SoulCard Title', 
+    soulCardText: 'SoulCard text',
+    soulCardAuthor: 'SoulCard author',
+    soulCardSoulencje : [soulencjaSeedData]
+};
+
+Object.assign(cardSeedData, populatedCardData);
 
 var appForAddingCardsToBackendBeta9000 = new Vue({
     el: '#cardadder',
     data: {
         payload: 'Here will appear your SoulCard schema :D',
         deckId:  '5aaeb1e14adb0227720caf0f',
-        cardData : cardAdderTemplateData || newCardTemplate
+        cardData : cardSeedData,
+        // soulCardText : "XYZ",
+        // soulCardAuthor : "XXY"
     },
     methods: {
         addNewSoulencja : function(){
-            app.cardData.soulCards.push({});
+            appForAddingCardsToBackendBeta9000.cardData.soulCardSoulencje.push(soulencjaSeedData);
         },
         cardpost: function () {
             let payload = appForAddingCardsToBackendBeta9000.payload

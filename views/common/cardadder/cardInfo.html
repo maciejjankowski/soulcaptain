@@ -15,61 +15,39 @@
       <label>
           soulCardTitle
       </label>
-      <textarea class="form-control" type="text" name="soulCardTitle" id="soulCardTitle" v-model="soulCardTitle" rows="1"></textarea>
+      <textarea class="form-control" type="text" name="soulCardTitle" id="soulCardTitle" 
+        v-model="cardData.soulCardTitle" rows="1"></textarea>
   </div>
 
   <h2>Soulencje</h2>
 
     <button v-on:click="addNewSoulencja">Add soulencja</button>
 
-    
+
     <div class="form-row">
 
 
       <label>
           text
       </label>
-      <textarea class="form-control" type="text" name="text" id="text" v-model="soulCardText" rows="3"></textarea>
+      <textarea class="form-control" type="text" name="text" id="text" 
+        v-vmodel="cardData.soulCardText" rows="3"></textarea>
 
 
       <!-- ukrywanie pól  -->
-      <p>
           <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               Show advanced fields
           </button>
-      </p>
-      <div class="collapse" id="collapseExample">
-          <div class="card card-body">
-<!--             
-              <div class="form-row">
-                  <div class="form-group col-md-6">
-                      <label>
-                          soulCardId
-                      </label>
-                      <input class=form-control type="text" id="soulCardId">
-                      <small class="form-text text-muted">
-                          "soulId": "003 "
-                      </small>
-                  </div>
-
-                  <div class="form-group col-md-6">
-                      <label>
-                          soulIdParent
-                      </label>
-                      <input class=form-control type="text" name="soulIdParent" id="soulIdParent">
-                      <small class="form-text text-muted">
-                          "soulIdParent": "null",
-                      </small>
-                  </div>
--->
-          </div>
-
+<div v-for="soulencja in cardData.soulCardSoulencje">
+      <div class="collapse" id="collapseExample"  >
               <div class="form-row">
                   <div class="form-group col-md-6">
                       <label>
                           soulType
                       </label>
-                      <input class=form-control type="text" name="soulType" id="soulType">
+                      <input class=form-control type="text" name="soulType" 
+                      id="soulType"
+                      v-model="soulencja.soulType">
                       <small class="form-text text-muted">
                           "soulType": "prayer ",
                       </small>
@@ -92,7 +70,8 @@
                       <label>
                           author
                       </label>
-                      <input class=form-control type="text" name="author" id="author" v-model="soulCardAuthor">
+                      <input class=form-control type="text" name="author" id="author" 
+                      v-model="soulencja.source.author">
                       <small class="form-text text-muted">
                           "author": "Frank Herbert",
                       </small>
@@ -104,7 +83,9 @@
                       <label>
                           created
                       </label>
-                      <input class=form-control type="text" name="created" id="created">
+                      <input class=form-control type="text" name="created" 
+                      v-model="soulencja.source.created"
+                      id="created">
                       <small class="form-text text-muted">
                           "created": "1965 ",
                       </small>
@@ -114,7 +95,8 @@
                       <label>
                           source
                       </label>
-                      <input class=form-control type="text" name="source" id="source">
+                      <input class=form-control type="text" name="source" id="source"
+                        v-model="soulencja.source.source">
                       <small class="form-text text-muted">
                           "source": "Dune ",
                       </small>
@@ -126,7 +108,8 @@
                       <label>
                           sourceLink
                       </label>
-                      <input class=form-control type="text" name="sourceLink" id="sourceLink">
+                      <input class=form-control type="text" name="sourceLink" id="sourceLink"
+                        v-mode="soulencja.source.sourceLink">
                       <small class="form-text text-muted" style="word-wrap: break-word;">
                           "sourceLink": "https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
                       </small>
@@ -134,6 +117,7 @@
               </div>
 
           </div>
+        </div>
       </div>
       <!-- ukrywanie pól  -->
   </div>
