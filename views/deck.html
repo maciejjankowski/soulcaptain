@@ -65,11 +65,17 @@
 
 													</div>
 
-													<a v-if="!cardEditMode" v-on:click="enterEditForm(card, cardIndex)" href="#!" v-if="!cardEditMode" v-on:click="moveDn(cardIndex)"
-													    type="btn btn-link" class="nav-link">
-														<i class="fa fa-edit"></i>
-													</a>
+													<div class="btnUpDownStyle btn-group" role="group" aria-label="second group">
 
+														<a href="#!" type="btn btn-link" class="nav-link" v-if="deckEditMode" v-on:click="cardDelete(soulDeck._id, card._id)">
+															<i class="fa fa-trash"></i>
+														</a>
+
+														<a v-if="!cardEditMode" v-on:click="enterEditForm(card, cardIndex)" href="#!" v-if="!cardEditMode" v-on:click="moveDn(cardIndex)"
+														    type="btn btn-link" class="nav-link">
+															<i class="fa fa-edit"></i>
+														</a>
+													</div>
 												</div>
 											</div>
 
@@ -91,34 +97,29 @@
 													<textarea rows="5" columns="20" v-model="encja.text" v-if="cardEditMode && cardIndex === cardEditIndex" class="encjaEdit"></textarea>
 												</p>
 
-												<!-- TODO advanced nie pokazuje się zawsze -->
-												<div v-if="cardEditMode && cardIndex === cardEditIndex" role="group" aria-label="first group">
+												<div role="group" aria-label="first group">
 
-													<div class="btn-group">
+
+												</div>
+
+												<div v-if="cardEditMode" class="d-flex justify-content-between align-items-center">
+													
+													<div role="group" aria-label="first group" v-if="cardEditMode && cardIndex === cardEditIndex" class="btn-group">
 
 														<a href="#!" v-bind:href="'/deckcardadd.html/?cardId=' + card._id">
 															Advanced edit
 														</a>
 
 													</div>
-												</div>
-
-												<div v-if="cardEditMode" class="d-flex justify-content-between align-items-center">
-
 													<div role="group" aria-label="first group">
 
-														<div class="btn-group">
 
-															<button type="button" class="btn btn-sm btn-outline-secondary" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="exitEditForm">
-																Cancel</button>
+														<button type="button" class="btn btn-sm btn-outline-secondary" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="exitEditForm">
+															Cancel</button>
 
-															<button type="button" class="btn btn-sm btn-primary" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="exitEditForm(card, cardIndex)">
-																Save</button>
+														<button type="button" class="btn btn-sm btn-primary" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="exitEditForm(card, cardIndex)">
+															Save</button>
 
-															<button type="button" class="btn btn-danger" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="cardDelete(soulDeck._id, card._id)">
-																Delete</button>
-
-														</div>
 													</div>
 
 
