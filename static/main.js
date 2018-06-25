@@ -5,6 +5,7 @@ var app = new Vue({
 	data: {
 		selectedCard : 0,
 		cardEditMode : false,
+		deckEditMode : false,
 		cardEditIndex : 0,
 		soulDeck: {},
 		soulDecks : [],
@@ -52,6 +53,12 @@ var app = new Vue({
 			app.cardEditMode = false;
 			app.cardEditIndex = 0;
 			saveCard(card);
+		},
+		enterDeckEdit: () =>{
+			app.deckEditMode = true;
+		},
+		exitDeckEdit: () =>{
+			app.deckEditMode = false;
 		},
 		moveUp : (cardIndex) => {
 			var old = app.soulDeck.cards.splice(cardIndex, 1).pop();
