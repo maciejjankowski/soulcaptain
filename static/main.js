@@ -5,21 +5,15 @@ var app = new Vue({
 	data: {
 		selectedCard : 0,
 		cardEditMode : false,
+		deckEditMode : false,
 		cardEditIndex : 0,
-		soulDeck: {
-			'soulDeckId': '201801191933450000000001',
-			'soulDeckProperities': {
-				'soulDeckTitle': 'Wiktors\' DECK',
-				'soulDeckCreated': '2018.01.01'
-			}
-		},
+		soulDeck: {},
+		soulDecks : [],
 		soulCard: {},
 		admin: 0,
 		loggedIn: 1,
 		habits: []
 	},
-
-
 	methods: {
 		saveUser: (e) => {
 			e.preventDefault();
@@ -59,6 +53,12 @@ var app = new Vue({
 			app.cardEditMode = false;
 			app.cardEditIndex = 0;
 			saveCard(card);
+		},
+		enterDeckEdit: () =>{
+			app.deckEditMode = true;
+		},
+		exitDeckEdit: () =>{
+			app.deckEditMode = false;
 		},
 		moveUp : (cardIndex) => {
 			var old = app.soulDeck.cards.splice(cardIndex, 1).pop();

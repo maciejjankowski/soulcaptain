@@ -1,8 +1,5 @@
 @media screen and (min-width: 1111px) {
-  .container {
-    margin-top: -20px;
-    margin-bottom: -30px;
-  }
+  .container {}
 }
 
 @media screen and (min-width: 992px) and (max-width: 1110px) {
@@ -37,9 +34,31 @@
 
 .jumbotron {
   border-radius: 0rem;
-  text-align: left!important;
+  text-align: left !important;
 }
 
 .py-5 {
-  padding-top: 2rem!important;
+  padding-top: 2rem !important;
+}
+
+.deckjumbotronpas {
+  margin-bottom: 20px;
+  border-bottom: 1px;
+  border-bottom-style: ridge;
+  padding-bottom: 10px;
+}
+
+/* stylowanko deck.html */
+
+.cardeditcss {
+  width: 100%;
+}
+
+.encjaEdit {
+  width: 288px;
+  height: 300px;
+}
+
+.btnUpDownStyle {
+  margin-left: -10px;
 }

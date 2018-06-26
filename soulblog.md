@@ -16,6 +16,79 @@ How Soul Captain is being developed. Step-by-step. Day-by-day
 
 ---
 
+## 2018 06 24 11:01
+
+author: Wiktor
+
+place: Kle
+
+1. Wiktor: advanced card edit only in edit mode
+2. Maciej: ability to edit card in advanced mode
+
+*Show or not HTML tak with vue.js triggered with button*
+
+HTML - insert `v-if="deckEditMode"` for tag you want to show or hide
+
+```html
+											<div v-if="deckEditMode" class="card-header bg-transparent">
+
+												<div v-if="!cardEditMode" class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+
+													<div class="btnUpDownStyle btn-group" role="group" aria-label="second group">
+
+														<a href="#!" v-if="!cardEditMode" v-on:click="moveUp(cardIndex)" type="btn btn-link" class="nav-link">
+															<i class="fa fa-chevron-up"></i>
+														</a>
+														<a href="#!" v-if="!cardEditMode" v-on:click="moveDn(cardIndex)" type="btn btn-link" class="nav-link">
+															<i class="fa fa-chevron-down"></i>
+														</a>
+													</div>
+
+													<div class="btn-group" role="group" aria-label="second group">
+
+														<button type="button" class="btn btn-sm btn-outline-secondary" v-if="!cardEditMode" v-on:click="enterEditForm(card, cardIndex)">
+															Edit</button>
+													</div>
+
+												</div>
+                                            </div>
+```
+
+js - in main.js 
+
+add parameter that will store information wether to show tag or not, in example `deckEditMode`:
+
+```js
+var app = new Vue({
+	el: '#app',
+	data: {
+		deckEditMode : false;
+    }
+})
+```
+
+write functions for changing `deckEditMode` state:
+
+```js
+		enterDeckEdit: () =>{
+			app.deckEditMode = true;
+		},
+		exitDeckEdit: () =>{
+			app.deckEditMode = false;
+		},
+```
+
+finally add `v-on:click` to change `enterDeckEdit` parameter: `v-on:click="enterDeckEdit"`
+
+```html
+            <a v-on:click="enterDeckEdit" href="#!" type="btn btn-secondary" class="btn btn-outline-secondary">Edit Deck</a>
+```
+
+Done! :)
+
+
+---
+
 ## 2018 06 17 12:34
 
 author: Wiktor
@@ -26,7 +99,16 @@ place: Kolejowa 5/7
 
 1. Maciej told me that i do not have to remove/add class like I did last time; i can toggle classes: http://youmightnotneedjquery.com/#toggle_class
 
-2. 
+2 Wiktor:
+* better left menu
+* jumbotron
+* something smaller than jumbotron
+* new way to navigate deck
+* button remove card
+
+3 Maciej:
+* ability to reorder cards in deck!
+
 
 ---
 
