@@ -20,6 +20,41 @@ How Soul Captain is being developed. Step-by-step. Day-by-day
 
 author: Wiktor
 
+place: Costa @ Anielewicza
+
+1. Maciej&Wiktor: backlog review
+2. Wiktor: quickwin for dialog when deleting card:
+
+
+```HTML
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>To remove card click button</p>
+
+<button onclick="myFunction()">Delete card</button>
+
+<script>
+function myFunction() {
+  if (confirm("Delete card? You sure?") == true) {
+    console.log('users says OK');
+  } else {
+    console.log('user says CANCEL');
+  }
+}
+</script>
+
+</body>
+</html>
+```
+
+---
+
+## 2018 06 24 11:01
+
+author: Wiktor
+
 place: Kle
 
 1. Wiktor: advanced card edit only in edit mode
