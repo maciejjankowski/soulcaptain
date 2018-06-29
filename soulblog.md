@@ -37,7 +37,7 @@ place: Costa @ Anielewicza
 
 <script>
 function myFunction() {
-  if (confirm("Delete card? You sure?") == true) {
+  if (confirm("Delete card? You sure?") === true) {
     console.log('users says OK');
   } else {
     console.log('user says CANCEL');
