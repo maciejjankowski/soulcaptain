@@ -104,7 +104,7 @@ function saveCard(card) {
 
 function cardDelete(deckId, cardId) {
 	// task https://gitlab.com/maciejjankowski/soulcaptain/issues/101
-	if (confirm("Delete card? You sure?") == true) {
+	if (confirm("Delete card? You sure?") === true) {
 		console.log('users says OK');
 	} else {
 		console.log('user says CANCEL');
