@@ -10,6 +10,19 @@ https://news.ycombinator.com/item?id=16515080
 
 ## Kontrakt Macieja i Wiktora
 
+### 0. EDYTOR I PRACA Z KODEM   
+1. Używamy Visual Code Sudio.
+2. Używamy domyślnego formatera kodu VS Code (nie używamy Prettier i Beutify).
+2.1 Jak będziemy umieli zmieniać fomyślną konfigurację formattera:
+2.1.1 Pomiędzy nazwą property a wartością poperty Maciej mieć spację, np. 
+```js
+    {
+        czykot : "tak"
+    }   
+```
+3. Jeśli formatujesz plik, to najpierw Pull Request z formatowaniem, dopiero potem z nowym kodem.
+4. Oddzielny branch per ficzer, np. "zmiany na blogu", "potwierdzenie kasowania karty".
+
 ### 1. JEDZENIE
 * Przed kodzeniem jemy pyszne, lekkie, zdrowe i koszerne jedzenie. Nie rozmawiamy o kodzeniu, rozmawiamy o wszystkich innych sprawach.
 
