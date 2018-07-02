@@ -18,7 +18,7 @@ module.exports = function (deps) {
 					type: String, // ['growth', 'excite', 'sustain', 'maintenance', 'challenge'];
 					displayType: String,
 					frequency: String, // ['just once', hourly','daily','weekly','monthly','quarterly','annually','bi-annually']	
-					timePreference: [], // select date/time, select place, at mornings, mid-day, lunch, end-of-day, weekend, laetr today, next week, next weekend, sunday, end of month, end of year, some day
+					timePreference: [String], // select date/time, select place, at mornings, mid-day, lunch, end-of-day, weekend, laetr today, next week, next weekend, sunday, end of month, end of year, some day
 					coolDown: String, // czas do następnego powtórzenia - kkiedy nie pokazywać karty
 					timestamps: [Date]
 				},
@@ -74,6 +74,5 @@ module.exports = function (deps) {
 		diaryEntry
 	};
 
-	
-};
 
+};

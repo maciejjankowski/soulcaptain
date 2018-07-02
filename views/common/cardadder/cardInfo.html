@@ -1,45 +1,58 @@
 <div class="col">
 
-  <h2>Card info</h2>
+    <h2>Card info</h2>
 
-  <form action=""></form>
-
-  <!-- <div class="form-row">
+    <!-- <div class="form-row">
       <label>
           deckId
       </label>
       <input id="deckId" v-model="deckId" class="form-control" name="deckId" type="text" disabled>
   </div> -->
 
-  <div class="form-row">
-      <label>
-          soulCardTitle
-      </label>
-      <textarea class="form-control" type="text" name="soulCardTitle" id="soulCardTitle" 
-        v-model="cardData.soulCardTitle" rows="1"></textarea>
-  </div>
+    <div class="form-row">
+        <label>
+            soulCardTitle
+        </label>
+        <textarea class="form-control" type="text" name="soulCardTitle" id="soulCardTitle" v-model="cardData.soulCardTitle" rows="1"></textarea>
+    </div>
 
-  <h2>Soulencje</h2>
+    <h2>Soulencje</h2>
 
-    <button v-on:click="addNewSoulencja">Add soulencja</button>
+    <button v-on:click="addNewSoulencja">(+) Add soulencja</button>
 
+    <!-- ukrywanie pól  -->
+    <div>
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Show advanced fields
+        </button>
+    </div>
 
     <div class="form-row">
 
-
+        <!-- ukrywam, bo nie ma tego w schema
       <label>
           text
       </label>
       <textarea class="form-control" type="text" name="text" id="text" 
-        v-vmodel="cardData.soulCardText" rows="3"></textarea>
+        v-model="cardData.soulCardText" rows="3"></textarea>
+-->
 
 
-      <!-- ukrywanie pól  -->
-          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              Show advanced fields
-          </button>
-<div v-for="soulencja in cardData.soulCardSoulencje">
-      <div class="collapse" id="collapseExample"  >
+
+        <div v-for="(soulencja, soulencjaIndex) in cardData.soulCardSoulencje">
+            <div class="-collapse" id="collapseExample">
+                <button v-on:click="deleteSoulencja(soulencjaIndex)">(&times;) Delete soulencja</button>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>
+                            text
+                        </label>
+                        <input class=form-control type="text" v-model="soulencja.text">
+                        <small class="form-text text-muted">
+                            text
+                        </small>
+                    </div>
+                    <!--
               <div class="form-row">
                   <div class="form-group col-md-6">
                       <label>
@@ -52,7 +65,8 @@
                           "soulType": "prayer ",
                       </small>
                   </div>
-<!-- 
+-->
+                    <!-- 
                   <div class="form-group col-md-6">
                       <label>
                           language
@@ -63,64 +77,59 @@
                       </small>
                   </div>
  -->
-              </div>
+                </div>
 
-              <div class="form-row">
-                  <div class="form-group col-md-6">
-                      <label>
-                          author
-                      </label>
-                      <input class=form-control type="text" name="author" id="author" 
-                      v-model="soulencja.source.author">
-                      <small class="form-text text-muted">
-                          "author": "Frank Herbert",
-                      </small>
-                  </div>
-              </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>
+                            author
+                        </label>
+                        <input class=form-control type="text" name="author" id="author" v-model="soulencja.source.author">
+                        <small class="form-text text-muted">
+                            "author": "Frank Herbert",
+                        </small>
+                    </div>
+                </div>
 
-              <div class="form-row">
-                  <div class="form-group col-md-6">
-                      <label>
-                          created
-                      </label>
-                      <input class=form-control type="text" name="created" 
-                      v-model="soulencja.source.created"
-                      id="created">
-                      <small class="form-text text-muted">
-                          "created": "1965 ",
-                      </small>
-                  </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>
+                            created
+                        </label>
+                        <input class=form-control type="text" name="created" v-model="soulencja.source.created" id="created">
+                        <small class="form-text text-muted">
+                            "created": "1965 ",
+                        </small>
+                    </div>
 
-                  <div class="form-group col-md-6">
-                      <label>
-                          source
-                      </label>
-                      <input class=form-control type="text" name="source" id="source"
-                        v-model="soulencja.source.source">
-                      <small class="form-text text-muted">
-                          "source": "Dune ",
-                      </small>
-                  </div>
-              </div>
+                    <div class="form-group col-md-6">
+                        <label>
+                            source
+                        </label>
+                        <input class=form-control type="text" name="source" id="source" v-model="soulencja.source.source">
+                        <small class="form-text text-muted">
+                            "source": "Dune ",
+                        </small>
+                    </div>
+                </div>
 
-              <div class="form-row">
-                  <div class="form-group col-md-6">
-                      <label>
-                          sourceLink
-                      </label>
-                      <input class=form-control type="text" name="sourceLink" id="sourceLink"
-                        v-mode="soulencja.source.sourceLink">
-                      <small class="form-text text-muted" style="word-wrap: break-word;">
-                          "sourceLink": "https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
-                      </small>
-                  </div>
-              </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>
+                            sourceLink
+                        </label>
+                        <input class=form-control type="text" name="sourceLink" id="sourceLink" v-mode="soulencja.source.sourceLink">
+                        <small class="form-text text-muted" style="word-wrap: break-word;">
+                            "sourceLink": "https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
+                        </small>
+                    </div>
+                </div>
 
-          </div>
+            </div>
         </div>
-      </div>
-      <!-- ukrywanie pól  -->
-  </div>
+    </div>
+    <!-- ukrywanie pól  -->
+</div>
 
-  </form>
+</form>
 </div>

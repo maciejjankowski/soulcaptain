@@ -15,7 +15,7 @@ module.exports = function (deps) {
 
         let diaryEntry = new DiaryEntry(req.body);
 
-        console.log (diaryEntryData, req.body, diaryEntry);
+        console.log(diaryEntryData, req.body, diaryEntry);
 
         diaryEntry.save(function (err) {
             if (err) {
