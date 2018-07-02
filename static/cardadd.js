@@ -46,8 +46,8 @@ var appForAddingCardsToBackendBeta9000 = new Vue({
             appForAddingCardsToBackendBeta9000.cardData.soulCardSoulencje.push(soulencjaSeedData);
         },
         cardpost: function () {
-            let payload = appForAddingCardsToBackendBeta9000.payload
-            console.log("W tej chwili do backendu leci:", appForAddingCardsToBackendBeta9000.payload)
+            let payload = appForAddingCardsToBackendBeta9000.payload;
+            console.log("W tej chwili do backendu leci:", appForAddingCardsToBackendBeta9000.payload);
             var request = new XMLHttpRequest();
             request.open('POST', '/deck/' + appForAddingCardsToBackendBeta9000.deckId + '/card', true);
             request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');

@@ -7,7 +7,7 @@ module.exports = function (deps) {
 			soulCardTitle: String,
 			soulCardSoulencje: [{
 				soulIdParent: String,
-				soulType: String,
+				soulType: String, // "nie wiem co to jest, do wywalenia"
 				language: String,
 				text: String,
 				image: String,
