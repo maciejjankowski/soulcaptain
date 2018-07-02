@@ -54,11 +54,12 @@ var appForAddingCardsToBackendBeta9000 = new Vue({
             request.send(payload);
 
             if (request.status == 200) {
-                dump(request.responseText)
+                dump(request.responseText);
             } else if (request.status == 500) {
-                console.log('pińcetka'), dump(request.responseText)
+                console.log('pińcetka');
+                dump(request.responseText);
             } else {
-                dump(request.responseText)
+                dump(request.responseText);
             }
         },
         inputs2json: function () {
