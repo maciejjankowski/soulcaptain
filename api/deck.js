@@ -127,7 +127,7 @@ module.exports = function (deps) {
 				res.status(400).send('NOT OK');
 			});
 		}).catch(err => {
-			logger.info('createCard error in card.save().then((response)', err.message);
+			logger.info('createCard error in card.save().then((response)' + '\n' + err.message);
 			res.status(400).send('NOT OK');
 		});
 	}

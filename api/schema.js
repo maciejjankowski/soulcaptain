@@ -15,12 +15,12 @@ module.exports = function (deps) {
 				video: String,
 				reason: String,
 				habit: {
-					type: String, // ['growth', 'excite', 'sustain', 'maintenance', 'challenge'];
-					displayType: String,
-					frequency: String, // ['just once', hourly','daily','weekly','monthly','quarterly','annually','bi-annually']	
-					timePreference: [String], // select date/time, select place, at mornings, mid-day, lunch, end-of-day, weekend, laetr today, next week, next weekend, sunday, end of month, end of year, some day
-					coolDown: String, // czas do następnego powtórzenia - kkiedy nie pokazywać karty
-					timestamps: [Date]
+					'habitType': String, // ['growth', 'excite', 'sustain', 'maintenance', 'challenge'];
+					'displayType': String,
+					'frequency': String, // ['just once', hourly','daily','weekly','monthly','quarterly','annually','bi-annually']
+					'timePreference': [String], // select date/time, select place, at mornings, mid-day, lunch, end-of-day, weekend, laetr today, next week, next weekend, sunday, end of month, end of year, some day
+					'coolDown': String, // czas do następnego powtórzenia - kkiedy nie pokazywać karty
+					'timestamps': [Date]
 				},
 				source: {
 					author: String,
