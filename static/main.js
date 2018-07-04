@@ -3,11 +3,12 @@
 var app = new Vue({
 	el: '#app',
 	data: {
-		selectedCard : 0,
-		cardEditMode : false,
-		cardEditIndex : 0,
+		selectedCard: 0,
+		cardEditMode: false,
+		deckEditMode: false,
+		cardEditIndex: 0,
 		soulDeck: {},
-		soulDecks : [],
+		soulDecks: [],
 		soulCard: {},
 		admin: 0,
 		loggedIn: 1,
@@ -44,21 +45,27 @@ var app = new Vue({
 			});
 		},
 		// saveDeck : saveDeck,
-		enterEditForm : (card, cardIndex) => {
+		enterEditForm: (card, cardIndex) => {
 			app.cardEditMode = true;
 			app.cardEditIndex = cardIndex;
 		},
-		exitEditForm : (card) => {
+		exitEditForm: (card) => {
 			app.cardEditMode = false;
 			app.cardEditIndex = 0;
 			saveCard(card);
 		},
-		moveUp : (cardIndex) => {
+		enterDeckEdit: () => {
+			app.deckEditMode = true;
+		},
+		exitDeckEdit: () => {
+			app.deckEditMode = false;
+		},
+		moveUp: (cardIndex) => {
 			var old = app.soulDeck.cards.splice(cardIndex, 1).pop();
 			app.soulDeck.cards.splice(Math.max(0, cardIndex - 1), 0, old);
 			saveDeck(app.soulDeck);
 		},
-		moveDn : (cardIndex) => {
+		moveDn: (cardIndex) => {
 			var old = app.soulDeck.cards.splice(cardIndex, 1).pop();
 			app.soulDeck.cards.splice(Math.min(app.soulDeck.cards.length, cardIndex + 1), 0, old);
 			saveDeck(app.soulDeck);
@@ -66,45 +73,52 @@ var app = new Vue({
 	}
 });
 
-function saveDeck(deck){
+function saveDeck(deck) {
 	let newDeck = {};
 	let cards = deck.cards.map(card => card._id);
 	Object.assign(newDeck, deck);
 	newDeck.cards = cards;
 	$.ajax({
-		method: 'POST',
-		url: '/deck/' + deck._id,
-		data: JSON.stringify(newDeck),
-		contentType: 'application/json; charset=utf-8'
-	})
-	.then(() => {
-		// console.info('saved');
-	});
+			method: 'POST',
+			url: '/deck/' + deck._id,
+			data: JSON.stringify(newDeck),
+			contentType: 'application/json; charset=utf-8'
+		})
+		.then(() => {
+			// console.info('saved');
+		});
 }
 
-function saveCard(card){
+function saveCard(card) {
 	console.log(card.soulCardSoulencje);
 	$.ajax({
-		method: 'POST',
-		url: '/card/'+card._id,
-		data: JSON.stringify(card),
-		contentType: 'application/json; charset=utf-8'
-	})
-	.then(() => {
-		console.info('saved', card.soulCardSoulencje);
-	});
+			method: 'POST',
+			url: '/card/' + card._id,
+			data: JSON.stringify(card),
+			contentType: 'application/json; charset=utf-8'
+		})
+		.then(() => {
+			console.info('saved', card.soulCardSoulencje);
+		});
 }
 
-function cardDelete(deckId, cardId){
+function cardDelete(deckId, cardId) {
+	// task https://gitlab.com/maciejjankowski/soulcaptain/issues/101
+	if (confirm("Delete card? You sure?") === true) {
+		console.log('users says OK');
+	} else {
+		console.log('user says CANCEL');
+		return
+	}
 	console.warn(cardId);
 	$.ajax({
-		method: 'DELETE',
-		url: '/deck/'+deckId+'/card/'+cardId,
-		contentType: 'application/json; charset=utf-8'
-	})
-	.then(() => {
-		console.info('Deleted card', cardId, 'from deck', deckId);
-	});
+			method: 'DELETE',
+			url: '/deck/' + deckId + '/card/' + cardId,
+			contentType: 'application/json; charset=utf-8'
+		})
+		.then(() => {
+			console.info('Deleted card', cardId, 'from deck', deckId);
+		});
 }
 
 function login(e) {
