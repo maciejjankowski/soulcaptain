@@ -1,5 +1,5 @@
 # SoulCaptain
-Dream your dream.
+Dream your dream!
 
 ## Readings
 https://news.ycombinator.com/item?id=16515080
