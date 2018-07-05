@@ -11,7 +11,7 @@ var soulencjaSeedData = {
 	habit: {
 		habitType: '', // ['growth', 'excite', 'sustain', 'maintenance', 'challenge'];
 		displayType: '',
-		frequency: '', // ['just once', hourly','daily','weekly','monthly','quarterly','annually','bi-annually']	
+		frequency: '', // [just once', hourly','daily','weekly','monthly','quarterly','annually','bi-annually]	
 		timePreference: [], // select date/time, select place, at mornings, mid-day, lunch, end-of-day, weekend, laetr today, next week, next weekend, sunday, end of month, end of year, some day
 		coolDown: '', // czas do następnego powtórzenia - kkiedy nie pokazywać karty
 		timestamps: []
