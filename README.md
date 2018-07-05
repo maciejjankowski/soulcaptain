@@ -17,7 +17,7 @@ https://news.ycombinator.com/item?id=16515080
 2.1.1 Pomiędzy nazwą property a wartością poperty Maciej mieć spację, np. 
 ```js
     {
-        czykot : "tak"
+        czytokot : "tak"
     }   
 ```
 3. Jeśli formatujesz plik, to najpierw Pull Request z formatowaniem, dopiero potem z nowym kodem.
