@@ -43,10 +43,6 @@
     "type": "git",
     "url": "https://hyperdev.com/#!/project/welcome-project"
   },
-  "keywords": [
-    "node",
-    "hyperdev",
-    "express"
-  ],
+  "keywords": [],
   "license": "MIT"
 }
