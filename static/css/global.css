@@ -62,3 +62,11 @@
 .btnUpDownStyle {
   margin-left: -10px;
 }
+
+
+/* żeby main menu nie chowało pod sobą części strony
+https://getbootstrap.com/docs/4.0/components/navbar/#placement
+*/
+body {
+  padding-top: 60px;
+}
