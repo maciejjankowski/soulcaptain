@@ -1,3 +1,11 @@
+$('.board-card-footer').each((i, e) => {
+  console.log($(e).get(0).innerHTML += '<a data-taskId="..." href="#!">&#9654;</a>');
+});
+
+
+
+
+
 function saveDeckX(req, res) {
   // find deck by Id
   // req.user.decks.filter((deck)=>deck.id === req.params.deckId)
