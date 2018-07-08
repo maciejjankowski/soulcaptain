@@ -12,7 +12,7 @@ module.exports = function _defineRoutes(deps) {
 
 	// TODO refactor: funkcja app.get łyka sobie 3 zmienne z odzielnego statycznego JSONA/scheme
 	app.get('/', (req, res) => {
-		console.log('HALKO', req.user, 'SIEMANKO')
+		console.log('HALKO', req.user, 'SIEMANKO');
 		let templateData = {
 			title: '👻🏡 SoulHome',
 			greeting: '',
@@ -29,7 +29,7 @@ module.exports = function _defineRoutes(deps) {
 		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
-		res.render('deck.html', templateData);
+		res.render('mainContent/deck/deck.html', templateData);
 	});
 
 	app.get('/maincontent/newDeck.html', (req, res) => {
@@ -47,7 +47,7 @@ module.exports = function _defineRoutes(deps) {
 		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
-		res.render('diary.html', templateData);
+		res.render('mainContent/diary/diary.html', templateData);
 	});
 
 	app.get('/deckdocument.html', (req, res) => {
@@ -56,7 +56,7 @@ module.exports = function _defineRoutes(deps) {
 		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
-		res.render('deckdocument.html', templateData);
+		res.render('mainContent/deck/document.html', templateData);
 	});
 
 	app.get('/deckcard.html', (req, res) => {
@@ -65,7 +65,7 @@ module.exports = function _defineRoutes(deps) {
 		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
-		res.render('deckcard.html', templateData);
+		res.render('mainContent/deck/card.html', templateData);
 	});
 
 	app.get('/deckcardadd.html', (req, res) => {
@@ -89,14 +89,14 @@ module.exports = function _defineRoutes(deps) {
 						console.info('card not found', cardId);
 					}
 					templateData.cardData = foundCard;
-					res.render('deckcardadd.html', templateData);
+					res.render('mainContent/deck/cardadd.html', templateData);
 				}).catch(e => {
-					console.log('not found', e)
-					res.render('deckcardadd.html', templateData);
+					console.log('not found', e);
+					res.render('mainContent/deck/cardadd.html', templateData);
 				});
 		} else {
-			console.log('no cardId specified:', cardId)
-			res.render('deckcardadd.html', templateData);
+			console.log('no cardId specified:', cardId);
+			res.render('mainContent/deck/cardadd.html', templateData);
 		}
 	});
 
@@ -109,7 +109,7 @@ module.exports = function _defineRoutes(deps) {
 			};
 			greetUser(req, templateData);
 			templateData.user = req.user;
-			res.render('deckcardcarousel.html', templateData);
+			res.render('mainContent/deck/carousel.html', templateData);
 		}
 	);
 
@@ -119,7 +119,7 @@ module.exports = function _defineRoutes(deps) {
 		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
-		res.render('habits.html', templateData);
+		res.render('mainContent/habits/habits.html', templateData);
 	});
 
 	app.get('/signup.html', (req, res) => {
@@ -128,7 +128,16 @@ module.exports = function _defineRoutes(deps) {
 		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
-		res.render('signup.html', templateData);
+		res.render('mainContent/signup.html', templateData);
+	});
+
+	app.get('/profile.html', (req, res) => {
+		let templateData = {
+			title: '✅ Profile'
+		};
+		greetUser(req, templateData);
+		templateData.user = req.user;
+		res.render('mainContent/profile/profile.html', templateData);
 	});
 
 	app.get('/login.html', (req, res) => {
@@ -137,7 +146,7 @@ module.exports = function _defineRoutes(deps) {
 		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
-		res.render('login.html', templateData);
+		res.render('mainContent/login.html', templateData);
 	});
 
 	app.get('/admin.html', (req, res) => {
@@ -146,7 +155,7 @@ module.exports = function _defineRoutes(deps) {
 		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
-		res.render('admin.html', templateData);
+		res.render('mainContent/admin/admin.html', templateData);
 	});
 
 	app.get('/blog.html', (req, res) => {
@@ -155,7 +164,7 @@ module.exports = function _defineRoutes(deps) {
 		};
 		greetUser(req, templateData);
 		templateData.user = req.user;
-		res.render('blog.html', templateData);
+		res.render('mainContent/blog/blog.html', templateData);
 	});
 	return app;
 };

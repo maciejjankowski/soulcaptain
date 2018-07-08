@@ -22,13 +22,13 @@ var app = new Vue({
 				return alert('hasła się nie zgadzają');
 			}
 			$.ajax({
-					method: 'POST',
-					url: '/user',
-					data: JSON.stringify({
-						payload: $('#userAddForm')
-					}),
-					contentType: 'application/json; charset=utf-8'
-				})
+				method: 'POST',
+				url: '/user',
+				data: JSON.stringify({
+					payload: $('#userAddForm')
+				}),
+				contentType: 'application/json; charset=utf-8'
+			})
 				.then(() => {
 					$('#saveUserButton').removeAttr('disabled');
 					alert('user created');
@@ -79,11 +79,11 @@ function saveDeck(deck) {
 	Object.assign(newDeck, deck);
 	newDeck.cards = cards;
 	$.ajax({
-			method: 'POST',
-			url: '/deck/' + deck._id,
-			data: JSON.stringify(newDeck),
-			contentType: 'application/json; charset=utf-8'
-		})
+		method: 'POST',
+		url: '/deck/' + deck._id,
+		data: JSON.stringify(newDeck),
+		contentType: 'application/json; charset=utf-8'
+	})
 		.then(() => {
 			// console.info('saved');
 		});
@@ -92,11 +92,11 @@ function saveDeck(deck) {
 function saveCard(card) {
 	console.log(card.soulCardSoulencje);
 	$.ajax({
-			method: 'POST',
-			url: '/card/' + card._id,
-			data: JSON.stringify(card),
-			contentType: 'application/json; charset=utf-8'
-		})
+		method: 'POST',
+		url: '/card/' + card._id,
+		data: JSON.stringify(card),
+		contentType: 'application/json; charset=utf-8'
+	})
 		.then(() => {
 			console.info('saved', card.soulCardSoulencje);
 		});
@@ -104,20 +104,22 @@ function saveCard(card) {
 
 function cardDelete(deckId, cardId) {
 	// task https://gitlab.com/maciejjankowski/soulcaptain/issues/101
-	if (confirm("Delete card? You sure?") === true) {
+	if (confirm('Delete card? You sure?') === true) {
 		console.log('users says OK');
 	} else {
 		console.log('user says CANCEL');
-		return
+		return;
 	}
 	console.warn(cardId);
 	$.ajax({
-			method: 'DELETE',
-			url: '/deck/' + deckId + '/card/' + cardId,
-			contentType: 'application/json; charset=utf-8'
-		})
+		method: 'DELETE',
+		url: '/deck/' + deckId + '/card/' + cardId,
+		contentType: 'application/json; charset=utf-8'
+	})
 		.then(() => {
 			console.info('Deleted card', cardId, 'from deck', deckId);
+			let cardIndex = app.soulDeck.cards.findIndex(e => e._id === cardId);
+			app.soulDeck.cards.splice(cardIndex, 1);
 		});
 }
 
@@ -147,17 +149,17 @@ $(function _onload() {
 
 // el.classList.add(className); i tutaj 'el' to 'document.getElementById("leftNavbar")'
 function closeNav() {
-	document.getElementById("leftNavbar").classList.add("hideNavbarLeft");
-	document.getElementById("navbarLeftNavTag").classList.remove("fixed-top");
+	document.getElementById('leftNavbar').classList.add('hideNavbarLeft');
+	document.getElementById('navbarLeftNavTag').classList.remove('fixed-top');
 
-	document.getElementById("closeNavButton").classList.add("hideButton");
-	document.getElementById("openNavButton").classList.remove("hideButton");
+	document.getElementById('closeNavButton').classList.add('hideButton');
+	document.getElementById('openNavButton').classList.remove('hideButton');
 }
 
 function openNav() {
-	document.getElementById("leftNavbar").classList.remove("hideNavbarLeft");
-	document.getElementById("navbarLeftNavTag").classList.add("fixed-top");
+	document.getElementById('leftNavbar').classList.remove('hideNavbarLeft');
+	document.getElementById('navbarLeftNavTag').classList.add('fixed-top');
 
-	document.getElementById("openNavButton").classList.add("hideButton");
-	document.getElementById("closeNavButton").classList.remove("hideButton");
+	document.getElementById('openNavButton').classList.add('hideButton');
+	document.getElementById('closeNavButton').classList.remove('hideButton');
 }
