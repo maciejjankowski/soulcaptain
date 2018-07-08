@@ -32,6 +32,15 @@ module.exports = function _defineRoutes(deps) {
 		res.render('deck.html', templateData);
 	});
 
+	app.get('/maincontent/newDeck.html', (req, res) => {
+		let templateData = {
+			title: '🎴 Deck'
+		};
+		greetUser(req, templateData);
+		templateData.user = req.user;
+		res.render('maincontent/newDeck.html', templateData);
+	});
+
 	app.get('/diary.html', (req, res) => {
 		let templateData = {
 			title: '📖 Diary'
@@ -63,16 +72,18 @@ module.exports = function _defineRoutes(deps) {
 		let cardId = req.query.cardId;
 		var templateData = {
 			title: '🃏📝 CardAdd',
-			cardId : cardId || null,
-			user : req.user || {},
-			cardData : {},
-			greeting : greetUser(req)
+			cardId: cardId || null,
+			user: req.user || {},
+			cardData: {},
+			greeting: greetUser(req)
 		};
-		
+
 		if (cardId) {
-			deps.mongoose.models.Card.findOne({_id : cardId})
+			deps.mongoose.models.Card.findOne({
+					_id: cardId
+				})
 				.then((foundCard) => {
-					if (foundCard){
+					if (foundCard) {
 						console.info('found card! YAY!');
 					} else {
 						console.info('card not found', cardId);
@@ -150,7 +161,7 @@ module.exports = function _defineRoutes(deps) {
 };
 
 function greetUser(req, templateData) {
-	if (typeof templateData === 'undefined'){
+	if (typeof templateData === 'undefined') {
 		templateData = {};
 	}
 	if (req.user &&
