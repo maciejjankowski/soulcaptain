@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <% include common/head.html %>
+    <% include ../common/head.html %>
         <link href="floating-labels.css" rel="stylesheet">
 </head>
 
 <body>
     <!-- navbar start-->
-    <% include common/nav.html %>
+    <% include ../common/nav.html %>
         <div class="container">
             <form class="form-signin" action="/login" method="POST" id="formSignin">
 
@@ -43,15 +43,15 @@
 
             </form>
 
-            <% include common/script-footer.html %>
-            <% include common/footer.html %>
+            <% include ../common/script-footer.html %>
+                <% include ../common/footer.html %>
 
-            
 
-        </div>
-        <!-- TODO zaznaczanie divów jak Webstorm wtyczka -->
 
-            <script src="/main.js"></script>
+                    </div>
+                    <!-- TODO zaznaczanie divów jak Webstorm wtyczka -->
+
+                    <script src="/main.js"></script>
 
 </body>
 
