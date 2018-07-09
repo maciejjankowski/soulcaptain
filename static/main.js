@@ -52,7 +52,7 @@ var app = new Vue({
 		exitEditForm: (card) => {
 			app.cardEditMode = false;
 			app.cardEditIndex = 0;
-			if (typeof card !== 'undefined') {
+			if (card && card._id) {
 				saveCard(card);
 			}
 		},
