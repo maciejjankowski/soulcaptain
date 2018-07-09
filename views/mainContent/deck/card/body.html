@@ -3,15 +3,21 @@
     data-holder-rendered="true">
   <h5 class="card-title">
 
-    <span v-if="!cardEditMode">{{card.soulCardTitle}}</span>
+    <span v-if="!cardEditMode">
+      {{card.soulCardTitle}} {{card.reason}}
+    </span>
 
-    <input class="cardeditcss" v-if="cardEditMode && cardIndex === cardEditIndex" type="text" v-model="card.soulCardTitle">
+    <span v-if="cardEditMode && cardIndex === cardEditIndex">
+      <input class="cardeditcss" type="text" v-model="card.soulCardTitle">
+    </span>
   </h5>
 
   <p v-for="(encja, encjaIndex) in card.soulCardSoulencje" class="card-text">
     <span v-if="!cardEditMode">{{encja.text}}</span>
-
-    <textarea rows="5" columns="20" v-model="encja.text" v-if="cardEditMode && cardIndex === cardEditIndex" class="encjaEdit"></textarea>
+    <span v-if="cardEditMode && cardIndex === cardEditIndex">
+      <input class="cardeditcss" type="text" v-model="encja.reason">
+      <textarea rows="5" columns="20" v-model="encja.text" class="encjaEdit"></textarea>
+    </span>
   </p>
 
 
