@@ -13,15 +13,11 @@ https://news.ycombinator.com/item?id=16515080
 ## 0. EDYTOR I PRACA Z KODEM   
 1. Używamy Visual Code Sudio.
 2. Używamy domyślnego formatera kodu VS Code (nie używamy Prettier i Beutify).
-2.1 Jak będziemy umieli zmieniać fomyślną konfigurację formattera:
-2.1.1 Pomiędzy nazwą property a wartością poperty Maciej mieć spację, np. 
-```js
-    {
-        czytokot : "tak"
-    }   
-```
 3. Jeśli formatujesz plik, to najpierw Pull Request z formatowaniem, dopiero potem z nowym kodem.
 4. Oddzielny branch per ficzer, np. "zmiany na blogu", "potwierdzenie kasowania karty".
+5. master jest święty - tylko dwóch kapłanów może razem zmer∂zować święty kod mastera
+6. przed merdzem do mastera robimy gruntowne testowanie i omowienie jakie zmiany wchodza na produkcje. Jedyny dopuszczalny wyjątek od tej reguły to gdy cała produkcja leży i trzeba zrobić szybką, małą poprawkę, żeby przywrócić serwis.
+7. testujemy/pracujemy na branczu develop - do niego robimy wszystkie pull requesty
 
 ## 1. JEDZENIE
 * Przed kodzeniem jemy pyszne, lekkie, zdrowe i koszerne jedzenie. Nie rozmawiamy o kodzeniu, rozmawiamy o wszystkich innych sprawach.
