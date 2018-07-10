@@ -10,45 +10,39 @@
     "start": "node server.js",
     "watch": "nodemon server.js"
   },
+  "devDependencies": {
+    "eslint": "^4.19.0"
+  },
   "dependencies": {
-    "bcrypt": "^2.0.1",
-    "body-parser": "^1.18.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
     "connect-ensure-login": "^0.1.1",
     "connect-mongo": "^2.0.1",
     "cookie-parser": "^1.4.3",
-    "dotenv": "^5.0.1",
-    "ejs": "^2.5.7",
-    "express": "^4.16.2",
+    "dotenv": "^6.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
     "express-session": "^1.15.6",
-    "jslint": "^0.12.0",
-    "mailgun-js": "^0.16.0",
-    "mongoose": "^5.0.9",
-    "mustache-express": "^1.2.5",
-    "nodemailer": "^4.6.2",
+    "mailgun-js": "^0.20.0",
+    "mongoose": "^5.2.1",
+    "mustache-express": "^1.2.7",
+    "nodemailer": "^4.6.7",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
-    "request": "^2.83.0",
+    "request": "^2.87.0",
     "showdown": "^1.8.6",
-    "smsapi": "^1.5.6",
-    "winston": "^3.0.0-rc5"
+    "smsapi": "^1.5.7",
+    "winston": "^3.0.0"
   },
   "engines": {
-    "node": "6.10"
+    "node": "10.0"
   },
   "repository": {
     "type": "git",
     "url": "https://hyperdev.com/#!/project/welcome-project"
   },
-  "keywords": [
-    "node",
-    "hyperdev",
-    "express"
-  ],
-  "license": "MIT",
-  "devDependencies": {
-    "eslint": "^4.19.0",
-    "jshint": "^2.9.5"
-  }
+  "keywords": [],
+  "license": "MIT"
 }
