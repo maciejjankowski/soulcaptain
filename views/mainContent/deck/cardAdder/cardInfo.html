@@ -17,15 +17,8 @@
     </div>
 
     <h2>Soulencje</h2>
-
     <button v-on:click="addNewSoulencja">(+) Add soulencja</button>
-
     <!-- ukrywanie pól  -->
-    <div>
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            Show advanced fields
-        </button>
-    </div>
 
     <div class="form-row">
 
@@ -40,19 +33,24 @@
 
 
         <div v-for="(soulencja, soulencjaIndex) in cardData.soulCardSoulencje">
-            <div class="-collapse" id="collapseExample">
-                <button v-on:click="deleteSoulencja(soulencjaIndex)">(&times;) Delete soulencja</button>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label>
-                            text
-                        </label>
-                        <input class=form-control type="text" v-model="soulencja.text">
-                        <small class="form-text text-muted">
-                            text
-                        </small>
-                    </div>
-                    <!--
+            <button v-on:click="deleteSoulencja(soulencjaIndex)">(&times;) Delete soulencja</button>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>
+                        text
+                    </label>
+                    <input class=form-control type="text" v-model="soulencja.text">
+                    <small class="form-text text-muted">
+                        text
+                    </small>
+                </div>
+                <div class="form-group col-md-6">
+                    <label>
+                        reason
+                    </label>
+                    <input class=form-control type="text" v-model="soulencja.reason">
+                </div>
+                <!--
               <div class="form-row">
                   <div class="form-group col-md-6">
                       <label>
@@ -66,7 +64,7 @@
                       </small>
                   </div>
 -->
-                    <!-- 
+                <!-- 
                   <div class="form-group col-md-6">
                       <label>
                           language
@@ -77,8 +75,13 @@
                       </small>
                   </div>
  -->
-                </div>
+            </div>
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target=".advanced-fields-container" aria-expanded="false"
+                aria-controls="collapseExample">
+                Show advanced fields
+            </button>
 
+            <div class="advanced-fields-container collapse">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label>
@@ -124,8 +127,10 @@
                         </small>
                     </div>
                 </div>
-
             </div>
+            <!-- advanced fields -->
+
+
         </div>
     </div>
     <!-- ukrywanie pól  -->
