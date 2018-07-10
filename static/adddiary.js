@@ -3,23 +3,24 @@ var appForAddingDiary = new Vue({
     data: {
         diaryDate: 'Enter date',
         diaryNote: 'Write your note here',
-        diaryMood: 'What is your mood? :) :| :('
+        diaryMood: 'What is your mood? :) :| :(',
+        payload: {}
     },
     methods: {
         cardpost: function () {
-            let payload = appForAddingDiary.payload
-            console.log('W tej chwili do backendu leci:', appForAddingDiary.payload)
+            let payload = appForAddingDiary.payload;
+            console.log('W tej chwili do backendu leci:', appForAddingDiary.payload);
             var request = new XMLHttpRequest();
-            request.open('POST', '/diary/', true);
+            request.open('POST', '/diary', true);
             request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
             request.send(payload);
 
             if (request.status == 200) {
-                dump(request.responseText)
+                dump(request.responseText);
             } else if (request.status == 500) {
-                console.log('pińcetka'), dump(request.responseText)
+                console.log('pińcetka'), dump(request.responseText);
             } else {
-                dump(request.responseText)
+                dump(request.responseText);
             }
         },
         inputs2json: function () {
@@ -35,5 +36,5 @@ var appForAddingDiary = new Vue({
 });
 
 function dump(dumpara) {
-    console.log(dumpara)
+    console.log(dumpara);
 }

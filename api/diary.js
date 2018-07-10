@@ -3,20 +3,8 @@ module.exports = function (deps) {
     let mongoose = deps.mongoose;
     const DiaryEntry = mongoose.models.diaryEntry;
 
-    app.get('/diary', function (req, res) {
-
-        var diaryEntryData = {
-            diaryDate: 'String',
-            diaryNote: 'String',
-            diaryMood: 'String'
-        };
-
-        req.body = diaryEntryData;
-
+    app.post('/diary', function (req, res) {
         let diaryEntry = new DiaryEntry(req.body);
-
-        console.log(diaryEntryData, req.body, diaryEntry);
-
         diaryEntry.save(function (err) {
             if (err) {
                 console.log(err);
