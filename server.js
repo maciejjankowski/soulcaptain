@@ -22,12 +22,12 @@ app.locals.tags = '<% %>';
 
 app.use(express.static('static'));
 app.use(require('cookie-parser')());
-app.use(require('body-parser').urlencoded({extended: true}));
+app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('body-parser').json());
 
 app.use(session({
 	secret: process.env.SESSIONSECRET,
-	store: new MongoStore({mongooseConnection: mongoose.connection}),
+	store: new MongoStore({ mongooseConnection: mongoose.connection }),
 	resave: true, saveUninitialized: true
 }));
 

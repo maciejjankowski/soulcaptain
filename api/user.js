@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const testPassword = require('./testPassword');
 const EmailsToUser = require('../email/email.js');
 // const payloadTransformer = require('./payloadTransformer');
@@ -88,7 +88,7 @@ module.exports = function (deps) {
 							}]
 						}).save(
 							function sendWelcomeEmail(err, user) {
-								logger.error({msg : 'user save failed', error : err});
+								logger.error({ msg: 'user save failed', error: err });
 								if (err) throw err;
 								EmailsToUser.sendWelcome(res, user.email);
 							}

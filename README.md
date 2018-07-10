@@ -10,28 +10,38 @@ https://news.ycombinator.com/item?id=16515080
 
 # Kontrakt Macieja i Wiktora
 
-## 0. EDYTOR I PRACA Z KODEM   
+# BHP
+
+## 0.1 ŚRODOWISKO
+
+## 0.2 FICZER BRANCZE  
+1. Oddzielny branch per ficzer, np. "zmiany na blogu", "potwierdzenie kasowania karty".
+
+## 0.3 EDYTOR I PRACA Z KODEM   
 1. Używamy Visual Code Sudio.
 2. Używamy domyślnego formatera kodu VS Code (nie używamy Prettier i Beutify).
-2.1 Jak będziemy umieli zmieniać fomyślną konfigurację formattera:
-2.1.1 Pomiędzy nazwą property a wartością poperty Maciej mieć spację, np. 
+3. Jak będziemy umieli zmieniać fomyślną konfigurację formattera:
+4. Pomiędzy nazwą property a wartością poperty Maciej mieć spację, np. 
 ```js
     {
         czytokot : "tak"
     }   
 ```
-3. Jeśli formatujesz plik, to najpierw Pull Request z formatowaniem, dopiero potem z nowym kodem.
-4. Oddzielny branch per ficzer, np. "zmiany na blogu", "potwierdzenie kasowania karty".
+5. Jeśli formatujesz plik, to najpierw Pull Request z formatowaniem, dopiero potem z nowym kodem.
 
-## 1. JEDZENIE
+---
+
+## PLAN SPOTKANIA
+
+### 1. JEDZENIE
 * Przed kodzeniem jemy pyszne, lekkie, zdrowe i koszerne jedzenie. Nie rozmawiamy o kodzeniu, rozmawiamy o wszystkich innych sprawach.
 
-## 2. MIEJSCE
+### 2. MIEJSCE
 * mini_dev - idziemy do kawiarni lub innego miejsca gdzie można wygodnie zasiąść do kodzenia i gdzie człowiek nie jest nadmiernie rozpraszany atmosferą.
 ** Możemy chodzić do hackerspace
 * main_dev - dom, pusta firma lub spokojnie miejsce
 
-## 3. PRZEDPLANOWANIE 15M
+### 3. PRZEDPLANOWANIE 15M
 * Odpalić edytor lokalny, przejrzeć i wypchnąć
 * Odpalić Glitch, przejrzeć i wypchnąć
 * Wejść na Github i zmerdżować
@@ -42,13 +52,13 @@ https://news.ycombinator.com/item?id=16515080
 * Jak zamierzamy to zrobić. Jakimi narzędziami.
 * Czy będą jakieś przeszkody? Czy będziemy potrzebować do tego pomocy?
 
-## 5. ROZGRZEWKA 15M
+### 5. ROZGRZEWKA 15M
 * Proste zadanie w ramach tego co umiemy kodować, np. poprawka lub upsrawnienie widoku logowania. 
 
-## 6. MAIN DEVELOPEMENT 3 x 45M
+### 6. MAIN DEVELOPEMENT 3 x 45M
 * Tu każdy pracuje jak może nad tym co było na planowaniu. Nie uczymy się nowych rzeczy, tylko robimy to co umiemy. Czyli Wiktor robi głównie HTML i CSS a nie stara się zrozumieć jak co działa. 2 x 45M, 2H 45MIN
 
-## 7. MINI RETRO 15M
+### 7. MINI RETRO 15M
 * Patrzymy co zrobiliśmy i się chwalimy (morale).
 * Czy był dobry flow?
 * Czy nie było złej energii?

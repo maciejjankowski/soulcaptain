@@ -64,8 +64,8 @@ module.exports = function (deps) {
 				_id: id
 			}
 		)
-		.populate({path : 'decks', populate : { path : 'cards' } })
-		.then((user) => {
+			.populate({ path: 'decks', populate: { path: 'cards' } })
+			.then((user) => {
 				// logger.info('deserialize, returned:', JSON.stringify(user, null, 2));
 				done(null, user);
 			}).catch((err) => {

@@ -1,4 +1,4 @@
-module.exports = function(deps) {
+module.exports = function (deps) {
 	const app = deps.app;
 	const mongoose = deps.mongoose;
 	// const isAuthenticated = deps.isAuthenticated;
@@ -35,8 +35,8 @@ module.exports = function(deps) {
 			req.body.payload.forEach(habit => {
 				logger.info('habit', JSON.stringify(habit, null, 2));
 				Habit.findOne({
-						id: habit.habitId
-					})
+					id: habit.habitId
+				})
 					.then(foundHabit => {
 						// /* expect(foundHabit).not.to.be.empty() */
 						if (foundHabit) {
