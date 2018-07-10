@@ -13,6 +13,7 @@ https://news.ycombinator.com/item?id=16515080
 # BHP
 
 ## 0.1 ŚRODOWISKO
+1. MPORTANT - od teraz branch develop jest wdrażany na soulcaptain-dev.azurewebsites.net i należy uważać co się tam komituje, bo wdrożenie robi się automatycznie. proszę traktować develop z należnym szacunkiem
 
 ## 0.2 FICZER BRANCZE  
 1. Oddzielny branch per ficzer, np. "zmiany na blogu", "potwierdzenie kasowania karty".
