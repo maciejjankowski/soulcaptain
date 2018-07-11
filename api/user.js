@@ -29,7 +29,6 @@ module.exports = function (deps) {
 
 	app.post('/postSignup', function postSignup(req, res) {
 		let payloadFields = (req.body && req.body.payload) || req.body;
-		logger.info('to jest konsol log dla payloadFields', payloadFields);
 
 		let payloadApproved = {};
 
@@ -44,33 +43,20 @@ module.exports = function (deps) {
 				payloadApproved[key] = payloadFields[key];
 			}
 		});
-		logger.info(
-			'to jest konsol log zestawiający',
-			payloadFields.firstName,
-			payloadApproved.firstName,
-			payloadFields.email,
-			payloadApproved.email,
-			payloadFields.password,
-			payloadApproved.password,
-			payloadFields.repeatpassword,
-			payloadApproved.repeatpassword
-		);
-
-		logger.info('to jest konsol log dla payloadApproved', payloadApproved);
 
 		mongoose.models.User.findOne({
 			loginId: payloadApproved.email
 		}).then(
 			user => {
 				if (user) {
-					logger.info(user);
+					// logger.info(user);
 					testPassword(user.password, err => {
 						if (err) {
 							return logger.info(
 								'Wrong password (account for this email allready exist).'
 							);
 						} else {
-							logger.info('Login successful', user);
+							// logger.info('Login successful', user);
 							res.send('Login successful');
 						}
 					});
