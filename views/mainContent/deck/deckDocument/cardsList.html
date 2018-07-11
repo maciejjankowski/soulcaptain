@@ -1,0 +1,57 @@
+<div v-for="(card, cardIndex) in soulDeck.cards" class="col-md-4">
+  <div class="card mb-4 box-shadow">
+    <div v-if="deckEditMode && !cardEditMode" class="card-header bg-transparent">
+      <div v-if="!cardEditMode" class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btnUpDownStyle btn-group" role="group" aria-label="second group">
+          <a href="#!" v-if="!cardEditMode" v-on:click="moveUp(cardIndex)" type="btn btn-link" class="nav-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a href="#!" v-if="!cardEditMode" v-on:click="moveDn(cardIndex)" type="btn btn-link" class="nav-link">
+            <i class="fa fa-chevron-down"></i>
+          </a>
+        </div>
+
+        <div class="btnUpDownStyle btn-group" role="group" aria-label="second group">
+          <a v-if="!cardEditMode" v-on:click="enterEditForm(card, cardIndex)" href="#!" v-if="!cardEditMode" v-on:click="moveDn(cardIndex)"
+            type="btn btn-link" class="nav-link">
+            <i class="fa fa-edit"></i>
+          </a>
+
+          <a href="#!" type="btn btn-link" class="nav-link" v-if="deckEditMode" v-on:click="cardDelete(soulDeck._id, card._id)">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <img v-if="card.image" class="card-img-top" alt="soulImg" style="height: 225px; width: 100%; display: block;" v-bind:src="card.image"
+      data-holder-rendered="true">
+
+    <div class="card-body">
+      <h5 class="card-title">
+        <span v-if="!cardEditMode">{{card.soulCardTitle}}</span>
+        <input class="cardeditcss" v-if="cardEditMode && cardIndex === cardEditIndex" type="text" v-model="card.soulCardTitle">
+      </h5>
+
+      <p v-for="(encja, encjaIndex) in card.soulCardSoulencje" class="card-text">
+        <span v-if="!cardEditMode">{{encja.text}}</span>
+        <textarea rows="5" columns="20" v-model="encja.text" v-if="cardEditMode && cardIndex === cardEditIndex" class="encjaEdit"></textarea>
+      </p>
+      <div role="group" aria-label="first group">
+      </div>
+      <div v-if="cardEditMode" class="d-flex justify-content-between align-items-center">
+        <div role="group" aria-label="first group" v-if="cardEditMode && cardIndex === cardEditIndex" class="btn-group">
+          <a href="#!" v-bind:href="'/deckcardadd.html/?cardId=' + card._id">
+            Advanced edit
+          </a>
+        </div>
+        <div role="group" aria-label="first group">
+          <button type="button" class="btn btn-sm btn-outline-secondary" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="exitEditForm">
+            Cancel</button>
+          <button type="button" class="btn btn-sm btn-primary" v-if="cardEditMode && cardIndex === cardEditIndex" v-on:click="exitEditForm(card, cardIndex)">
+            Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
