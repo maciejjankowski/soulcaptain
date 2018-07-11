@@ -45,7 +45,11 @@ module.exports = function (deps) {
 		decks: [{
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Deck'
-		}]
+		}],
+		defaultDeck: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Deck'
+		}
 	});
 
 	const Deck = mongoose.model('Deck', {

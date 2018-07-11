@@ -10,6 +10,7 @@ module.exports = function (deps) {
 	const db = require('./db.js')(deps);
 
 	app.post('/card2', function (req, res) {
+		return console.error('deprecated');
 		var cardData = {};
 		var card = new Card(cardData);
 
