@@ -70,7 +70,9 @@ module.exports = function _defineRoutes(deps) {
 		};
 
 		if (cardId) {
-			deps.mongoose.models.Card.findOne({ _id: cardId })
+			deps.mongoose.models.Card.findOne({
+					_id: cardId
+				})
 				.then((foundCard) => {
 					if (foundCard) {
 						console.info('found card! YAY!');
