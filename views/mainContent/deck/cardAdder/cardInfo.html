@@ -17,6 +17,7 @@
     </div>
 
     <h2>Soulencje</h2>
+
     <button v-on:click="addNewSoulencja">(+) Add soulencja</button>
     <!-- ukrywanie pól  -->
 
@@ -33,6 +34,7 @@
 
 
         <div v-for="(soulencja, soulencjaIndex) in cardData.soulCardSoulencje">
+
             <button v-on:click="deleteSoulencja(soulencjaIndex)">(&times;) Delete soulencja</button>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -51,6 +53,7 @@
                     <input class=form-control type="text" v-model="soulencja.reason">
                 </div>
                 <!--
+
               <div class="form-row">
                   <div class="form-group col-md-6">
                       <label>
@@ -64,7 +67,7 @@
                       </small>
                   </div>
 -->
-                <!-- 
+
                   <div class="form-group col-md-6">
                       <label>
                           language
@@ -75,6 +78,7 @@
                       </small>
                   </div>
  -->
+
             </div>
             <button class="btn btn-link" type="button" data-toggle="collapse" data-target=".advanced-fields-container" aria-expanded="false"
                 aria-controls="collapseExample">
@@ -127,10 +131,9 @@
                         </small>
                     </div>
                 </div>
+
             </div>
             <!-- advanced fields -->
-
-
         </div>
     </div>
     <!-- ukrywanie pól  -->

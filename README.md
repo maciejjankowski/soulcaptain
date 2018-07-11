@@ -13,6 +13,7 @@ https://news.ycombinator.com/item?id=16515080
 # BHP
 
 ## 0.1 ŚRODOWISKO
+
 1. UWAGA! Branch develop i master są z każdym merdżem wystawiane produkcyjnie.
 2. master https://soulcaptain-app.azurewebsites.net/
 3. develop https://soulcaptain-dev.azurewebsites.net/
@@ -22,6 +23,7 @@ https://news.ycombinator.com/item?id=16515080
 ## 0.2 FICZER BRANCZE  
 1. Testujemy/pracujemy na branczu develop - do niego robimy wszystkie pull requesty.
 2. Oddzielny branch per ficzer, np. "zmiany na blogu", "potwierdzenie kasowania karty".
+
 
 ## 0.3 EDYTOR I PRACA Z KODEM   
 1. Używamy Visual Code Sudio.
@@ -42,6 +44,7 @@ https://news.ycombinator.com/item?id=16515080
 ### 1. JEDZENIE
 1. Przed kodzeniem jemy pyszne, lekkie, zdrowe i koszerne jedzenie.
 2. Nie rozmawiamy o kodzeniu, rozmawiamy o wszystkich innych sprawach.
+
 
 ### 2. MIEJSCE
 * mini_dev - idziemy do kawiarni lub innego miejsca gdzie można wygodnie zasiąść do kodzenia i gdzie człowiek nie jest nadmiernie rozpraszany atmosferą.
@@ -71,3 +74,8 @@ https://news.ycombinator.com/item?id=16515080
 * Czy nie było złej energii?
 * Co można zrobić lepiej?
 * Co robimy za tydzień?
+
+### Commit messajes
+* "Zrobił Ctrl+V i wiedział, że jest dobre"
+* "Halo, policja? Proszę przyjechać na githuba. Ktoś kradnie mój kod."
+
