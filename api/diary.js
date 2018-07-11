@@ -5,6 +5,7 @@ module.exports = function (deps) {
 
     app.post('/diary', function (req, res) {
         let diaryEntry = new DiaryEntry(req.body);
+
         diaryEntry.save(function (err) {
             if (err) {
                 console.log(err);
