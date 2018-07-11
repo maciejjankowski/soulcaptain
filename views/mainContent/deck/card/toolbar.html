@@ -1,0 +1,24 @@
+<div data-template="card/toolbar" v-if="deckEditMode && !cardEditMode" class="card-header bg-transparent">
+  <div v-if="!cardEditMode" class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btnUpDownStyle btn-group" role="group" aria-label="second group">
+      <a href="#!" v-if="!cardEditMode" v-on:click="moveUp(cardIndex)" type="btn btn-link" class="nav-link">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+
+      <a href="#!" v-if="!cardEditMode" v-on:click="moveDn(cardIndex)" type="btn btn-link" class="nav-link">
+        <i class="fa fa-chevron-down"></i>
+      </a>
+    </div>
+
+    <div class="btnUpDownStyle btn-group" role="group" aria-label="second group">
+      <a v-if="!cardEditMode" v-on:click="enterEditForm(card, cardIndex)" href="#!" v-if="!cardEditMode" v-on:click="moveDn(cardIndex)"
+        type="btn btn-link" class="nav-link">
+        <i class="fa fa-edit"></i>
+      </a>
+
+      <a href="#!" type="btn btn-link" class="nav-link" v-if="deckEditMode" v-on:click="cardDelete(soulDeck._id, card._id)">
+        <i class="fa fa-times"></i>
+      </a>
+    </div>
+  </div>
+</div>
