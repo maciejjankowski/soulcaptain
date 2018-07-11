@@ -13,17 +13,23 @@
 	<!-- navbar start-->
 	<% include ../../common/nav.html %>
 		<div id="app" data-template="deck.html">
-			<div class="container">
+
+			<div class="container-fluid">
+				<% include ../../common/navleftoverlay.html %>
+			</div>
+
+			<div class="container-fluid">
 
 				<main role="main">
 
-					<% include deckDocument/jumbotronpas.html %>
+					<% include deckToolbar/jumbotronpas.html %>
 
 						<div class="album py-5 bg-light">
 							<div class="container">
 								<div class="row">
 
 									<% include card/dummyCard.html %>
+
 
 										<div v-for="(card, cardIndex) in soulDeck.cards" class="col-md-4">
 
