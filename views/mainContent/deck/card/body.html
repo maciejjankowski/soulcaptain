@@ -1,0 +1,18 @@
+<div class="card-body" data-template="card/body.html">
+  <img v-if="card.image" class="card-img-top" alt="soulImg" style="height: 225px; width: 100%; display: block;" v-bind:src="card.image"
+    data-holder-rendered="true">
+  <h5 class="card-title">
+
+    <span v-if="!cardEditMode">{{card.soulCardTitle}}</span>
+
+    <input class="cardeditcss" v-if="cardEditMode && cardIndex === cardEditIndex" type="text" v-model="card.soulCardTitle">
+  </h5>
+
+  <p v-for="(encja, encjaIndex) in card.soulCardSoulencje" class="card-text">
+    <span v-if="!cardEditMode">{{encja.text}}</span>
+
+    <textarea rows="5" columns="20" v-model="encja.text" v-if="cardEditMode && cardIndex === cardEditIndex" class="encjaEdit"></textarea>
+  </p>
+
+
+</div>
