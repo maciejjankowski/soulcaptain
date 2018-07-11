@@ -63,12 +63,12 @@
   margin-left: -10px;
 }
 
-
 /* żeby main menu nie chowało pod sobą części strony
 https://getbootstrap.com/docs/4.0/components/navbar/#placement
 */
+
 body {
-  padding-top:90px;
+  padding-top: 90px;
 }
 
 .leftNavbar {
@@ -80,5 +80,7 @@ body {
   left: 0;
   background-color: #ffffff;
   overflow-x: hidden;
-  padding-top: 80px;
+  padding-top: 60px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, .28);
+  transition: 0.2s;
 }
