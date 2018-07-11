@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const testPassword = require('./testPassword');
 const EmailsToUser = require('../email/email.js');
 // const payloadTransformer = require('./payloadTransformer');
