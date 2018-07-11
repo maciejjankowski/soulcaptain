@@ -69,11 +69,11 @@ module.exports = function (deps) {
               foundUser.decks.push(savedDeck._id);
               foundUser.save().then(resolve); // TODO sprawdzić czy działa
             }).catch(reject);
-          })).catch(reject);
+          }).catch(reject);
+
+        }
+      });
 
     }
-  });
-
-}
   };
 };
