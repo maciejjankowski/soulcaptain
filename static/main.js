@@ -52,7 +52,9 @@ var app = new Vue({
 		exitEditForm: (card) => {
 			app.cardEditMode = false;
 			app.cardEditIndex = 0;
-			saveCard(card);
+			if (card && card._id) {
+				saveCard(card);
+			}
 		},
 		enterDeckEdit: () => {
 			app.deckEditMode = true;
