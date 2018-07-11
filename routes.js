@@ -41,6 +41,15 @@ module.exports = function _defineRoutes(deps) {
 		res.render('mainContent/diary/diary.html', templateData);
 	});
 
+	app.get('/decks.html', (req, res) => {
+		let templateData = {
+			title: '🎴📄 Decks'
+		};
+		greetUser(req, templateData);
+		templateData.user = req.user;
+		res.render('mainContent/deck/list.html', templateData);
+	});
+
 	app.get('/deckdocument.html', (req, res) => {
 		let templateData = {
 			title: '🎴📄 DeckDocument'
