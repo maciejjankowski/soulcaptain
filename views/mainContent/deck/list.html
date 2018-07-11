@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+
+<head>
+  <% include ../../common/head.html %>
+</head>
+
+<body>
+  <!-- navbar start-->
+  <% include ../../common/nav.html %>
+    <div id="app" class="container-fluid">
+      <main role="main">
+        <ul>
+          <li v-for="(deck, deckIndex) in soulDecks">
+            <a v-bind:href="'/deck.html?deckId=' + deck._id">{{deck._id}} {{deck.title}}</a>
+          </li>
+        </ul>
+      </main>
+    </div>
+
+    <% include ../../common/script-footer.html %>
+      <% include ../../common/footer.html %>
+        <script src="/scripts/deck/list.js"></script>
+</body>
+
+</html>

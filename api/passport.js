@@ -1,7 +1,6 @@
 // const FacebookStrategy = require('passport-facebook').Strategy;
 // const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
-// const bcrypt = require('bcrypt');
 const testPassword = require('./testPassword.js');
 
 module.exports = function (deps) {
