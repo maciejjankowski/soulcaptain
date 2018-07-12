@@ -65,15 +65,13 @@ module.exports = function (deps) {
         } else {
           const newDeck = new Deck(deckBody);
           newDeck.save().then((savedDeck) => {
-            User.findOne({ _id: req.user._id }).then((foundUser) => {
+            User.findOne({ _id: deckBody.owner }).then((foundUser) => {
               foundUser.decks.push(savedDeck._id);
-              foundUser.save().then(resolve); // TODO sprawdzić czy działa
+              foundUser.save().then(resolve);
             }).catch(reject);
           }).catch(reject);
-
         }
       });
-
     }
   };
 };

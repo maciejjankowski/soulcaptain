@@ -4,7 +4,9 @@ var app = new Vue({
   el: '#app',
   data: {
     selectedCard: 0,
-    soulDeck: {},
+    soulDeck: {
+
+    },
     soulDecks: [],
   },
   methods: {
@@ -12,6 +14,7 @@ var app = new Vue({
       var request = new XMLHttpRequest();
       request.open('POST', '/deck', true);
       request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+      app.soulDeck.owner = USER_DATA._id;
       let payload = JSON.stringify(app.soulDeck);
       request.send(payload);
       request.onload = function () {

@@ -4,8 +4,11 @@ module.exports = function (deps) {
 	const logger = deps.logger;
 	const Card = mongoose.models.Card;
 	const Deck = mongoose.models.Deck;
+
 	deps.Card = Card;
 	deps.Deck = Deck;
+	deps.User = mongoose.models.User;
+
 	// const Deck = mongoose.models.Deck;
 	const db = require('./db.js')(deps);
 
