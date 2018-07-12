@@ -36,27 +36,27 @@ var cardSeedData = {
 
 Object.assign(cardSeedData, populatedCardData);
 
-var appForAddingCardsToBackendBeta9000 = new Vue({
+var app = new Vue({
 	el: '#cardadder',
 	data: {
 		payload: 'Here will appear your SoulCard schema :D',
-		deckId: '5aaeb1e14adb0227720caf0f',
+		deckId: '',
 		cardData: cardSeedData,
 		// soulCardText : "XYZ",
 		// soulCardAuthor : "XXY"
 	},
 	methods: {
 		addNewSoulencja: function () {
-			appForAddingCardsToBackendBeta9000.cardData.soulCardSoulencje.push(getSoulencjaSeedData());
+			app.cardData.soulCardSoulencje.push(getSoulencjaSeedData());
 		},
 		deleteSoulencja: function (soulencjaIndex) {
-			appForAddingCardsToBackendBeta9000.cardData.soulCardSoulencje.splice(soulencjaIndex, 1);
+			app.cardData.soulCardSoulencje.splice(soulencjaIndex, 1);
 		},
 		saveCard: function () {
 			var request = new XMLHttpRequest();
-			request.open('POST', '/deck/' + appForAddingCardsToBackendBeta9000.deckId + '/card', true);
+			request.open('POST', '/deck/' + app.deckId + '/card', true);
 			request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
-			let payload = JSON.stringify(appForAddingCardsToBackendBeta9000.cardData);
+			let payload = JSON.stringify(app.cardData);
 			request.send(payload);
 			request.onload = function () {
 				var resp = this.response;
@@ -70,30 +70,20 @@ var appForAddingCardsToBackendBeta9000 = new Vue({
 				console.error('connection error', this);
 			};
 
-			if (request.status == 200) {
-				dump(request.responseText);
-			} else if (request.status == 500) {
+			if (request.status >= 400) {
 				console.log('pińcetka');
-				dump(request.responseText);
-			} else {
-				dump(request.responseText);
 			}
 		},
 		cardpost: function () {
-			let payload = appForAddingCardsToBackendBeta9000.payload;
-			console.log('W tej chwili do backendu leci:', appForAddingCardsToBackendBeta9000.payload);
+			let payload = app.payload;
+			console.log('W tej chwili do backendu leci:', app.payload);
 			var request = new XMLHttpRequest();
-			request.open('POST', '/deck/' + appForAddingCardsToBackendBeta9000.deckId + '/card', true);
+			request.open('POST', '/deck/' + app.deckId + '/card', true);
 			request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 			request.send(payload);
 
-			if (request.status == 200) {
-				dump(request.responseText);
-			} else if (request.status == 500) {
+			if (request.status >= 400) {
 				console.log('pińcetka');
-				dump(request.responseText);
-			} else {
-				dump(request.responseText);
 			}
 		},
 		inputs2json: function () {
@@ -115,15 +105,18 @@ var appForAddingCardsToBackendBeta9000 = new Vue({
 				}],
 				'__v': 0
 			};
-			appForAddingCardsToBackendBeta9000.payload = JSON.stringify(out2, null, 2);
+			app.payload = JSON.stringify(out2, null, 2);
 		}
 	}
 });
 
-function dump(dumpara) {
-	console.log(dumpara);
+if (USER_DATA.decks) {
+	var deckId = location.href.split('/').pop().replace(/#.+/, '').replace(/\?.+/, '');
+
+	if (deckId.match(/[a-z0-9]{24}/)) {
+		console.log('deckId', deckId);
+		app.deckId = deckId;
+	}
 }
-
-
 
 // TODO wczytywanie danych z istniejącej karty celem ładowania do formularza

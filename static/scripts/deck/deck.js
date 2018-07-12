@@ -76,9 +76,11 @@ var app = new Vue({
 });
 
 if (USER_DATA.decks) {
-	var deckId = location.href.split('/').pop();
+	var deckId = location.href.split('/').pop().replace(/#.+/, '').replace(/\?.+/, '');
+	app.deckId = deckId;
 	if (deckId.match(/[a-z0-9]{24}/)) {
-		app.soulDeck = USER_DATA.decks.find(deck => deck._id === deckId);
+		console.log('deckId', deckId);
+		app.soulDeck = USER_DATA.decks.find(deck => deck._id === deckId) || {};
 	} else {
 		if (USER_DATA.decks.length) {
 			app.soulDeck = USER_DATA.decks[0];
