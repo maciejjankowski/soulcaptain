@@ -7,7 +7,7 @@ var app = new Vue({
 		cardEditMode: false,
 		deckEditMode: false,
 		cardEditIndex: 0,
-		soulDeck: {},
+		soulDeck: { cards: [] },
 		soulDecks: [],
 		soulCard: {},
 		admin: 0,
@@ -75,6 +75,17 @@ var app = new Vue({
 	}
 });
 
+if (USER_DATA.decks) {
+	var deckId = location.href.split('/').pop();
+	if (deckId.match(/[a-z0-9]{24}/)) {
+		app.soulDeck = USER_DATA.decks.find(deck => deck._id === deckId);
+	} else {
+		if (USER_DATA.decks.length) {
+			app.soulDeck = USER_DATA.decks[0];
+		}
+	}
+}
+
 function saveDeck(deck) {
 	let newDeck = {};
 	let cards = deck.cards.map(card => card._id);
@@ -141,14 +152,12 @@ function login(e) {
 // el.classList.add(className); i tutaj 'el' to 'document.getElementById("leftNavbar")'
 function closeNav() {
 	document.getElementById('leftNavbar').classList.add('hideNavbarLeft');
-
 	document.getElementById('closeNavButton').classList.add('hideButton');
 	document.getElementById('openNavButton').classList.remove('hideButton');
 }
 
 function openNav() {
 	document.getElementById('leftNavbar').classList.remove('hideNavbarLeft');
-
 	document.getElementById('openNavButton').classList.add('hideButton');
 	document.getElementById('closeNavButton').classList.remove('hideButton');
 }
