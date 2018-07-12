@@ -81,8 +81,8 @@ module.exports = function _defineRoutes(deps) {
 		if (cardId) {
 
 			deps.mongoose.models.Card.findOne({
-					_id: cardId
-				})
+				_id: cardId
+			})
 
 				.then((foundCard) => {
 					if (foundCard) {
@@ -168,8 +168,21 @@ module.exports = function _defineRoutes(deps) {
 		templateData.user = req.user;
 		res.render('mainContent/blog/blog.html', templateData);
 	});
+
+	// this magic file loads user object into client side javascript
+	app.get('/loadUserData.js', (req, res) => {
+		let userDataOut = '';
+		if (req && req.user) {
+			req.user.password = 'makota';
+			userDataOut = JSON.stringify(req.user);
+		}
+		res.send('const USER_DATA = ' + (userDataOut || {}));
+	});
+
 	return app;
 };
+
+
 
 function greetUser(req, templateData) {
 	if (typeof templateData === 'undefined') {
