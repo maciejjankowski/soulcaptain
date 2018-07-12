@@ -69,7 +69,7 @@ module.exports = function _defineRoutes(deps) {
 		res.render('mainContent/deck/card.html', templateData);
 	});
 
-	app.get('/deckcardadd.html', (req, res) => {
+	app.get('/deckcardadd.html/:deckId?', (req, res) => {
 		let cardId = req.query.cardId;
 		var templateData = {
 			title: '🃏📝 CardAdd',
@@ -80,7 +80,6 @@ module.exports = function _defineRoutes(deps) {
 		};
 
 		if (cardId) {
-
 			deps.mongoose.models.Card.findOne({
 				_id: cardId
 			})
