@@ -143,6 +143,8 @@ $(function _onload() {
 	$.get('/deck').then(function _handleResponse(response) {
 		app.soulDeck = response;
 	});
+	if (USER_DATA.decks)
+		app.soulDeck = 
 
 }); // onload
 
