@@ -4,8 +4,11 @@ module.exports = function (deps) {
 	const logger = deps.logger;
 	const Card = mongoose.models.Card;
 	const Deck = mongoose.models.Deck;
+
 	deps.Card = Card;
 	deps.Deck = Deck;
+	deps.User = mongoose.models.User;
+
 	// const Deck = mongoose.models.Deck;
 	const db = require('./db.js')(deps);
 
@@ -32,23 +35,11 @@ module.exports = function (deps) {
 
 	function saveDeck(req, res) {
 		const inputDeck = req.body;
-		// console.log('input deck', inputDeck);
-		Deck.findOne({
-			_id: inputDeck._id
-		}).then(foundDeck => {
-			// console.log('found', foundDeck);
-			Object.assign(foundDeck, inputDeck);
-			// console.log('updated', foundDeck);
-			foundDeck.save().then(result => {
-				// console.log('save ok');
-				res.send('OK');
-			}).catch(e => {
-				// console.log('save not', e);
-				res.send('NOT OK');
-			});
-		}).catch(e => {
-			// console.log('find fail', e);
-			res.send('NOT OK');
+		db.createOrUpdateDeck(inputDeck).then(result => {
+			res.send(result);
+		}).catch((err) => {
+			console.log(err);
+			res.status(444).send('NOT OK?');
 		});
 	}
 
@@ -248,7 +239,7 @@ module.exports = function (deps) {
 
 	app.post('/deck/:deckId', deps.isAuthenticated, saveDeck);
 	app.put('/deck/:deckId', deps.isAuthenticated, updateDeck);
-	app.get('/deck/save', deps.isAuthenticated, saveDeck);
+	app.post('/deck', deps.isAuthenticated, saveDeck);
 	app.post('/deck/:deckId/card', deps.isAuthenticated, createCard);
 
 	app.get('/deck/:deckId/card/save', deps.isAuthenticated, createCard);
