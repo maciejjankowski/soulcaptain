@@ -4,6 +4,7 @@
 module.exports = function (deps) {
   let Card = deps.Card;
   let Deck = deps.Deck;
+  let User = deps.User;
   let logger = deps.logger;
 
   return {
@@ -54,5 +55,23 @@ module.exports = function (deps) {
         });
       }
     },
+    'createOrUpdateDeck': (deckBody) => {
+      return new Promise((resolve, reject) => {
+        if (deckBody._id) {
+          Deck.findOne({ _id: deckBody._id }).then((foundDeck) => {
+            Object.assign(foundDeck, deckBody);
+            foundDeck.save().then(resolve);
+          }).catch(reject);
+        } else {
+          const newDeck = new Deck(deckBody);
+          newDeck.save().then((savedDeck) => {
+            User.findOne({ _id: deckBody.owner }).then((foundUser) => {
+              foundUser.decks.push(savedDeck._id);
+              foundUser.save().then(resolve);
+            }).catch(reject);
+          }).catch(reject);
+        }
+      });
+    }
   };
 };

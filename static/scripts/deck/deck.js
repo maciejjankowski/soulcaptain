@@ -137,18 +137,7 @@ function login(e) {
 	});
 }
 
-
-$(function _onload() {
-
-	$.get('/deck').then(function _handleResponse(response) {
-		app.soulDeck = response;
-	});
-
-}); // onload
-
-
 // Navbar js
-
 // el.classList.add(className); i tutaj 'el' to 'document.getElementById("leftNavbar")'
 function closeNav() {
 	document.getElementById('leftNavbar').classList.add('hideNavbarLeft');
