@@ -7,7 +7,7 @@ var app = new Vue({
 		cardEditMode: false,
 		deckEditMode: false,
 		cardEditIndex: 0,
-		soulDeck: {},
+		soulDeck: { cards: [] },
 		soulDecks: [],
 		soulCard: {},
 		admin: 0,
@@ -75,6 +75,13 @@ var app = new Vue({
 	}
 });
 
+if (USER_DATA.decks) {
+	var deckId = location.href.split('/').pop();
+	if (deckId.match(/[a-z0-9]{24}/)) {
+		app.soulDeck = USER_DATA.decks.find(deck => deck._id === deckId);
+	}
+}
+
 function saveDeck(deck) {
 	let newDeck = {};
 	let cards = deck.cards.map(card => card._id);
@@ -136,15 +143,6 @@ function login(e) {
 		console.log('logged in');
 	});
 }
-
-
-$(function _onload() {
-
-	$.get('/deck').then(function _handleResponse(response) {
-		app.soulDeck = response;
-	});
-
-}); // onload
 
 
 // Navbar js
