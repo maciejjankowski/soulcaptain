@@ -13,45 +13,42 @@
 	<!-- navbar start-->
 	<% include ../../common/nav.html %>
 
-		<div id="app" data-template="deck.html">
-
-			<div class="container-fluid">
-				<% include ../../common/navleft.html %>
-			</div>
-
-			<div class="container-fluid">
-
-				<main role="main">
-
-					<% include deckToolbar/jumbotronpas.html %>
-						<div class="album py-5 bg-light">
-							<div class="container">
-								<div class="row">
-
-									<% include card/dummyCard.html %>
+			<div id="app" data-template="deck.html">
 
 
-										<div v-for="(card, cardIndex) in soulDeck.cards" class="col-md-4">
+				<div class="container-fluid">
 
-											<div class="card mb-4 box-shadow">
-												<% include card/toolbar.html %>
-													<% include card/body.html %>
-														<% include card/bottomToolbar.html %>
+					<main role="main">
+
+						<% include deckToolbar/jumbotronpas.html %>
+							<div class="album py-5 bg-light">
+								<div class="container">
+									<div class="row">
+
+										<% include card/dummyCard.html %>
+
+
+											<div v-for="(card, cardIndex) in soulDeck.cards" class="col-md-4">
+
+												<div class="card mb-4 box-shadow">
+													<% include card/toolbar.html %>
+														<% include card/body.html %>
+															<% include card/bottomToolbar.html %>
+												</div>
 											</div>
-										</div>
-								</div>
+									</div>
 
+								</div>
 							</div>
-						</div>
-				</main>
+					</main>
+
+				</div>
 
 			</div>
 
-		</div>
-
-		<% include ../../common/script-footer.html %>
-			<% include ../../common/footer.html %>
-				<script src="/main.js"></script>
+			<% include ../../common/script-footer.html %>
+				<% include ../../common/footer.html %>
+					<script src="/main.js"></script>
 </body>
 
 </html>
