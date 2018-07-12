@@ -21,7 +21,7 @@
 
         <ul>
           <li v-for="(deck, deckIndex) in soulDecks">
-            <a v-bind:href="'/deck.html?deckId=' + deck._id">{{deck._id}} {{deck.title}}</a>
+            <a v-bind:href="'/deck.html/' + deck._id">{{deck._id}} {{deck.title}}</a>
           </li>
         </ul>
 

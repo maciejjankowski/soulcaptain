@@ -23,10 +23,11 @@ module.exports = function _defineRoutes(deps) {
 		res.render('index', templateData);
 	});
 
-	app.get('/deck.html', (req, res) => {
+	app.get('/deck.html/:deckId?', (req, res) => {
 		let templateData = {
 			title: '🎴 Deck'
 		};
+
 		greetUser(req, templateData);
 		templateData.user = req.user;
 		res.render('mainContent/deck/deck.html', templateData);
