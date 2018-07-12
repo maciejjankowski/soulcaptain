@@ -16,20 +16,6 @@
   }
 }
 
-.navbarleft {
-  margin-top: 65px;
-}
-
-/* Left navbar CSS */
-
-.hideNavbarLeft {
-  margin-left: -300px;
-}
-
-.hideButton {
-  display: none;
-}
-
 /* custom do widok Deck */
 
 .jumbotron {
@@ -63,12 +49,27 @@
   margin-left: -10px;
 }
 
+.album {
+  background-color: #ffffff!important;
+}
+
+
 /* żeby main menu nie chowało pod sobą części strony
 https://getbootstrap.com/docs/4.0/components/navbar/#placement
 */
 
 body {
   padding-top: 90px;
+}
+
+/* Left navbar CSS */
+
+.hideNavbarLeft {
+  margin-left: -300px;
+}
+
+.hideButton {
+  display: none;
 }
 
 .leftNavbar {
