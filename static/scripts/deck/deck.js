@@ -1,5 +1,3 @@
-// import Vue from 'vue';
-/* eslint-disablez quotes */
 var app = new Vue({
   el: '#app',
   data: {
