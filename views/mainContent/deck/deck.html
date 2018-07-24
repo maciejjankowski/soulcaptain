@@ -6,35 +6,41 @@
 <head>
 	<% include ../../common/head.html %>
 </head>
+
 <body>
 
 	<!-- navbar start-->
 	<% include ../../common/nav.html %>
 
-			<div id="app" data-template="deck.html">
-				<div class="container-fluid">
-					<main role="main">
-						<% include deckToolbar/jumbotronpas.html %>
-							<div class="album py-5 bg-light">
-								<div class="container">
-									<div class="row">
+		<div id="app" data-template="deck.html">
+			<div class="container-fluid">
+				<main role="main">
+					<% include deckToolbar/jumbotronpas.html %>
+						<div class="album py-5 bg-light">
+							<div class="container">
+								<input v-model="soulDeck.title" placeholder="title">
+								<br>
+								<input v-model="soulDeck.description" placeholder="description">
+								<br>
+								<button v-on:click="saveDeck(soulDeck)">Save</button>
+								<div class="row">
 
-										<% include card/dummyCard.html %>
-											<div v-for="(card, cardIndex) in soulDeck.cards" class="col-md-4">
+									<% include card/dummyCard.html %>
+										<div v-for="(card, cardIndex) in soulDeck.cards" class="col-md-4">
 
-												<div class="card mb-4 box-shadow">
-													<% include card/toolbar.html %>
-														<% include card/body.html %>
-															<% include card/bottomToolbar.html %>
-												</div>
+											<div class="card mb-4 box-shadow">
+												<% include card/toolbar.html %>
+													<% include card/body.html %>
+														<% include card/bottomToolbar.html %>
 											</div>
-									</div>
-
+										</div>
 								</div>
+
 							</div>
-					</main>
-				</div>
+						</div>
+				</main>
 			</div>
+		</div>
 		<% include ../../common/script-footer.html %>
 			<% include ../../common/footer.html %>
 				<script src="/scripts/deck/deck.js"></script>
