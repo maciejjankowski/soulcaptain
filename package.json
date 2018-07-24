@@ -11,6 +11,7 @@
     "watch": "nodemon server.js"
   },
   "devDependencies": {
+    "jshint": "^2.9.5",
     "eslint": "^4.19.1"
   },
   "dependencies": {
