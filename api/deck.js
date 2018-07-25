@@ -156,12 +156,6 @@ module.exports = function(deps) {
         res.status(404).send('NOT OK');
       });
   }
-  function _e(res, msg, status) {
-    return function(err) {
-      res.status(status || 500).send('ERR');
-      console.log(msg || 'ERR', err);
-    };
-  }
 
   function deleteDeck(req, res) {
     let deckId = req.params.deckId;
