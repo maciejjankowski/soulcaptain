@@ -62,6 +62,10 @@ var app = new Vue({
     },
     exitDeckEdit: () => {
       app.deckEditMode = false;
+      if (app.cardEditMode) {
+        app.cardEditMode = false;
+        app.cardEditIndex = 0;
+      }
     },
     moveUp: cardIndex => {
       var old = app.soulDeck.cards.splice(cardIndex, 1).pop();
