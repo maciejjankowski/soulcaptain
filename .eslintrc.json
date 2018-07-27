@@ -10,18 +10,8 @@
   },
   "rules": {
     "indent": 0,
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
-    "quotes": [
-      "warn",
-      "single"
-    ],
-    "no-console" : 0
+    "linebreak-style": ["error", "unix"],
+    "semi": ["error", "always"],
+    "no-console": 0
   }
 }
