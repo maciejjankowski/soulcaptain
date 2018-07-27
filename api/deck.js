@@ -159,39 +159,13 @@ module.exports = function(deps) {
 
   function deleteDeck(req, res) {
     let deckId = req.params.deckId;
-
-    Deck.findOne({ _id: deckId })
-      .then(foundDeck => {
-        let cardsToDelete = foundDeck.cards.map(deckId => ({
-          _id: deckId
-        }));
-
-        foundDeck
-          .remove()
-          .then(result => {
-            console.log('deleted', result);
-            if (cardsToDelete.length) {
-              Card.find({ $or: cardsToDelete })
-                .remove()
-                .then(result => {
-                  res.send('OK');
-                })
-                .catch(err => {
-                  console.error('deck delete, card remove failed', err);
-                  res.status(500).send('NO');
-                });
-            } else {
-              // if cardsToDelete
-              res.send('OK');
-            }
-          })
-          .catch(err => {
-            res.status(500).send('NO');
-          });
-      }) // findOne
-      .catch(err => {
-        console.log('deleting card', err);
-        res.status(500).send('NO');
+    db.deleteDeck(deckId)
+      .then(() => {
+        res.send('OK');
+      })
+      .catch((err, msg) => {
+        console.error(err, msg);
+        res.status(500).send('NOT');
       });
   }
 
