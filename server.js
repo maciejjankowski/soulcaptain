@@ -6,12 +6,13 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+
 // const mail = require('./api/email.js');
 // const bcrypt = require('bcrypt');
 // const sms = require('./api/sms.js');
 
-const mongoConnString = `mongodb://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBHOST}/${process.env.DBNAME}`;
-mongoose.connect(mongoConnString);
+const mongoConnString = `mongodb://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBHOST}:${process.env.DBPORT || 27017}/${process.env.DBNAME}`;
+mongoose.connect(mongoConnString, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 
@@ -53,7 +54,6 @@ require('./api/deck.js')(deps);
 require('./api/habits.js')(deps);
 require('./api/user.js')(deps);
 require('./routes.js')(deps);
-require('./api/deck.js')(deps);
 require('./api/diary.js')(deps);
 
 

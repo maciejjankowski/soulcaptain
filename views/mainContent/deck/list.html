@@ -10,13 +10,23 @@
 <body>
   <!-- navbar start-->
   <% include ../../common/nav.html %>
-    <div id="app" class="container-fluid">
+    <div id="app" class="container">
       <main role="main">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
         <ul>
           <li v-for="(deck, deckIndex) in soulDecks">
-            <a v-bind:href="'/deck.html?deckId=' + deck._id">{{deck._id}} {{deck.title}}</a>
+            <a v-bind:href="'/deck.html/' + deck._id">{{deck._id}} {{deck.title}}</a>
+            <a v-bind:href="'/deck/'+deck._id + '/delete'">&times;</a>
           </li>
         </ul>
+
+        <% include addForm.html %>
       </main>
     </div>
 

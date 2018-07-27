@@ -26,16 +26,10 @@ https://news.ycombinator.com/item?id=16515080
 
 
 ## 0.3 EDYTOR I PRACA Z KODEM   
-1. Używamy Visual Code Sudio.
-2. Używamy domyślnego formatera kodu VS Code (nie używamy Prettier i Beutify).
-3. Jak będziemy umieli zmieniać fomyślną konfigurację formattera:
-4. Pomiędzy nazwą property a wartością poperty Maciej mieć spację, np. 
-```js
-    {
-        czytokot : "tak"
-    }   
-```
-5. Jeśli formatujesz plik, to najpierw Pull Request z formatowaniem, dopiero potem z nowym kodem.
+1. Używamy Visual Code Sudio (gówno to wnosi)
+2. Używamy domyślnego formatera kodu VS Code (używamy Prettier).
+3. Rozpierdalamy najwięcej jak się da, żeby było trudniej ogarnąć co się zmieniło, reformatujemy każdą funkcję, nieważne czy ją zmienialiśmy czy nie. Bo mamy wpięte narzędzia do formatowania i chuj.
+
 
 ---
 
