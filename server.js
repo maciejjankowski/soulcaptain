@@ -11,8 +11,8 @@ const MongoStore = require('connect-mongo')(session);
 // const bcrypt = require('bcrypt');
 // const sms = require('./api/sms.js');
 
-const mongoConnString = `mongodb://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBHOST}/${process.env.DBNAME}`;
-mongoose.connect(mongoConnString);
+const mongoConnString = `mongodb://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBHOST}:${process.env.DBPORT || 27017}/${process.env.DBNAME}`;
+mongoose.connect(mongoConnString, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 
