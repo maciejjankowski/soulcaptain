@@ -1,24 +1,23 @@
-module.exports = function (deps) {
-    let app = deps.app; // server.js // deps
-    let mongoose = deps.mongoose;
-    const DiaryEntry = mongoose.models.diaryEntry;
+module.exports = function(deps) {
+  let app = deps.app; // server.js // deps
+  const diaryDb = require('./db/diary.js')(deps);
+  app.post('/diary', function(req, res) {
+    const diaryBody = req.body;
+    diaryDb
+      .saveDiary(diaryBody)
+      .then(() => {
+        res.send('OK');
+      })
+      .catch(() => {
+        res.status(500).send('NOT');
+      });
+  }); // app.post
 
-    app.post('/diary', function (req, res) {
-        let diaryEntry = new DiaryEntry(req.body);
-
-        diaryEntry.save(function (err) {
-            if (err) {
-                console.log(err);
-                res.send(400, {
-                    status: 'error',
-                    error: 'problem saving',
-                    details: err
-                });
-            } else {
-                res.send({
-                    status: 'ok'
-                });
-            }
-        });
-    }); // app.get
+  app.delete('/diary/:diaryId', (req, res) => {
+    const diaryId = req.params.diaryId;
+    diaryDb
+      .deleteDiary(diaryId)
+      .then(() => res.send('OK'))
+      .catch(() => res.status(500).send('NOT'));
+  });
 };
