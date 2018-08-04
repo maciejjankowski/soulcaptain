@@ -11,10 +11,14 @@ const MongoStore = require('connect-mongo')(session);
 // const bcrypt = require('bcrypt');
 // const sms = require('./api/sms.js');
 
-const mongoConnString = `mongodb://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBHOST}:${process.env.DBPORT || 27017}/${process.env.DBNAME}`;
-mongoose.connect(mongoConnString, { useNewUrlParser: true });
+const mongoConnString = `mongodb://${process.env.DBUSER}:${
+  process.env.DBPASS
+}@${process.env.DBHOST}:${process.env.DBPORT || 27017}/${process.env.DBNAME}`;
+mongoose.connect(
+  mongoConnString,
+  { useNewUrlParser: true }
+);
 mongoose.Promise = global.Promise;
-
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -26,11 +30,14 @@ app.use(require('cookie-parser')());
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('body-parser').json());
 
-app.use(session({
-	secret: process.env.SESSIONSECRET,
-	store: new MongoStore({ mongooseConnection: mongoose.connection }),
-	resave: true, saveUninitialized: true
-}));
+app.use(
+  session({
+    secret: process.env.SESSIONSECRET,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    resave: true,
+    saveUninitialized: true
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -38,12 +45,13 @@ app.use(passport.session());
 const logger = require('./logger.js')();
 
 // DOC using passport: https://stackoverflow.com/questions/45381931/basics-of-passport-session-expressjs-why-do-we-need-to-serialize-and-deseriali
-const deps = { //TODO dependencies object passed to every require function (poor mans dependency injection)
-	app,
-	mongoose,
-	passport,
-	isAuthenticated,
-	logger
+const deps = {
+  //TODO dependencies object passed to every require function (poor mans dependency injection)
+  app,
+  mongoose,
+  passport,
+  isAuthenticated,
+  logger
 };
 
 require('./api/schema.js')(deps);
@@ -53,35 +61,31 @@ require('./api/login.js')(deps);
 require('./api/deck.js')(deps);
 require('./api/habits.js')(deps);
 require('./api/user.js')(deps);
-require('./routes.js')(deps);
 require('./api/diary.js')(deps);
+require('./routes.js')(deps);
 
-
-
-var listener = app.listen(process.env.PORT || 9000, function () {
-	logger.info('SoulCaptain is listening on port ' + listener.address().port);
+var listener = app.listen(process.env.PORT || 9000, function() {
+  logger.info('SoulCaptain is listening on port ' + listener.address().port);
 });
 
 /**
  * Login Required middleware.
  */
 function isAuthenticated(req, res, next) {
+  // TODO wyświetlanie komunikatów jako Bootstrap Alerts
+  logger.info('SoulCaptain is testing your login');
+  if (req.isAuthenticated()) {
+    logger.info('SoulCaptain says that login is ok');
+    return next();
+  } else {
+    logger.info('SoulCaptain says that you are not logged in');
 
-	// TODO wyświetlanie komunikatów jako Bootstrap Alerts
-	logger.info('SoulCaptain is testing your login');
-	if (req.isAuthenticated()) {
-		logger.info('SoulCaptain says that login is ok');
-		return next();
-	} else {
-
-		logger.info('SoulCaptain says that you are not logged in');
-
-		if (req.headers['content-type'] === 'application/json; charset=UTF-8') {
-			res.status(403).send('Soul captain asks you kindly to log in');
-		} else {
-			res.redirect('/login.html');
-		}
-	}
+    if (req.headers['content-type'] === 'application/json; charset=UTF-8') {
+      res.status(403).send('Soul captain asks you kindly to log in');
+    } else {
+      res.redirect('/login.html');
+    }
+  }
 }
 
 app.isAuthenticated = isAuthenticated;
@@ -89,12 +93,11 @@ app.isAuthenticated = isAuthenticated;
  * Authorization Required middleware.
  */
 exports.isAuthorized = (req, res, next) => {
-	const provider = req.path.split('/').slice(-1)[0];
-	const token = req.user.tokens.find(token => token.kind === provider);
-	if (token) {
-		next();
-	} else {
-		res.redirect(`/auth/${provider}`);
-	}
+  const provider = req.path.split('/').slice(-1)[0];
+  const token = req.user.tokens.find(token => token.kind === provider);
+  if (token) {
+    next();
+  } else {
+    res.redirect(`/auth/${provider}`);
+  }
 };
-

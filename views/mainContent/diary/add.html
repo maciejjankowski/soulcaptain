@@ -2,66 +2,51 @@
 <html>
 
 <head>
-    <% include ../../common/head.html %>
+	<% include ../../common/head.html %>
 </head>
 
 <body>
 
-    <!-- navbar start-->
-    <% include ../../common/nav.html %>
-        <div class="container">
-            <p>My diary</p>
+	<!-- navbar start-->
+	<% include ../../common/nav.html %>
+		<div class="container">
+			<p>My diary</p>
 
-            <div id="diaryadder" class="container">
-                <h1>Add diary entry</h1>
-                <hr>
+			<div id="diaryadder" class="container">
+				<h1>Add diary entry</h1>
+				<hr>
 
-                <div class="row">
+				<div class="row">
 
-                    <div class="col">
+					<div class="col">
 
-                        <h2>Diary Entry</h2>
+						<h2>Diary Entry</h2>
+						<div class="form-row">
+							<label>
+								diaryNote
+							</label>
+							<textarea placeholder="Write your note here" class="form-control" type="text" name="diaryNote" id="diaryNote" v-model="diary.diaryNote"
+							 rows="3"></textarea>
+						</div>
 
-                        <form action="">
+						<div class="form-row">
+							<label>
+								diaryMood
+							</label>
+							<textarea placeholder="Your mood" class="form-control" type="text" name="diaryMood" id="diaryMood" v-model="diary.diaryMood"
+							 rows="1"></textarea>
+						</div>
+					</div>
+					<button v-on:click="saveDiary" class="btn btn-success btn-lg btn-block">Save</button>
+				</div>
 
-                            <div class="form-row">
-                                <label>
-                                    diaryDate
-                                </label>
-                                <textarea placeholder="Enter date" class="form-control" type="text" name="diaryDate" id="diaryDate" v-model="diaryDate" rows="1"></textarea>
-                            </div>
-
-                            <div class="form-row">
-                                <label>
-                                    diaryNote
-                                </label>
-                                <textarea placeholder="Write your note here" class="form-control" type="text" name="diaryNote" id="diaryNote" v-model="diaryNote"
-                                    rows="3"></textarea>
-                            </div>
-
-                            <div class="form-row">
-                                <label>
-                                    diaryMood
-                                </label>
-                                <textarea placeholder="Your mood" class="form-control" type="text" name="diaryMood" id="diaryMood" v-model="diaryMood" rows="1"></textarea>
-                            </div>
-
-                        </form>
-
-                    </div>
-
-                    <button v-on:click="cardpost" class="btn btn-success btn-lg btn-block">Save</button>
+			</div>
 
 
-                </div>
-
-            </div>
-
-
-        </div>
-        <% include ../../common/script-footer.html %>
-            <% include ../../common/footer.html %>
-                <script src="/scripts/diary/add.js"></script>
+		</div>
+		<% include ../../common/script-footer.html %>
+			<% include ../../common/footer.html %>
+				<script src="/scripts/diary/add.js"></script>
 
 </body>
 

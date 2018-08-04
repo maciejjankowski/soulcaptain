@@ -45,9 +45,20 @@ module.exports = function _defineRoutes(deps) {
     let templateData = {
       title: '📖 Diary'
     };
+    const diaryApi = require('./api/db/diary.js')(deps);
     greetUser(req, templateData);
     templateData.user = req.user;
-    res.render('mainContent/diary/list.html', templateData);
+    diaryApi
+      .getDefaultDiaryList()
+      .then(diaryEntries => {
+        templateData.diaryEntries = diaryEntries;
+        res.render('mainContent/diary/list.html', templateData);
+      })
+      .catch(err => {
+        console.log('catch', err);
+        templateData.diaryEntries = [];
+        res.render('mainContent/diary/list.html', templateData);
+      });
   });
 
   app.get('/decks.html', (req, res) => {

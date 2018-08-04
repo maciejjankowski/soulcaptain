@@ -5,7 +5,7 @@ module.exports = function(deps) {
     saveDiary: function(diaryBody) {
       return new Promise((resolve, reject) => {
         let diaryEntry = new DiaryEntry(diaryBody);
-
+        diaryEntry.diaryDate = new Date();
         diaryEntry.save(function(err, result) {
           if (err) {
             console.log(err);
