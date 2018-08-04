@@ -7,18 +7,18 @@
 
 <body>
 
-    <!-- navbar start-->
+    <!-- navbar start -->
     <% include ../../common/nav.html %>
         <div class="container" id="appContainer">
             <p>My diary</p>
             <ul>
-                <li v-for="for (entry, index) in entries">{{entry.diaryNote}}</li>
+                <li v-for="(entry, index) in diary">{{entry.diaryNote}}</li>
             </ul>
 
         </div>
         <% include ../../common/script-footer.html %>
             <% include ../../common/footer.html %>
-                <script src="/scripts/diary/add.js"></script>
+                <script src="/scripts/diary/list.js"></script>
 
 </body>
 

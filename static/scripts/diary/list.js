@@ -1,7 +1,7 @@
 var app = new Vue({
   el: '#appContainer',
   data: {
-    entries: USER_DATA.diary || []
+    diary: USER_DATA.diary || []
   },
   methods: {
     deleteEntry: function(entryId) {

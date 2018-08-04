@@ -1,19 +1,24 @@
 module.exports = function(deps) {
   let mongoose = deps.mongoose;
+
+  const User = mongoose.models.user;
   const DiaryEntry = mongoose.models.diaryEntry;
   return {
     saveDiary: function(diaryBody) {
       return new Promise((resolve, reject) => {
+        let owner = diaryBody.owner;
+        console.log('owner', owner);
         let diaryEntry = new DiaryEntry(diaryBody);
         diaryEntry.diaryDate = new Date();
-        diaryEntry.save(function(err, result) {
-          if (err) {
-            console.log(err);
-            reject(err);
-          } else {
-            resolve(result);
-          }
-        });
+        diaryEntry
+          .save()
+          .then(savedDiary => {
+            console.log('owner after new diary entry', owner);
+            owner.diary.push(savedDiary._id);
+            owner.save();
+            resolve(savedDiary);
+          })
+          .catch(reject);
       });
     }, // saveDiary
     getDefaultDiaryList: function(userId) {

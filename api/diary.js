@@ -4,12 +4,14 @@ module.exports = function(deps) {
 
   app.post('/diary', function(req, res) {
     const diaryBody = req.body;
+    diaryBody.owner = req.user;
     diaryDb
       .saveDiary(diaryBody)
       .then(() => {
         res.send('OK');
       })
-      .catch(() => {
+      .catch(e => {
+        console.log(e);
         res.status(500).send('NOT');
       });
   }); // app.post
