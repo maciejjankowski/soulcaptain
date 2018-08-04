@@ -16,6 +16,33 @@ How Soul Captain is being developed. Step-by-step. Day-by-day
 
 ---
 
+## 2018 08 04 14:12
+
+author: Wiktor
+
+place: Kle
+
+### How to install MongoDB locally
+
+1. Install mongodb packet
+2. On Macos: `brew install mongodb`
+3. On Macos if you have problem with permissions:
+```
+sudo chown -R $(whoami) $(brew --prefix)/*
+```
+4. Install a tool for MongoDB database i.e. if you are using VS Code: https://code.visualstudio.com/docs/azure/mongodb
+5. Add to your `.env` file config for `production` and `local`
+```
+# local
+DBHOST='localhost'
+DBNAME='your_database_name'
+DBUSER=''
+DBPASS=''
+```
+6. Run local envirement with your tool i.e. `nodemon`
+
+---
+
 ## 2018 06 24 11:01
 
 author: Wiktor
@@ -440,4 +467,3 @@ fs.writeFileSync('views/common/blogcontents.html', html)
 
 ### Whats next?
 - CRUD - adding SoulCard using mongoose
-
