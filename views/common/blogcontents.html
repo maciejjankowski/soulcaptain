@@ -9,6 +9,43 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 <h1 id="soulcaptainblog">👻🎊 SoulCaptain Blog</h1>
 <p>How Soul Captain is being developed. Step-by-step. Day-by-day</p>
 <hr />
+<h2 id="201808041412">2018 08 04 14:12</h2>
+<p>author: Wiktor</p>
+<p>place: Kle</p>
+<h3 id="howtoinstallmongodblocally">How to install MongoDB locally</h3>
+<ol>
+<li>Install mongodb packet</li>
+<li>On Macos: <code>brew install mongodb</code></li>
+<li>On Macos if you have problem with permissions:</li>
+</ol>
+<pre><code>sudo chown -R $(whoami) $(brew --prefix)/*
+</code></pre>
+<ol start="4">
+<li>Install a tool for MongoDB database i.e. if you are using VS Code: https://code.visualstudio.com/docs/azure/mongodb</li>
+<li>In Acure Cosmo add new MongoDB: <code>Create Database</code>, the name of the database must be the same as <code>DBNAME='your_database_name'</code></li>
+<li>Add to your <code>.env</code> file config for <code>production</code> and <code>local</code>:</li>
+</ol>
+<pre><code># local
+DBHOST='localhost'
+DBNAME='your_database_name'
+DBUSER=''
+DBPASS=''
+
+# production
+DBHOST='1223.supercoolhost.com'
+DBNAME='your_database_name'
+DBUSER='cow'
+DBPASS='m00'
+</code></pre>
+<ol start="7">
+<li>Import database file downloaded from online database:</li>
+</ol>
+<pre><code>mongo your_database_name your_database_name-backup-20180804-135032.js.txt
+</code></pre>
+<ol start="8">
+<li>Run local envirement with your tool i.e. <code>nodemon</code></li>
+</ol>
+<hr />
 <h2 id="201806241101">2018 06 24 11:01</h2>
 <p>author: Wiktor</p>
 <p>place: Costa @ Anielewicza</p>
@@ -26,7 +63,7 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
 &lt;script&gt;
 function myFunction() {
-  if (confirm("Delete card? You sure?") == true) {
+  if (confirm("Delete card? You sure?") === true) {
     console.log('users says OK');
   } else {
     console.log('user says CANCEL');
