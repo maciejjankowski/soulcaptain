@@ -1,6 +1,7 @@
 var app = new Vue({
   el: '#app',
   data: {
+    maxEncjeToShow: 5,
     selectedCard: 0,
     cardEditMode: false,
     deckEditMode: false,
@@ -13,6 +14,15 @@ var app = new Vue({
     habits: []
   },
   methods: {
+    shuffleManifest: card => {
+      let repetitions = 5;
+      while (repetitions--) {
+        let cardsLength = card.soulCardSoulencje.length;
+        let randomIndex = Math.round(Math.random() * cardsLength);
+        let tempCard = card.soulCardSoulencje.splice(randomIndex, 1).pop();
+        card.soulCardSoulencje.unshift(tempCard);
+      }
+    },
     saveUser: e => {
       e.preventDefault();
       console.warn('czy to w ogóle jest poczebne?');
@@ -177,4 +187,3 @@ function openNav() {
   document.getElementById('openNavButton').classList.add('hideButton');
   document.getElementById('closeNavButton').classList.remove('hideButton');
 }
-/* eslint-enable  */
