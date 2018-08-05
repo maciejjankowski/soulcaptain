@@ -12,7 +12,11 @@
     </span>
   </h5>
 
-  <p v-for="(encja, encjaIndex) in card.soulCardSoulencje" class="card-text">
+  <button v-if="card.context.indexOf('manifest') > -1" v-on:click="shuffleManifest(card)">shuffle</button>
+
+
+  <p v-for="(encja, encjaIndex) in card.soulCardSoulencje" v-if="!card.context.indexOf('manifest') === -1 || encjaIndex < maxEncjeToShow "
+    class="card-text">
     <span v-if="!cardEditMode">{{encja.text}}</span>
     <span v-if="cardEditMode && cardIndex === cardEditIndex">
       <input class="cardeditcss" type="text" v-model="encja.reason">
