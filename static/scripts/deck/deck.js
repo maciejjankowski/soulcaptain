@@ -107,7 +107,7 @@ if (USER_DATA.decks) {
   } else {
     if (USER_DATA.decks.length) {
       app.soulDeck = USER_DATA.decks[0];
-      app.deckId = USER_DATA.decks[0]._id;
+      app.deckId = USER_DATA.decks[0]._id; // deckId;
     }
   }
 }
