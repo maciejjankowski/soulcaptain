@@ -11,18 +11,42 @@ module.exports = function(deps) {
           soulType: String, // "nie wiem co to jest, do wywalenia"
           language: String,
           text: String,
-          image: String,
-          audio: String,
-          video: String,
+          media: [
+            {
+              url: String,
+              type: String, // image, video, audio,
+              text: String
+            }
+          ],
+          links: [
+            {
+              url: String,
+              text: String
+            }
+          ],
           reason: String,
           habit: {
             habitType: String, // ['growth', 'excite', 'sustain', 'maintenance', 'challenge'];
             displayType: String,
             frequency: String, // ['just once', hourly','daily','weekly','monthly','quarterly','annually','bi-annually']
             timePreference: [String], // select date/time, select place, at mornings, mid-day, lunch, end-of-day, weekend, laetr today, next week, next weekend, sunday, end of month, end of year, some day
-            coolDown: String, // czas do następnego powtórzenia - kkiedy nie pokazywać karty
+            locationPreference: [String], // home, work, specific place, club, restaurant, location, country
+            coolDown: String, // czas do następnego powtórzenia - kiedy nie pokazywać karty
             timestamps: [Date]
           },
+          context: [String], // task, thought, diary entry
+          tags: [
+            {
+              type: mongoose.Schema.Types.ObjectId,
+              ref: 'tag'
+            }
+          ],
+          moods: [
+            {
+              type: mongoose.Schema.Types.ObjectId,
+              ref: 'mood'
+            }
+          ],
           source: {
             author: String,
             created: Date,
@@ -31,10 +55,26 @@ module.exports = function(deps) {
           }
         }
       ],
-      owner: String
+      owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+      }
     }
   );
-
+  const Feeling = mongoose.model('Feeling', {
+    name: String,
+    description: String,
+    influence: String, // internal, external influence
+    tags: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'tag'
+      }
+    ] //
+  });
+  const Tag = mongoose.model('Tag', {
+    name: String
+  });
   const User = mongoose.model('User', {
     loginId: String,
     loginType: String,
@@ -61,6 +101,12 @@ module.exports = function(deps) {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'diaryEntry'
       }
+    ],
+    tags: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'tag'
+      }
     ]
   });
 
@@ -75,6 +121,12 @@ module.exports = function(deps) {
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Card'
+      }
+    ],
+    tags: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'tag'
       }
     ]
   });
@@ -94,6 +146,8 @@ module.exports = function(deps) {
     User,
     Card,
     Deck,
+    Feeling,
+    Tag,
     diaryEntry
   };
 };
