@@ -55,6 +55,8 @@ module.exports = function(deps) {
           }
         }
       ],
+      context: [String],
+
       owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
