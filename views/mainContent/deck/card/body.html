@@ -15,11 +15,11 @@
   <button v-if="card.context.indexOf('manifest') > -1" v-on:click="shuffleManifest(card)">shuffle</button>
 
 
-  <p v-for="(encja, encjaIndex) in card.soulCardSoulencje" v-if="!card.context.indexOf('manifest') === -1 || encjaIndex < maxEncjeToShow "
+  <p v-for="(encja, encjaIndex) in card.soulCardSoulencje" v-if="cardEditMode || card.context.indexOf('manifest') === -1 || (card.context.indexOf('manifest') > -1 && encjaIndex < maxEncjeToShow )"
     class="card-text">
-    <span v-if="!cardEditMode">{{encja.text}}</span>
+    <span v-if="!cardEditMode" title="{{encja.reason}}">{{encja.text}}</span>
     <span v-if="cardEditMode && cardIndex === cardEditIndex">
-      <input class="cardeditcss" type="text" v-model="encja.reason">
+      <textarea class="cardeditcss" v-model="encja.reason"></textarea>
       <textarea rows="5" columns="20" v-model="encja.text" class="encjaEdit"></textarea>
     </span>
   </p>
