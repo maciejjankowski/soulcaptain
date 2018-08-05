@@ -34,7 +34,7 @@ module.exports = function(deps) {
             coolDown: String, // czas do następnego powtórzenia - kiedy nie pokazywać karty
             timestamps: [Date]
           },
-          context: [String], // task, thought, diary entry
+          context: [String], // task, thought, diary entry, manifest
           tags: [
             {
               type: mongoose.Schema.Types.ObjectId,
