@@ -17,7 +17,7 @@
 
   <p v-for="(encja, encjaIndex) in card.soulCardSoulencje" v-if="cardEditMode || card.context.indexOf('manifest') === -1 || (card.context.indexOf('manifest') > -1 && encjaIndex < maxEncjeToShow )"
     class="card-text">
-    <span v-if="!cardEditMode" v-on:click="toggleReason(encja)" v-bind:title="encja.reason">{{encja.text}}</span>
+    <span v-if="!cardEditMode && !encja.showReason" v-on:click="toggleReason(encja)" v-bind:title="encja.reason">{{encja.text}}</span>
     <span v-if="!cardEditMode && encja.showReason" v-on:click="toggleReason(encja)">{{encja.reason}}</span>
     <span v-if="cardEditMode && cardIndex === cardEditIndex">
       <textarea class="cardeditcss" v-model="encja.reason"></textarea>
