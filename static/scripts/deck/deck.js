@@ -14,6 +14,9 @@ var app = new Vue({
     habits: []
   },
   methods: {
+    toggleReason: encja => {
+      encja.showReason = !encja.showReason;
+    },
     shuffleManifest: card => {
       let repetitions = 5;
       while (repetitions--) {
@@ -106,6 +109,10 @@ if (USER_DATA.decks) {
     app.soulDeck = USER_DATA.decks.find(deck => deck._id === deckId) || {};
   } else {
     if (USER_DATA.decks.length) {
+      console.log('selecting first default deck');
+      USER_DATA.decks[0].cards.forEach(card => {
+        card.soulCardSoulencje.forEach(encja => (encja.showReason = false));
+      });
       app.soulDeck = USER_DATA.decks[0];
       app.deckId = USER_DATA.decks[0]._id; // deckId;
     }
