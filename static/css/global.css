@@ -1,3 +1,5 @@
+/* global */
+
 @media screen and (min-width: 1111px) {
   .container {}
 }
@@ -12,6 +14,12 @@
   .container {
     margin-top: -20px;
   }
+}
+
+/* footer */
+
+.footer {
+  margin-top: 10px;
 }
 
 /* custom do widok Deck */
