@@ -18,11 +18,19 @@
 					<% include deckToolbar/toolbar.html %>
 						<div class="album py-5 bg-light">
 							<div class="container">
-								<input v-model="soulDeck.title" placeholder="title">
-								<br>
-								<input v-model="soulDeck.description" placeholder="description">
-								<br>
-								<button v-on:click="saveDeck(soulDeck)">Save</button>
+
+								<div v-if="deckEditMode">
+									<input v-model="soulDeck.title" placeholder="title">
+									<br>
+									<input v-model="soulDeck.description" placeholder="description">
+									<br>
+									<button v-on:click="saveDeck(soulDeck)">Save</button>
+								</div>
+								<div v-if="!deckEditMode">
+									<h1>{{soulDeck.title}}</h1>
+									<h2>{{soulDeck.description}}</h2>
+								</div>
+
 								<div class="row">
 
 									<% include card/dummyCard.html %>
