@@ -1,6 +1,7 @@
 var app = new Vue({
   el: '#app',
   data: {
+    maxEncjeToShow: 5,
     selectedCard: 0,
     cardEditMode: false,
     deckEditMode: false,
@@ -13,6 +14,18 @@ var app = new Vue({
     habits: []
   },
   methods: {
+    toggleReason: encja => {
+      encja.showReason = !encja.showReason;
+    },
+    shuffleManifest: card => {
+      let repetitions = 5;
+      while (repetitions--) {
+        let cardsLength = card.soulCardSoulencje.length;
+        let randomIndex = Math.round(Math.random() * cardsLength);
+        let tempCard = card.soulCardSoulencje.splice(randomIndex, 1).pop();
+        card.soulCardSoulencje.unshift(tempCard);
+      }
+    },
     saveUser: e => {
       e.preventDefault();
       console.warn('czy to w ogóle jest poczebne?');
@@ -96,8 +109,12 @@ if (USER_DATA.decks) {
     app.soulDeck = USER_DATA.decks.find(deck => deck._id === deckId) || {};
   } else {
     if (USER_DATA.decks.length) {
+      console.log('selecting first default deck');
+      USER_DATA.decks[0].cards.forEach(card => {
+        card.soulCardSoulencje.forEach(encja => (encja.showReason = false));
+      });
       app.soulDeck = USER_DATA.decks[0];
-      app.deckId = USER_DATA.decks[0]._id;
+      app.deckId = USER_DATA.decks[0]._id; // deckId;
     }
   }
 }
@@ -177,4 +194,3 @@ function openNav() {
   document.getElementById('openNavButton').classList.add('hideButton');
   document.getElementById('closeNavButton').classList.remove('hideButton');
 }
-/* eslint-enable  */
