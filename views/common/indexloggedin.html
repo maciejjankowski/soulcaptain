@@ -1,5 +1,13 @@
 <main class="contaiter" role="main">
-
+    <main role="main" class="container">
+        <h1>Sticky footer with fixed navbar</h1>
+        <p>Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed
+            navbar has been added with
+            <code>padding-top: 60px;</code> on the
+            <code>body &gt; .container</code>.</p>
+        <p>Back to
+            <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
+    </main>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -14,13 +22,21 @@
     </div>
 
     <div id="app" class="container">
-        <h2>Your Decks</h2>
-        <p v-for="(deck, deckIndex) in soulDecks">
-            <a v-bind:href="'/deck.html/' + deck._id">{{deck.title}}</a>
-        </p>
-        <a href="/decks.html">
-            🎴🎴 Add or remove Deck
-        </a>
+        <div class="row">
+            <div class="col">
+                <h2>
+                    <div>Decks</div>
+                </h2>
+                <div>
+                    <p>te teksty mają być równo</p>
+                    <p v-for="(deck, deckIndex) in soulDecks">
+                        <a v-bind:href="'/deck.html/' + deck._id">{{deck.title}}</a>
+                    </p>
+                    <a href="/decks.html">
+                        🎴🎴 Add or remove Deck
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-
 </main>
