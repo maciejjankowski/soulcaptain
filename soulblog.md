@@ -47,7 +47,7 @@ DBNAME='your_database_name'
 DBUSER='cow'
 DBPASS='m00'
 ```
-7. Import database file downloaded from online database:
+7. Import database file downloaded exported from online database:
 ```
 mongo your_database_name your_database_name-backup-20180804-135032.js.txt
 ```
