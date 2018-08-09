@@ -22,7 +22,8 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 </code></pre>
 <ol start="4">
 <li>Install a tool for MongoDB database i.e. if you are using VS Code: https://code.visualstudio.com/docs/azure/mongodb</li>
-<li>In Acure Cosmo add new MongoDB: <code>Create Database</code>, the name of the database must be the same as <code>DBNAME='your_database_name'</code></li>
+<li>Export database fr</li>
+<li>In Azure Cosmo add new MongoDB: <code>Create Database</code></li>
 <li>Add to your <code>.env</code> file config for <code>production</code> and <code>local</code>:</li>
 </ol>
 <pre><code># local
@@ -38,7 +39,7 @@ DBUSER='cow'
 DBPASS='m00'
 </code></pre>
 <ol start="7">
-<li>Import database file downloaded from online database:</li>
+<li>Import database file downloaded exported from online database:</li>
 </ol>
 <pre><code>mongo your_database_name your_database_name-backup-20180804-135032.js.txt
 </code></pre>

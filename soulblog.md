@@ -31,8 +31,9 @@ place: Kle
 sudo chown -R $(whoami) $(brew --prefix)/*
 ```
 4. Install a tool for MongoDB database i.e. if you are using VS Code: https://code.visualstudio.com/docs/azure/mongodb
-5. In Acure Cosmo add new MongoDB: `Create Database`, the name of the database must be the same as `DBNAME='your_database_name'`
-6. Add to your `.env` file config for `production` and `local`:
+5. Export database fr
+6. In Azure Cosmo add new MongoDB: `Create Database`
+7. Add to your `.env` file config for `production` and `local`:
 ```
 # local
 DBHOST='localhost'
@@ -46,7 +47,7 @@ DBNAME='your_database_name'
 DBUSER='cow'
 DBPASS='m00'
 ```
-7. Import database file downloaded from online database:
+7. Import database file downloaded exported from online database:
 ```
 mongo your_database_name your_database_name-backup-20180804-135032.js.txt
 ```
