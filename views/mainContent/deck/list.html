@@ -12,20 +12,16 @@
   <% include ../../common/nav.html %>
     <div id="app" class="container">
       <main role="main">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
+        <h1>Your Decks</h1>
+        <p>To go to Deck, click name of the Deck.</p>
+        <p>To delete Deck click "x" next to name of the Deck.</p>
         <ul>
           <li v-for="(deck, deckIndex) in soulDecks">
             <a v-bind:href="'/deck.html/' + deck._id">{{deck._id}} {{deck.title}}</a>
             <a v-bind:href="'/deck/'+deck._id + '/delete'">&times;</a>
           </li>
         </ul>
-
+        <h2>Add new Deck</h2>
         <% include addForm.html %>
       </main>
     </div>

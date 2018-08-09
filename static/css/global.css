@@ -5,14 +5,12 @@
 @media screen and (min-width: 992px) and (max-width: 1110px) {
   .container {
     margin-top: -20px;
-    margin-bottom: -30px;
   }
 }
 
 @media screen and (max-width: 991px) {
   .container {
     margin-top: -20px;
-    margin-bottom: -30px;
   }
 }
 
