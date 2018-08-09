@@ -13,20 +13,14 @@
         </div>
     </div>
 
-
-
     <div id="app" class="container">
         <h2>Your Decks</h2>
-        <h3>
-
-            <li v-for="(deck, deckIndex) in soulDecks">
-                <a v-bind:href="'/deck.html/' + deck._id">{{deck.title}}</a>
-            </li>
-            <a class="nav-link" href="/decks.html">
-                <span data-feather="file-text"></span>
-                🎴🎴 Add or remove Deck
-            </a>
-        </h3>
-
+        <p v-for="(deck, deckIndex) in soulDecks">
+            <a v-bind:href="'/deck.html/' + deck._id">{{deck.title}}</a>
+        </p>
+        <a href="/decks.html">
+            🎴🎴 Add or remove Deck
+        </a>
+    </div>
 
 </main>
