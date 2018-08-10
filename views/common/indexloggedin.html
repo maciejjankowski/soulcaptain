@@ -12,11 +12,8 @@
             </div>
         </div>
     </div>
-
-
-
     <div id="app" class="container">
-        <h2>Your Decks</h2>
+        <h2>🎴Your Decks</h2>
         <h3>
 
             <li v-for="(deck, deckIndex) in soulDecks">
@@ -28,5 +25,15 @@
             </a>
         </h3>
 
+        <div class="container">
+            <h2>💡 Backlog</h2>
+            <% include ../../extras/backlog/features/backlogcontents.html %>
+        </div>
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>
+            hljs.initHighlightingOnLoad();
+        </script>
 
 </main>

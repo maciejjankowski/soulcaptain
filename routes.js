@@ -164,7 +164,7 @@ module.exports = function _defineRoutes(deps) {
 
   app.get('/backlog.html', (req, res) => {
     let templateData = {
-      title: '👻📗 Backlog'
+      title: '💡 Backlog'
     };
     greetUser(req, templateData);
     templateData.user = req.user;
