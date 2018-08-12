@@ -1,0 +1,6 @@
+<ul>
+    <li v-for="(deck, deckIndex) in soulDecks">
+        <a v-bind:href="'/deck.html/' + deck._id">{{deck._id}} {{deck.title}}</a>
+        <a v-bind:href="'/deck/'+deck._id + '/delete'">&times;</a>
+    </li>
+</ul>

@@ -1,7 +1,7 @@
 <% include ../common/script-footer.html %>
     <script src="/scripts/deck/list.js"></script>
     <div id="app">
-        <div id="leftNavbar" class="leftNavbar hideNavbarLeft">
+        <div id="leftNavbar" class="leftNavbar">
 
             <a class="navbar-brand leftNavbar-brand" href="/">👻 SoulCaptain</a>
 
@@ -32,7 +32,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/decks.html">
                         <span data-feather="file-text"></span>
-                        🎴🎴 Manage Decks
+                        🎴🎴 Add or remove Deck
                     </a>
                 </li>
                 <li v-for="(deck, deckIndex) in soulDecks" class="nav-item">
@@ -52,7 +52,7 @@
             </h6>
             <ul class="nav flex-column mb-2">
                 <li class="nav-item">
-                    <a class="nav-link" href="/diaryAdd.html">
+                    <a class="nav-link" href="/diary.html">
                         <span data-feather="file-text"></span>
                         📘📖Diary
                     </a>
