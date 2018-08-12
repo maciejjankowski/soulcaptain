@@ -3,18 +3,35 @@ module.exports = function(deps) {
 
   const User = mongoose.models.user;
   const DiaryEntry = mongoose.models.diaryEntry;
+  const Card = mongoose.models.Card;
   return {
     saveDiary: function(diaryBody) {
       return new Promise((resolve, reject) => {
         let owner = diaryBody.owner;
         console.log('owner', owner);
-        let diaryEntry = new DiaryEntry(diaryBody);
-        diaryEntry.diaryDate = new Date();
-        diaryEntry
+
+        let lines = diaryBody.text.split('\n');
+
+        let soulencje = lines.map(createSoulencja);
+        let cardBody = {
+          soulCardTitle: diaryBody.text,
+          soulCardSoulencje: {
+            context: ['diary']
+          },
+          context: ['diary']
+        };
+
+        let diaryCard = new Card(cardBody);
+        diaryCard.createdAt = new Date();
+        diaryCard.modifiedAt = new Date();
+        diaryCard
           .save()
           .then(savedDiary => {
-            console.log('owner after new diary entry', owner);
-            owner.diary.push(savedDiary._id);
+            if (owner.defaultDeck) {
+              owner.defaultDeck.cards.push(savedDiary._id);
+            } else {
+              owner.decks[0].cards.push(savedDiary._id);
+            }
             owner.save();
             resolve(savedDiary);
           })
