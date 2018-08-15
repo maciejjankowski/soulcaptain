@@ -1,28 +1,29 @@
-<main class="contaiter" role="main">
-    <div class="container">
+<% include ../common/navleftDesktopStandalone.html %>
+
+    <div class="contaiter-fluid">
         <div class="row">
-            <div class="col">
+
+            <div class="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <h1>
                     <%= greeting %>
                 </h1>
                 <p>What do you want to achive today?</p>
             </div>
         </div>
-    </div>
 
-    <div id="app" class="container">
-        <div class="row">
-            <div class="col">
-                <h2>
-                    Your Decks
-                </h2>
-                <p v-for="(deck, deckIndex) in soulDecks">
-                    <a v-bind:href="'/deck.html/' + deck._id">{{deck.title}}</a>
-                </p>
-                <a href="/decks.html">
-                    🎴🎴 Add or remove Deck
-                </a>
+        <div id="app" class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>
+                        Your Decks
+                    </h2>
+                    <p v-for="(deck, deckIndex) in soulDecks">
+                        <a v-bind:href="'/deck.html/' + deck._id">{{deck.title}}</a>
+                    </p>
+                    <a href="/decks.html">
+                        🎴🎴 Add or remove Deck
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</main>
