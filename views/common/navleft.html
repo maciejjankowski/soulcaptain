@@ -1,89 +1,91 @@
 <% include ../common/script-footer.html %>
     <script src="/scripts/deck/list.js"></script>
     <div id="app">
-        <div class="d-block d-lg-none" id="leftNavbar" class="leftNavbar">
+        <div class="d-block d-lg-none">
+            <div id="leftNavbar" class="leftNavbar">
 
-            <a class="navbar-brand leftNavbar-brand" href="/">👻 SoulCaptain</a>
+                <a class="navbar-brand leftNavbar-brand" href="/">👻 SoulCaptain</a>
 
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                <span>
-                    <%= greeting %>
-                </span>
-                <a class="d-flex align-items-center text-muted" href="#">
-                    <span data-feather="plus-circle"></span>
-                </a>
-            </h6>
-            <ul class="nav flex-column mb-2">
-                <li class="nav-item">
-                    <a class="nav-link" href="/profile.html">
-                        <span data-feather="file-text"></span>
-                        👤 Profile
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>
+                        <%= greeting %>
+                    </span>
+                    <a class="d-flex align-items-center text-muted" href="#">
+                        <span data-feather="plus-circle"></span>
                     </a>
-                </li>
-            </ul>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile.html">
+                            <span data-feather="file-text"></span>
+                            👤 Profile
+                        </a>
+                    </li>
+                </ul>
 
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                <span>SoulDecks</span>
-                <a class="d-flex align-items-center text-muted" href="#">
-                    <span data-feather="plus-circle"></span>
-                </a>
-            </h6>
-            <ul class="nav flex-column mb-2">
-                <li class="nav-item">
-                    <a class="nav-link" href="/decks.html">
-                        <span data-feather="file-text"></span>
-                        🎴🎴 Add or remove Deck
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>SoulDecks</span>
+                    <a class="d-flex align-items-center text-muted" href="#">
+                        <span data-feather="plus-circle"></span>
                     </a>
-                </li>
-                <li v-for="(deck, deckIndex) in soulDecks" class="nav-item">
-                    <a v-bind:href="'/deck.html/' + deck._id" class="nav-link">
-                        <span data-feather="file-text"></span>
-                        {{deck.title}}
-                    </a>
-                </li>
-            </ul>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/decks.html">
+                            <span data-feather="file-text"></span>
+                            🎴🎴 Add or remove Deck
+                        </a>
+                    </li>
+                    <li v-for="(deck, deckIndex) in soulDecks" class="nav-item">
+                        <a v-bind:href="'/deck.html/' + deck._id" class="nav-link">
+                            <span data-feather="file-text"></span>
+                            {{deck.title}}
+                        </a>
+                    </li>
+                </ul>
 
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                <span>Diary</span>
-                <a class="d-flex align-items-center text-muted" href="/diary.html">
-                    <span data-feather="plus-circle"></span>
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Diary</span>
+                    <a class="d-flex align-items-center text-muted" href="/diary.html">
+                        <span data-feather="plus-circle"></span>
 
-                </a>
-            </h6>
-            <ul class="nav flex-column mb-2">
-                <li class="nav-item">
-                    <a class="nav-link" href="/diary.html">
-                        <span data-feather="file-text"></span>
-                        📘📖Diary
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/diaryAdd.html">
-                        <span data-feather="file-text"></span>
-                        📘✍️Add Diary entry
-                    </a>
-                </li>
-            </ul>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/diary.html">
+                            <span data-feather="file-text"></span>
+                            📘📖Diary
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/diaryAdd.html">
+                            <span data-feather="file-text"></span>
+                            📘✍️Add Diary entry
+                        </a>
+                    </li>
+                </ul>
 
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                <span>Misc</span>
-                <a class="d-flex align-items-center text-muted" href="#">
-                    <span data-feather="plus-circle"></span>
-                </a>
-            </h6>
-            <ul class="nav flex-column mb-2">
-                <li class="nav-item">
-                    <a class="nav-link" href="/blog.html">
-                        <span data-feather="file-text"></span>
-                        🎊 SoulBlog
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Misc</span>
+                    <a class="d-flex align-items-center text-muted" href="#">
+                        <span data-feather="plus-circle"></span>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">
-                        <span data-feather="file-text"></span>
-                        ➡️ Logout
-                    </a>
-                </li>
-            </ul>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog.html">
+                            <span data-feather="file-text"></span>
+                            🎊 SoulBlog
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">
+                            <span data-feather="file-text"></span>
+                            ➡️ Logout
+                        </a>
+                    </li>
+                </ul>
 
+            </div>
         </div>
