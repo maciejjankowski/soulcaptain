@@ -1,33 +1,21 @@
 <div class="col">
 
-
-    <!-- <div class="form-row">
-      <label>
-          deckId
-      </label>
-      <input id="deckId" v-model="deckId" class="form-control" name="deckId" type="text" disabled>
-  </div> -->
-
-    <div class="form-row">
+    <div class="form-group">
         <label>
             Title
         </label>
         <textarea class="form-control" type="text" name="soulCardTitle" id="soulCardTitle" v-model="cardData.soulCardTitle" rows="1"></textarea>
     </div>
 
-
-
-
-
     <div v-for="(soulencja, soulencjaIndex) in cardData.soulCardSoulencje">
-        <div class="form-row">
+        <div class="form-group">
             <label>
                 Note
             </label>
             <textarea class=form-control type="text" v-model="soulencja.text" rows="3"></textarea>
         </div>
 
-        <div class="form-row">
+        <div class="form-group">
             <small id="emailHelp" class="form-text text-muted">
                 Why are you adding this note? (reason)
             </small>
@@ -36,19 +24,17 @@
 
 
         <div class="advanced-fields-container collapse">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label>
-                        author
-                    </label>
-                    <input class=form-control type="text" name="author" id="author" v-model="soulencja.source.author">
-                    <small class="form-text text-muted">
-                        "author": "Frank Herbert",
-                    </small>
-                </div>
+            <div class="form-group">
+                <label>
+                    author
+                </label>
+                <input class=form-control type="text" name="author" id="author" v-model="soulencja.source.author">
+                <small class="form-text text-muted">
+                    "author": "Frank Herbert",
+                </small>
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group">
                 <label>
                     language
                 </label>
@@ -58,38 +44,34 @@
                 </small>
             </div>
 
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label>
-                        created
-                    </label>
-                    <input class=form-control type="text" name="created" v-model="soulencja.source.created" id="created">
-                    <small class="form-text text-muted">
-                        "created": "1965 ",
-                    </small>
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label>
-                        source
-                    </label>
-                    <input class=form-control type="text" name="source" id="source" v-model="soulencja.source.source">
-                    <small class="form-text text-muted">
-                        "source": "Dune ",
-                    </small>
-                </div>
+            <div class="form-group">
+                <label>
+                    created
+                </label>
+                <input class=form-control type="text" name="created" v-model="soulencja.source.created" id="created">
+                <small class="form-text text-muted">
+                    "created": "1965 ",
+                </small>
             </div>
 
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label>
-                        sourceLink
-                    </label>
-                    <input class=form-control type="text" name="sourceLink" id="sourceLink" v-mode="soulencja.source.sourceLink">
-                    <small class="form-text text-muted" style="word-wrap: break-word;">
-                        "sourceLink": "https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
-                    </small>
-                </div>
+            <div class="form-group">
+                <label>
+                    source
+                </label>
+                <input class=form-control type="text" name="source" id="source" v-model="soulencja.source.source">
+                <small class="form-text text-muted">
+                    "source": "Dune ",
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    sourceLink
+                </label>
+                <input class=form-control type="text" name="sourceLink" id="sourceLink" v-mode="soulencja.source.sourceLink">
+                <small class="form-text text-muted" style="word-wrap: break-word;">
+                    "sourceLink": "https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
+                </small>
             </div>
 
         </div>

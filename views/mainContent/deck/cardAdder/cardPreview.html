@@ -4,11 +4,7 @@
         <p/>
         <div class="card mb-4 box-shadow">
             <div class="card-body">
-                <button type="button" class="close" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-
-                <p class="card-tilte">{{ cardData.soulCardTitle }}</p>
+                <h5 class="card-tilte">{{ cardData.soulCardTitle }}</h5>
                 <hr>
                 <div v-for="(soulencja, soulencjaIndex) in cardData.soulCardSoulencje">
                     <p class="card-text">{{ soulencja.text }}</p>
@@ -19,6 +15,4 @@
             </div>
         </div>
         <button v-on:click="saveCard" class="btn btn-success btn-lg btn-block">Save</button>
-        <button id="buttong" v-on:click="inputs2json" type="button" class="btn btn-primary btn-lg btn-block" data-toggle="collapse"
-            data-target="#collapseCardOutput" aria-controls="collapseCardOutput">Generate card</button>
 </div>
