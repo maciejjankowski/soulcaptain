@@ -1,143 +1,86 @@
 <div class="col">
 
-    <h2>Card info</h2>
-
-    <!-- <div class="form-row">
-      <label>
-          deckId
-      </label>
-      <input id="deckId" v-model="deckId" class="form-control" name="deckId" type="text" disabled>
-  </div> -->
-
-    <div class="form-row">
+    <div class="form-group">
         <label>
-            soulCardTitle
+            Title
         </label>
         <textarea class="form-control" type="text" name="soulCardTitle" id="soulCardTitle" v-model="cardData.soulCardTitle" rows="1"></textarea>
     </div>
 
-    <h2>Soulencje</h2>
-
-    <button v-on:click="addNewSoulencja">(+) Add soulencja</button>
-    <!-- ukrywanie pól  -->
-
-    <div class="form-row">
-
-        <!-- ukrywam, bo nie ma tego w schema
-      <label>
-          text
-      </label>
-      <textarea class="form-control" type="text" name="text" id="text" 
-        v-model="cardData.soulCardText" rows="3"></textarea>
--->
-
-
-
-        <div v-for="(soulencja, soulencjaIndex) in cardData.soulCardSoulencje">
-
-            <button v-on:click="deleteSoulencja(soulencjaIndex)">(&times;) Delete soulencja</button>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label>
-                        text
-                    </label>
-                    <textarea class=form-control v-model="soulencja.text"></textarea>
-                    <small class="form-text text-muted">
-                        text
-                    </small>
-                </div>
-                <div class="form-group col-md-6">
-                    <label>
-                        reason
-                    </label>
-                    <textarea class=form-control v-model="soulencja.reason"></textarea>
-                </div>
-                <!--
-
-              <div class="form-row">
-                  <div class="form-group col-md-6">
-                      <label>
-                          soulType
-                      </label>
-                      <input class=form-control type="text" name="soulType" 
-                      id="soulType"
-                      v-model="soulencja.soulType">
-                      <small class="form-text text-muted">
-                          "soulType": "prayer ",
-                      </small>
-                  </div>
--->
-
-                <div class="form-group col-md-6">
-                    <label>
-                        language
-                    </label>
-                    <input class=form-control type="text" name="language" id="language">
-                    <small class="form-text text-muted">
-                        "language": "EN ",
-                    </small>
-                </div>
-                -->
-
-            </div>
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target=".advanced-fields-container" aria-expanded="false"
-                aria-controls="collapseExample">
-                Show advanced fields
-            </button>
-
-            <div class="advanced-fields-container collapse">
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label>
-                            author
-                        </label>
-                        <input class=form-control type="text" name="author" id="author" v-model="soulencja.source.author">
-                        <small class="form-text text-muted">
-                            "author": "Frank Herbert",
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label>
-                            created
-                        </label>
-                        <input class=form-control type="text" name="created" v-model="soulencja.source.created" id="created">
-                        <small class="form-text text-muted">
-                            "created": "1965 ",
-                        </small>
-                    </div>
-
-                    <div class="form-group col-md-6">
-                        <label>
-                            source
-                        </label>
-                        <input class=form-control type="text" name="source" id="source" v-model="soulencja.source.source">
-                        <small class="form-text text-muted">
-                            "source": "Dune ",
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label>
-                            sourceLink
-                        </label>
-                        <input class=form-control type="text" name="sourceLink" id="sourceLink" v-mode="soulencja.source.sourceLink">
-                        <small class="form-text text-muted" style="word-wrap: break-word;">
-                            "sourceLink": "https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
-                        </small>
-                    </div>
-                </div>
-
-            </div>
-            <!-- advanced fields -->
+    <div v-for="(soulencja, soulencjaIndex) in cardData.soulCardSoulencje">
+        <div class="form-group">
+            <label>
+                Note
+            </label>
+            <textarea class=form-control type="text" v-model="soulencja.text" rows="3"></textarea>
         </div>
-    </div>
-    <!-- ukrywanie pól  -->
-</div>
 
-</form>
+        <div class="form-group">
+            <small id="emailHelp" class="form-text text-muted">
+                Why are you adding this note? (reason)
+            </small>
+            <textarea class=form-control type="text" v-model="soulencja.reason" rows="1"></textarea>
+        </div>
+
+
+        <div class="advanced-fields-container collapse">
+            <div class="form-group">
+                <label>
+                    author
+                </label>
+                <input class=form-control type="text" name="author" id="author" v-model="soulencja.source.author">
+                <small class="form-text text-muted">
+                    "author": "Frank Herbert",
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    language
+                </label>
+                <input class=form-control type="text" name="language" id="language">
+                <small class="form-text text-muted">
+                    "language": "EN ",
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    created
+                </label>
+                <input class=form-control type="text" name="created" v-model="soulencja.source.created" id="created">
+                <small class="form-text text-muted">
+                    "created": "1965 ",
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    source
+                </label>
+                <input class=form-control type="text" name="source" id="source" v-model="soulencja.source.source">
+                <small class="form-text text-muted">
+                    "source": "Dune ",
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    sourceLink
+                </label>
+                <input class=form-control type="text" name="sourceLink" id="sourceLink" v-mode="soulencja.source.sourceLink">
+                <small class="form-text text-muted" style="word-wrap: break-word;">
+                    "sourceLink": "https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
+                </small>
+            </div>
+
+        </div>
+        <!-- advanced fields -->
+        <button v-on:click="addNewSoulencja" class="btn btn-primary">Add note</button>
+        <button v-on:click="deleteSoulencja(soulencjaIndex)" class="btn btn-light">Delete note</button>
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target=".advanced-fields-container" aria-expanded="false"
+            aria-controls="collapseExample">
+            Show advanced fields
+        </button>
+    </div>
 </div>
