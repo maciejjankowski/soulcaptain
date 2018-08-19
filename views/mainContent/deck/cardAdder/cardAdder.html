@@ -2,16 +2,18 @@
     var populatedCardData = JSON.parse('<%- JSON.stringify(cardData) || "{}" %>');
 </script>
 
-<div id="cardadder" class="container">
-    <h1>Add new card to SoulDeck</h1>
-    <hr>
+<div class="container">
+    <main role="main">
+        <h1>
+            Add Card
+        </h1>
+        <hr>
+        <div id="cardadder" class="row">
 
-    <div class="row">
+            <% include cardInfo.html %>
+                <% include cardPreview.html %>
 
-        <% include cardInfo.html %>
-            <% include cardPreview.html %>
-                <% include cardJson.html %>
 
-    </div>
-
+        </div>
 </div>
+</main>
