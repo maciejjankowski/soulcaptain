@@ -5,49 +5,49 @@
 	<% include ../../common/head.html %>
 </head>
 
-<body id="app">
+<body>
+	<div id="app">
+		<!-- navbar start-->
+		<% include ../../common/nav.html %>
+			<div class="container">
+				<p>My diary</p>
 
-	<!-- navbar start-->
-	<% include ../../common/nav.html %>
-		<div class="container">
-			<p>My diary</p>
+				<div id="diaryadder" class="container">
+					<h1>Add diary entry</h1>
+					<hr>
 
-			<div id="diaryadder" class="container">
-				<h1>Add diary entry</h1>
-				<hr>
+					<div class="row">
 
-				<div class="row">
+						<div class="col">
 
-					<div class="col">
+							<h2>Diary Entry</h2>
+							<div class="form-row">
+								<label>
+									diaryNote
+								</label>
+								<textarea placeholder="Write your note here" class="form-control" type="text" name="diaryNote" id="diaryNote" v-model="diary.diaryNote"
+								 rows="3"></textarea>
+							</div>
 
-						<h2>Diary Entry</h2>
-						<div class="form-row">
-							<label>
-								diaryNote
-							</label>
-							<textarea placeholder="Write your note here" class="form-control" type="text" name="diaryNote" id="diaryNote" v-model="diary.diaryNote"
-							 rows="3"></textarea>
+							<div class="form-row">
+								<label>
+									diaryMood
+								</label>
+								<textarea placeholder="Your mood" class="form-control" type="text" name="diaryMood" id="diaryMood" v-model="diary.diaryMood"
+								 rows="1"></textarea>
+							</div>
 						</div>
-
-						<div class="form-row">
-							<label>
-								diaryMood
-							</label>
-							<textarea placeholder="Your mood" class="form-control" type="text" name="diaryMood" id="diaryMood" v-model="diary.diaryMood"
-							 rows="1"></textarea>
-						</div>
+						<button v-on:click="saveDiary" class="btn btn-success btn-lg btn-block">Save</button>
 					</div>
-					<button v-on:click="saveDiary" class="btn btn-success btn-lg btn-block">Save</button>
+
 				</div>
+
 
 			</div>
 
-
-		</div>
-
-		<% include ../../common/footer.html %>
-			<script src="/scripts/diary/add.js"></script>
-
+			<% include ../../common/footer.html %>
+				<script src="/scripts/diary/add.js"></script>
+	</div>
 </body>
 
 </html>
