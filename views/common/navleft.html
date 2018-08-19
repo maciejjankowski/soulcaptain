@@ -1,97 +1,11 @@
-<div id="app">
-    <div id="leftNavbar" class="leftNavbar hidden">
 
-        <a class="navbar-brand leftNavbar-brand" href="/">👻 SoulCaptain</a>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>
-                <%= greeting %>
-            </span>
-            <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-            </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-                <a class="nav-link" href="/profile.html">
-                    <span data-feather="file-text"></span>
-                    👤 Profile
-                </a>
-            </li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>SoulDecks</span>
-            <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-            </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-                <a class="nav-link" href="/decks.html">
-                    <span data-feather="file-text"></span>
-                    🎴🎴 Add or remove Deck
-                </a>
-            </li>
-            <li v-for="(deck, deckIndex) in soulDecks" class="nav-item">
-                <a v-bind:href="'/deck.html/' + deck._id" class="nav-link">
-                    <span data-feather="file-text"></span>
-                    {{deck.title}}
-                </a>
-            </li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Diary</span>
-            <a class="d-flex align-items-center text-muted" href="/diary.html">
-                <span data-feather="plus-circle"></span>
-
-            </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-                <a class="nav-link" href="/diary.html">
-                    <span data-feather="file-text"></span>
-                    📘📖Diary
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/diaryAdd.html">
-                    <span data-feather="file-text"></span>
-                    📘✍️Add Diary entry
-                </a>
-            </li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Misc</span>
-            <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-            </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-                <a class="nav-link" href="/blog.html">
-                    <span data-feather="file-text"></span>
-                    🎊 SoulBlog
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/logout">
-                    <span data-feather="file-text"></span>
-                    ➡️ Logout
-                </a>
-
-            </h6>
-            <ul class="nav flex-column mb-2">
-                <li class="nav-item">
-                    <a class="nav-link" href="/backlog.html">
-                        <span data-feather="file-text"></span>
-                        💡 Backlog
-                    </a>
-                </li>
-                
-            </ul>
-
-    </div>
-    <script src="/scripts/common/navleft.js"></script>
+<% include ../common/script-footer.html %>
+    <script src="/scripts/deck/list.js"></script>
+    <!-- inserting row here makes left menu on desktop work -->
+    <div class="row">
+        <div class="d-block d-lg-none">
+            <% include ../common/navleftMobile.html %>
+        </div>
+        <div class="d-none d-lg-block">
+            <% include ../common/navleftDesktop.html %>
+        </div>
