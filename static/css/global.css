@@ -14,6 +14,9 @@
   .container {
     margin-top: -20px;
   }
+  .leftNavbar {
+    margin left: -300px;
+  }
 }
 
 /* footer */
