@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-
 <html>
 
 <head>
@@ -11,38 +9,16 @@
 
 	<!-- navbar start-->
 	<% include ../../common/nav.html %>
-
 		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div style="text-align:center">
-						<h1>
-							👻 SoulCaptain
-						</h1>
-						<p>This is 👻 SoulCaptain secret backlog</p>
-					</div>
-				</div>
-			</div>
-			<hr>
-
-			<div class="row">
-				<div class="col">
-					<p>
-						Hi!
-					</p>
-					<p>
-						This is SoulCaptain under development.
-					</p>
-					<p>
-						Greetings
-					</p>
-					<p>
-						Maciej & Wiktor
-					</p>
-					<hr>
-				</div>
-			</div>
-
+			<% include ../../extras/backlog/features/backlogcontents.html %>
+		</div>
+		<% include ../../common/script-footer.html %>
+			<% include ../../common/footer.html %>
+				<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+				<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+				<script>
+					hljs.initHighlightingOnLoad();
+				</script>
 
 </body>
 

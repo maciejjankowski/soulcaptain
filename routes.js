@@ -100,8 +100,8 @@ module.exports = function _defineRoutes(deps) {
 
     if (cardId) {
       deps.mongoose.models.Card.findOne({
-        _id: cardId
-      })
+          _id: cardId
+        })
 
         .then(foundCard => {
           if (foundCard) {
@@ -155,11 +155,20 @@ module.exports = function _defineRoutes(deps) {
 
   app.get('/profile.html', (req, res) => {
     let templateData = {
-      title: '✅ Profile'
+      title: '👤 Profile'
     };
     greetUser(req, templateData);
     templateData.user = req.user;
     res.render('mainContent/profile/profile.html', templateData);
+  });
+
+  app.get('/backlog.html', (req, res) => {
+    let templateData = {
+      title: '💡 Backlog'
+    };
+    greetUser(req, templateData);
+    templateData.user = req.user;
+    res.render('mainContent/backlog/backlog.html', templateData);
   });
 
   app.get('/login.html', (req, res) => {
