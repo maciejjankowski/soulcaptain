@@ -41,10 +41,10 @@ module.exports = function(deps) {
               ref: 'tag'
             }
           ],
-          moods: [
+          feelings: [
             {
               type: mongoose.Schema.Types.ObjectId,
-              ref: 'mood'
+              ref: 'Feeling'
             }
           ],
           source: {
@@ -56,7 +56,8 @@ module.exports = function(deps) {
         }
       ],
       context: [String],
-
+      createdAt: Date,
+      modifiedAt: Date,
       owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
