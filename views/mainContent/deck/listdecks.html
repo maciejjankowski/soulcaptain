@@ -2,6 +2,7 @@
     <li v-for="(deck, deckIndex) in soulDecks">
         <a v-bind:href="'/deck.html/' + deck._id">{{deck.title}}</a>
         <button type="button" class="btn btn-danger btn-sm">
+            <!-- dodać popup z warningiem o usuwaniu deckus -->
             <a v-bind:href="'/deck/'+deck._id + '/delete'">&times;</a>
         </button>
     </li>
