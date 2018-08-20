@@ -12,12 +12,17 @@ module.exports = function(deps) {
 
         let lines = diaryBody.text.split('\n');
 
+        function createSoulencja(text) {
+          return {
+            text: text,
+            context: ['diary']
+          };
+        }
         let soulencje = lines.map(createSoulencja);
+
         let cardBody = {
           soulCardTitle: diaryBody.text,
-          soulCardSoulencje: {
-            context: ['diary']
-          },
+          soulCardSoulencje: soulencje,
           context: ['diary']
         };
 

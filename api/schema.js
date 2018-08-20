@@ -7,7 +7,7 @@ module.exports = function(deps) {
       soulCardTitle: String,
       soulCardSoulencje: [
         {
-          soulIdParent: String,
+          // soulIdParent: String,
           soulType: String, // "nie wiem co to jest, do wywalenia"
           language: String,
           text: String,
@@ -34,7 +34,7 @@ module.exports = function(deps) {
             coolDown: String, // czas do następnego powtórzenia - kiedy nie pokazywać karty
             timestamps: [Date]
           },
-          context: [String], // task, thought, diary entry, manifest
+          context: [String], // task, thought, diary, manifest
           tags: [
             {
               type: mongoose.Schema.Types.ObjectId,
