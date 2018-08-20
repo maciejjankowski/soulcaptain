@@ -7,7 +7,7 @@ var app = new Vue({
     deckEditMode: false,
     cardEditIndex: 0,
     soulDeck: { cards: [] },
-    soulDecks: [],
+    soulDecks: USER_DATA.decks || [],
     soulCard: {},
     admin: 0,
     loggedIn: 1,

@@ -8,23 +8,25 @@
 </head>
 
 <body>
-  <!-- navbar start-->
-  <% include ../../common/nav.html %>
-    <div id="app" class="container">
-      <main role="main">
-        <h1>Your Decks</h1>
-        <p>To go to Deck, click name of the Deck.</p>
-        <p>To delete Deck click "x" next to name of the Deck.</p>
-        <% include ../../mainContent/deck/listdecks.html %>
+  <div id="app">
+    <!-- navbar start-->
+    <% include ../../common/nav.html %>
+      <div class="container">
+        <main role="main">
+          <h1>Your Decks</h1>
+          <p>To go to Deck, click name of the Deck.</p>
+          <p>To delete Deck click "x" next to name of the Deck.</p>
+          <% include ../../mainContent/deck/listdecks.html %>
 
-          <h2>Add new Deck</h2>
-          <% include ../../mainContent/deck/addForm.html %>
-      </main>
-    </div>
+            <h2>Add new Deck</h2>
+            <% include ../../mainContent/deck/addForm.html %>
+        </main>
+      </div>
 
 
-    <% include ../../common/footer.html %>
-      <script src="/scripts/deck/list.js"></script>
+      <% include ../../common/footer.html %>
+  </div>
+  <script src="/scripts/deck/list.js"></script>
 </body>
 
 </html>

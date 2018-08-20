@@ -1,11 +1,10 @@
 // import Vue from 'vue';
-
 var app = new Vue({
   el: '#app',
   data: {
     selectedCard: 0,
     soulDeck: {},
-    soulDecks: []
+    soulDecks: USER_DATA.decks || []
   },
   methods: {
     createNewDeck: () => {
@@ -36,6 +35,6 @@ var app = new Vue({
 
 $(function _onload() {
   $.get('/decks').then(function _handleResponse(response) {
-    // app.soulDecks = response;
+    app.soulDecks = response;
   });
 }); // onload

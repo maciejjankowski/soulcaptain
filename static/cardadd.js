@@ -39,11 +39,12 @@ var cardSeedData = {
 Object.assign(cardSeedData, populatedCardData);
 
 var app = new Vue({
-  el: '#cardadder',
+  el: '#app',
   data: {
     payload: 'Here will appear your SoulCard schema :D',
     deckId: '',
-    cardData: cardSeedData
+    cardData: cardSeedData,
+    soulDecks: USER_DATA.decks || []
     // soulCardText : "XYZ",
     // soulCardAuthor : "XXY"
   },

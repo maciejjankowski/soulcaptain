@@ -100,8 +100,8 @@ module.exports = function _defineRoutes(deps) {
 
     if (cardId) {
       deps.mongoose.models.Card.findOne({
-          _id: cardId
-        })
+        _id: cardId
+      })
 
         .then(foundCard => {
           if (foundCard) {
@@ -205,7 +205,7 @@ module.exports = function _defineRoutes(deps) {
       req.user.password = 'makota';
       userDataOut = JSON.stringify(req.user);
     }
-    res.send('const USER_DATA = ' + (userDataOut || {}));
+    res.send('const USER_DATA = ' + (userDataOut || '{}; // not logged in'));
   });
 
   return app;

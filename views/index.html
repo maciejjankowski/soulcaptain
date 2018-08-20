@@ -6,23 +6,24 @@
 </head>
 
 <body>
-
-    <!-- navbar start-->
-    <% include common/nav.html %>
-
+    <div id="app">
         <!-- navbar start-->
-        <% if (user &&
+        <% include common/nav.html %>
+
+            <!-- navbar start-->
+            <% if (user &&
 		user.email &&
 		user.personalInfo &&
 		user.personalInfo[0] &&
 		user.personalInfo[0].firstName) { %>
-            <% include common/indexloggedin.html %>
-                <% } else { %>
-                    <% include common/indexloggedout.html %>
-                        <% } %>
+                <% include common/indexloggedin.html %>
+                    <% } else { %>
+                        <% include common/indexloggedout.html %>
+                            <% } %>
 
-                            <% include common/footer.html %>
-                                <script src="/scripts/deck/deck.js"></script>
+                                <% include common/footer.html %>
+                                    <script src="/scripts/deck/deck.js"></script>
+    </div>
 </body>
 
 </html>

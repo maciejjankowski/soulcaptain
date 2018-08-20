@@ -6,18 +6,18 @@
 </head>
 
 <body>
+    <div id="app">
+        <!-- navbar start-->
+        <% include ../../common/nav.html %>
+            <div class="container">
+                <% include ../../common/blogcontents.html %>
+            </div>
 
-    <!-- navbar start-->
-    <% include ../../common/nav.html %>
-        <div class="container">
-            <% include ../../common/blogcontents.html %>
-        </div>
-
-        <% include ../../common/footer.html %>
-            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-            <script>hljs.initHighlightingOnLoad();</script>
-
+            <% include ../../common/footer.html %>
+                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+                <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+    </div>
 </body>
 
 </html>
