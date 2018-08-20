@@ -6,15 +6,15 @@
 </head>
 
 <body style="margin-left: .5em">
+    <div id="app">
+        <% include ../../common/nav.html %>
 
-    <% include ../../common/nav.html %>
+            <% include cardAdder/cardAdder.html %>
 
-        <% include cardAdder/cardAdder.html %>
-            <% include ../../common/script-footer.html %>
                 <% include ../../common/footer.html %>
 
                     <script src="/cardadd.js"></script>
-
+    </div>
 </body>
 
 </html>

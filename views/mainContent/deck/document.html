@@ -6,49 +6,50 @@
 </head>
 
 <body>
-    <!-- navbar start-->
-    <% include ../../common/nav.html %>
+    <div id="app">
+        <!-- navbar start-->
+        <% include ../../common/nav.html %>
 
-        <div id="app">
-            <div class="container">
+            <div>
+                <div class="container">
 
-                <main role="main">
-                    <% include deckToolbar/toolbar.html %>
+                    <main role="main">
+                        <% include deckToolbar/toolbar.html %>
 
-                        <div class="row">
-                            <div class="col">
-                            </div>
-                            <div class="col-9">
-                                <div v-for="card in soulDeck.cards">
-                                    <h2>{{card.soulCardTitle}}
-                                    </h2>
-                                    <hr>
-                                    <div v-for="encja in card.soulCardSoulencje">
-                                        <div v-if="encja.soulType==='habit'">
-                                            This is habit
-                                            <a class="btn btn-primary">
-                                                <i class="fa fa-check"></i>
-                                            </a>
+                            <div class="row">
+                                <div class="col">
+                                </div>
+                                <div class="col-9">
+                                    <div v-for="card in soulDeck.cards">
+                                        <h2>{{card.soulCardTitle}}
+                                        </h2>
+                                        <hr>
+                                        <div v-for="encja in card.soulCardSoulencje">
+                                            <div v-if="encja.soulType==='habit'">
+                                                This is habit
+                                                <a class="btn btn-primary">
+                                                    <i class="fa fa-check"></i>
+                                                </a>
+                                            </div>
+                                            <p>{{encja.text}}
+                                            </p>
+                                            <blockquote class="blockquote text-right">
+                                                <footer class="blockquote-footer">{{encja.source.author}}</footer>
+                                            </blockquote>
                                         </div>
-                                        <p>{{encja.text}}
-                                        </p>
-                                        <blockquote class="blockquote text-right">
-                                            <footer class="blockquote-footer">{{encja.source.author}}</footer>
-                                        </blockquote>
                                     </div>
                                 </div>
+                                <div class="col">
+                                </div>
                             </div>
-                            <div class="col">
-                            </div>
-                        </div>
-                </main>
+                    </main>
+                </div>
             </div>
-        </div>
 
-        <% include ../../common/script-footer.html %>
+
             <% include ../../common/footer.html %>
                 <script src="/scripts/deck/deck.js"></script>
-
+    </div>
 </body>
 
 </html>

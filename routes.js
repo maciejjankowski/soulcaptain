@@ -155,11 +155,20 @@ module.exports = function _defineRoutes(deps) {
 
   app.get('/profile.html', (req, res) => {
     let templateData = {
-      title: '✅ Profile'
+      title: '👤 Profile'
     };
     greetUser(req, templateData);
     templateData.user = req.user;
     res.render('mainContent/profile/profile.html', templateData);
+  });
+
+  app.get('/backlog.html', (req, res) => {
+    let templateData = {
+      title: '💡 Backlog'
+    };
+    greetUser(req, templateData);
+    templateData.user = req.user;
+    res.render('mainContent/backlog/backlog.html', templateData);
   });
 
   app.get('/login.html', (req, res) => {
@@ -196,7 +205,7 @@ module.exports = function _defineRoutes(deps) {
       req.user.password = 'makota';
       userDataOut = JSON.stringify(req.user);
     }
-    res.send('const USER_DATA = ' + (userDataOut || {}));
+    res.send('const USER_DATA = ' + (userDataOut || '{}; // not logged in'));
   });
 
   return app;

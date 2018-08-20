@@ -7,43 +7,44 @@
 </head>
 
 <body>
-    <!-- navbar start-->
-    <% include ../common/nav.html %>
-        <div class="container">
-            <form class="form-signin" action="/login" method="POST" id="formSignin">
+    <div id="app">
+        <!-- navbar start-->
+        <% include ../common/nav.html %>
+            <div class="container">
+                <form class="form-signin" action="/login" method="POST" id="formSignin">
 
-                <div class="conteiner">
-                    <div class="text-center mb-4">
-                        <h1 class="h1 mb-3 font-weight-heavy">✅ Sign in</h1>
-                        <p>Log in to your 👻 SoulCaptain account.</p>
-                        <p>You do not have account?
-                            <a href="/signup.html">Sign Up here!</a>
-                        </p>
-                    </div>
+                    <div class="conteiner">
+                        <div class="text-center mb-4">
+                            <h1 class="h1 mb-3 font-weight-heavy">✅ Sign in</h1>
+                            <p>Log in to your 👻 SoulCaptain account.</p>
+                            <p>You do not have account?
+                                <a href="/signup.html">Sign Up here!</a>
+                            </p>
+                        </div>
 
-                    <div class="form-label-group">
-                        <input type="email" name="email" placeholder="Email" id="inputEmail" class="form-control" required autofocus>
-                        <label for="inputEmail">Email address</label>
-                    </div>
+                        <div class="form-label-group">
+                            <input type="email" name="email" placeholder="Email" id="inputEmail" class="form-control" required autofocus>
+                            <label for="inputEmail">Email address</label>
+                        </div>
 
-                    <div class="form-label-group">
-                        <input type="password" name="password" placeholder="Password" id="inputPassword" class="form-control" required=>
-                        <label for="inputPassword">Password</label>
-                    </div>
+                        <div class="form-label-group">
+                            <input type="password" name="password" placeholder="Password" id="inputPassword" class="form-control" required=>
+                            <label for="inputPassword">Password</label>
+                        </div>
 
-                    <div class="checkbox mb-3">
-                        <label>
-                            <!-- TODO obsługa remember me przy logowaniu -->
-                            <input type="checkbox" value="remember-me"> Remember me
-                        </label>
-                    </div>
+                        <div class="checkbox mb-3">
+                            <label>
+                                <!-- TODO obsługa remember me przy logowaniu -->
+                                <input type="checkbox" value="remember-me"> Remember me
+                            </label>
+                        </div>
 
-                    <button type="submit" form="formSignin" value="Submit" class="btn btn-lg btn-primary btn-block">Sign in
-                    </button>
+                        <button type="submit" form="formSignin" value="Submit" class="btn btn-lg btn-primary btn-block">Sign in
+                        </button>
 
-            </form>
+                </form>
 
-            <% include ../common/script-footer.html %>
+
                 <% include ../common/footer.html %>
 
 
@@ -52,7 +53,7 @@
                     <!-- TODO zaznaczanie divów jak Webstorm wtyczka -->
 
                     <script src="/scripts/deck/deck.js"></script>
-
+            </div>
 </body>
 
 </html>

@@ -6,20 +6,20 @@
 </head>
 
 <body>
+    <div id="app">
+        <!-- navbar start -->
+        <% include ../../common/nav.html %>
+            <div class="container" id="appContainer">
+                <p>My diary</p>
+                <ul>
+                    <li v-for="(entry, index) in diary">{{entry.diaryNote}}</li>
+                </ul>
 
-    <!-- navbar start -->
-    <% include ../../common/nav.html %>
-        <div class="container" id="appContainer">
-            <p>My diary</p>
-            <ul>
-                <li v-for="(entry, index) in diary">{{entry.diaryNote}}</li>
-            </ul>
+            </div>
 
-        </div>
-        <% include ../../common/script-footer.html %>
             <% include ../../common/footer.html %>
                 <script src="/scripts/diary/list.js"></script>
-
+    </div>
 </body>
 
 </html>
