@@ -109,8 +109,8 @@ module.exports = function _defineRoutes(deps) {
 
     if (cardId) {
       deps.mongoose.models.Card.findOne({
-        _id: cardId
-      })
+          _id: cardId
+        })
 
         .then(foundCard => {
           if (foundCard) {
@@ -196,6 +196,15 @@ module.exports = function _defineRoutes(deps) {
     greetUser(req, templateData);
     templateData.user = req.user;
     res.render('mainContent/admin/admin.html', templateData);
+  });
+
+  app.get('/experimental.html', (req, res) => {
+    let templateData = {
+      title: '⚗️ Experimental'
+    };
+    greetUser(req, templateData);
+    templateData.user = req.user;
+    res.render('mainContent/experimental/experimental.html', templateData);
   });
 
   app.get('/blog.html', (req, res) => {
