@@ -70,6 +70,15 @@ module.exports = function _defineRoutes(deps) {
     res.render('mainContent/deck/list.html', templateData);
   });
 
+  app.get('/deckadd.html', (req, res) => {
+    let templateData = {
+      title: '🎴📄 Add Deck'
+    };
+    greetUser(req, templateData);
+    templateData.user = req.user;
+    res.render('mainContent/deck/deckadd.html', templateData);
+  });
+
   app.get('/deckdocument.html', (req, res) => {
     let templateData = {
       title: '🎴📄 DeckDocument'
