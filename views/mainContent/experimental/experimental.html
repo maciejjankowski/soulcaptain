@@ -11,19 +11,15 @@
     <div id="app">
         <% include ../../common/nav.html %>
             <div class="container">
-                <div class="row">
-                    <ul>
-                        <li v-for="(deck, deckIndex) in soulDecks">
-                            <a v-bind:href="'/deck.html/' + deck._id">{{deck._id}} {{deck.title}}</a>
-                            <a v-bind:href="'/deck/'+deck._id + '/delete'">&times;</a>
-                        </li>
-                    </ul>
+                <div class="">
+
+                    <h1>Experimental</h1>
+                    <p>Here are things that work or not or are work-in-progress. General developer area. You are using it for
+                        your own responsibility!</p>
                 </div>
-
-                <div class="row">
+                <div class="">
+                    <h2>Testing modules</h2>
                     <ul>
-                        Diary out z menu do momentu gdy zacznie działać jako deck
-
                         <h6 class="">
                             <span>Diary</span>
                             <a class="" href="/diary.html">
@@ -50,7 +46,22 @@
                                     👤 Profile
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/habits.html">
+                                    <span data-feather="file-text"></span>
+                                    ❌ DailyX
+                                </a>
+                            </li>
                         </ul>
+                    </ul>
+                </div>
+                <div class="">
+                    <h2>Deck mgmt</h2>
+                    <ul>
+                        <li v-for="(deck, deckIndex) in soulDecks">
+                            <a v-bind:href="'/deck.html/' + deck._id">{{deck._id}} {{deck.title}}</a>
+                            <a v-bind:href="'/deck/'+deck._id + '/delete'">&times;</a>
+                        </li>
                     </ul>
                 </div>
             </div>
