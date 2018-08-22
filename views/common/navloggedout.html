@@ -28,17 +28,25 @@
                     <%= greeting %>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="/signup.html">✍️ sign up</a>
-            </li>
 
             <li class="nav-item">
-                <a class="nav-link active">or</a>
+                <button type="button" class="btn btn-primary" onclick="relocate_signup()">✍️ Sign up</button>
             </li>
+            <script>
+                function relocate_signup() {
+                    location.href = "/signup.html";
+                }
+            </script>
+
 
             <li class="nav-item">
-                <a class="nav-link active" href="/login.html">✅ login</a>
+                <button type="button" class="btn btn-link" onclick="relocate_login()">✅ Sign in</button>
             </li>
+            <script>
+                function relocate_login() {
+                    location.href = "/login.html ";
+                }
+            </script>
         </ul>
     </div>
 </nav>

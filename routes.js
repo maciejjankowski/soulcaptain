@@ -242,7 +242,7 @@ function greetUser(req, templateData) {
   ) {
     templateData.greeting = 'Hello, 👩‍💻 ' + req.user.personalInfo[0].firstName;
   } else {
-    templateData.greeting = 'Oh, hi there! Please';
+    templateData.greeting = '';
   }
   return templateData.greeting; // TODO 'refactor this because it should not modify the
   // original greeting, but simply return a value'
