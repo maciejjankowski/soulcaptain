@@ -9,19 +9,55 @@
 
 <body>
     <div id="app">
-        <!-- navbar start-->
         <% include ../../common/nav.html %>
+            <div class="container">
+                <div class="row">
+                    <ul>
+                        <li v-for="(deck, deckIndex) in soulDecks">
+                            <a v-bind:href="'/deck.html/' + deck._id">{{deck._id}} {{deck.title}}</a>
+                            <a v-bind:href="'/deck/'+deck._id + '/delete'">&times;</a>
+                        </li>
+                    </ul>
+                </div>
 
-            <ul>
-                <li v-for="(deck, deckIndex) in soulDecks">
-                    <a v-bind:href="'/deck.html/' + deck._id">{{deck._id}} {{deck.title}}</a>
-                    <a v-bind:href="'/deck/'+deck._id + '/delete'">&times;</a>
-                </li>
-            </ul>
+                <div class="row">
+                    <ul>
+                        Diary out z menu do momentu gdy zacznie działać jako deck
 
-            <% include ../../common/script-footer.html %>
-                <script src="/scripts/deck/list.js"></script>
+                        <h6 class="">
+                            <span>Diary</span>
+                            <a class="" href="/diary.html">
+                                <span data-feather="plus-circle"></span>
+
+                            </a>
+                        </h6>
+                        <ul class="">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/diary.html">
+                                    <span data-feather="file-text"></span>
+                                    📘📖Diary
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/diaryAdd.html">
+                                    <span data-feather="file-text"></span>
+                                    📘✍️Add Diary entry
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/profile.html">
+                                    <span data-feather="file-text"></span>
+                                    👤 Profile
+                                </a>
+                            </li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
     </div>
 </body>
+
+<% include ../../common/script-footer.html %>
+    <script src="/scripts/deck/list.js"></script>
 
 </html>
