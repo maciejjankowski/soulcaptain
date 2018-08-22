@@ -12,27 +12,6 @@ module.exports = function(deps) {
   // const Deck = mongoose.models.Deck;
   const db = require('./db.js')(deps);
 
-  app.post('/card2', function(req, res) {
-    return console.error('deprecated');
-    var cardData = {};
-    var card = new Card(cardData);
-
-    card.save(function(err) {
-      if (err) {
-        logger.info(err);
-        res.send(400, {
-          status: 'error',
-          error: 'problem saving',
-          details: err
-        });
-      } else {
-        res.send({
-          status: 'ok'
-        });
-      }
-    }); // card save
-  });
-
   function saveDeck(req, res) {
     const inputDeck = req.body;
     db.createOrUpdateDeck(inputDeck)

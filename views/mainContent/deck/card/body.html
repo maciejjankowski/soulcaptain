@@ -3,22 +3,27 @@
     data-holder-rendered="true">
   <h5 class="card-title">
 
-    <span v-if="!cardEditMode">
+    <div v-if="!cardEditMode">
       {{card.soulCardTitle}} {{card.reason}}
-    </span>
+    </div>
 
-    <span v-if="cardEditMode && cardIndex === cardEditIndex">
+    <div v-if="cardEditMode && cardIndex === cardEditIndex">
       <input class="cardeditcss" type="text" v-model="card.soulCardTitle">
-    </span>
+    </div>
   </h5>
 
-  <p v-for="(encja, encjaIndex) in card.soulCardSoulencje" class="card-text">
-    <span v-if="!cardEditMode">{{encja.text}}</span>
-    <span v-if="cardEditMode && cardIndex === cardEditIndex">
-      <input class="cardeditcss" type="text" v-model="encja.reason">
+  <button v-if="card.context.indexOf('manifest') > -1" v-on:click="shuffleManifest(card)">shuffle</button>
+
+
+  <div v-for="(encja, encjaIndex) in card.soulCardSoulencje" v-if="cardEditMode || card.context.indexOf('manifest') === -1 || (card.context.indexOf('manifest') > -1 && encjaIndex < maxEncjeToShow )"
+    class="card-text">
+    <div v-if="!cardEditMode && !encja.showReason" v-on:click="toggleReason(encja)" v-bind:title="encja.reason">{{encja.text}}</div>
+    <div v-if="!cardEditMode && encja.showReason" v-on:click="toggleReason(encja)">{{encja.reason}}</div>
+    <div v-if="cardEditMode && cardIndex === cardEditIndex">
+      <textarea class="cardeditcss" v-model="encja.reason"></textarea>
       <textarea rows="5" columns="20" v-model="encja.text" class="encjaEdit"></textarea>
-    </span>
-  </p>
+    </div>
+  </div>
 
 
 </div>

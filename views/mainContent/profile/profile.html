@@ -1,1 +1,27 @@
-TODO
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+
+<head>
+    <% include ../../common/head.html %>
+</head>
+
+<body>
+    <div id="app">
+        <!-- navbar start-->
+        <% include ../../common/nav.html %>
+
+            <ul>
+                <li v-for="(deck, deckIndex) in soulDecks">
+                    <a v-bind:href="'/deck.html/' + deck._id">{{deck._id}} {{deck.title}}</a>
+                    <a v-bind:href="'/deck/'+deck._id + '/delete'">&times;</a>
+                </li>
+            </ul>
+
+            <% include ../../common/footer.html %>
+                <script src="/scripts/deck/list.js"></script>
+    </div>
+</body>
+
+</html>

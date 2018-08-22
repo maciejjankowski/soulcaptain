@@ -1,8 +1,15 @@
-<input v-model="soulDeck.title">
-<hr>
-<input v-model="soulDeck.description">
-<hr>
-<button v-on:click="createNewDeck">Save</button>
-<br>
-<br>
-<br>
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label>Deck name</label>
+            <input v-model="soulDeck.title" class="form-control" placeholder="My Deck">
+            <small id="emailHelp" class="form-text text-muted">Deck is like folder for Cards.</small>
+        </div>
+        <div class="form-group">
+            <label>Deck description</label>
+            <input v-model="soulDeck.description" class="form-control" placeholder="Deck with my rules">
+            <small id="emailHelp" class="form-text text-muted">Is this personal Deck or maybe project?</small>
+        </div>
+        <button v-on:click="createNewDeck" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
