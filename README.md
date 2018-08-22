@@ -59,7 +59,7 @@ UWAGA! Branch develop i master są z każdym merdżem wystawiane produkcyjnie.
 ### 3. PRZEDPLANOWANIE 15M
 3.1 Odpalić edytor lokalny, przejrzeć i wypchnąć zmiany
 3.2 Wejść na Github i spradzić czy nie wiszą jakieś pull requesty https://github.com/maciejjankowski/soulcaptain/pulls
-3.3 Wejść na Github i posprzątać branche:
+3.3 Wejść na Github i posprzątać branche https://github.com/maciejjankowski/soulcaptain/branches
 3.3.1 Zrobić Pull Requesty dla branchy jeszcze nie wciągniętych
 3.3.2 Usunąć zmerdżowane branche
 
