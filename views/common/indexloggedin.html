@@ -1,50 +1,47 @@
-<div class="container">
-    <main role="main">
-        <div class="row">
-            <div>
-                <h1>
-                    <%= greeting %>
-                </h1>
-                <p>You are the master of your fate,</p>
-                <p>You are the captain of your soul. </p>
-            </div>
+<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+    <div class="row">
+        <div>
+            <h1>
+                <%= greeting %>
+            </h1>
+            <p>You are the master of your fate,</p>
+            <p>You are the captain of your soul. </p>
         </div>
+    </div>
 
 
-        <div class="row">
+    <div class="row">
 
-            <div class="album py-5 bg-light">
-                <div class="row">
+        <div class="album py-5 bg-light">
+            <div class="row">
 
-                    <div v-for="(deck, deckIndex) in soulDecks" class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a v-bind:href="'/deck.html/' + deck._id">{{deck.title}}</a>
-                                </h5>
-                                <p class="card-text">{{soulDeck.description}}</p>
-                            </div>
+                <div v-for="(deck, deckIndex) in soulDecks" class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a v-bind:href="'/deck.html/' + deck._id">{{deck.title}}</a>
+                            </h5>
+                            <p class="card-text">{{soulDeck.description}}</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a href="/deckadd.html/"> 🎴🌱 Add Deck
-                                    </a>
-                                </h5>
-                                <p class=" card-text ">Mmm.. fresh start!</p>
-                            </div>
-                        </div>
-                    </div>
-
-
                 </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="/deckadd.html/"> 🎴🌱 Add Deck
+                                </a>
+                            </h5>
+                            <p class=" card-text ">Mmm.. fresh start!</p>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
-    </main>
-</div>
-
+    </div>
+</main>
 
 <script src="/scripts/deck/deck.js "></script>
 
