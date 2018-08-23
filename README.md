@@ -28,7 +28,7 @@ Jest miłość, jest bezpiecznie
 
 UWAGA! Branch develop i master są z każdym merdżem wystawiane produkcyjnie.
 *master* https://soulcaptain-app.azurewebsites.net/
-*devel* https://soulcaptain-dev.azurewebsites.net/
+*develop* https://soulcaptain-dev.azurewebsites.net/
 
 ### 0.2 FLOW PRACY
 1. Developement
