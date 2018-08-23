@@ -9,94 +9,43 @@
                 <p>You are the captain of your soul. </p>
             </div>
         </div>
-        <!-- 
+
+
         <div class="row">
-            <div class="album">
-                <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This
-                            content is a little bit longer.</p>
-                        <p class="card-text">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </p>
-                    </div>
-                </div>
 
-                <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This
-                            content is a little bit longer.</p>
-                        <p class="card-text">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </p>
-                    </div>
-                </div>
+            <div class="album py-5 bg-light">
+                <div class="row">
 
-                <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This
-                            content is a little bit longer.</p>
-                        <p class="card-text">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </p>
+                    <div v-for="(deck, deckIndex) in soulDecks" class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a v-bind:href="'/deck.html/' + deck._id">{{deck.title}}</a>
+                                </h5>
+                                <p class="card-text">{{soulDeck.description}}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="/deckadd.html/"> 🎴🌱 Add Deck
+                                    </a>
+                                </h5>
+                                <p class=" card-text ">Mmm.. fresh start!</p>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This
-                            content is a little bit longer.</p>
-                        <p class="card-text">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </p>
-                    </div>
-                </div>
 
-                <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This
-                            content is a little bit longer.</p>
-                        <p class="card-text">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This
-                            content is a little bit longer.</p>
-                        <p class="card-text">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This
-                            content is a little bit longer.</p>
-                        <p class="card-text">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </p>
-                    </div>
                 </div>
             </div>
-        </div> -->
+        </div>
+    </main>
 </div>
-</div>
+
+
+<script src="/scripts/deck/deck.js "></script>
+
 <% include script-footer.html %>
