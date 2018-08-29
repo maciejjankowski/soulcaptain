@@ -1,0 +1,71 @@
+{
+    "uczucia": {
+        "radość": [
+            "wesołość",
+            "ufność",
+            "spokój",
+            "ciepło",
+            "lekkość",
+            "miłość",
+            "lubienie",
+            "pogoda ducha",
+            "nadzieja",
+            "serdeczność",
+            "serdeczność",
+            "czułość",
+            "zadowolenie",
+        ],
+        "gniew": [
+            "złość",
+            "furia",
+            "frustracja",
+            "uczucie zbuntowania",
+            "rozdrażnienie",
+            "wściekłość",
+            "uczucie bycia urażonym",
+            "nienawiść",
+            "wrogość",
+            "niechęć",
+            "pogarda"
+        ],
+        "strach": [
+            "panika",
+            "nieśmiałość",
+            "obawa",
+            "lęk",
+            "bojaźliwość",
+            "zazdrość",
+            "nieufność",
+            "zawiść",
+            "ostrożność",
+            "powściągliwość",
+            "niepokój",
+            "przerażenie",
+            "strach"
+        ],
+        "smutek": [
+            "zranienie",
+            "ból",
+            "depresja",
+            "przygnębienie",
+            "żal",
+            "porażka",
+            "uczucie bycia pokonanym",
+            "rozczarowanie",
+            "poczucie odrzucenia",
+            "samotność",
+            "poczucie bezradności",
+            "tęsknota"
+        ]
+                "wstyd": [
+            "uczucie upokorzenia",
+            "poczucie bycia lekceważonym",
+            "poczucie niższości",
+            "zakłopotanie",
+            "zmieszanie",
+            "zażenowanie",
+            "poczucie stłamszenia",
+            "rozdarcie",
+        ],
+    }
+}
