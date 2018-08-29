@@ -1,7 +1,9 @@
 /* global */
 
 @media screen and (min-width: 1111px) {
-  .container {}
+  .container {
+    margin-top: -5px;
+  }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1110px) {
@@ -15,7 +17,7 @@
     margin-top: -20px;
   }
   .leftNavbar {
-    margin left: -300px;
+    margin-left: -300px;
   }
 }
 
