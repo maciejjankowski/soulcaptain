@@ -7,10 +7,7 @@
 
 <body>
     <div id="app">
-        <!-- navbar start-->
         <% include common/nav.html %>
-
-            <!-- navbar start-->
             <% if (user &&
 		user.email &&
 		user.personalInfo &&
@@ -21,7 +18,7 @@
                         <% include common/indexloggedout.html %>
                             <% } %>
 
-                                <% include common/footer.html %>
+                                <% include common/script-footer.html %>
                                     <script src="/scripts/deck/deck.js"></script>
     </div>
 </body>

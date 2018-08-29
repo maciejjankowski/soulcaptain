@@ -5,15 +5,17 @@
     <% include ../../common/head.html %>
 </head>
 
-<body style="margin-left: .5em">
+<body>
     <div id="app">
         <% include ../../common/nav.html %>
+            <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
 
-            <% include cardAdder/cardAdder.html %>
+                <% include cardAdder/cardAdder.html %>
 
-                <% include ../../common/footer.html %>
+                    <% include ../../common/script-footer.html %>
 
-                    <script src="/cardadd.js"></script>
+                        <script src="/cardadd.js"></script>
+            </main>
     </div>
 </body>
 

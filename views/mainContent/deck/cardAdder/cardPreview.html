@@ -1,18 +1,16 @@
 <div class="col-lg">
-    <h2>Card Preview</h2>
-    <p>This is how your card will look like.
-        <p/>
-        <div class="card mb-4 box-shadow">
-            <div class="card-body">
-                <h5 class="card-tilte">{{ cardData.soulCardTitle }}</h5>
-                <hr>
-                <div v-for="(soulencja, soulencjaIndex) in cardData.soulCardSoulencje">
-                    <p class="card-text">{{ soulencja.text }}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">{{ soulencja.source.author }}</small>
-                    </div>
+    <label>Card Preview</label>
+    <div class="card mb-4 box-shadow">
+        <div class="card-body">
+            <h5 class="card-tilte">{{ cardData.soulCardTitle }}</h5>
+            <hr>
+            <div v-for="(soulencja, soulencjaIndex) in cardData.soulCardSoulencje">
+                <p class="card-text">{{ soulencja.text }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">{{ soulencja.source.author }}</small>
                 </div>
             </div>
         </div>
-        <button v-on:click="saveCard" class="btn btn-success btn-lg btn-block">Save</button>
+    </div>
+    <button v-on:click="saveCard" class="btn btn-success btn-lg btn-block">Save</button>
 </div>
