@@ -1,5 +1,5 @@
 // TODO "wciągać poprawne wartości z obiektu"
-var getSoulencjaSeedData = function() {
+var getSoulencjaSeedData = function () {
   return {
     soulIdParent: '',
     soulType: '', // "nie wiem co to jest, do wywalenia"
@@ -30,7 +30,7 @@ var getSoulencjaSeedData = function() {
 };
 
 var cardSeedData = {
-  soulCardTitle: 'SoulCard Title',
+  soulCardTitle: '',
   soulCardText: 'SoulCard text',
   soulCardAuthor: 'SoulCard author',
   soulCardSoulencje: [getSoulencjaSeedData()]
@@ -49,13 +49,13 @@ var app = new Vue({
     // soulCardAuthor : "XXY"
   },
   methods: {
-    addNewSoulencja: function() {
+    addNewSoulencja: function () {
       app.cardData.soulCardSoulencje.push(getSoulencjaSeedData());
     },
-    deleteSoulencja: function(soulencjaIndex) {
+    deleteSoulencja: function (soulencjaIndex) {
       app.cardData.soulCardSoulencje.splice(soulencjaIndex, 1);
     },
-    saveCard: function() {
+    saveCard: function () {
       var request = new XMLHttpRequest();
       request.open('POST', '/deck/' + app.deckId + '/card', true);
       request.setRequestHeader(
@@ -64,7 +64,7 @@ var app = new Vue({
       );
       let payload = JSON.stringify(app.cardData);
       request.send(payload);
-      request.onload = function() {
+      request.onload = function () {
         if (this.readyState !== 4) {
           return;
         }
@@ -75,7 +75,7 @@ var app = new Vue({
           console.log('error of any sort', this.response);
         }
       };
-      request.onerror = function() {
+      request.onerror = function () {
         console.error('connection error', this);
       };
 
@@ -83,7 +83,7 @@ var app = new Vue({
         console.log('pińcetka');
       }
     },
-    cardpost: function() {
+    cardpost: function () {
       let payload = app.payload;
       console.log('W tej chwili do backendu leci:', app.payload);
       var request = new XMLHttpRequest();

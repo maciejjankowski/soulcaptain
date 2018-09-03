@@ -16,6 +16,18 @@ How Soul Captain is being developed. Step-by-step. Day-by-day
 
 ---
 
+## 2018 08 23 04:41
+
+author: Wiktor
+
+place: Kle
+
+### Private beta is almost here!
+
+🌱 minimalism, calm, love 🌱
+
+---
+
 ## 2018 08 04 14:12
 
 author: Wiktor

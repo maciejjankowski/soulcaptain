@@ -24,17 +24,37 @@
 
 
         <div class="advanced-fields-container collapse">
+            <!-- oryginalny dodawacz Mood gdy Diary było niekompatybilne z Deckiem -->
+            <!-- <div class="form-row">
+                <label>
+                    diaryMood
+                </label>
+                <textarea placeholder="Your mood" class="form-control" type="text" name="diaryMood" id="diaryMood" v-model="diary.mood" rows="1"></textarea>
+            </div> -->
+
             <div class="form-group">
                 <label>
-                    author
+                    Mood
                 </label>
-                <input class=form-control type="text" name="author" id="author" v-model="soulencja.source.author">
+                <input class=form-control type="text" name="diaryMood" id="diaryMood" v-model="soulencja.source.diaryMood">
                 <small class="form-text text-muted">
-                    "author": "Frank Herbert",
+                    What is your mood? :) :| :(
                 </small>
             </div>
 
             <div class="form-group">
+                <label>
+                    Author
+                </label>
+                <input class=form-control type="text" name="author" id="author" v-model="soulencja.source.author">
+                <small class="form-text text-muted">
+                    Are you the author? Or maybe it was Thoth?
+                </small>
+            </div>
+
+            <!-- pola poniżej są w Schema ale nie są popularne na froncie, więc nie zalewamy użytkownika nimi -->
+
+            <!-- <div class="form-group">
                 <label>
                     language
                 </label>
@@ -72,7 +92,7 @@
                 <small class="form-text text-muted" style="word-wrap: break-word;">
                     "sourceLink": "https://en.wikipedia.org/wiki/Bene_Gesserit#Litany_against_fear"
                 </small>
-            </div>
+            </div> -->
 
         </div>
         <!-- advanced fields -->

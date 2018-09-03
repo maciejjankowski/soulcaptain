@@ -1,6 +1,7 @@
-<ul>
-    <li v-for="(deck, deckIndex) in soulDecks">
-        <a v-bind:href="'/deck.html/' + deck._id">{{deck._id}} {{deck.title}}</a>
-        <a v-bind:href="'/deck/'+deck._id + '/delete'">&times;</a>
+<ul class="list-group">
+    <p>Warning: pressing `Remove` button will permanently delete your deck!</p>
+    <li class="list-group-item" v-for="(deck, deckIndex) in soulDecks">
+        <a v-bind:href="'/deck.html/' + deck._id">{{deck.title}}</a>
+        <a v-bind:href="'/deck/'+deck._id + '/delete'" type="button" class="btn btn-sm btn-danger">Remove</a>
     </li>
 </ul>

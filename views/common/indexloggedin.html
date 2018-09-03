@@ -1,31 +1,48 @@
-<div class="contaiter-fluid">
+<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
     <div class="row">
-
-        <div class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div>
             <h1>
                 <%= greeting %>
             </h1>
-            <p>What do you want to achive today?</p>
+            <p>You are the master of your fate,</p>
+            <p>You are the captain of your soul. </p>
         </div>
     </div>
-    <div class="container">
-        <h2>🎴Your Decks</h2>
-        <h3>
 
-            <li v-for="(deck, deckIndex) in soulDecks">
-                <a v-bind:href="'/deck.html/' + deck._id">{{deck.title}}</a>
-            </li>
-            <a class="nav-link" href="/decks.html">
-                <span data-feather="file-text"></span>
-                🎴🎴 Add or remove Deck
-            </a>
-        </h3>
 
-        <div class="container">
-            <h2>💡 Backlog</h2>
-            <% include ../../extras/backlog/features/backlogcontents.html %>
+    <div class="row">
+
+        <div class="album py-5 bg-light">
+            <div class="row">
+
+                <div v-for="(deck, deckIndex) in soulDecks" class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a v-bind:href="'/deck.html/' + deck._id">{{deck.title}}</a>
+                            </h5>
+                            <p class="card-text">{{deck.description}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="/deckadd.html/"> 🎴🌱 Add Deck
+                                </a>
+                            </h5>
+                            <p class=" card-text ">Mmm.. fresh start!</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
     </div>
-</div>
-
 </main>
+
+<script src="/scripts/deck/deck.js "></script>
+
+<% include script-footer.html %>

@@ -70,6 +70,15 @@ module.exports = function _defineRoutes(deps) {
     res.render('mainContent/deck/list.html', templateData);
   });
 
+  app.get('/deckadd.html', (req, res) => {
+    let templateData = {
+      title: '🎴📄 Add Deck'
+    };
+    greetUser(req, templateData);
+    templateData.user = req.user;
+    res.render('mainContent/deck/deckadd.html', templateData);
+  });
+
   app.get('/deckdocument.html', (req, res) => {
     let templateData = {
       title: '🎴📄 DeckDocument'
@@ -100,8 +109,8 @@ module.exports = function _defineRoutes(deps) {
 
     if (cardId) {
       deps.mongoose.models.Card.findOne({
-        _id: cardId
-      })
+          _id: cardId
+        })
 
         .then(foundCard => {
           if (foundCard) {
@@ -189,6 +198,15 @@ module.exports = function _defineRoutes(deps) {
     res.render('mainContent/admin/admin.html', templateData);
   });
 
+  app.get('/experimental.html', (req, res) => {
+    let templateData = {
+      title: '⚗️ Experimental'
+    };
+    greetUser(req, templateData);
+    templateData.user = req.user;
+    res.render('mainContent/experimental/experimental.html', templateData);
+  });
+
   app.get('/blog.html', (req, res) => {
     let templateData = {
       title: '👻🎊 SoulBlog'
@@ -224,7 +242,7 @@ function greetUser(req, templateData) {
   ) {
     templateData.greeting = 'Hello, 👩‍💻 ' + req.user.personalInfo[0].firstName;
   } else {
-    templateData.greeting = 'Oh, hi there! Please';
+    templateData.greeting = '';
   }
   return templateData.greeting; // TODO 'refactor this because it should not modify the
   // original greeting, but simply return a value'
