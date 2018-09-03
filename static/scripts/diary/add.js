@@ -1,11 +1,12 @@
 var app = new Vue({
-  el: '#diaryadder',
+  el: '#app',
   data: {
     diary: {
       // diaryDate: '',
       diaryNote: '',
       diaryMood: ''
-    }
+    },
+    soulDecks: USER_DATA.decks || []
   },
   methods: {
     saveDiary: function() {
