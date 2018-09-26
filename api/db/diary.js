@@ -1,4 +1,35 @@
-module.exports = function(deps) {
+var getSoulencjaSeedData = function(opts, text) {
+  return {
+    soulIdParent: '',
+    soulType: '', // "nie wiem co to jest, do wywalenia"
+    language: '',
+    text: '',
+    media: [],
+    links: [],
+    reason: '',
+    habit: {
+      habitType: '', // ['growth', 'excite', 'sustain', 'maintenance', 'challenge'];
+      displayType: '',
+      frequency: '', // ['just once', hourly','daily','weekly','monthly','quarterly','annually','bi-annually']
+      timePreference: [], // select date/time, select place, at mornings, mid-day, lunch, end-of-day, weekend, laetr today, next week, next weekend, sunday, end of month, end of year, some day
+      locationPreference: [], // home, work, specific place, club, restaurant, location, country
+      coolDown: '', // czas do następnego powtórzenia - kiedy nie pokazywać karty
+      timestamps: [Date.now()]
+    },
+    context: opts.context || [], // task, thought, diary entry, manifest
+    tags: [],
+    moods: opts.moods || [],
+    source: {
+      author: '',
+      created: Date.now(),
+      source: '',
+      sourceLink: ''
+    }
+  };
+};
+
+
+module.exports = function (deps) {
   let mongoose = deps.mongoose;
 
   const User = mongoose.models.user;
@@ -12,12 +43,11 @@ module.exports = function(deps) {
 
         let lines = diaryBody.text.split('\n');
 
-        let soulencje = lines.map(createSoulencja);
+        let soulencje = lines.map(getSoulencjaSeedData.bind(this, {context : ['diary']}));
+
         let cardBody = {
           soulCardTitle: diaryBody.text,
-          soulCardSoulencje: {
-            context: ['diary']
-          },
+          soulCardSoulencje: soulencje,
           context: ['diary']
         };
 
