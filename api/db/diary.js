@@ -1,12 +1,12 @@
-var getSoulencjaSeedData = function(opts, text) {
+var getSoulencjaSeedData = function(opts, text, reason) {
   return {
     soulIdParent: '',
     soulType: '', // "nie wiem co to jest, do wywalenia"
     language: '',
-    text: '',
+    text: text || '',
     media: [],
     links: [],
-    reason: '',
+    reason: reason || '',
     habit: {
       habitType: '', // ['growth', 'excite', 'sustain', 'maintenance', 'challenge'];
       displayType: '',
